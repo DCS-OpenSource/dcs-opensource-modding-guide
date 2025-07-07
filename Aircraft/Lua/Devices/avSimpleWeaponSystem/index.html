@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../../img/favicon.ico" />
-    <title>Example Device - DCS Modding Documentation</title>
+    <title>avSimpleWeaponSystem - DCS Modding Documentation</title>
     <link rel="stylesheet" href="../../../../css/theme.css" />
     <link rel="stylesheet" href="../../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Example Device";
-        var mkdocs_page_input_path = "Aircraft\\Lua\\Devices\\ExampleDevice.md";
+        var mkdocs_page_name = "avSimpleWeaponSystem";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Devices\\avSimpleWeaponSystem.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -50,9 +50,11 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" >Devices</a>
     <ul class="current">
-                <li class="toctree-l3 current"><a class="reference internal current" href="#">Example Device</a>
-    <ul class="current">
-    </ul>
+                <li class="toctree-l3"><a class="reference internal" href="../LockOnOptions/">LockOn_Options</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">avSimpleWeaponSystem</a>
                 </li>
     </ul>
                 </li>
@@ -82,7 +84,7 @@
           <li class="breadcrumb-item">Aircraft</li>
           <li class="breadcrumb-item">Lua</li>
           <li class="breadcrumb-item">Devices</li>
-      <li class="breadcrumb-item active">Example Device</li>
+      <li class="breadcrumb-item active">avSimpleWeaponSystem</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -91,43 +93,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="example-device">Example Device</h1>
-<p>The below example is a bare bones lua device. This will serve as your primary method of creating systems in lua</p>
-<pre><code class="language-lua">local update_time_step = 0.05
-make_default_activity(update_time_step) -- sets the device to run every 0.05 seconds
-
-local dev = GetSelf()                   -- Get the current device object
-
-
-function post_initialize()              -- Called once by DCS when you load into the cockpit
-    print_message_to_user(&quot;Hello from basic device&quot;)
-end
-
-function release()                      -- Called once by DCS when you die, unload or close the mission
-
-end
-
-function update()                       -- Called by DCS one every update_time_step seconds
-
-end
-
-
-function SetCommand(command, value)     -- Listens for commands from Keybinds or clickables
-
-end
-
-
-need_to_be_closed = false               -- close lua state after initialization
-</code></pre>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You are not able to parse data between different devices as they are seperate global contexts</p>
-</div>
+                
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../../.." class="btn btn-neutral float-left" title="DCS Modding Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../avLuaDevice/" class="btn btn-neutral float-left" title="avLuaDevice"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../../Modules/Terrain/" class="btn btn-neutral float-right" title="Terrain Module">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -151,7 +122,7 @@ need_to_be_closed = false               -- close lua state after initialization
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../avLuaDevice/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../../Modules/Terrain/" style="color: #fcfcfc">Next &raquo;</a></span>

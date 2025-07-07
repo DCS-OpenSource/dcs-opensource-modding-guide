@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>LockOn_Options - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "LockOn_Options";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Devices\\LockOnOptions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">DCS Modding Docs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Lua</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" >Devices</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">LockOn_Options</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#avionics_language">avionics_language</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cockpit">cockpit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cockpit_language">cockpit_language</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common_ground_script_path">common_ground_script_path</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common_script_path">common_script_path</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#date">date</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#flight">flight</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#init_conditions">init_conditions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#usage_7">Usage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#measurement_system">measurement_system</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mission">mission</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#screen">screen</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#script_path">script_path</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#time">time</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Modules/Terrain/">Terrain Module</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Aircraft</li>
+          <li class="breadcrumb-item">Lua</li>
+          <li class="breadcrumb-item">Devices</li>
+      <li class="breadcrumb-item active">LockOn_Options</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="lockon_options">LockOn_Options</h1>
+<p>The <code>LockOn_Options</code> table provides several useful parameters and values.</p>
+<hr />
+<h2 id="avionics_language">avionics_language</h2>
+<p>String representation of avionics language</p>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-lua">local lang = LockOn_Options.avionics_language
+</code></pre>
+<hr />
+<h2 id="cockpit">cockpit</h2>
+<p>Table containing cockpit-related options.</p>
+<h3 id="usage_1">Usage</h3>
+<pre><code class="language-lua">local cockpitOptions = LockOn_Options.cockpit
+</code></pre>
+<hr />
+<h2 id="cockpit_language">cockpit_language</h2>
+<p>String representation of the cockpit language.</p>
+<h3 id="usage_2">Usage</h3>
+<pre><code class="language-lua">local cockpitLang = LockOn_Options.cockpit_language
+</code></pre>
+<hr />
+<h2 id="common_ground_script_path">common_ground_script_path</h2>
+<p>String path to the CA (Combined Arms) cockpit scripts.</p>
+<h3 id="usage_3">Usage</h3>
+<pre><code class="language-lua">local caPath = LockOn_Options.common_ground_script_path
+</code></pre>
+<hr />
+<h2 id="common_script_path">common_script_path</h2>
+<p>String path to the common cockpit scripts.</p>
+<h3 id="usage_4">Usage</h3>
+<pre><code class="language-lua">local commonPath = LockOn_Options.common_script_path
+</code></pre>
+<hr />
+<h2 id="date">date</h2>
+<p>Table containing the current date (day, month, year).</p>
+<h3 id="usage_5">Usage</h3>
+<pre><code class="language-lua">local date = LockOn_Options.date
+-- date.day, date.month, date.year
+</code></pre>
+<hr />
+<h2 id="flight">flight</h2>
+<p>Table containing flight-related options.</p>
+<h3 id="usage_6">Usage</h3>
+<pre><code class="language-lua">local flightOptions = LockOn_Options.flight
+</code></pre>
+<hr />
+<h2 id="init_conditions">init_conditions</h2>
+<p>Get the state of the spawn. Useful for configuring your aircraft depending on the initial state.</p>
+<ul>
+<li>In Air Hot: <code>string | "AIR_HOT"</code></li>
+<li>On Ground Hot: <code>string | "GROUND_HOT"</code></li>
+<li>Cold Start: <code>Unknown</code> (see usage)</li>
+</ul>
+<h2 id="usage_7">Usage</h2>
+<pre><code class="language-lua">local birth = LockOn_Options.init_conditions.birth_place
+
+if birth == &quot;GROUND_HOT&quot; or birth == &quot;AIR_HOT&quot; then
+    -- hot start init
+else
+    -- cold start init
+end
+</code></pre>
+<hr />
+<h2 id="measurement_system">measurement_system</h2>
+<p>String indicating the measurement system in use.</p>
+<h3 id="usage_8">Usage</h3>
+<pre><code class="language-lua">local system = LockOn_Options.measurement_system
+</code></pre>
+<hr />
+<h2 id="mission">mission</h2>
+<p>Table containing mission-related options.</p>
+<h3 id="usage_9">Usage</h3>
+<pre><code class="language-lua">local mission = LockOn_Options.mission
+</code></pre>
+<hr />
+<h2 id="screen">screen</h2>
+<p>Table containing screen parameters (aspect, height, width).</p>
+<h3 id="usage_10">Usage</h3>
+<pre><code class="language-lua">local screen = LockOn_Options.screen
+-- screen.aspect, screen.height, screen.width
+</code></pre>
+<hr />
+<h2 id="script_path">script_path</h2>
+<p>String path to the cockpit scripts.</p>
+<h3 id="usage_11">Usage</h3>
+<pre><code class="language-lua">local scriptPath = LockOn_Options.script_path
+</code></pre>
+<hr />
+<h2 id="time">time</h2>
+<p>Table containing the current time (hours, minutes, seconds).</p>
+<h3 id="usage_12">Usage</h3>
+<pre><code class="language-lua">local time = LockOn_Options.time
+-- time.hours, time.minutes, time.seconds
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../.." class="btn btn-neutral float-left" title="DCS Modding Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../avLuaDevice/" class="btn btn-neutral float-right" title="avLuaDevice">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../avLuaDevice/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
