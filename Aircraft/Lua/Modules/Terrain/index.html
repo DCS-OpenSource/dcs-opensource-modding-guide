@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Terrain Module - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Terrain Module";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Modules\\Terrain.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">DCS Modding Docs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Lua</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Devices/ExampleDevice/">Example Device</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" >Modules</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="#">Terrain Module</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#loading-the-module">Loading the module</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create">Create</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#findnearestpoint">FindNearestPoint</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#findoptimalpath">FindOptimalPath</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getheight">GetHeight</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getmgrscoordinates">GetMGRScoordinates</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getseasons">GetSeasons</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getsurfacetype">GetSurfaceType</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getterrainconfig">GetTerrainConfig</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#init">Init</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#initlight">InitLight</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#release">Release</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#convertlatlontometers">convertLatLonToMeters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#convertmgrstometers">convertMGRStoMeters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#convertmeterstolatlon">convertMetersToLatLon</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#findpathonroads">findPathOnRoads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getbeacons">getBeacons</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getclosestpointonroads">getClosestPointOnRoads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getclosestvalidpoint">getClosestValidPoint</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getcrossparam">getCrossParam</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getobjectposition">getObjectPosition</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getobjectsatmappoint">getObjectsAtMapPoint</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getradio">getRadio</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getrunwayheading">getRunwayHeading</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getrunwaylist">getRunwayList</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getstandlist">getStandList</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gettechskinbydate">getTechSkinByDate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gettempraturerangebydate">getTempratureRangeByDate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getterrainshpare">getTerrainShpare</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#isvisible">isVisible</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Aircraft</li>
+          <li class="breadcrumb-item">Lua</li>
+          <li class="breadcrumb-item">Modules</li>
+      <li class="breadcrumb-item active">Terrain Module</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="terrain-module">Terrain Module</h1>
+<h2 id="loading-the-module">Loading the module</h2>
+<pre><code class="language-lua">    local Terrain = require(&quot;terrain&quot;)
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Non functional or untested functions will be tagged with  <strong><em>[UNVERIFIED]</em></strong>  </p>
+<p>TODO: Test functions and verify descriptions</p>
+</div>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Params</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="#create">Create</a></strong></td>
+<td>—</td>
+<td>Instantiate or reset the terrain subsystem.</td>
+</tr>
+<tr>
+<td><strong><a href="#findnearestpoint">FindNearestPoint</a></strong></td>
+<td><code>x, y, range</code></td>
+<td>Find the nearest valid point (e.g. on a road) to <code>(x, y)</code> within <code>range</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#findoptimalpath">FindOptimalPath</a></strong></td>
+<td><code>x1, y1, x2, y2</code></td>
+<td>Compute the optimal path (e.g. along roads) from <code>(x1, y1)</code> to <code>(x2, y2)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getheight">GetHeight</a></strong></td>
+<td><code>x, y</code></td>
+<td>Return terrain elevation at <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getmgrscoordinates">GetMGRScoordinates</a></strong></td>
+<td><code>x, y</code></td>
+<td>Return the MGRS grid coordinate for <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getseasons">GetSeasons</a></strong></td>
+<td>—</td>
+<td>Return a table of season identifiers or data.</td>
+</tr>
+<tr>
+<td><strong><a href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a></strong></td>
+<td><code>x, y</code></td>
+<td>Return both surface elevation and depth of sea bed at <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getsurfacetype">GetSurfaceType</a></strong></td>
+<td><code>x, y</code></td>
+<td>Return the type of surface (e.g. “water”, “asphalt”) at <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getterrainconfig">GetTerrainConfig</a></strong></td>
+<td><code>type</code></td>
+<td>Obtain configuration data for terrain subtypes (e.g. “Airdromes”).</td>
+</tr>
+<tr>
+<td><strong><a href="#init">Init</a></strong></td>
+<td><code>terrain_config, reason, date</code></td>
+<td>Initialize terrain data with a config table, reason code, and date.</td>
+</tr>
+<tr>
+<td><strong><a href="#initlight">InitLight</a></strong></td>
+<td><code>terrain_config, reason, date</code></td>
+<td>Initialize only the lighting component of the terrain system.</td>
+</tr>
+<tr>
+<td><strong><a href="#release">Release</a></strong></td>
+<td>—</td>
+<td>Clean up or unload terrain resources.</td>
+</tr>
+<tr>
+<td><strong><a href="#convertlatlontometers">convertLatLonToMeters</a></strong></td>
+<td><code>lat, lon</code></td>
+<td>Convert geographic coordinates (latitude, longitude) into simulation meters.</td>
+</tr>
+<tr>
+<td><strong><a href="#convertmgrstometers">convertMGRStoMeters</a></strong></td>
+<td><code>mgrs</code></td>
+<td>Convert an MGRS string into simulation meters.</td>
+</tr>
+<tr>
+<td><strong><a href="#convertmeterstolatlon">convertMetersToLatLon</a></strong></td>
+<td><code>x, y</code></td>
+<td>Convert simulation‐space meters back to geographic coordinates.</td>
+</tr>
+<tr>
+<td><strong><a href="#findpathonroads">findPathOnRoads</a></strong></td>
+<td><code>type, x1, y1, x2, y2</code></td>
+<td>Find a path along “roads” or “railroads” between two points.</td>
+</tr>
+<tr>
+<td><strong><a href="#getbeacons">getBeacons</a></strong></td>
+<td>—</td>
+<td>Retrieve a list of all beacon objects in the terrain.</td>
+</tr>
+<tr>
+<td><strong><a href="#getclosestpointonroads">getClosestPointOnRoads</a></strong></td>
+<td><code>type, x, y</code></td>
+<td>Find the nearest point on the specified network (“roads” or “railroads”) to <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getclosestvalidpoint">getClosestValidPoint</a></strong></td>
+<td><code>type, x, y</code></td>
+<td>Find the nearest valid point of specified type (e.g. “land”) to <code>(x, y)</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="#getcrossparam">getCrossParam</a></strong></td>
+<td>—</td>
+<td>Retrieve cross‐parameter data (undocumented use case).</td>
+</tr>
+<tr>
+<td><strong><a href="#getobjectposition">getObjectPosition</a></strong></td>
+<td><code>o</code></td>
+<td>Return the map position of a given scene object.</td>
+</tr>
+<tr>
+<td><strong><a href="#getobjectsatmappoint">getObjectsAtMapPoint</a></strong></td>
+<td><code>mapX, mapY</code></td>
+<td>List all objects whose footprint overlaps the map point.</td>
+</tr>
+<tr>
+<td><strong><a href="#getradio">getRadio</a></strong></td>
+<td><code>roadnet</code></td>
+<td>Get radio frequencies for an airport identified by its road-network string.</td>
+</tr>
+<tr>
+<td><strong><a href="#getrunwayheading">getRunwayHeading</a></strong></td>
+<td><code>roadnet</code></td>
+<td>Return the magnetic heading of the primary runway for the given airport.</td>
+</tr>
+<tr>
+<td><strong><a href="#getrunwaylist">getRunwayList</a></strong></td>
+<td><code>roadnet</code></td>
+<td>Return runway metadata: course, edge names and coordinates.</td>
+</tr>
+<tr>
+<td><strong><a href="#getstandlist">getStandList</a></strong></td>
+<td><code>roadnet</code></td>
+<td>Return a list of aircraft stands with locations.</td>
+</tr>
+<tr>
+<td><strong><a href="#gettechskinbydate">getTechSkinByDate</a></strong></td>
+<td><code>day, month</code></td>
+<td>Retrieve terrain “tech skin” (appearance) valid on the specified date.</td>
+</tr>
+<tr>
+<td><strong><a href="#gettempraturerangebydate">getTempratureRangeByDate</a></strong></td>
+<td><code>day, month</code></td>
+<td>Return expected temperature range for the given day/month.</td>
+</tr>
+<tr>
+<td><strong><a href="#getterrainshpare">getTerrainShpare</a></strong></td>
+<td>—</td>
+<td>(Undocumented—likely returns shape data for terrain meshes.)</td>
+</tr>
+<tr>
+<td><strong><a href="#isvisible">isVisible</a></strong></td>
+<td><code>x1, alt1, y1, x2, alt2, y2</code></td>
+<td>Raycast LOS check between two points at specified altitudes; returns <code>true</code> if unobstructed.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="create">Create</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">Terrain.Create()
+</code></pre>
+<p><strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Instantiate or reset the terrain subsystem. Call this if you need to clear any existing terrain data before re-initializing or running a new mission.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">-- Start with a fresh terrain state
+Terrain.Create()
+</code></pre>
+<hr />
+<h2 id="findnearestpoint">FindNearestPoint</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">px, py = Terrain.FindNearestPoint(x, y, range)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): world coordinates from which to search.<br />
+- <code>range</code> (number): maximum search radius in meters.<br />
+<strong>Returns:</strong><br />
+- <code>px, py</code> (number): coordinates of the nearest valid point (e.g. on a road).<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Searches outward up to <code>range</code> meters and returns the closest point on the specified network. Useful for snapping units to roads or paths.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local playerX, playerY = 50000, 75000
+local roadX, roadY = Terrain.FindNearestPoint(playerX, playerY, 2000)
+print(&quot;Snap to road at:&quot;, roadX, roadY)
+</code></pre>
+<hr />
+<h2 id="findoptimalpath">FindOptimalPath</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">pathTable = Terrain.FindOptimalPath(x1, y1, x2, y2)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x1, y1</code> (number): start coordinates.<br />
+- <code>x2, y2</code> (number): end coordinates.<br />
+<strong>Returns:</strong><br />
+- <code>pathTable</code> (table): an array of <code>{ x = ..., y = ... }</code> waypoints along the optimal route (e.g. following roads).<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Runs a graph search (A<em> or Dijkstra) over the terrain network to produce a drivable path.<br />
+</em><em>Example:</em>*</p>
+<pre><code class="language-lua">local route = Terrain.FindOptimalPath(10000, 20000, 30000, 40000)
+for i, pt in ipairs(route) do
+  print(i, pt.x, pt.y)
+end
+</code></pre>
+<hr />
+<h2 id="getheight">GetHeight</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">h = Terrain.GetHeight(x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): query coordinates.<br />
+<strong>Returns:</strong><br />
+- <code>h</code> (number): terrain elevation (meters above sea level).<br />
+<strong>Description:</strong><br />
+Quickly sample the terrain elevation.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local elev = Terrain.GetHeight(45000, 82000)
+print(&quot;Elevation is&quot;, elev, &quot;m&quot;)
+</code></pre>
+<hr />
+<h2 id="getmgrscoordinates">GetMGRScoordinates</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">mgrs = Terrain.GetMGRScoordinates(x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): world coordinates.<br />
+<strong>Returns:</strong><br />
+- <code>mgrs</code> (string): MGRS grid reference (e.g. "34TDF1234567890").<br />
+<strong>Description:</strong><br />
+Convert from simulation-space meters to a human-readable MGRS coordinate.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local gridRef = Terrain.GetMGRScoordinates(345000, 789000)
+print(&quot;Grid:&quot;, gridRef)
+</code></pre>
+<hr />
+<h2 id="getseasons">GetSeasons</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">seasons = Terrain.GetSeasons()
+</code></pre>
+<p><strong>Returns:</strong><br />
+- <code>seasons</code> (table): list of available season identifiers (e.g. { "winter", "summer", ... }).<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Fetch the set of seasons for which terrain textures and lighting are defined.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">for _, season in ipairs(Terrain.GetSeasons()) do
+  print(&quot;Available season:&quot;, season)
+end
+</code></pre>
+<hr />
+<h2 id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): coordinates over water.<br />
+<strong>Returns:</strong><br />
+- <code>surfaceH</code> (number): elevation of the water surface.<br />
+- <code>depth</code> (number): depth from surface to seabed (positive number).<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Useful for amphibious operations to know both water level and bottom depth.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local surf, d = Terrain.GetSurfaceHeightWithSeabed(20000, 15000)
+print(&quot;Water at&quot;, surf, &quot;m, seabed&quot;, d, &quot;m below&quot;)
+</code></pre>
+<hr />
+<h2 id="getsurfacetype">GetSurfaceType</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">stype = Terrain.GetSurfaceType(x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): query location.<br />
+<strong>Returns:</strong><br />
+- <code>stype</code> (string): surface material. <code>"land"</code>, <code>"sea"</code>, <code>"lake"</code>, <code>"river"</code><br />
+<strong>Description:</strong><br />
+Detect what kind of surface occupies a coordinate.
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local mat = Terrain.GetSurfaceType(10200, 20500)
+print(&quot;Surface is&quot;, mat)
+</code></pre>
+<hr />
+<h2 id="getterrainconfig">GetTerrainConfig</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">cfg = Terrain.GetTerrainConfig(type)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>type</code> (string): e.g. "Airdromes".<br />
+<strong>Returns:</strong><br />
+- <code>cfg</code> (table): configuration block for that terrain element (bounds, default camera, etc.).<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> Inspect built-in metadata for things like airfield layout.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local airCfg = Terrain.GetTerrainConfig(&quot;Airdromes&quot;)
+print(&quot;Airfield NE bound:&quot;, airCfg.NE_bound.x, airCfg.NE_bound.y)
+</code></pre>
+<hr />
+<h2 id="init">Init</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">Terrain.Init(terrain_config, reason, date)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>terrain_config</code> (table)<br />
+- <code>reason</code> (any)<br />
+- <code>date</code> (table): { year=…, month=…, day=… }.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local cfg = Terrain.GetTerrainConfig(&quot;Airdromes&quot;)
+Terrain.Init(cfg, &quot;mission_start&quot;, { year=2025, month=7, day=7 })
+</code></pre>
+<hr />
+<h2 id="initlight">InitLight</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">Terrain.InitLight(terrain_config, reason, date)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>terrain_config</code> (table)<br />
+- <code>reason</code> (any)<br />
+- <code>date</code> (table): { year=…, month=…, day=… }.  <br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.
+<strong>Example:</strong></p>
+<pre><code class="language-lua">Terrain.InitLight(airCfg, &quot;time_change&quot;, { year=2025, month=12, day=1 })
+</code></pre>
+<hr />
+<h2 id="release">Release</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">Terrain.Release()
+</code></pre>
+<p><strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">Terrain.Release()
+</code></pre>
+<hr />
+<h2 id="convertlatlontometers">convertLatLonToMeters</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">x, y = Terrain.convertLatLonToMeters(lat, lon)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>lat, lon</code> (number): geographic coordinates in degrees.<br />
+<strong>Returns:</strong><br />
+- <code>x, y</code> (number): simulation meters.<br />
+<strong>Description:</strong><br />
+Project WGS84 lat/lon into the simulator’s local flat coordinate system.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local mx, my = Terrain.convertLatLonToMeters(34.0522, -118.2437)
+</code></pre>
+<hr />
+<h2 id="convertmgrstometers">convertMGRStoMeters</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">x, y = Terrain.convertMGRStoMeters(mgrs)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>mgrs</code> (string): MGRS reference.<br />
+<strong>Returns:</strong><br />
+- <code>x, y</code> (number): simulation meters.<br />
+<strong>Description:</strong><br />
+Inverse of GetMGRScoordinates.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local ux, uy = Terrain.convertMGRStoMeters(&quot;33TUN1234567890&quot;)
+</code></pre>
+<hr />
+<h2 id="convertmeterstolatlon">convertMetersToLatLon</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">lat, lon = Terrain.convertMetersToLatLon(x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>x, y</code> (number): simulation coordinates.<br />
+<strong>Returns:</strong><br />
+- <code>lat, lon</code> (number): geographic degrees.<br />
+<strong>Description:</strong><br />
+Inverse map projection back to WGS84.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local φ, λ = Terrain.convertMetersToLatLon(400000, 5000000)
+</code></pre>
+<hr />
+<h2 id="findpathonroads">findPathOnRoads</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">pathTable = Terrain.findPathOnRoads(type, x1, y1, x2, y2)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>type</code> (string): "roads" or "railroads".<br />
+- <code>x1, y1</code>, <code>x2, y2</code> (number): endpoints.<br />
+<strong>Returns:</strong><br />
+- <code>pathTable</code> (table): waypoint array.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local trainRoute = Terrain.findPathOnRoads(&quot;railroads&quot;, 1000, 2000, 8000, 9000)
+</code></pre>
+<hr />
+<h2 id="getbeacons">getBeacons</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">beacons = Terrain.getBeacons()
+</code></pre>
+<p><strong>Returns:</strong><br />
+- <code>beacons</code> (table): list of beacon objects, each with position and frequency.<br />
+<strong>Description:</strong><br />
+Enumerate nav-beacons placed in the terrain.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">for _, b in ipairs(Terrain.getBeacons()) do
+  print(&quot;Beacon&quot;, b.id, &quot;at&quot;, b.x, b.y, &quot;freq&quot;, b.freq)
+end
+</code></pre>
+<hr />
+<h2 id="getclosestpointonroads">getClosestPointOnRoads</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">px, py = Terrain.getClosestPointOnRoads(type, x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>type</code> (string): "roads" or "railroads".<br />
+- <code>x, y</code> (number): query point.<br />
+<strong>Returns:</strong><br />
+- <code>px, py</code> (number): on-network coordinates.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local rx, ry = Terrain.getClosestPointOnRoads(&quot;roads&quot;, 12345, 67890)
+</code></pre>
+<hr />
+<h2 id="getclosestvalidpoint">getClosestValidPoint</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">px, py = Terrain.getClosestValidPoint(type, x, y)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>type</code> (string): e.g. "land".<br />
+- <code>x, y</code> (number): input coords.<br />
+<strong>Returns:</strong><br />
+- <code>px, py</code> (number): nearest valid location of that type.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local fx, fy = Terrain.getClosestValidPoint(&quot;land&quot;, helicopterX, helicopterY)
+</code></pre>
+<hr />
+<h2 id="getcrossparam">getCrossParam</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">param = Terrain.getCrossParam()
+</code></pre>
+<p><strong>Returns:</strong><br />
+- <code>param</code> (any): undocumented cross-parameter data.<br />
+<strong>Description:</strong><br />
+Only for advanced use—internal terrain tuning.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local cp = Terrain.getCrossParam()
+print(&quot;Cross param:&quot;, cp)
+</code></pre>
+<hr />
+<h2 id="getobjectposition">getObjectPosition</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">ox, oy = Terrain.getObjectPosition(obj)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>obj</code> (Object): engine object reference.<br />
+<strong>Returns:</strong><br />
+- <code>ox, oy</code> (number): its map position.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local x, y = Terrain.getObjectPosition(myVehicle)
+</code></pre>
+<hr />
+<h2 id="getobjectsatmappoint">getObjectsAtMapPoint</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">list = Terrain.getObjectsAtMapPoint(mapX, mapY)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>mapX, mapY</code> (number): query location.<br />
+<strong>Returns:</strong><br />
+- <code>list</code> (table): all objects overlapping that point.<br />
+<strong>Description:</strong><br />
+<strong><em>[UNVERIFIED]</em></strong> none.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local objs = Terrain.getObjectsAtMapPoint(5000, 6000)
+print(&quot;Found&quot;, #objs, &quot;objects&quot;)
+</code></pre>
+<hr />
+<h2 id="getradio">getRadio</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">radios = Terrain.getRadio(roadnet)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>roadnet</code> (string): airport identifier.<br />
+<strong>Returns:</strong><br />
+- <code>radios</code> (table): frequency settings for that airfield’s comms.<br />
+<strong>Description:</strong><br />
+Obtain tower/ground/approach frequencies.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local freqs = Terrain.getRadio(&quot;KSFO_roadnet&quot;)
+print(freqs.tower, freqs.ground)
+</code></pre>
+<hr />
+<h2 id="getrunwayheading">getRunwayHeading</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">hdg = Terrain.getRunwayHeading(roadnet)
+</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>roadnet</code> (string): airport ID.<br />
+<strong>Returns:</strong><br />
+- <code>hdg</code> (number): magnetic heading of the primary runway.<br />
+<strong>Description:</strong><br />
+Useful for HUD wind-correction and runway-alignment cues.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local rHdg = Terrain.getRunwayHeading(&quot;RJTT_roadnet&quot;)
+print(&quot;Runway heading:&quot;, rHdg)
+</code></pre>
+<hr />
+<h2 id="getrunwaylist">getRunwayList</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">runways = Terrain.getRunwayList(roadnet)
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>roadnet</code> (string): airport ID.<br />
+<strong>Returns:</strong>
+- <code>runways</code> (table): each entry contains:
+  - <code>course</code> (number): runway heading<br />
+  - <code>edge1name</code> (string), <code>edge1x</code>, <code>edge1y</code> (number): name and coordinates of one end<br />
+  - <code>edge2name</code> (string), <code>edge2x</code>, <code>edge2y</code> (number): name and coordinates of the opposite end<br />
+<strong>Description:</strong>
+Enumerate all runways at the specified airfield, returning their endpoints and headings.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">for _, rw in ipairs(Terrain.getRunwayList(&quot;EGLL_roadnet&quot;)) do
+  print(&quot;RW&quot;, rw.edge1name, &quot;to&quot;, rw.edge2name, &quot;heading&quot;, rw.course)
+end
+</code></pre>
+<hr />
+<h2 id="getstandlist">getStandList</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">stands = Terrain.getStandList(roadnet)
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>roadnet</code> (string): airport ID.<br />
+<strong>Returns:</strong>
+- <code>stands</code> (table): list of parking stands with coordinates.<br />
+<strong>Description:</strong>
+Get gate and parking-spot positions.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local gates = Terrain.getStandList(&quot;KDEN_roadnet&quot;)
+print(&quot;First stand at&quot;, gates[1].x, gates[1].y)
+</code></pre>
+<hr />
+<h2 id="gettechskinbydate">getTechSkinByDate</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">skin = Terrain.getTechSkinByDate(day, month)
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>day, month</code> (number): calendar date.<br />
+<strong>Returns:</strong>
+- <code>skin</code> (any): texture/skin identifier valid on that day.<br />
+<strong>Description:</strong>
+Swap in historical or seasonal terrain skins.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local tex = Terrain.getTechSkinByDate(15, 8)  -- August 15
+</code></pre>
+<hr />
+<h2 id="gettempraturerangebydate">getTempratureRangeByDate</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">minT, maxT = Terrain.getTempratureRangeByDate(day, month)
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>day, month</code> (number): date.<br />
+<strong>Returns:</strong>
+- <code>minT, maxT</code> (number): expected daily temperature extremes (°C).<br />
+<strong>Description:</strong>
+Drive weather models or engine performance tables.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local lo, hi = Terrain.getTempratureRangeByDate(1, 12)
+print(&quot;Dec 1 temps:&quot;, lo, &quot;to&quot;, hi)
+</code></pre>
+<hr />
+<h2 id="getterrainshpare">getTerrainShpare</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">shape = Terrain.getTerrainShpare()
+</code></pre>
+<p><strong>Returns:</strong>
+- <code>shape</code> (any): internal terrain mesh data.<br />
+<strong>Description:</strong>
+Undocumented; likely used for low-level mesh queries.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">local mesh = Terrain.getTerrainShpare()
+</code></pre>
+<hr />
+<h2 id="isvisible">isVisible</h2>
+<p><strong>Signature:</strong></p>
+<pre><code class="language-lua">visible = Terrain.isVisible(x1, alt1, y1, x2, alt2, y2)
+</code></pre>
+<p><strong>Parameters:</strong>
+- <code>x1, y1, alt1</code> (number): start point and altitude.<br />
+- <code>x2, y2, alt2</code> (number): end point and altitude.<br />
+<strong>Returns:</strong>
+- <code>visible</code> (boolean): <code>true</code> if line-of-sight is unobstructed.<br />
+<strong>Description:</strong>
+Perform a raycast through the terrain to check LOS.<br />
+<strong>Example:</strong></p>
+<pre><code class="language-lua">if Terrain.isVisible(10000, 50, 20000, 15000, 100, 25000) then
+  print(&quot;Target in sight!&quot;)
+end
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../Devices/ExampleDevice/" class="btn btn-neutral float-left" title="Example Device"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../Devices/ExampleDevice/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
