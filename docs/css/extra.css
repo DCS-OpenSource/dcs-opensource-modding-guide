@@ -1,0 +1,5 @@
+/* make the main content area wider */
+.wy-nav-content {
+  max-width: 1200px;
+  width: 100%;
+}

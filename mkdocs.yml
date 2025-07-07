@@ -1,0 +1,12 @@
+site_name: DCS Modding Documentation
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.blocks.caption
+
+extra_css:
+  - css/extra.css
+
