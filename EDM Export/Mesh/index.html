@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Mesh - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Mesh";
+        var mkdocs_page_input_path = "EDM Export\\Mesh.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Aircraft/Lua/LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Mesh</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preparing-the-material">Preparing the Material</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exporting-to-edm">Exporting to EDM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opening-in-modelviewer">Opening in ModelViewer</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ED Blender Exporter</li>
+      <li class="breadcrumb-item active">Mesh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="exporting-a-mesh-to-dcs">Exporting A Mesh to DCS</h1>
+<h2 id="preparing-the-material">Preparing the Material</h2>
+<p>To export your first mesh into the .edm format, start with a blank blender cube, as seen below.</p>
+<p><img alt="Blank Blender Cube" src="../images/image.png" /></p>
+<p>Switch to the shading tab, if the cube does not have a material by default, create one.</p>
+<p><img alt="alt text" src="../images/shading_tab.png" /></p>
+<p>Next, We will need to configure the material nodes with the EDM Materials.</p>
+<p>First, remove the default <em>Principled BSDF</em> node, but <strong>leave</strong> the <em>Material Output</em> Node.</p>
+<p>Next, Either by pressing <code>SHIFT + A</code> or by clicking <code>Add</code> in the Node Editor, navigate to EDM Materials &gt; Material - Default.</p>
+<p><img alt="alt text" src="../images/add_edm_material.png" /></p>
+<p>With the <em>EDM_Default_Material</em> Node in place, connect the BSDF point of the EDM material to the Surface point of the <em>Material Output</em>. An example of this can be seen below.</p>
+<p><img alt="alt text" src="../images/edm_material.png" /></p>
+<hr />
+<h2 id="exporting-to-edm">Exporting to EDM</h2>
+<p>We're now ready to export our cube to an .edm file!<br />
+Navigate to <code>File &gt; Export &gt; Eagle Dynamics Model (.edm)</code><br />
+Then Name and save your file in your desired location by clicking <em>export to EDM</em></p>
+<p><img alt="alt text" src="../images/export_edm.png" /></p>
+<h2 id="opening-in-modelviewer">Opening in ModelViewer</h2>
+<p>Open ModelViewer, and go to <code>File &gt; Load Model</code> or <code>CTRL + N</code><br />
+Navigate to your edm file, select it, then press load</p>
+<p><img alt="alt text" src="../images/load_model.png" /></p>
+<p>You should now see a white cube, very similar to the image below.</p>
+<p><img alt="alt text" src="../images/mv_cube.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Animations/" class="btn btn-neutral float-right" title="Animations">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Animations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

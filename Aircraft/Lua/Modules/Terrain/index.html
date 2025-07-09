@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../../img/favicon.ico" />
-    <title>Terrain Module - DCS Modding Documentation</title>
+    <title>Terrain - DCS Modding Documentation</title>
     <link rel="stylesheet" href="../../../../css/theme.css" />
     <link rel="stylesheet" href="../../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Terrain Module";
+        var mkdocs_page_name = "Terrain";
         var mkdocs_page_input_path = "Aircraft\\Lua\\Modules\\Terrain.md";
         var mkdocs_page_url = null;
       </script>
@@ -41,94 +41,101 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../../..">DCS Modding Docs</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Aircraft</span></p>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" >Lua</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" >Devices</a>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
     <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../Devices/LockOnOptions/">LockOn_Options</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
                 </li>
     </ul>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" >Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Modules</a>
     <ul class="current">
-                <li class="toctree-l3 current"><a class="reference internal current" href="#">Terrain Module</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Terrain</a>
     <ul class="current">
-    <li class="toctree-l4"><a class="reference internal" href="#loading-the-module">Loading the module</a>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-the-module">Loading the module</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#create">Create</a>
+    <li class="toctree-l3"><a class="reference internal" href="#create">Create</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#findnearestpoint">FindNearestPoint</a>
+    <li class="toctree-l3"><a class="reference internal" href="#findnearestpoint">FindNearestPoint</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#findoptimalpath">FindOptimalPath</a>
+    <li class="toctree-l3"><a class="reference internal" href="#findoptimalpath">FindOptimalPath</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getheight">GetHeight</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getheight">GetHeight</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getmgrscoordinates">GetMGRScoordinates</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getmgrscoordinates">GetMGRScoordinates</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getseasons">GetSeasons</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getseasons">GetSeasons</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getsurfacetype">GetSurfaceType</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getsurfacetype">GetSurfaceType</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getterrainconfig">GetTerrainConfig</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getterrainconfig">GetTerrainConfig</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#init">Init</a>
+    <li class="toctree-l3"><a class="reference internal" href="#init">Init</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#initlight">InitLight</a>
+    <li class="toctree-l3"><a class="reference internal" href="#initlight">InitLight</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#release">Release</a>
+    <li class="toctree-l3"><a class="reference internal" href="#release">Release</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#convertlatlontometers">convertLatLonToMeters</a>
+    <li class="toctree-l3"><a class="reference internal" href="#convertlatlontometers">convertLatLonToMeters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#convertmgrstometers">convertMGRStoMeters</a>
+    <li class="toctree-l3"><a class="reference internal" href="#convertmgrstometers">convertMGRStoMeters</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#convertmeterstolatlon">convertMetersToLatLon</a>
+    <li class="toctree-l3"><a class="reference internal" href="#convertmeterstolatlon">convertMetersToLatLon</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#findpathonroads">findPathOnRoads</a>
+    <li class="toctree-l3"><a class="reference internal" href="#findpathonroads">findPathOnRoads</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getbeacons">getBeacons</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getbeacons">getBeacons</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getclosestpointonroads">getClosestPointOnRoads</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getclosestpointonroads">getClosestPointOnRoads</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getclosestvalidpoint">getClosestValidPoint</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getclosestvalidpoint">getClosestValidPoint</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getcrossparam">getCrossParam</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getcrossparam">getCrossParam</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getobjectposition">getObjectPosition</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getobjectposition">getObjectPosition</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getobjectsatmappoint">getObjectsAtMapPoint</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getobjectsatmappoint">getObjectsAtMapPoint</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getradio">getRadio</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getradio">getRadio</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getrunwayheading">getRunwayHeading</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getrunwayheading">getRunwayHeading</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getrunwaylist">getRunwayList</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getrunwaylist">getRunwayList</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getstandlist">getStandList</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getstandlist">getStandList</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#gettechskinbydate">getTechSkinByDate</a>
+    <li class="toctree-l3"><a class="reference internal" href="#gettechskinbydate">getTechSkinByDate</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#gettempraturerangebydate">getTempratureRangeByDate</a>
+    <li class="toctree-l3"><a class="reference internal" href="#gettempraturerangebydate">getTempratureRangeByDate</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#getterrainshpare">getTerrainShpare</a>
+    <li class="toctree-l3"><a class="reference internal" href="#getterrainshpare">getTerrainShpare</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#isvisible">isVisible</a>
+    <li class="toctree-l3"><a class="reference internal" href="#isvisible">isVisible</a>
     </li>
     </ul>
                 </li>
     </ul>
-                </li>
-    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Lights/">Lights</a>
                   </li>
               </ul>
       </div>
@@ -145,10 +152,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Aircraft</li>
-          <li class="breadcrumb-item">Lua</li>
+          <li class="breadcrumb-item">Aircraft Lua</li>
           <li class="breadcrumb-item">Modules</li>
-      <li class="breadcrumb-item active">Terrain Module</li>
+      <li class="breadcrumb-item active">Terrain</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -772,7 +778,8 @@ end
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../Devices/avSimpleWeaponSystem/" class="btn btn-neutral float-left" title="avSimpleWeaponSystem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../EDM%20Export/Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -795,8 +802,10 @@ end
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../Devices/avSimpleWeaponSystem/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../../../../EDM%20Export/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

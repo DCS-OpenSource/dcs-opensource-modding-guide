@@ -41,44 +41,69 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../../..">DCS Modding Docs</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Aircraft</span></p>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" >Lua</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Devices</a>
     <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" >Devices</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">avLuaDevice</a>
     <ul class="current">
-                <li class="toctree-l3"><a class="reference internal" href="../LockOnOptions/">LockOn_Options</a>
-                </li>
-                <li class="toctree-l3 current"><a class="reference internal current" href="#">avLuaDevice</a>
-    <ul class="current">
-    <li class="toctree-l4"><a class="reference internal" href="#post_initialize">post_initialize()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#post_initialize">post_initialize()</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#update">update()</a>
+        </ul>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#setcommand">SetCommand()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#update">update()</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#usage_1">Usage</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#cockpitevent">CockpitEvent()</a>
+        </ul>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#release">release()</a>
+    <li class="toctree-l3"><a class="reference internal" href="#setcommand">SetCommand()</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#example-device">Example Device</a>
+    <li class="toctree-l3"><a class="reference internal" href="#cockpitevent">CockpitEvent()</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#usage_2">Usage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#event-list">Event List</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#release">release()</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#usage_3">Usage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-device">Example Device</a>
     </li>
     </ul>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                <li class="toctree-l2"><a class="reference internal" href="../avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
                 </li>
     </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" >Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
     <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../Modules/Terrain/">Terrain Module</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Modules/Terrain/">Terrain</a>
                 </li>
     </ul>
-                </li>
-    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM%20Export/Lights/">Lights</a>
                   </li>
               </ul>
       </div>
@@ -95,8 +120,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Aircraft</li>
-          <li class="breadcrumb-item">Lua</li>
+          <li class="breadcrumb-item">Aircraft Lua</li>
           <li class="breadcrumb-item">Devices</li>
       <li class="breadcrumb-item active">avLuaDevice</li>
     <li class="wy-breadcrumbs-aside">
@@ -113,7 +137,7 @@
 <p>Called once when you load into your plane, very useful for setting hot/cold start variables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Any hot/cold start setup should be put in here. See <a href="../LockOnOptions#init_conditions">LockOn_Options.init_conditions</a> for more details.</p>
+<p>Any hot/cold start setup should be put in here. See <a href="../../LockOnOptions#init_conditions">LockOn_Options.init_conditions</a> for more details.</p>
 </div>
 <h3 id="usage">Usage</h3>
 <pre><code class="language-lua">function post_initalize()
@@ -271,7 +295,7 @@ need_to_be_closed = false               -- close lua state after initialization
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../avSimpleWeaponSystem/" class="btn btn-neutral float-right" title="avSimpleWeaponSystem">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -295,7 +319,7 @@ need_to_be_closed = false               -- close lua state after initialization
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../avSimpleWeaponSystem/" style="color: #fcfcfc">Next &raquo;</a></span>
