@@ -21,7 +21,7 @@ nav:
           - Terrain: Aircraft/Lua/Modules/Terrain.md
 
   - ED Blender Exporter:
-      - Overview: EDM Export/Overview.md
-      - Mesh: EDM Export/Mesh.md
-      - Animations: EDM Export/Animations.md
-      - Lights: EDM Export/Lights.md
+      - Overview: EDM-Export/Overview.md
+      - Mesh: EDM-Export/Mesh.md
+      - Animations: EDM-Export/Animations.md
+      - Lights: EDM-Export/Lights.md
