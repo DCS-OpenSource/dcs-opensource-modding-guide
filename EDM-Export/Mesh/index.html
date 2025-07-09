@@ -75,6 +75,16 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#opening-in-modelviewer">Opening in ModelViewer</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multiple-meshesmaterials">Multiple Meshes/Materials</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multiple-materials-per-mesh">Multiple Materials per Mesh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-a-texture">Adding a Texture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#roughmets-and-normals">RoughMets and Normals</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blender-project-structre">Blender Project Structre</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Animations/">Animations</a>
@@ -130,6 +140,46 @@ Navigate to your edm file, select it, then press load</p>
 <p><img alt="alt text" src="../images/load_model.png" /></p>
 <p>You should now see a white cube, very similar to the image below.</p>
 <p><img alt="alt text" src="../images/mv_cube.png" /></p>
+<h2 id="multiple-meshesmaterials">Multiple Meshes/Materials</h2>
+<p>Any object with an EDM material assigned will export to DCS, if you add a second mesh, assign either your existing EDM material, or add a new one, and it will export to DCS</p>
+<h2 id="multiple-materials-per-mesh">Multiple Materials per Mesh</h2>
+<p>The ED Exporter supports multiple materials per mesh, there is nothing special needed to setup, just all materials in the mesh need to be configured to be EDM materials.</p>
+<h2 id="adding-a-texture">Adding a Texture</h2>
+<p>Back in the node editor, go to <code>Add &gt; Texture &gt; Image Texture</code><br />
+Then connect the Color and Alpha points on the image texture to the Base Color and Base Alpha points of the EDM Material<br />
+Select your image in the Image Texture Node. Your project should look similar to the image below.</p>
+<p><img alt="alt text" src="../images/blender_texture.png" /></p>
+<p>repeat the steps in <a href="#exporting-to-edm">Exporting to EDM</a><br />
+Then close and re-poen modelviewer, and reload your EDM file</p>
+<p><img alt="alt text" src="../images/mv_textured_cube.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Textures will not appear in ModelViewer unless they are properly mounted. </p>
+</div>
+<p>A typical working directory structure is: (if this doesnt work, send Hayds_93 a DM on discord and I'll update it)</p>
+<pre><code>Project/
+├─ Shapes/
+│   └─ cube.edm
+└─ Textures/
+    └─ cube.png
+</code></pre>
+<h2 id="roughmets-and-normals">RoughMets and Normals</h2>
+<p>Adding RoughMets and Normals is simple.<br />
+Add two more Image Texture nodes.<br />
+Connect the color point of one to <em>RoughMet (Non-Color)</em> and the color point on the other to <em>Normal (Non-Color)</em><br />
+The result should look like:</p>
+<p><img alt="alt text" src="../images/3_images_material.png" /></p>
+<p>Export your model, restart modelviewer, then load in your new model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting the <code>Color Space</code> fields of the RoughMet and Normal nodes to <code>Non-Color</code> will make blender render the textures properly.<br />
+However not setting this will not affect the resulting edm export, so can be safely ignored</p>
+</div>
+<h2 id="blender-project-structre">Blender Project Structre</h2>
+<p>While not necessary, you can bake all LODs (Level of Detail) and the collision model into one .edm file.</p>
+<p><img alt="alt text" src="../images/collections.png" /></p>
+<p>Starting with an <code>EXPORT</code> Collection, then having sub-collections for collision, and <code>LOD_{LOD_NUMBER}_{LOD_DISTANCE_IN_M}</code> (eg. <code>LOD_0_50</code>).
+Each sub collection should have a copy of the mesh, and they should not share animations or parents. Duplicate the animation empties, then re-apply the actions to the new empties.</p>
               
             </div>
           </div><footer>
