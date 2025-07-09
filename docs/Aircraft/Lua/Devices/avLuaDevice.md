@@ -6,7 +6,7 @@
 
 Called once when you load into your plane, very useful for setting hot/cold start variables.
 !!! Note
-    Any hot/cold start setup should be put in here. See [LockOn_Options.init_conditions](../LockOnOptions#init_conditions) for more details.
+    Any hot/cold start setup should be put in here. See [LockOn_Options.init_conditions](../../LockOnOptions#init_conditions) for more details.
 
 ### Usage
 ```lua

@@ -6,7 +6,7 @@ The `LockOn_Options` table provides several useful parameters and values.
 ## avionics_language
 String representation of avionics language
 
-### Usage
+**Usage**
 ```lua
 local lang = LockOn_Options.avionics_language
 ```
@@ -16,7 +16,7 @@ local lang = LockOn_Options.avionics_language
 ## cockpit
 Table containing cockpit-related options.
 
-### Usage
+**Usage**
 ```lua
 local cockpitOptions = LockOn_Options.cockpit
 ```
@@ -26,7 +26,7 @@ local cockpitOptions = LockOn_Options.cockpit
 ## cockpit_language
 String representation of the cockpit language.
 
-### Usage
+**Usage**
 ```lua
 local cockpitLang = LockOn_Options.cockpit_language
 ```
@@ -36,7 +36,7 @@ local cockpitLang = LockOn_Options.cockpit_language
 ## common_ground_script_path
 String path to the CA (Combined Arms) cockpit scripts.
 
-### Usage
+**Usage**
 ```lua
 local caPath = LockOn_Options.common_ground_script_path
 ```
@@ -46,7 +46,7 @@ local caPath = LockOn_Options.common_ground_script_path
 ## common_script_path
 String path to the common cockpit scripts.
 
-### Usage
+**Usage**
 ```lua
 local commonPath = LockOn_Options.common_script_path
 ```
@@ -56,7 +56,7 @@ local commonPath = LockOn_Options.common_script_path
 ## date
 Table containing the current date (day, month, year).
 
-### Usage
+**Usage**
 ```lua
 local date = LockOn_Options.date
 -- date.day, date.month, date.year
@@ -67,7 +67,7 @@ local date = LockOn_Options.date
 ## flight
 Table containing flight-related options.
 
-### Usage
+**Usage**
 ```lua
 local flightOptions = LockOn_Options.flight
 ```
@@ -81,7 +81,7 @@ Get the state of the spawn. Useful for configuring your aircraft depending on th
 * On Ground Hot: `string | "GROUND_HOT"`
 * Cold Start: `Unknown` (see usage)
 
-## Usage
+**Usage**
 ```lua
 local birth = LockOn_Options.init_conditions.birth_place
 
@@ -97,7 +97,7 @@ end
 ## measurement_system
 String indicating the measurement system in use.
 
-### Usage
+**Usage**
 ```lua
 local system = LockOn_Options.measurement_system
 ```
@@ -107,7 +107,7 @@ local system = LockOn_Options.measurement_system
 ## mission
 Table containing mission-related options.
 
-### Usage
+**Usage**
 ```lua
 local mission = LockOn_Options.mission
 ```
@@ -117,7 +117,7 @@ local mission = LockOn_Options.mission
 ## screen
 Table containing screen parameters (aspect, height, width).
 
-### Usage
+**Usage**
 ```lua
 local screen = LockOn_Options.screen
 -- screen.aspect, screen.height, screen.width
@@ -128,7 +128,7 @@ local screen = LockOn_Options.screen
 ## script_path
 String path to the cockpit scripts.
 
-### Usage
+**Usage**
 ```lua
 local scriptPath = LockOn_Options.script_path
 ```
@@ -138,7 +138,7 @@ local scriptPath = LockOn_Options.script_path
 ## time
 Table containing the current time (hours, minutes, seconds).
 
-### Usage
+**Usage**
 ```lua
 local time = LockOn_Options.time
 -- time.hours, time.minutes, time.seconds

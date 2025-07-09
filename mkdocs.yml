@@ -10,3 +10,18 @@ markdown_extensions:
 extra_css:
   - css/extra.css
 
+nav:
+  - Home: index.md
+  - Aircraft Lua:
+      - Devices:
+          - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md
+          - avSimpleWeaponSystem: Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+      - LockOn_Options: Aircraft/Lua/LockOnOptions.md
+      - Modules:
+          - Terrain: Aircraft/Lua/Modules/Terrain.md
+
+  - ED Blender Exporter:
+      - Overview: EDM Export/Overview.md
+      - Mesh: EDM Export/Mesh.md
+      - Animations: EDM Export/Animations.md
+      - Lights: EDM Export/Lights.md
