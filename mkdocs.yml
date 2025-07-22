@@ -6,19 +6,27 @@ markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.blocks.caption
+  - toc:
+        permalink: "#"
 
 extra_css:
   - css/extra.css
 
 nav:
   - Home: index.md
+  - Database:
+    - wsTypes: Database/wsTypes.md
   - Aircraft Lua:
-      - Devices:
-          - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md
-          - avSimpleWeaponSystem: Aircraft/Lua/Devices/avSimpleWeaponSystem.md
-      - LockOn_Options: Aircraft/Lua/LockOnOptions.md
-      - Modules:
-          - Terrain: Aircraft/Lua/Modules/Terrain.md
+    - LockOn_Options: Aircraft/Lua/LockOnOptions.md
+    - Modules:
+      - Terrain: Aircraft/Lua/Modules/Terrain.md
+    - Devices:
+      - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md
+      - avSimpleWeaponSystem: Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+    - Indicators:
+      - Drawing: Aircraft/Lua/Indicators/drawing.md
+      - Controllers: Aircraft/Lua/Indicators/controllers.md
+
 
   - ED Blender Exporter:
       - Overview: EDM-Export/Overview.md

@@ -4,6 +4,14 @@
   width: 100%;
 }
 
+.admonition{
+  border-radius: 0 0 5px 5px;
+}
+
+.admonition-title {
+  border-radius: 5px 5px 0 0;
+}
+
 img {
   border-radius: 10px;
 }
