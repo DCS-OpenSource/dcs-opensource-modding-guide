@@ -77,6 +77,7 @@ Project/
     └─ cube.png
 ```
 
+
 ## RoughMets and Normals
 
 Adding RoughMets and Normals is simple.  
@@ -100,3 +101,6 @@ While not necessary, you can bake all LODs (Level of Detail) and the collision m
 
 Starting with an `EXPORT` Collection, then having sub-collections for collision, and `LOD_{LOD_NUMBER}_{LOD_DISTANCE_IN_M}` (eg. `LOD_0_50`).
 Each sub collection should have a copy of the mesh, and they should not share animations or parents. Duplicate the animation empties, then re-apply the actions to the new empties.
+
+---
+
