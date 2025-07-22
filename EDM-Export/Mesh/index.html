@@ -44,8 +44,21 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Database/wsTypes/">wsTypes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Aircraft/Lua/LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" >Devices</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avLuaDevice/">avLuaDevice</a>
@@ -54,11 +67,11 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../Aircraft/Lua/LockOnOptions/">LockOn_Options</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Modules/Terrain/">Terrain</a>
+                <li class="toctree-l2"><a class="" href="../../Aircraft/Lua/Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Indicators/controllers/">Controllers</a>
                 </li>
     </ul>
                   </li>
@@ -116,10 +129,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="exporting-a-mesh-to-dcs">Exporting A Mesh to DCS</h1>
-<h2 id="preparing-the-material">Preparing the Material</h2>
-<p>To export your first mesh into the .edm format, start with a blank blender cube, as seen below.</p>
+                <h1 id="exporting-a-mesh-to-dcs">Exporting A Mesh to DCS<a class="headerlink" href="#exporting-a-mesh-to-dcs" title="Permanent link">#</a></h1>
+<h2 id="preparing-the-material">Preparing the Material<a class="headerlink" href="#preparing-the-material" title="Permanent link">#</a></h2>
+<p>To export your first mesh into the .edm format, start with a blank blender cube, as seen below. </p>
+<p>The "Front" of your model faces positive X, so be sure to face the nose of your vehicle or aircraft towards positive X.</p>
 <p><img alt="Blank Blender Cube" src="../images/image.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure your mesh has its Rotation and scale applied, this can be done by selecting your mesh, pressing <code>CTRL + A</code> and selecting <code>Rotation and Scale</code></p>
+</div>
 <p>Switch to the shading tab, if the cube does not have a material by default, create one.</p>
 <p><img alt="alt text" src="../images/shading_tab.png" /></p>
 <p>Next, We will need to configure the material nodes with the EDM Materials.</p>
@@ -129,22 +147,22 @@
 <p>With the <em>EDM_Default_Material</em> Node in place, connect the BSDF point of the EDM material to the Surface point of the <em>Material Output</em>. An example of this can be seen below.</p>
 <p><img alt="alt text" src="../images/edm_material.png" /></p>
 <hr />
-<h2 id="exporting-to-edm">Exporting to EDM</h2>
+<h2 id="exporting-to-edm">Exporting to EDM<a class="headerlink" href="#exporting-to-edm" title="Permanent link">#</a></h2>
 <p>We're now ready to export our cube to an .edm file!<br />
 Navigate to <code>File &gt; Export &gt; Eagle Dynamics Model (.edm)</code><br />
 Then Name and save your file in your desired location by clicking <em>export to EDM</em></p>
 <p><img alt="alt text" src="../images/export_edm.png" /></p>
-<h2 id="opening-in-modelviewer">Opening in ModelViewer</h2>
+<h2 id="opening-in-modelviewer">Opening in ModelViewer<a class="headerlink" href="#opening-in-modelviewer" title="Permanent link">#</a></h2>
 <p>Open ModelViewer, and go to <code>File &gt; Load Model</code> or <code>CTRL + N</code><br />
 Navigate to your edm file, select it, then press load</p>
 <p><img alt="alt text" src="../images/load_model.png" /></p>
 <p>You should now see a white cube, very similar to the image below.</p>
 <p><img alt="alt text" src="../images/mv_cube.png" /></p>
-<h2 id="multiple-meshesmaterials">Multiple Meshes/Materials</h2>
+<h2 id="multiple-meshesmaterials">Multiple Meshes/Materials<a class="headerlink" href="#multiple-meshesmaterials" title="Permanent link">#</a></h2>
 <p>Any object with an EDM material assigned will export to DCS, if you add a second mesh, assign either your existing EDM material, or add a new one, and it will export to DCS</p>
-<h2 id="multiple-materials-per-mesh">Multiple Materials per Mesh</h2>
+<h2 id="multiple-materials-per-mesh">Multiple Materials per Mesh<a class="headerlink" href="#multiple-materials-per-mesh" title="Permanent link">#</a></h2>
 <p>The ED Exporter supports multiple materials per mesh, there is nothing special needed to setup, just all materials in the mesh need to be configured to be EDM materials.</p>
-<h2 id="adding-a-texture">Adding a Texture</h2>
+<h2 id="adding-a-texture">Adding a Texture<a class="headerlink" href="#adding-a-texture" title="Permanent link">#</a></h2>
 <p>Back in the node editor, go to <code>Add &gt; Texture &gt; Image Texture</code><br />
 Then connect the Color and Alpha points on the image texture to the Base Color and Base Alpha points of the EDM Material<br />
 Select your image in the Image Texture Node. Your project should look similar to the image below.</p>
@@ -163,7 +181,7 @@ Then close and re-poen modelviewer, and reload your EDM file</p>
 └─ Textures/
     └─ cube.png
 </code></pre>
-<h2 id="roughmets-and-normals">RoughMets and Normals</h2>
+<h2 id="roughmets-and-normals">RoughMets and Normals<a class="headerlink" href="#roughmets-and-normals" title="Permanent link">#</a></h2>
 <p>Adding RoughMets and Normals is simple.<br />
 Add two more Image Texture nodes.<br />
 Connect the color point of one to <em>RoughMet (Non-Color)</em> and the color point on the other to <em>Normal (Non-Color)</em><br />
@@ -175,7 +193,7 @@ The result should look like:</p>
 <p>Setting the <code>Color Space</code> fields of the RoughMet and Normal nodes to <code>Non-Color</code> will make blender render the textures properly.<br />
 However not setting this will not affect the resulting edm export, so can be safely ignored</p>
 </div>
-<h2 id="blender-project-structre">Blender Project Structre</h2>
+<h2 id="blender-project-structre">Blender Project Structre<a class="headerlink" href="#blender-project-structre" title="Permanent link">#</a></h2>
 <p>While not necessary, you can bake all LODs (Level of Detail) and the collision model into one .edm file.</p>
 <p><img alt="alt text" src="../images/collections.png" /></p>
 <p>Starting with an <code>EXPORT</code> Collection, then having sub-collections for collision, and <code>LOD_{LOD_NUMBER}_{LOD_DISTANCE_IN_M}</code> (eg. <code>LOD_0_50</code>).

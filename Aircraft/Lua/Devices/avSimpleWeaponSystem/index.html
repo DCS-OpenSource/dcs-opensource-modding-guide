@@ -44,21 +44,80 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" >Devices</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../avLuaDevice/">avLuaDevice</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">avSimpleWeaponSystem</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Modules</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Devices</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">avSimpleWeaponSystem</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#loading-the-device">Loading the Device</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#useful-bits">Useful bits</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#wstypes">wsTypes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-reference">API Reference</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#setdamage">SetDamage()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#drop_chaff">drop_chaff()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#drop_flare">drop_flare()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_chaff_count">get_chaff_count()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_flare_count">get_flare_count()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#emergency_jettison">emergency_jettison()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#emergency_jettison_rack">emergency_jettison_rack()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_station_info">get_station_info()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#launch_station">launch_station()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#select_station">select_station()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set_ecm_status">set_ECM_status()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_ecm_status">get_ECM_status()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set_target_range">set_target_range()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set_target_span">set_target_span()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_target_range">get_target_range()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_target_span">get_target_span()</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
                 </li>
     </ul>
                   </li>
@@ -99,13 +158,167 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="avsimpleweaponsystem">avSimpleWeaponSystem<a class="headerlink" href="#avsimpleweaponsystem" title="Permanent link">#</a></h1>
+<p>avSimpleWeaponSystem serves as the modders method of interacting with weapons, rearming etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the standard functions from <a href="../avLuaDevice">avLuaDevice</a> are available in avSimpleWeapon System such as update() or SetCommand()</p>
+</div>
+<hr />
+<h2 id="loading-the-device">Loading the Device<a class="headerlink" href="#loading-the-device" title="Permanent link">#</a></h2>
+<p>The device should be configured in <code>device_init.lua</code> as normal, but with <code>"avSimpleWeaponSystem"</code> instead of <code>"avLuaDevice"</code></p>
+<pre><code class="language-lua">creators[devices.WEAPON_SYSTEM]   = {&quot;avSimpleWeaponSystem&quot;    ,LockOn_Options.script_path..&quot;Systems/weapon_system.lua&quot;}
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To use any of the functions listed below, you must add <code>local dev = GetSelf()</code>  to the top of your file, this allows you to access the weapon functions from avSimpleWeaponSystem</p>
+<p>All functions are Zero Indexed, so interacting with Pylon 1 would be done with <code>dev:get_station_info(0)</code></p>
+</div>
+<hr />
+<h2 id="useful-bits">Useful bits<a class="headerlink" href="#useful-bits" title="Permanent link">#</a></h2>
+<h3 id="wstypes">wsTypes<a class="headerlink" href="#wstypes" title="Permanent link">#</a></h3>
+<p>Loading the <a href="../../../../Database/wsTypes/">wsTypes.lua</a> file from the core allows you to reference weapons by type</p>
+<pre><code class="language-lua">dofile(LockOn_Options.common_script_path..&quot;../../../Database/wsTypes.lua&quot;)
+</code></pre>
+<p>This is useful for determining weapon category in <a href="#get_station_info">get_station_info()</a></p>
+<hr />
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">#</a></h2>
+<p>Below are the available functions for <code>avSimpleWeaponSystem</code>:<br />
+Functions marked with <strong>[UNVERIFIED]</strong> are untested, feel free to contribute fixes.</p>
+<hr />
+<h3 id="setdamage">SetDamage()<a class="headerlink" href="#setdamage" title="Permanent link">#</a></h3>
+<p><strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="drop_chaff">drop_chaff()<a class="headerlink" href="#drop_chaff" title="Permanent link">#</a></h3>
+<p>Dispenses a specified number of chaff cartridges from a given dispenser.<br />
+<em>See also</em>: <code>chaff_flare_dispenser</code> in the aircraft definition.
+<strong>[UNVERIFIED]</strong></p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h4>
+<ul>
+<li><code>count</code> (number): Number of chaff cartridges to release.</li>
+<li><code>dispenser</code> (number): Index of the chaff dispenser to use.</li>
+</ul>
+<hr />
+<h3 id="drop_flare">drop_flare()<a class="headerlink" href="#drop_flare" title="Permanent link">#</a></h3>
+<p>Dispenses a specified number of flares from a given dispenser.<br />
+<em>See also</em>: <code>chaff_flare_dispenser</code> in the aircraft definition.
+<strong>[UNVERIFIED]</strong></p>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
+<ul>
+<li><code>count</code> (number): Number of flares to release.</li>
+<li><code>dispenser</code> (number): Index of the flare dispenser to use.</li>
+</ul>
+<hr />
+<h3 id="get_chaff_count">get_chaff_count()<a class="headerlink" href="#get_chaff_count" title="Permanent link">#</a></h3>
+<p>Returns the current number of chaff cartridges available.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="get_flare_count">get_flare_count()<a class="headerlink" href="#get_flare_count" title="Permanent link">#</a></h3>
+<p>Returns the current number of flares available.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="emergency_jettison">emergency_jettison()<a class="headerlink" href="#emergency_jettison" title="Permanent link">#</a></h3>
+<p>Jettison either all stores, or specific stores if parsed a pylon number</p>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
+<ul>
+<li><code>index</code> (number, <em>optional</em>): Zero-indexed pylon number to jettison stores from. If omitted, all stores will be jettisoned.</li>
+</ul>
+<hr />
+<h3 id="emergency_jettison_rack">emergency_jettison_rack()<a class="headerlink" href="#emergency_jettison_rack" title="Permanent link">#</a></h3>
+<p>Jettisons the entire weapon rack in an emergency.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="get_station_info">get_station_info()<a class="headerlink" href="#get_station_info" title="Permanent link">#</a></h3>
+<p>Returns a table of information about the indexed pylon
+See <a href="#wstypes">wsTypes</a> above</p>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h4>
+<ul>
+<li><code>index</code> (number): Zero indexed pylon number</li>
+</ul>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
+<pre><code class="language-lua">-- Rocket pod example
+-- resulting table
+station_info = {
+    wsType = {
+        level1 = 4,     -- wsType_Weapon
+        level2 = 7,     -- wsType_NURS
+        level3 = 32,    -- wsType_Container
+        level4 = 358,   -- ???
+    },
+    adapter = {
+        level1 = 0,
+        level2 = 0,
+        level3 = 0,
+        level4 = 0,
+    },
+    weapon = {
+        level1 = 4,     -- wsType_Weapon
+        level2 = 7,     -- wsType_NURS
+        level3 = 33,    -- wsType_Rocket
+        level4 = 276,   -- ???
+    },
+    CLSID = &quot;{LAU68_FFAR_MK5HEAT}&quot;
+    count = 7           -- how many weapons are in the container
+    container = true
+}
+</code></pre>
+<h4 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h4>
+<pre><code class="language-lua">local dev = GetSelf()
+
+local pylon = dev:get_station_info(0) -- returns pylon1 info
+</code></pre>
+<hr />
+<h3 id="launch_station">launch_station()<a class="headerlink" href="#launch_station" title="Permanent link">#</a></h3>
+<p>Launches the weapon from the specified station.</p>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">#</a></h4>
+<ul>
+<li><code>station</code> (number): Zero Indexed station number to launch from.</li>
+</ul>
+<h4 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h4>
+<pre><code class="language-lua">local dev = GetSelf()
+
+local pylon = dev:launch_station(0) -- launch pylon1
+</code></pre>
+<hr />
+<h3 id="select_station">select_station()<a class="headerlink" href="#select_station" title="Permanent link">#</a></h3>
+<p>Selects the specified weapon station.<br />
+<strong>[[UNVERIFIED]]</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of right now, not sure the use of this, since other functions such as launch or info take an index parameter</p>
+</div>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">#</a></h4>
+<ul>
+<li><code>station</code> (number): The station number to select.</li>
+</ul>
+<hr />
+<h3 id="set_ecm_status">set_ECM_status()<a class="headerlink" href="#set_ecm_status" title="Permanent link">#</a></h3>
+<p>Sets the status of the ECM system. <strong>[[UNVERIFIED]]</strong></p>
+<hr />
+<h3 id="get_ecm_status">get_ECM_status()<a class="headerlink" href="#get_ecm_status" title="Permanent link">#</a></h3>
+<p>Returns the current status of the Electronic Countermeasure (ECM) system.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="set_target_range">set_target_range()<a class="headerlink" href="#set_target_range" title="Permanent link">#</a></h3>
+<p>Sets the target range for the weapon system. <strong>[[UNVERIFIED]]</strong></p>
+<hr />
+<h3 id="set_target_span">set_target_span()<a class="headerlink" href="#set_target_span" title="Permanent link">#</a></h3>
+<p>Sets the target span for the weapon system. <strong>[[UNVERIFIED]]</strong></p>
+<hr />
+<h3 id="get_target_range">get_target_range()<a class="headerlink" href="#get_target_range" title="Permanent link">#</a></h3>
+<p>Returns the current target range set in the weapon system.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
+<h3 id="get_target_span">get_target_span()<a class="headerlink" href="#get_target_span" title="Permanent link">#</a></h3>
+<p>Returns the current target span set in the weapon system.
+<strong>[UNVERIFIED]</strong></p>
+<hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../avLuaDevice/" class="btn btn-neutral float-left" title="avLuaDevice"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../LockOnOptions/" class="btn btn-neutral float-right" title="LockOn_Options">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Indicators/controllers/" class="btn btn-neutral float-right" title="Controllers">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -131,7 +344,7 @@
       <span><a href="../avLuaDevice/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../LockOnOptions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../Indicators/controllers/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

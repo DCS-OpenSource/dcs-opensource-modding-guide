@@ -44,16 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" >Modules</a>
@@ -126,6 +123,22 @@
                 </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
               <ul>
@@ -163,8 +176,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="terrain-module">Terrain Module</h1>
-<h2 id="loading-the-module">Loading the module</h2>
+                <h1 id="terrain-module">Terrain Module<a class="headerlink" href="#terrain-module" title="Permanent link">#</a></h1>
+<h2 id="loading-the-module">Loading the module<a class="headerlink" href="#loading-the-module" title="Permanent link">#</a></h2>
 <pre><code class="language-lua">    local Terrain = require(&quot;terrain&quot;)
 </code></pre>
 <div class="admonition warning">
@@ -335,7 +348,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="create">Create</h2>
+<h2 id="create">Create<a class="headerlink" href="#create" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.Create()
 </code></pre>
@@ -346,7 +359,7 @@
 Terrain.Create()
 </code></pre>
 <hr />
-<h2 id="findnearestpoint">FindNearestPoint</h2>
+<h2 id="findnearestpoint">FindNearestPoint<a class="headerlink" href="#findnearestpoint" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">px, py = Terrain.FindNearestPoint(x, y, range)
 </code></pre>
@@ -363,7 +376,7 @@ local roadX, roadY = Terrain.FindNearestPoint(playerX, playerY, 2000)
 print(&quot;Snap to road at:&quot;, roadX, roadY)
 </code></pre>
 <hr />
-<h2 id="findoptimalpath">FindOptimalPath</h2>
+<h2 id="findoptimalpath">FindOptimalPath<a class="headerlink" href="#findoptimalpath" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">pathTable = Terrain.FindOptimalPath(x1, y1, x2, y2)
 </code></pre>
@@ -381,7 +394,7 @@ for i, pt in ipairs(route) do
 end
 </code></pre>
 <hr />
-<h2 id="getheight">GetHeight</h2>
+<h2 id="getheight">GetHeight<a class="headerlink" href="#getheight" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">h = Terrain.GetHeight(x, y)
 </code></pre>
@@ -396,7 +409,7 @@ Quickly sample the terrain elevation.<br />
 print(&quot;Elevation is&quot;, elev, &quot;m&quot;)
 </code></pre>
 <hr />
-<h2 id="getmgrscoordinates">GetMGRScoordinates</h2>
+<h2 id="getmgrscoordinates">GetMGRScoordinates<a class="headerlink" href="#getmgrscoordinates" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">mgrs = Terrain.GetMGRScoordinates(x, y)
 </code></pre>
@@ -411,7 +424,7 @@ Convert from simulation-space meters to a human-readable MGRS coordinate.<br />
 print(&quot;Grid:&quot;, gridRef)
 </code></pre>
 <hr />
-<h2 id="getseasons">GetSeasons</h2>
+<h2 id="getseasons">GetSeasons<a class="headerlink" href="#getseasons" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">seasons = Terrain.GetSeasons()
 </code></pre>
@@ -425,7 +438,7 @@ print(&quot;Grid:&quot;, gridRef)
 end
 </code></pre>
 <hr />
-<h2 id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</h2>
+<h2 id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed<a class="headerlink" href="#getsurfaceheightwithseabed" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, y)
 </code></pre>
@@ -441,7 +454,7 @@ end
 print(&quot;Water at&quot;, surf, &quot;m, seabed&quot;, d, &quot;m below&quot;)
 </code></pre>
 <hr />
-<h2 id="getsurfacetype">GetSurfaceType</h2>
+<h2 id="getsurfacetype">GetSurfaceType<a class="headerlink" href="#getsurfacetype" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">stype = Terrain.GetSurfaceType(x, y)
 </code></pre>
@@ -456,7 +469,7 @@ Detect what kind of surface occupies a coordinate.
 print(&quot;Surface is&quot;, mat)
 </code></pre>
 <hr />
-<h2 id="getterrainconfig">GetTerrainConfig</h2>
+<h2 id="getterrainconfig">GetTerrainConfig<a class="headerlink" href="#getterrainconfig" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">cfg = Terrain.GetTerrainConfig(type)
 </code></pre>
@@ -471,7 +484,7 @@ print(&quot;Surface is&quot;, mat)
 print(&quot;Airfield NE bound:&quot;, airCfg.NE_bound.x, airCfg.NE_bound.y)
 </code></pre>
 <hr />
-<h2 id="init">Init</h2>
+<h2 id="init">Init<a class="headerlink" href="#init" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.Init(terrain_config, reason, date)
 </code></pre>
@@ -486,7 +499,7 @@ print(&quot;Airfield NE bound:&quot;, airCfg.NE_bound.x, airCfg.NE_bound.y)
 Terrain.Init(cfg, &quot;mission_start&quot;, { year=2025, month=7, day=7 })
 </code></pre>
 <hr />
-<h2 id="initlight">InitLight</h2>
+<h2 id="initlight">InitLight<a class="headerlink" href="#initlight" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.InitLight(terrain_config, reason, date)
 </code></pre>
@@ -500,7 +513,7 @@ Terrain.Init(cfg, &quot;mission_start&quot;, { year=2025, month=7, day=7 })
 <pre><code class="language-lua">Terrain.InitLight(airCfg, &quot;time_change&quot;, { year=2025, month=12, day=1 })
 </code></pre>
 <hr />
-<h2 id="release">Release</h2>
+<h2 id="release">Release<a class="headerlink" href="#release" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.Release()
 </code></pre>
@@ -510,7 +523,7 @@ Terrain.Init(cfg, &quot;mission_start&quot;, { year=2025, month=7, day=7 })
 <pre><code class="language-lua">Terrain.Release()
 </code></pre>
 <hr />
-<h2 id="convertlatlontometers">convertLatLonToMeters</h2>
+<h2 id="convertlatlontometers">convertLatLonToMeters<a class="headerlink" href="#convertlatlontometers" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">x, y = Terrain.convertLatLonToMeters(lat, lon)
 </code></pre>
@@ -524,7 +537,7 @@ Project WGS84 lat/lon into the simulator’s local flat coordinate system.<br />
 <pre><code class="language-lua">local mx, my = Terrain.convertLatLonToMeters(34.0522, -118.2437)
 </code></pre>
 <hr />
-<h2 id="convertmgrstometers">convertMGRStoMeters</h2>
+<h2 id="convertmgrstometers">convertMGRStoMeters<a class="headerlink" href="#convertmgrstometers" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">x, y = Terrain.convertMGRStoMeters(mgrs)
 </code></pre>
@@ -538,7 +551,7 @@ Inverse of GetMGRScoordinates.<br />
 <pre><code class="language-lua">local ux, uy = Terrain.convertMGRStoMeters(&quot;33TUN1234567890&quot;)
 </code></pre>
 <hr />
-<h2 id="convertmeterstolatlon">convertMetersToLatLon</h2>
+<h2 id="convertmeterstolatlon">convertMetersToLatLon<a class="headerlink" href="#convertmeterstolatlon" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">lat, lon = Terrain.convertMetersToLatLon(x, y)
 </code></pre>
@@ -552,7 +565,7 @@ Inverse map projection back to WGS84.<br />
 <pre><code class="language-lua">local φ, λ = Terrain.convertMetersToLatLon(400000, 5000000)
 </code></pre>
 <hr />
-<h2 id="findpathonroads">findPathOnRoads</h2>
+<h2 id="findpathonroads">findPathOnRoads<a class="headerlink" href="#findpathonroads" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">pathTable = Terrain.findPathOnRoads(type, x1, y1, x2, y2)
 </code></pre>
@@ -567,7 +580,7 @@ Inverse map projection back to WGS84.<br />
 <pre><code class="language-lua">local trainRoute = Terrain.findPathOnRoads(&quot;railroads&quot;, 1000, 2000, 8000, 9000)
 </code></pre>
 <hr />
-<h2 id="getbeacons">getBeacons</h2>
+<h2 id="getbeacons">getBeacons<a class="headerlink" href="#getbeacons" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">beacons = Terrain.getBeacons()
 </code></pre>
@@ -581,7 +594,7 @@ Enumerate nav-beacons placed in the terrain.<br />
 end
 </code></pre>
 <hr />
-<h2 id="getclosestpointonroads">getClosestPointOnRoads</h2>
+<h2 id="getclosestpointonroads">getClosestPointOnRoads<a class="headerlink" href="#getclosestpointonroads" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">px, py = Terrain.getClosestPointOnRoads(type, x, y)
 </code></pre>
@@ -596,7 +609,7 @@ end
 <pre><code class="language-lua">local rx, ry = Terrain.getClosestPointOnRoads(&quot;roads&quot;, 12345, 67890)
 </code></pre>
 <hr />
-<h2 id="getclosestvalidpoint">getClosestValidPoint</h2>
+<h2 id="getclosestvalidpoint">getClosestValidPoint<a class="headerlink" href="#getclosestvalidpoint" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">px, py = Terrain.getClosestValidPoint(type, x, y)
 </code></pre>
@@ -611,7 +624,7 @@ end
 <pre><code class="language-lua">local fx, fy = Terrain.getClosestValidPoint(&quot;land&quot;, helicopterX, helicopterY)
 </code></pre>
 <hr />
-<h2 id="getcrossparam">getCrossParam</h2>
+<h2 id="getcrossparam">getCrossParam<a class="headerlink" href="#getcrossparam" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">param = Terrain.getCrossParam()
 </code></pre>
@@ -624,7 +637,7 @@ Only for advanced use—internal terrain tuning.<br />
 print(&quot;Cross param:&quot;, cp)
 </code></pre>
 <hr />
-<h2 id="getobjectposition">getObjectPosition</h2>
+<h2 id="getobjectposition">getObjectPosition<a class="headerlink" href="#getobjectposition" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">ox, oy = Terrain.getObjectPosition(obj)
 </code></pre>
@@ -638,7 +651,7 @@ print(&quot;Cross param:&quot;, cp)
 <pre><code class="language-lua">local x, y = Terrain.getObjectPosition(myVehicle)
 </code></pre>
 <hr />
-<h2 id="getobjectsatmappoint">getObjectsAtMapPoint</h2>
+<h2 id="getobjectsatmappoint">getObjectsAtMapPoint<a class="headerlink" href="#getobjectsatmappoint" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">list = Terrain.getObjectsAtMapPoint(mapX, mapY)
 </code></pre>
@@ -653,7 +666,7 @@ print(&quot;Cross param:&quot;, cp)
 print(&quot;Found&quot;, #objs, &quot;objects&quot;)
 </code></pre>
 <hr />
-<h2 id="getradio">getRadio</h2>
+<h2 id="getradio">getRadio<a class="headerlink" href="#getradio" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">radios = Terrain.getRadio(roadnet)
 </code></pre>
@@ -668,7 +681,7 @@ Obtain tower/ground/approach frequencies.<br />
 print(freqs.tower, freqs.ground)
 </code></pre>
 <hr />
-<h2 id="getrunwayheading">getRunwayHeading</h2>
+<h2 id="getrunwayheading">getRunwayHeading<a class="headerlink" href="#getrunwayheading" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">hdg = Terrain.getRunwayHeading(roadnet)
 </code></pre>
@@ -683,7 +696,7 @@ Useful for HUD wind-correction and runway-alignment cues.<br />
 print(&quot;Runway heading:&quot;, rHdg)
 </code></pre>
 <hr />
-<h2 id="getrunwaylist">getRunwayList</h2>
+<h2 id="getrunwaylist">getRunwayList<a class="headerlink" href="#getrunwaylist" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">runways = Terrain.getRunwayList(roadnet)
 </code></pre>
@@ -702,7 +715,7 @@ Enumerate all runways at the specified airfield, returning their endpoints and h
 end
 </code></pre>
 <hr />
-<h2 id="getstandlist">getStandList</h2>
+<h2 id="getstandlist">getStandList<a class="headerlink" href="#getstandlist" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">stands = Terrain.getStandList(roadnet)
 </code></pre>
@@ -717,7 +730,7 @@ Get gate and parking-spot positions.<br />
 print(&quot;First stand at&quot;, gates[1].x, gates[1].y)
 </code></pre>
 <hr />
-<h2 id="gettechskinbydate">getTechSkinByDate</h2>
+<h2 id="gettechskinbydate">getTechSkinByDate<a class="headerlink" href="#gettechskinbydate" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">skin = Terrain.getTechSkinByDate(day, month)
 </code></pre>
@@ -731,7 +744,7 @@ Swap in historical or seasonal terrain skins.<br />
 <pre><code class="language-lua">local tex = Terrain.getTechSkinByDate(15, 8)  -- August 15
 </code></pre>
 <hr />
-<h2 id="gettempraturerangebydate">getTempratureRangeByDate</h2>
+<h2 id="gettempraturerangebydate">getTempratureRangeByDate<a class="headerlink" href="#gettempraturerangebydate" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">minT, maxT = Terrain.getTempratureRangeByDate(day, month)
 </code></pre>
@@ -746,7 +759,7 @@ Drive weather models or engine performance tables.<br />
 print(&quot;Dec 1 temps:&quot;, lo, &quot;to&quot;, hi)
 </code></pre>
 <hr />
-<h2 id="getterrainshpare">getTerrainShpare</h2>
+<h2 id="getterrainshpare">getTerrainShpare<a class="headerlink" href="#getterrainshpare" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">shape = Terrain.getTerrainShpare()
 </code></pre>
@@ -758,7 +771,7 @@ Undocumented; likely used for low-level mesh queries.<br />
 <pre><code class="language-lua">local mesh = Terrain.getTerrainShpare()
 </code></pre>
 <hr />
-<h2 id="isvisible">isVisible</h2>
+<h2 id="isvisible">isVisible<a class="headerlink" href="#isvisible" title="Permanent link">#</a></h2>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">visible = Terrain.isVisible(x1, alt1, y1, x2, alt2, y2)
 </code></pre>
@@ -779,7 +792,7 @@ end
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../../../EDM-Export/Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Devices/avLuaDevice/" class="btn btn-neutral float-right" title="avLuaDevice">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -805,7 +818,7 @@ end
       <span><a href="../../LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../../../EDM-Export/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../Devices/avLuaDevice/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

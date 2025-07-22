@@ -44,16 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../Devices/avLuaDevice/">avLuaDevice</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
-                </li>
-    </ul>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">LockOn_Options</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#avionics_language">avionics_language</a>
@@ -87,6 +84,22 @@
                   <li class="toctree-l1"><a class="reference internal" >Modules</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Indicators/controllers/">Controllers</a>
                 </li>
     </ul>
                   </li>
@@ -126,53 +139,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="lockon_options">LockOn_Options</h1>
+                <h1 id="lockon_options">LockOn_Options<a class="headerlink" href="#lockon_options" title="Permanent link">#</a></h1>
 <p>The <code>LockOn_Options</code> table provides several useful parameters and values.</p>
 <hr />
-<h2 id="avionics_language">avionics_language</h2>
+<h2 id="avionics_language">avionics_language<a class="headerlink" href="#avionics_language" title="Permanent link">#</a></h2>
 <p>String representation of avionics language</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local lang = LockOn_Options.avionics_language
 </code></pre>
 <hr />
-<h2 id="cockpit">cockpit</h2>
+<h2 id="cockpit">cockpit<a class="headerlink" href="#cockpit" title="Permanent link">#</a></h2>
 <p>Table containing cockpit-related options.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local cockpitOptions = LockOn_Options.cockpit
 </code></pre>
 <hr />
-<h2 id="cockpit_language">cockpit_language</h2>
+<h2 id="cockpit_language">cockpit_language<a class="headerlink" href="#cockpit_language" title="Permanent link">#</a></h2>
 <p>String representation of the cockpit language.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local cockpitLang = LockOn_Options.cockpit_language
 </code></pre>
 <hr />
-<h2 id="common_ground_script_path">common_ground_script_path</h2>
+<h2 id="common_ground_script_path">common_ground_script_path<a class="headerlink" href="#common_ground_script_path" title="Permanent link">#</a></h2>
 <p>String path to the CA (Combined Arms) cockpit scripts.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local caPath = LockOn_Options.common_ground_script_path
 </code></pre>
 <hr />
-<h2 id="common_script_path">common_script_path</h2>
+<h2 id="common_script_path">common_script_path<a class="headerlink" href="#common_script_path" title="Permanent link">#</a></h2>
 <p>String path to the common cockpit scripts.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local commonPath = LockOn_Options.common_script_path
 </code></pre>
 <hr />
-<h2 id="date">date</h2>
+<h2 id="date">date<a class="headerlink" href="#date" title="Permanent link">#</a></h2>
 <p>Table containing the current date (day, month, year).</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local date = LockOn_Options.date
 -- date.day, date.month, date.year
 </code></pre>
 <hr />
-<h2 id="flight">flight</h2>
+<h2 id="flight">flight<a class="headerlink" href="#flight" title="Permanent link">#</a></h2>
 <p>Table containing flight-related options.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local flightOptions = LockOn_Options.flight
 </code></pre>
 <hr />
-<h2 id="init_conditions">init_conditions</h2>
+<h2 id="init_conditions">init_conditions<a class="headerlink" href="#init_conditions" title="Permanent link">#</a></h2>
 <p>Get the state of the spawn. Useful for configuring your aircraft depending on the initial state.</p>
 <ul>
 <li>In Air Hot: <code>string | "AIR_HOT"</code></li>
@@ -189,32 +202,32 @@ else
 end
 </code></pre>
 <hr />
-<h2 id="measurement_system">measurement_system</h2>
+<h2 id="measurement_system">measurement_system<a class="headerlink" href="#measurement_system" title="Permanent link">#</a></h2>
 <p>String indicating the measurement system in use.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local system = LockOn_Options.measurement_system
 </code></pre>
 <hr />
-<h2 id="mission">mission</h2>
+<h2 id="mission">mission<a class="headerlink" href="#mission" title="Permanent link">#</a></h2>
 <p>Table containing mission-related options.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local mission = LockOn_Options.mission
 </code></pre>
 <hr />
-<h2 id="screen">screen</h2>
+<h2 id="screen">screen<a class="headerlink" href="#screen" title="Permanent link">#</a></h2>
 <p>Table containing screen parameters (aspect, height, width).</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local screen = LockOn_Options.screen
 -- screen.aspect, screen.height, screen.width
 </code></pre>
 <hr />
-<h2 id="script_path">script_path</h2>
+<h2 id="script_path">script_path<a class="headerlink" href="#script_path" title="Permanent link">#</a></h2>
 <p>String path to the cockpit scripts.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local scriptPath = LockOn_Options.script_path
 </code></pre>
 <hr />
-<h2 id="time">time</h2>
+<h2 id="time">time<a class="headerlink" href="#time" title="Permanent link">#</a></h2>
 <p>Table containing the current time (hours, minutes, seconds).</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local time = LockOn_Options.time
@@ -225,7 +238,7 @@ end
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Devices/avSimpleWeaponSystem/" class="btn btn-neutral float-left" title="avSimpleWeaponSystem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../Database/wsTypes/" class="btn btn-neutral float-left" title="wsTypes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../Modules/Terrain/" class="btn btn-neutral float-right" title="Terrain">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -249,7 +262,7 @@ end
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Devices/avSimpleWeaponSystem/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../../Database/wsTypes/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../Modules/Terrain/" style="color: #fcfcfc">Next &raquo;</a></span>
