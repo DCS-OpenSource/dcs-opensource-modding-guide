@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Modelviewer - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modelviewer";
+        var mkdocs_page_input_path = "UsefulBits\\ModelViewer.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Aircraft/Lua/LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Aircraft/Lua/Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Database/wsTypes/">wsTypes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Database/iCommands/">iCommands</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Useful bits</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Modelviewer</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#loading-textures">Loading Textures</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Useful bits</li>
+      <li class="breadcrumb-item active">Modelviewer</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modelviewer">ModelViewer<a class="headerlink" href="#modelviewer" title="Permanent link">#</a></h1>
+<h2 id="loading-textures">Loading Textures<a class="headerlink" href="#loading-textures" title="Permanent link">#</a></h2>
+<p>Some Additional configuration is needed to load textures from your custom EDMs.</p>
+<p>Navigate to <code>"C:\Users\{YOUR_USERNAME}\Saved Games\edModelViewerTrunk\"</code> and open the <code>autoexec.lua</code> file, if it doesn't exist, create it.</p>
+<p>Copy and paste this lua code into the <code>autoexec.lua</code> file.</p>
+<p>Then edit line 13 to point to your saved games/DCS install. This could look like:<br />
+<code>local saved_games_path = "C:/Users/{YOUR_USERNAME}/Saved Games/DCS/"</code><br />
+<code>local saved_games_path = "C:/Users/{YOUR_USERNAME}/Saved Games/DCS.OpenBeta/"</code></p>
+<p>Leave everything else untouched and you're good to go</p>
+<pre><code class="language-lua">log.set_output('animator-log', 'ANIMATOR', log.ALL, log.MESSAGE)
+--autoexecute sample for model viewer
+--mount_vfs_liveries_path(&quot;Mods/aircrafts/Wunderluft/Liveries&quot;)
+--mount_vfs_texture_path(&quot;Mods/aircrafts/Wunderluft/Textures/base_zip_package&quot;)
+
+
+--LoadModel(&quot;Bazar/World/Shapes/A-10.edm&quot;)
+--LoadLivery(&quot;A-10C&quot;,&quot;184th FS Arkansas ANG, Fort Smith (FS)&quot;)
+--SetArgument(0,1)
+--SetArgument(3,1)
+--SetArgument(5,0.75)
+
+local saved_games_path = &quot;C:/Users/username/Saved Games/DCS/&quot; -- Edit me with your Saved games path
+
+animator = 
+{
+    statistics_enabled = true;
+}
+
+
+local lfs = require(&quot;lfs&quot;)
+local function service_file(file)
+    return file == &quot;.&quot; or
+           file == &quot;..&quot; or 
+           file == &quot;.svn&quot; or 
+           file == &quot;_svn&quot; 
+end
+
+
+function scan_for_environment_cubes(path)
+    local lower_case = path:lower() 
+    for file in lfs.dir(path) do
+        if not service_file(file) then
+            local fn = path..&quot;/&quot;..file
+            local attrMode = lfs.attributes(fn, &quot;mode&quot;)
+            if attrMode == &quot;file&quot; then
+                local ext = string.sub(file,-4) 
+                if '.dds' == ext then
+                    AddEnvironmentMap(file)
+                end
+            end
+        end
+    end
+end
+
+
+function scan_for_textures(path)
+    local lower_case      = path:lower()
+    if lower_case:find(&quot;liveries&quot;) then
+       mount_vfs_liveries_path(path)  
+       return
+    end
+    local is_texture_path  = lower_case:find(&quot;texture&quot;) ~= nil
+    local mounted_already  = false 
+    for file in lfs.dir(path) do
+        if not service_file(file) then
+           local fn       = path..&quot;/&quot;..file
+           local attr     = lfs.attributes (fn)     
+           if attr.mode  == &quot;directory&quot; then
+              scan_for_textures(fn)
+           elseif is_texture_path then
+              local ext = string.sub(file,-4)
+              if '.zip' == ext then
+                    mount_vfs_texture_path(fn)          
+              elseif not mounted_already and (
+                 '.dds' == ext or
+                 '.bmp' == ext or
+                 '.jpg' == ext or
+                 '.png' == ext or
+                 '.tga' == ext) then
+                    mount_vfs_texture_path(path)
+                    mounted_already = false
+              end
+           end
+        end
+    end
+end
+
+
+function scan_for_environment_cubes(path)
+    local lower_case = path:lower() 
+    for file in lfs.dir(path) do
+        if not service_file(file) then
+            local fn = path..&quot;/&quot;..file
+            local attrMode = lfs.attributes(fn, &quot;mode&quot;)
+            if attrMode == &quot;file&quot; then
+                local ext = string.sub(file,-4) 
+                if '.dds' == ext then
+                    AddEnvironmentMap(file)
+                end
+            end
+        end
+    end
+end
+
+
+print(&quot;----------------------------------------------------------------&quot;)
+print(&quot;scan for environment cubes&quot;)
+print(&quot;----------------------------------------------------------------&quot;)
+scan_for_environment_cubes(&quot;Bazar/EffectViewer/envcubes&quot;)
+print(&quot;scan done&quot;)
+print(&quot;----------------------------------------------------------------&quot;)
+print(&quot;mount extra stuff&quot;)
+print(&quot;----------------------------------------------------------------&quot;)
+
+scan_for_textures(saved_games_path .. &quot;Mods&quot;)               -- Your path Check DCS or OpenBeta
+scan_for_textures(saved_games_path .. &quot;Mods/Aircraft&quot;)      -- Your path Check DCS or OpenBeta
+scan_for_textures(saved_games_path .. &quot;Mods/Tech&quot;)          -- Your path Check DCS or OpenBeta
+scan_for_textures(saved_games_path .. &quot;Liveries&quot;)           -- Your path Check DCS or OpenBeta
+
+
+print(&quot;scan done&quot;)
+print(&quot;----------------------------------------------------------------&quot;)
+
+
+mount_vfs_liveries_path     (saved_games_path .. &quot;Liveries&quot;)    -- Your path Check DCS or OpenBeta
+mount_vfs_textures_path     (saved_games_path .. &quot;Liveries&quot;)    -- Your path Check DCS or OpenBeta
+
+mount_vfs_liveries_path     (&quot;CoreMods/tech/USS_Nimitz/animations/liveries&quot;)
+mount_vfs_animations_path   (&quot;CoreMods/tech/USS_Nimitz/animations/animations&quot;)
+mount_vfs_models_path       (&quot;CoreMods/tech/USS_Nimitz/animations/models&quot;)
+mount_vfs_textures_path     (&quot;CoreMods/tech/USS_Nimitz/animations/textures&quot;)
+
+mount_vfs_liveries_path     (&quot;CoreMods/tech/Animals/Liveries&quot;)
+mount_vfs_models_path       (&quot;CoreMods/tech/Animals/models&quot;)
+mount_vfs_textures_path     (&quot;CoreMods/tech/Animals/Textures&quot;)
+mount_vfs_animations_path   (&quot;CoreMods/tech/Animals/animations&quot;)
+
+mount_vfs_models_path       (&quot;CoreMods/characters/models&quot;)
+mount_vfs_textures_path     (&quot;CoreMods/characters/textures&quot;)
+mount_vfs_animations_path   (&quot;CoreMods/characters/animations&quot;)
+mount_vfs_animations_path   (&quot;Mods/tech/WIP/Animations&quot;)
+mount_vfs_models_path       (&quot;Mods/tech/WIP/Shapes&quot;)
+
+mount_vfs_textures_path(&quot;Mods/terrains/Caucasus/Models/Communication/Communication.texture.zip&quot;) 
+
+mount_vfs_liveries_path     (saved_games_path .. &quot;Mods/Aircraft&quot;)   -- Your path Check DCS or OpenBeta
+mount_vfs_models_path       (saved_games_path .. &quot;Mods/Aircraft&quot;)   -- Your path Check DCS or OpenBeta
+mount_vfs_textures_path     (saved_games_path .. &quot;Mods/Aircraft&quot;)   -- Your path Check DCS or OpenBeta  
+mount_vfs_liveries_path     (saved_games_path .. &quot;Mods/Tech&quot;)       -- Your path Check DCS or OpenBeta
+mount_vfs_models_path       (saved_games_path .. &quot;Mods/Tech&quot;)       -- Your path Check DCS or OpenBeta
+mount_vfs_textures_path     (saved_games_path .. &quot;Mods/Tech&quot;)       -- Your path Check DCS or OpenBeta
+
+print(&quot;done&quot;)
+print(&quot;----------------------------------------------------------------&quot;)
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../Database/iCommands/" class="btn btn-neutral float-left" title="iCommands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../EDM-Export/Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../Database/iCommands/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../EDM-Export/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
