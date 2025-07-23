@@ -14,8 +14,7 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Database:
-    - wsTypes: Database/wsTypes.md
+  
   - Aircraft Lua:
     - LockOn_Options: Aircraft/Lua/LockOnOptions.md
     - Modules:
@@ -26,6 +25,11 @@ nav:
     - Indicators:
       - Drawing: Aircraft/Lua/Indicators/drawing.md
       - Controllers: Aircraft/Lua/Indicators/controllers.md
+  - Database:
+    - wsTypes: Database/wsTypes.md
+    - iCommands: Database/iCommands.md
+  - Useful bits:
+    - Modelviewer: UsefulBits/ModelViewer.md
 
 
   - ED Blender Exporter:
