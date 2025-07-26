@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>NavDataPlugin - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "NavDataPlugin";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Plugins\\NavDataPlugin.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/DeviceStubs/">Device Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Plugins</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">NavDataPlugin</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#download-and-install-guide">Download and install guide</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#git-submodule">.git submodule</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#manual-install">Manual Install</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-the-navdataplugin">Configure the NavdataPlugin:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#function-list">Function List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#function-details">Function Details</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#get_ils_beacons">get_ILS_beacons()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_tcn_beacons">get_TCN_beacons()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#get_vor_beacons">get_VOR_beacons()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getairports">getAirports()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sortairportsbydistancex-y">sortAirportsByDistance({x, y})</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-supplementation">Data Supplementation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-setup-data-supplementation">How to setup data supplementation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ToolsPlugin/">ToolsPlugin</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/iCommands/">iCommands</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Useful bits</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/ModelViewer/">Modelviewer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Aircraft Lua</li>
+          <li class="breadcrumb-item">Plugins</li>
+      <li class="breadcrumb-item active">NavDataPlugin</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="welcome-to-the-dcs-opensource-navdataplugin-wiki">Welcome to the DCS: OpenSource NavDataPlugin Wiki!<a class="headerlink" href="#welcome-to-the-dcs-opensource-navdataplugin-wiki" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>This contains installation instructions, and documentation to create the backend of a powerful navigation system using raw data from DCS.</p>
+<p><strong>Why does this exist?</strong>
+While all the functions to create this yourself are exposed in DCS Lua, they are chaotic and undocumented. This plugin streamlines the process, by doing the data collection for you, and collating it into one big table.</p>
+<hr />
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
+<ul>
+<li>Airport Data</li>
+<li>Beacon Data</li>
+<li>Supplemental Data replacement (to replace missing DCS Data or overwrite existing data)</li>
+<li>Helper functions for various useful tasks such as range sorting.</li>
+</ul>
+<hr />
+<h2 id="download-and-install-guide">Download and install guide<a class="headerlink" href="#download-and-install-guide" title="Permanent link">#</a></h2>
+<h3 id="git-submodule">.git submodule<a class="headerlink" href="#git-submodule" title="Permanent link">#</a></h3>
+<ol>
+<li>Navigate to <code>Cockpit/Scripts/</code> in your terminal</li>
+<li>Run <code>git submodule add https://github.com/DCS-OpenSource/NavDataPlugin.git</code></li>
+<li>commit the submodule file to your repo</li>
+</ol>
+<h3 id="manual-install">Manual Install<a class="headerlink" href="#manual-install" title="Permanent link">#</a></h3>
+<ol>
+<li>Download the latest release (the .zip, not source code)</li>
+<li>unzip, and place the folder in <code>Cockpit/Scripts/</code></li>
+<li>verify the relative path to Nav.lua is <code>Cockpit/Scripts/NavDataPlugin/Nav.lua</code></li>
+</ol>
+<hr />
+<h2 id="configure-the-navdataplugin">Configure the NavdataPlugin:<a class="headerlink" href="#configure-the-navdataplugin" title="Permanent link">#</a></h2>
+<pre><code class="language-lua">-- This allows the use of require statements. require uses . instead of / for folder sepparators.
+-- Require only loads the lua once saving loading time.
+package.path = package.path..&quot;;&quot;..LockOn_Options.script_path..&quot;?.lua&quot;
+package.path = package.path..&quot;;&quot;..LockOn_Options.common_script_path..&quot;?.lua&quot;
+
+require(&quot;NavDataPlugin.Nav&quot;)
+</code></pre>
+<h2 id="function-list">Function List<a class="headerlink" href="#function-list" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#get_ils_beacons"><code>get_ILS_beacons</code></a></td>
+<td><em>none</em></td>
+<td><code>table: ILS_beacons</code></td>
+<td>Returns ILS Beacons Table</td>
+</tr>
+<tr>
+<td><a href="#get_tcn_beacons"><code>get_TCN_beacons</code></a></td>
+<td><em>none</em></td>
+<td><code>table: TCN_beacons</code></td>
+<td>Returns TCN Beacons Table</td>
+</tr>
+<tr>
+<td><a href="#get_vor_beacons"><code>get_VOR_beacons</code></a></td>
+<td><em>none</em></td>
+<td><code>table: VOR_beacons</code></td>
+<td>Returns VOR Beacons Table</td>
+</tr>
+<tr>
+<td><a href="#getairports"><code>getAirports</code></a></td>
+<td><em>none</em></td>
+<td><code>table: filteredAirportData</code></td>
+<td>Returns Filtered Airport Data</td>
+</tr>
+<tr>
+<td><a href="#sortAirportsByDistance"><code>sortAirportsByDistance</code></a></td>
+<td><code>ownPos: {x, y}</code></td>
+<td><code>table: sortedAirportList</code></td>
+<td>Returns Sorted Airport table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="function-details">Function Details<a class="headerlink" href="#function-details" title="Permanent link">#</a></h2>
+<hr />
+<h3 id="get_ils_beacons">get_ILS_beacons()<a class="headerlink" href="#get_ils_beacons" title="Permanent link">#</a></h3>
+<p><strong>Description</strong><br />
+Returns all ILS beacons in the beacons file.</p>
+<p><strong>ILS Beacon Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>Beacon Type</th>
+<th style="text-align: center;">Integer Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEACON_TYPE_ILS_LOCALIZER</code></td>
+<td style="text-align: center;">16640</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_ILS_GLIDESLOPE</code></td>
+<td style="text-align: center;">16896</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_ILS_FAR_HOMER</code></td>
+<td style="text-align: center;">16408</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_ILS_NEAR_HOMER</code></td>
+<td style="text-align: center;">16424</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td><code>nil</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>table: ILS_beacons</code> - Table of ILS Beacons on the Map</p>
+<pre><code class="language-lua">-- Example of one entry in the returned table
+  [1] = {
+    type = 16896, -- matches beacon type table above
+    beaconId = &quot;airfield1_0&quot;,
+    positionGeo = {
+      longitude = -115.691917,
+      latitude = 36.585008,
+    },
+    sceneObjects = {
+      [1] = &quot;t:85164032&quot;,
+    },
+    display_name = &quot;Creech&quot;,
+    channel = 24,
+    direction = -88.617531,
+    position = {
+      [1] = -360394.21875,
+      [2] = 952.944679,
+      [3] = -76976.257813,
+    },
+    callsign = &quot;ICRR&quot;,
+    frequency = 108700000, -- 108.7
+  },
+</code></pre>
+<hr />
+<h3 id="get_tcn_beacons">get_TCN_beacons()<a class="headerlink" href="#get_tcn_beacons" title="Permanent link">#</a></h3>
+<p><strong>Description</strong><br />
+Returns all TCN beacons in the beacons file.</p>
+<p><strong>TCN Beacon Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>Beacon Type</th>
+<th style="text-align: center;">Integer Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEACON_TYPE_TACAN</code></td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_VORTAC</code></td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td><code>nil</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>table: TCN_beacons</code> - Table of TCN Beacons on the Map</p>
+<pre><code class="language-lua">-- Example of one entry in the returned table
+  [4] = {
+    type = 4, -- BEACON_TYPE_TACAN
+    beaconId = &quot;airfield4_1&quot;,
+    positionGeo = {
+      longitude = -115.025113,
+      latitude = 36.244644,
+    },
+    display_name = &quot;Nellis&quot;,
+    channel = 12,
+    sceneObjects = {
+      [1] = &quot;t:41518947&quot;,
+    },
+    direction = -141.002194,
+    position = {
+      [1] = -397135.9375,
+      [2] = 564.647598,
+      [3] = -16545.675781,
+    },
+    callsign = &quot;LSV&quot;,
+  },
+</code></pre>
+<hr />
+<h3 id="get_vor_beacons">get_VOR_beacons()<a class="headerlink" href="#get_vor_beacons" title="Permanent link">#</a></h3>
+<p><strong>Description</strong><br />
+Returns all VOR beacons in the beacons file.</p>
+<p><strong>VOR Beacon Types</strong></p>
+<table>
+<thead>
+<tr>
+<th>Beacon Type</th>
+<th style="text-align: center;">Integer Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEACON_TYPE_VOR</code></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_VOR_DME</code></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td><code>BEACON_TYPE_VORTAC</code></td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parameters</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td><code>nil</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>table: VOR_beacons</code> - Table of ILS Beacons on the Map</p>
+<pre><code class="language-lua">-- Example of one entry in the returned table
+  [1] = {
+    type = 5, -- BEACON_TYPE_VORTAC
+    beaconId = &quot;airfield3_4&quot;,
+    positionGeo = {
+      longitude = -115.159816,
+      latitude = 36.079576,
+    },
+    sceneObjects = {
+      [1] = &quot;t:69208390&quot;,
+    },
+    display_name = &quot;McCarran-International&quot;,
+    channel = 116,
+    direction = -179.199384,
+    position = {
+      [1] = -415686.09375,
+      [2] = 657.922167,
+      [3] = -28303.363281,
+    },
+    callsign = &quot;LAS&quot;,
+    frequency = 116900000,
+  },
+</code></pre>
+<hr />
+<h3 id="getairports">getAirports()<a class="headerlink" href="#getairports" title="Permanent link">#</a></h3>
+<p><strong>Description</strong><br />
+Returns all Airports on the map, with extra filtered data.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>none</em></td>
+<td><code>nil</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>table: Filtered Airport Data</code> - Table of Airport Data</p>
+<pre><code class="language-lua">Nellis = {
+    radioid = {
+      [1] = &quot;airfield4_0&quot;,
+    },
+    radios = {
+      radioId = &quot;airfield4_0&quot;,
+      uniform = 327,
+      victor = 132.55,
+    },
+    runways = {
+      [1] = {
+        runwayLength = 9454.0715925188,
+        runwayEnd1 = {
+          y = -18395.984375,
+          x = -399101.90625,
+        },
+        name = &quot;03L-21R&quot;,
+        runwayEnd2 = {
+          y = -16538.4921875,
+          x = -396898.875,
+        },
+      },
+      [2] = {
+        runwayLength = 9437.9092172239,
+        runwayEnd1 = {
+          y = -18160.181640625,
+          x = -399295.1875,
+        },
+        name = &quot;03R-21L&quot;,
+        runwayEnd2 = {
+          y = -16306.291992188,
+          x = -397095.5625,
+        },
+      },
+    },
+    positionLatLon = {
+      lon = -115.03300055101,
+      lat = 36.235224110884,
+    },
+    name = &quot;Nellis&quot;,
+    position = {
+      y = -17233.236816,
+      x = -398195.375,
+    },
+    beacons = {
+      [1] = {
+        beaconId = &quot;airfield4_1&quot;,
+      },
+      [2] = {
+        runwayName = &quot;03R-21L&quot;,
+        runwayId = 2,
+        runwaySide = &quot;21L&quot;,
+        beaconId = &quot;airfield4_2&quot;,
+      },
+      [0] = {
+        runwayName = &quot;03R-21L&quot;,
+        runwayId = 2,
+        runwaySide = &quot;21L&quot;,
+        beaconId = &quot;airfield4_0&quot;,
+      },
+    },
+    isCivilian = false,
+    ICAO = &quot;KLSV&quot;,
+  },
+</code></pre>
+<hr />
+<h3 id="sortairportsbydistancex-y">sortAirportsByDistance({x, y})<a class="headerlink" href="#sortairportsbydistancex-y" title="Permanent link">#</a></h3>
+<p><strong>Description</strong><br />
+Returns the same as <a href="#getairports"><code>getAirports()</code></a> but sorted by distance to the player or other defined point.</p>
+<p><strong>Parameters</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ownPos</code></td>
+<td><code>table</code></td>
+<td><code>{[1] = x, [2] = y}</code> Users current position</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>table: Filtered Airport Data</code> - Table of Airport Data</p>
+<pre><code class="language-lua">Nellis = {
+    -- All the same as getAirports() with the addition of two new fields
+    distanceToPlayerNM = 15.6 -- Distance from player to point in NM
+    bearingToPlayer = 330 -- Bearing from player in degrees
+  },
+</code></pre>
+<hr />
+<h2 id="data-supplementation">Data Supplementation<a class="headerlink" href="#data-supplementation" title="Permanent link">#</a></h2>
+<p>The Data DCS provides is often less than perfect, especially around radios on certain maps. Nellis (NTTR) and Caucasus work as expected, but ED seemingly updated the TDK after those maps, so data such as radios is hidden/inaccessable sometimes.</p>
+<p>To circumvent this, I added a way to add additional data to edit the dynamically aquired information.</p>
+<h3 id="how-to-setup-data-supplementation">How to setup data supplementation<a class="headerlink" href="#how-to-setup-data-supplementation" title="Permanent link">#</a></h3>
+<ul>
+<li>Make a new folder in your <code>Cockpit/Scripts/</code> folder called <code>NavDataPluginExtra</code></li>
+<li>Make sub folders for each map, the name should match the theatre name.<ul>
+<li>You can get the theatre name using:</li>
+<li>For NTTR this would look like <code>Cockpit/Scripts/NavDataPluginExtra/Nevada/</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lua">do_mission_file(&quot;mission&quot;) -- Load the mission file
+local theatre = mission.theatre -- map name string
+</code></pre>
+<ul>
+<li>Make a file in the new folder called <code>theatreName.lua</code> (in this example <code>Nevada.lua</code>)</li>
+<li>Paste the following into the file:</li>
+</ul>
+<pre><code class="language-lua">-- This Lua file contains an array of data to supplement the existing data pulled from DCS
+local Airports = {
+    [&quot;Nellis&quot;] = { -- This needs to match the airport name on the F10 Map
+        name = &quot;Nellis Air Force Base&quot;,
+        ICAO = &quot;KLSV&quot;,
+    }, 
+}
+return Airports -- Don't forget to include this at the bottom
+</code></pre>
+<ul>
+<li>You can edit every value, providing you match the format<ul>
+<li>Radio supplement example:</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-lua">[&quot;Groom Lake&quot;] = { -- Area 51
+    name = &quot;Homey Airport&quot;,
+    radios = {
+        uniform = 250.05,
+        victor = 118.00,
+    }
+}
+</code></pre>
+<ul>
+<li>The data is automatically supplemented, if the file exists, so no extra function calls needed</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../Indicators/controllers/" class="btn btn-neutral float-left" title="Controllers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../WeaponSystemPlugin/" class="btn btn-neutral float-right" title="WeaponSystemPlugin">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../Indicators/controllers/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../WeaponSystemPlugin/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

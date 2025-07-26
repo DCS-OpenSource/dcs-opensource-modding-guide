@@ -52,6 +52,8 @@
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../Stubs/DeviceStubs/">Device Stubs</a>
                 </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Modules</a>
@@ -119,6 +121,16 @@
                 <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/NavDataPlugin/">NavDataPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/ToolsPlugin/">ToolsPlugin</a>
                 </li>
     </ul>
                   </li>
@@ -294,12 +306,8 @@ local pylon = dev:launch_station(0) -- launch pylon1
 </code></pre>
 <hr />
 <h3 id="select_station">select_station()<a class="headerlink" href="#select_station" title="Permanent link">#</a></h3>
-<p>Selects the specified weapon station.<br />
+<p>Selects the specified weapon station, needed to activate seeker heads like AIM-9s etc.<br />
 <strong>[[UNVERIFIED]]</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As of right now, not sure the use of this, since other functions such as launch or info take an index parameter</p>
-</div>
 <h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">#</a></h4>
 <ul>
 <li><code>station</code> (number): The station number to select.</li>

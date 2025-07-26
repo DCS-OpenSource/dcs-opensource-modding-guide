@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Mainpanel Stubs - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Mainpanel Stubs";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Stubs\\MainPanelStubs.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Stubs</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../DeviceStubs/">Device Stubs</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Mainpanel Stubs</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/NavDataPlugin/">NavDataPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/ToolsPlugin/">ToolsPlugin</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/iCommands/">iCommands</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Useful bits</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/ModelViewer/">Modelviewer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Aircraft Lua</li>
+          <li class="breadcrumb-item">Stubs</li>
+      <li class="breadcrumb-item active">Mainpanel Stubs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="creategaugetype">CreateGauge(type)<a class="headerlink" href="#creategaugetype" title="Permanent link">#</a></h2>
+<p><strong>Description</strong><br />
+Creates a gauge object to drive animation arguments.</p>
+<p><strong>Parameters</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>string | nil</code></td>
+<td>Type of gauge: <code>nil</code>, <code>"parameter"</code>, <code>"cycled"</code>, or <code>"external_arg"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong><br />
+<code>Gauge</code> - A new gauge object.</p>
+<hr />
+<h2 id="gauge-class">Gauge (class)<a class="headerlink" href="#gauge-class" title="Permanent link">#</a></h2>
+<p><strong>Description</strong><br />
+Describes the configuration of a cockpit gauge animation.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arg_number</code></td>
+<td><code>number</code></td>
+<td>Argument number to be animated.</td>
+</tr>
+<tr>
+<td><code>input</code></td>
+<td><code>table</code></td>
+<td>Input range from controller or parameter (e.g. <code>{0, 1}</code>).</td>
+</tr>
+<tr>
+<td><code>output</code></td>
+<td><code>table</code></td>
+<td>Output animation range for the argument (e.g. <code>{0, 1}</code>).</td>
+</tr>
+<tr>
+<td><code>controller</code></td>
+<td><code>userdata | nil</code></td>
+<td>Controller object (from <code>LoRegisterPanelControls</code>) for types <code>nil</code>/<code>cycled</code>.</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td><code>table | nil</code></td>
+<td>Parameters for the controller function.</td>
+</tr>
+<tr>
+<td><code>parameter_name</code></td>
+<td><code>string | nil</code></td>
+<td>Parameter name (for type <code>"parameter"</code>).</td>
+</tr>
+<tr>
+<td><code>cycle_value</code></td>
+<td><code>number | nil</code></td>
+<td>Cycle value (for type <code>"cycled"</code>).</td>
+</tr>
+<tr>
+<td><code>external_arg</code></td>
+<td><code>number | nil</code></td>
+<td>External argument number (for type <code>"external_arg"</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="example-gauge">Example Gauge<a class="headerlink" href="#example-gauge" title="Permanent link">#</a></h3>
+<h4 id="using-a-controller">Using a Controller<a class="headerlink" href="#using-a-controller" title="Permanent link">#</a></h4>
+<pre><code class="language-lua">vsi = CreateGauge()
+vsi.arg_number = 48
+vsi.input = {-6000*ft_to_meter/60, 6000*ft_to_meter/60}
+vsi.output = {-1, 1}
+vsi.controller = controllers.base_gauge_VerticalVelocity
+</code></pre>
+<h4 id="using-a-parameter">Using a Parameter<a class="headerlink" href="#using-a-parameter" title="Permanent link">#</a></h4>
+<pre><code class="language-lua">CurrTime_hours                     = CreateGauge(&quot;parameter&quot;)
+CurrTime_hours.parameter_name      = &quot;CURRTIME_HOURS&quot;
+CurrTime_hours.arg_number          = 440
+CurrTime_hours.input               = {0.0, 12.0}
+CurrTime_hours.output              = {1.0, -1.0}
+</code></pre>
+<hr />
+<h2 id="loregisterpanelcontrols">LoRegisterPanelControls()<a class="headerlink" href="#loregisterpanelcontrols" title="Permanent link">#</a></h2>
+<p><strong>Description</strong><br />
+Returns the list of main panel controllers registered for the aircraft.</p>
+<p><strong>Returns</strong><br />
+<code>MainPanelControls</code> - A userdata object representing all registered panel controls.</p>
+<hr />
+<h2 id="mainpanelcontrols-class">MainPanelControls (class)<a class="headerlink" href="#mainpanelcontrols-class" title="Permanent link">#</a></h2>
+<p><strong>Description</strong><br />
+Returned from <code>LoRegisterPanelControls()</code>, this object exposes all available cockpit control animations and their linked gauges.</p>
+<h3 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Panel_Rot_X</code></td>
+<td><code>userdata</code></td>
+<td>Panel X-axis rotation</td>
+</tr>
+<tr>
+<td><code>Panel_Shake_Y</code></td>
+<td><code>userdata</code></td>
+<td>Panel Y-axis shake</td>
+</tr>
+<tr>
+<td><code>Panel_Shake_Z</code></td>
+<td><code>userdata</code></td>
+<td>Panel Z-axis shake</td>
+</tr>
+<tr>
+<td><code>base_gauge_AngleOfAttack</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Angle of Attack</td>
+</tr>
+<tr>
+<td><code>base_gauge_AngleOfSlide</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Angle of Slide</td>
+</tr>
+<tr>
+<td><code>base_gauge_BarometricAltitude</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Barometric Altitude</td>
+</tr>
+<tr>
+<td><code>base_gauge_CanopyPos</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Canopy Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_CanopyState</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Canopy State</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineLeftFuelConsumption</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Engine Fuel Consumption</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineLeftRPM</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Engine RPM</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineLeftTemperatureBeforeTurbine</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Engine Temp (pre-turbine)</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineRightFuelConsumption</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Engine Fuel Consumption</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineRightRPM</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Engine RPM</td>
+</tr>
+<tr>
+<td><code>base_gauge_EngineRightTemperatureBeforeTurbine</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Engine Temp (pre-turbine)</td>
+</tr>
+<tr>
+<td><code>base_gauge_FlapsPos</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Flaps Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_FlapsRetracted</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Flaps Retracted</td>
+</tr>
+<tr>
+<td><code>base_gauge_Heading</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Heading</td>
+</tr>
+<tr>
+<td><code>base_gauge_HelicopterCollective</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Helicopter Collective</td>
+</tr>
+<tr>
+<td><code>base_gauge_HelicopterCorrection</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Helicopter Correction</td>
+</tr>
+<tr>
+<td><code>base_gauge_HorizontalAcceleration</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Horizontal Acceleration</td>
+</tr>
+<tr>
+<td><code>base_gauge_IndicatedAirSpeed</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Indicated Airspeed</td>
+</tr>
+<tr>
+<td><code>base_gauge_LandingGearHandlePos</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Gear Handle Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_LateralAcceleration</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Lateral Acceleration</td>
+</tr>
+<tr>
+<td><code>base_gauge_LeftMainLandingGearDown</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Main Gear Down</td>
+</tr>
+<tr>
+<td><code>base_gauge_LeftMainLandingGearUp</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Main Gear Up</td>
+</tr>
+<tr>
+<td><code>base_gauge_MachNumber</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Mach Number</td>
+</tr>
+<tr>
+<td><code>base_gauge_MagneticHeading</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Magnetic Heading</td>
+</tr>
+<tr>
+<td><code>base_gauge_NoseLandingGearDown</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Nose Gear Down</td>
+</tr>
+<tr>
+<td><code>base_gauge_NoseLandingGearUp</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Nose Gear Up</td>
+</tr>
+<tr>
+<td><code>base_gauge_Pitch</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Pitch</td>
+</tr>
+<tr>
+<td><code>base_gauge_RadarAltitude</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Radar Altitude</td>
+</tr>
+<tr>
+<td><code>base_gauge_RateOfPitch</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Rate of Pitch</td>
+</tr>
+<tr>
+<td><code>base_gauge_RateOfRoll</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Rate of Roll</td>
+</tr>
+<tr>
+<td><code>base_gauge_RateOfYaw</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Rate of Yaw</td>
+</tr>
+<tr>
+<td><code>base_gauge_RightMainLandingGearDown</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Main Gear Down</td>
+</tr>
+<tr>
+<td><code>base_gauge_RightMainLandingGearUp</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Main Gear Up</td>
+</tr>
+<tr>
+<td><code>base_gauge_Roll</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Roll</td>
+</tr>
+<tr>
+<td><code>base_gauge_RudderPosition</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Rudder Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_SpeedBrakePos</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Speed Brake Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_StickPitchPosition</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Stick Pitch Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_StickRollPosition</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Stick Roll Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_ThrottleLeftPosition</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Throttle Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_ThrottleRightPosition</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Throttle Position</td>
+</tr>
+<tr>
+<td><code>base_gauge_TotalFuelWeight</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Total Fuel Weight</td>
+</tr>
+<tr>
+<td><code>base_gauge_TrueAirSpeed</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: True Airspeed</td>
+</tr>
+<tr>
+<td><code>base_gauge_VerticalAcceleration</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Vertical Acceleration</td>
+</tr>
+<tr>
+<td><code>base_gauge_VerticalVelocity</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Vertical Velocity</td>
+</tr>
+<tr>
+<td><code>base_gauge_WOW_LeftMainLandingGear</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Left Main Weight-On-Wheels</td>
+</tr>
+<tr>
+<td><code>base_gauge_WOW_NoseLandingGear</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Nose Weight-On-Wheels</td>
+</tr>
+<tr>
+<td><code>base_gauge_WOW_RightMainLandingGear</code></td>
+<td><code>userdata</code></td>
+<td>Gauge: Right Main Weight-On-Wheels</td>
+</tr>
+<tr>
+<td><code>canopy</code></td>
+<td><code>userdata</code></td>
+<td>Canopy animation controller</td>
+</tr>
+<tr>
+<td><code>day_night_texture_switcher</code></td>
+<td><code>userdata</code></td>
+<td>Night/day mode texture toggle</td>
+</tr>
+<tr>
+<td><code>head_shift_X</code></td>
+<td><code>userdata</code></td>
+<td>Head shift X controller</td>
+</tr>
+<tr>
+<td><code>head_shift_Y</code></td>
+<td><code>userdata</code></td>
+<td>Head shift Y controller</td>
+</tr>
+<tr>
+<td><code>head_shift_Z</code></td>
+<td><code>userdata</code></td>
+<td>Head shift Z controller</td>
+</tr>
+<tr>
+<td><code>mirrors_draw</code></td>
+<td><code>userdata</code></td>
+<td>Mirror draw state</td>
+</tr>
+<tr>
+<td><code>pilot_draw</code></td>
+<td><code>userdata</code></td>
+<td>Pilot visibility</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Let me know if you want this grouped, styled differently (e.g., collapsible sections), or exported.</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../DeviceStubs/" class="btn btn-neutral float-left" title="Device Stubs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Modules/Terrain/" class="btn btn-neutral float-right" title="Terrain">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../DeviceStubs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../Modules/Terrain/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
