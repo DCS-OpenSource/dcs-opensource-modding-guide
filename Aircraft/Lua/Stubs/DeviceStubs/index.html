@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../../img/favicon.ico" />
-    <title>Controllers - DCS Modding Documentation</title>
+    <title>Device Stubs - DCS Modding Documentation</title>
     <link rel="stylesheet" href="../../../../css/theme.css" />
     <link rel="stylesheet" href="../../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Controllers";
-        var mkdocs_page_input_path = "Aircraft\\Lua\\Indicators\\controllers.md";
+        var mkdocs_page_name = "Device Stubs";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Stubs\\DeviceStubs.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,9 +48,23 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/DeviceStubs/">Device Stubs</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Stubs</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Device Stubs</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#param-handles">Param Handles</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#creating-a-param-handle">Creating a param handle</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getting-a-param-handle">Getting a param handle</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setting-a-param-handle">Setting a param handle</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#debugging-a-param-handle">Debugging a param handle</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
     </ul>
                   </li>
@@ -68,11 +82,11 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Indicators</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="" href="../drawing.md">Drawing</a>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Controllers</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
                 </li>
     </ul>
                   </li>
@@ -115,8 +129,8 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Aircraft Lua</li>
-          <li class="breadcrumb-item">Indicators</li>
-      <li class="breadcrumb-item active">Controllers</li>
+          <li class="breadcrumb-item">Stubs</li>
+      <li class="breadcrumb-item active">Device Stubs</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -125,14 +139,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>change texture state does work, see here
-https://discord.com/channels/319866702840201217/319866817797423104/986595546884087818</p>
+                <h1 id="device-stubs">Device Stubs<a class="headerlink" href="#device-stubs" title="Permanent link">#</a></h1>
+<hr />
+<h2 id="param-handles">Param Handles<a class="headerlink" href="#param-handles" title="Permanent link">#</a></h2>
+<p>Param handles serve as your method of parsing information between devices, devices to indicators, or devices to the EFM.<br />
+They act as "global variables" and can be accessed with getters and setters as detailed below.</p>
+<p>Params can be either numbers or strings.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If a you set a param to a string, and the string contains only numbers (eg. <code>"1234"</code>) the parameter will revert to a number.<br />
+I'm not sure if this is a bug or a feature, but if you're not careful you can get situations where you can crash your game.<br />
+See Below:</p>
+</div>
+<pre><code class="language-lua">-- Param Type reset example
+local param = get_param_handle(&quot;TEST&quot;)
+
+local testString = &quot;1234&quot;
+
+print_message_to_user(tostring(type(testString))) -- &quot;string&quot; (&quot;1234&quot;)
+param:set(testString) -- all number string is converted back to int.
+print_message_to_user(tostring(type(param:get()))) -- &quot;int&quot; (1234)
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide only references the lua side of parameters. Retrieving param values in the EFM can be referenced from template EFMs.</p>
+</div>
+<h3 id="creating-a-param-handle">Creating a param handle<a class="headerlink" href="#creating-a-param-handle" title="Permanent link">#</a></h3>
+<p>A param object is created like this:</p>
+<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
+</code></pre>
+<p>Calling <code>get_param_handle("DC_POWER_ON")</code> in another device allows you to have access to the parameter value there as well.<br />
+The <code>get_param_handle()</code> function returns a table containing a <a href="#getting-a-param-handle">:get()</a> function and a <a href="#setting-a-param-handle">:set()</a> function.</p>
+<hr />
+<h3 id="getting-a-param-handle">Getting a param handle<a class="headerlink" href="#getting-a-param-handle" title="Permanent link">#</a></h3>
+<p>The Value of a param handle can be retrived by calling <code>param:get()</code> </p>
+<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
+
+local value == dcPower:get()
+</code></pre>
+<hr />
+<h3 id="setting-a-param-handle">Setting a param handle<a class="headerlink" href="#setting-a-param-handle" title="Permanent link">#</a></h3>
+<p>The Value of a param handle can be set by calling <code>param:get(value)</code> </p>
+<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
+
+-- pseudo power switch on
+dcPower:set(1)
+dcPower:set(&quot;true&quot;)  -- String based example
+
+-- pseudo power switch off
+dcPower:set(0)
+dcPower:set(&quot;false&quot;) -- String based example
+</code></pre>
+<hr />
+<h3 id="debugging-a-param-handle">Debugging a param handle<a class="headerlink" href="#debugging-a-param-handle" title="Permanent link">#</a></h3>
+<p>You can access a debug window that lists all params while the game is running.  </p>
+<p>Call the <code>show_param_handles_list()</code> function in your device to enable it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>show_param_handles_list()</code> function also takes a boolean argument if you want to create a method of showing and hiding it easier.</p>
+</div>
+<hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../Devices/avSimpleWeaponSystem/" class="btn btn-neutral float-left" title="avSimpleWeaponSystem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../../../Database/wsTypes/" class="btn btn-neutral float-right" title="wsTypes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Modules/Terrain/" class="btn btn-neutral float-right" title="Terrain">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -155,10 +227,10 @@ https://discord.com/channels/319866702840201217/319866817797423104/9865955468840
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../Devices/avSimpleWeaponSystem/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../../../Database/wsTypes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../Modules/Terrain/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
