@@ -150,11 +150,8 @@ local pylon = dev:launch_station(0) -- launch pylon1
 ---
 
 ### select_station()
-Selects the specified weapon station.  
+Selects the specified weapon station, needed to activate seeker heads like AIM-9s etc.  
 **[[UNVERIFIED]]**
-
-!!! Note
-    As of right now, not sure the use of this, since other functions such as launch or info take an index parameter
 
 #### Parameters
 - `station` (number): The station number to select.
