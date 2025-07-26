@@ -17,6 +17,8 @@ nav:
   
   - Aircraft Lua:
     - LockOn_Options: Aircraft/Lua/LockOnOptions.md
+    - Stubs:
+      - Device Stubs: Aircraft/Lua/Stubs/DeviceStubs.md
     - Modules:
       - Terrain: Aircraft/Lua/Modules/Terrain.md
     - Devices:
