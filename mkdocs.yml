@@ -32,7 +32,7 @@ nav:
     - Plugins:
       - NavDataPlugin: Aircraft/Lua/Plugins/NavDataPlugin.md
       - WeaponSystemPlugin: Aircraft/Lua/Plugins/WeaponSystemPlugin.md
-      - ToolsPlugin: Aircraft/Lua/Plugins/ToolsPlugin.md
+      - LuaToolsPlugin: Aircraft/Lua/Plugins/LuaToolsPlugin.md
   - Database:
     - wsTypes: Database/wsTypes.md
     - iCommands: Database/iCommands.md
