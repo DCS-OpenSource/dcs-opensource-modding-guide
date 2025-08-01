@@ -77,6 +77,8 @@ local flightOptions = LockOn_Options.flight
 ## init_conditions
 Get the state of the spawn. Useful for configuring your aircraft depending on the initial state.
 
+The init_conditions table contains an entry "birth_place" which allows you to differentiate spawn types. The following are the spawn string literals:
+
 * In Air Hot: `string | "AIR_HOT"`
 * On Ground Hot: `string | "GROUND_HOT"`
 * Cold Start: `Unknown` (see usage)
