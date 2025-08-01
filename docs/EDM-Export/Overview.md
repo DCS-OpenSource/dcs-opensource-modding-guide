@@ -12,6 +12,14 @@ However the template EDM files are very useful.
 
 ---
 
+## Blender Versions
+
+The exporter works completely on Blender `4.2.3 LTS`.  
+It seems to work on Blender `3.6.0 LTS` although I have not verified this personally.  
+Blender `4.5.0 LTS` **Does NOT** work, theres an issue with how Blender updated the materials API.
+
+---
+
 ## Installation
 The Blender plugin can be downloaded from [here](https://mods.eagle.ru/blender_plugin/files.html){:target="_blank"}
 

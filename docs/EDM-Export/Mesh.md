@@ -104,3 +104,22 @@ Each sub collection should have a copy of the mesh, and they should not share an
 
 ---
 
+## Common Errors
+
+### Index out of range error
+
+If you get an error similar to this:
+![alt text](images/index_error.png)
+This error is likely to do with material corruption from converting blender versions, to resolve:
+
+* Open the Blender python console and run:
+```py
+for obj in bpy.context.scene.objects:
+    print("Processing object:", obj.name)
+    if obj.type == 'MESH':
+        # Set the active material index on the object
+        obj.active_material_index = 0
+        # Validate material indices on the mesh data
+        obj.data.validate_material_indices()
+```
+* Re-Export your mesh
