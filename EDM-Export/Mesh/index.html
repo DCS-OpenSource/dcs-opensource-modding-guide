@@ -123,6 +123,12 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#blender-project-structre">Blender Project Structre</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#common-errors">Common Errors</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#index-out-of-range-error">Index out of range error</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Animations/">Animations</a>
@@ -158,7 +164,7 @@
 <h2 id="preparing-the-material">Preparing the Material<a class="headerlink" href="#preparing-the-material" title="Permanent link">#</a></h2>
 <p>To export your first mesh into the .edm format, start with a blank blender cube, as seen below. </p>
 <p>The "Front" of your model faces positive X, so be sure to face the nose of your vehicle or aircraft towards positive X.</p>
-<p><img alt="Blank Blender Cube" src="../images/image.png" /></p>
+<p><img alt="Blank Blender Cube" src="images/image.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure your mesh has its Rotation and scale applied, this can be done by selecting your mesh, pressing <code>CTRL + A</code> and selecting <code>Rotation and Scale</code></p>
@@ -224,6 +230,25 @@ However not setting this will not affect the resulting edm export, so can be saf
 <p>Starting with an <code>EXPORT</code> Collection, then having sub-collections for collision, and <code>LOD_{LOD_NUMBER}_{LOD_DISTANCE_IN_M}</code> (eg. <code>LOD_0_50</code>).
 Each sub collection should have a copy of the mesh, and they should not share animations or parents. Duplicate the animation empties, then re-apply the actions to the new empties.</p>
 <hr />
+<h2 id="common-errors">Common Errors<a class="headerlink" href="#common-errors" title="Permanent link">#</a></h2>
+<h3 id="index-out-of-range-error">Index out of range error<a class="headerlink" href="#index-out-of-range-error" title="Permanent link">#</a></h3>
+<p>If you get an error similar to this:
+<img alt="alt text" src="../images/index_error.png" />
+This error is likely to do with material corruption from converting blender versions, to resolve:</p>
+<ul>
+<li>Open the Blender python console and run:</li>
+</ul>
+<pre><code class="language-py">for obj in bpy.context.scene.objects:
+    print(&quot;Processing object:&quot;, obj.name)
+    if obj.type == 'MESH':
+        # Set the active material index on the object
+        obj.active_material_index = 0
+        # Validate material indices on the mesh data
+        obj.data.validate_material_indices()
+</code></pre>
+<ul>
+<li>Re-Export your mesh</li>
+</ul>
               
             </div>
           </div><footer>
