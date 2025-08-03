@@ -94,17 +94,22 @@ If controlling a non-owned device, `device_id` must be specified.
 ### do_mission_file(file)
 
 **Description**  
-Loads a mission file from the specified path.
+Loads the mission file as a table to a variable `mission` when parsed the string `"mission"`
 
 **Parameters**  
 
 | Name    | Type     | Description       |
 |---------|----------|-------------------|
-| `file`  | `string` | Path to mission   |
+| `file`  | `string` | "mission"         |
 
 **Returns**  
 `nil`
 
+**Usage**
+```lua
+do_mission_file("mission")
+print_message_to_user(mission.theatre) -- prints map name
+```
 ---
 
 ### find_viewport(name)

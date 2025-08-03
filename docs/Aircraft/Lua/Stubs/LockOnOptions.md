@@ -69,8 +69,25 @@ Table containing flight-related options.
 
 **Usage**
 ```lua
-local flightOptions = LockOn_Options.flight
+local flightOptions = LockOn_Options.flight.unlimited_fuel
 ```
+**Values**
+
+| Option               | Type  | Description                |
+|----------------------|-------|----------------------------|
+| unlimited_fuel       | bool  | Unlimited fuel             |
+| g_effects            | bool  | G-effects enabled          |
+| radio_assist         | bool  | Radio assist enabled       |
+| unlimited_weapons    | bool  | Unlimited weapons          |
+| external_view        | bool  | External view enabled      |
+| easy_radar           | bool  | Easy radar mode            |
+| easy_flight          | bool  | Easy flight mode           |
+| external_labels      | bool  | External labels enabled    |
+| crash_recovery       | bool  | Crash recovery enabled     |
+| immortal             | bool  | Invincibility enabled      |
+| tool_tips_enabled    | bool  | Tool tips enabled          |
+| padlock              | bool  | Padlock view enabled       |
+| aircraft_switching   | bool  | Aircraft switching enabled |
 
 ---
 
@@ -108,6 +125,8 @@ local system = LockOn_Options.measurement_system
 
 ## mission
 Table containing mission-related options.
+
+This does't seem to return anything useful, see [`do_mission_file("mission")`](../DeviceStubs/#do_mission_filefile) to get the mission file.
 
 **Usage**
 ```lua
