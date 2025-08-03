@@ -46,8 +46,6 @@
               </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../../LockOnOptions/">LockOn_Options</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" >Stubs</a>
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">Device Stubs</a>
@@ -177,6 +175,8 @@
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../LockOnOptions/">LockOn_Options</a>
                 </li>
     </ul>
                   </li>
@@ -354,7 +354,7 @@ If controlling a non-owned device, <code>device_id</code> must be specified.</p>
 <hr />
 <h3 id="do_mission_filefile">do_mission_file(file)<a class="headerlink" href="#do_mission_filefile" title="Permanent link">#</a></h3>
 <p><strong>Description</strong><br />
-Loads a mission file from the specified path.</p>
+Loads the mission file as a table to a variable <code>mission</code> when parsed the string <code>"mission"</code></p>
 <p><strong>Parameters</strong>  </p>
 <table>
 <thead>
@@ -368,12 +368,16 @@ Loads a mission file from the specified path.</p>
 <tr>
 <td><code>file</code></td>
 <td><code>string</code></td>
-<td>Path to mission</td>
+<td>"mission"</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Returns</strong><br />
 <code>nil</code></p>
+<p><strong>Usage</strong></p>
+<pre><code class="language-lua">do_mission_file(&quot;mission&quot;)
+print_message_to_user(mission.theatre) -- prints map name
+</code></pre>
 <hr />
 <h3 id="find_viewportname">find_viewport(name)<a class="headerlink" href="#find_viewportname" title="Permanent link">#</a></h3>
 <p><strong>Description</strong><br />
@@ -1429,7 +1433,7 @@ All returned values are in Metric standard units.</p>
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../MainPanelStubs/" class="btn btn-neutral float-right" title="Mainpanel Stubs">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -1453,7 +1457,7 @@ All returned values are in Metric standard units.</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../MainPanelStubs/" style="color: #fcfcfc">Next &raquo;</a></span>

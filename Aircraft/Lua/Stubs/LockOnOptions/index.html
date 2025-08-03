@@ -4,22 +4,22 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
     <title>LockOn_Options - DCS Modding Documentation</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../../../css/extra.css" rel="stylesheet" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "LockOn_Options";
-        var mkdocs_page_input_path = "Aircraft\\Lua\\LockOnOptions.md";
+        var mkdocs_page_input_path = "Aircraft\\Lua\\Stubs\\LockOnOptions.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
+      <script src="../../../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -31,9 +31,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> DCS Modding Documentation
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -41,103 +41,103 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">LockOn_Options</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Stubs</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#avionics_language">avionics_language</a>
+                <li class="toctree-l2"><a class="reference internal" href="../DeviceStubs/">Device Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">LockOn_Options</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#avionics_language">avionics_language</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cockpit">cockpit</a>
+    <li class="toctree-l3"><a class="reference internal" href="#cockpit">cockpit</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cockpit_language">cockpit_language</a>
+    <li class="toctree-l3"><a class="reference internal" href="#cockpit_language">cockpit_language</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#common_ground_script_path">common_ground_script_path</a>
+    <li class="toctree-l3"><a class="reference internal" href="#common_ground_script_path">common_ground_script_path</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#common_script_path">common_script_path</a>
+    <li class="toctree-l3"><a class="reference internal" href="#common_script_path">common_script_path</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#date">date</a>
+    <li class="toctree-l3"><a class="reference internal" href="#date">date</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#flight">flight</a>
+    <li class="toctree-l3"><a class="reference internal" href="#flight">flight</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#init_conditions">init_conditions</a>
+    <li class="toctree-l3"><a class="reference internal" href="#init_conditions">init_conditions</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#measurement_system">measurement_system</a>
+    <li class="toctree-l3"><a class="reference internal" href="#measurement_system">measurement_system</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mission">mission</a>
+    <li class="toctree-l3"><a class="reference internal" href="#mission">mission</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#screen">screen</a>
+    <li class="toctree-l3"><a class="reference internal" href="#screen">screen</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#script_path">script_path</a>
+    <li class="toctree-l3"><a class="reference internal" href="#script_path">script_path</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#time">time</a>
+    <li class="toctree-l3"><a class="reference internal" href="#time">time</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../Stubs/DeviceStubs/">Device Stubs</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Stubs/MainPanelStubs/">Mainpanel Stubs</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Modules</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../Modules/Terrain/">Terrain</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Modules/Terrain/">Terrain</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Devices</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../Devices/avLuaDevice/">avLuaDevice</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Indicators</a>
     <ul>
-                <li class="toctree-l2"><a class="" href="../Indicators/drawing.md">Drawing</a>
+                <li class="toctree-l2"><a class="" href="../../Indicators/drawing.md">Drawing</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Indicators/controllers/">Controllers</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" >Plugins</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../Plugins/NavDataPlugin/">NavDataPlugin</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/NavDataPlugin/">NavDataPlugin</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../Plugins/LuaToolsPlugin/">LuaToolsPlugin</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/LuaToolsPlugin/">LuaToolsPlugin</a>
                 </li>
     </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Database</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../Database/wsTypes/">wsTypes</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../Database/iCommands/">iCommands</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/iCommands/">iCommands</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Useful bits</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../UsefulBits/ModelViewer/">Modelviewer</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/ModelViewer/">Modelviewer</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../EDM-Export/Overview/">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../EDM-Export/Mesh/">Mesh</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Mesh/">Mesh</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../EDM-Export/Animations/">Animations</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Animations/">Animations</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../EDM-Export/Lights/">Lights</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Lights/">Lights</a>
                   </li>
               </ul>
       </div>
@@ -147,14 +147,15 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">DCS Modding Documentation</a>
+          <a href="../../../..">DCS Modding Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Aircraft Lua</li>
+          <li class="breadcrumb-item">Stubs</li>
       <li class="breadcrumb-item active">LockOn_Options</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -207,11 +208,89 @@
 <h2 id="flight">flight<a class="headerlink" href="#flight" title="Permanent link">#</a></h2>
 <p>Table containing flight-related options.</p>
 <p><strong>Usage</strong></p>
-<pre><code class="language-lua">local flightOptions = LockOn_Options.flight
+<pre><code class="language-lua">local flightOptions = LockOn_Options.flight.unlimited_fuel
 </code></pre>
+<p><strong>Values</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unlimited_fuel</td>
+<td>bool</td>
+<td>Unlimited fuel</td>
+</tr>
+<tr>
+<td>g_effects</td>
+<td>bool</td>
+<td>G-effects enabled</td>
+</tr>
+<tr>
+<td>radio_assist</td>
+<td>bool</td>
+<td>Radio assist enabled</td>
+</tr>
+<tr>
+<td>unlimited_weapons</td>
+<td>bool</td>
+<td>Unlimited weapons</td>
+</tr>
+<tr>
+<td>external_view</td>
+<td>bool</td>
+<td>External view enabled</td>
+</tr>
+<tr>
+<td>easy_radar</td>
+<td>bool</td>
+<td>Easy radar mode</td>
+</tr>
+<tr>
+<td>easy_flight</td>
+<td>bool</td>
+<td>Easy flight mode</td>
+</tr>
+<tr>
+<td>external_labels</td>
+<td>bool</td>
+<td>External labels enabled</td>
+</tr>
+<tr>
+<td>crash_recovery</td>
+<td>bool</td>
+<td>Crash recovery enabled</td>
+</tr>
+<tr>
+<td>immortal</td>
+<td>bool</td>
+<td>Invincibility enabled</td>
+</tr>
+<tr>
+<td>tool_tips_enabled</td>
+<td>bool</td>
+<td>Tool tips enabled</td>
+</tr>
+<tr>
+<td>padlock</td>
+<td>bool</td>
+<td>Padlock view enabled</td>
+</tr>
+<tr>
+<td>aircraft_switching</td>
+<td>bool</td>
+<td>Aircraft switching enabled</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="init_conditions">init_conditions<a class="headerlink" href="#init_conditions" title="Permanent link">#</a></h2>
 <p>Get the state of the spawn. Useful for configuring your aircraft depending on the initial state.</p>
+<p>The init_conditions table contains an entry "birth_place" which allows you to differentiate spawn types. The following are the spawn string literals:</p>
 <ul>
 <li>In Air Hot: <code>string | "AIR_HOT"</code></li>
 <li>On Ground Hot: <code>string | "GROUND_HOT"</code></li>
@@ -235,6 +314,7 @@ end
 <hr />
 <h2 id="mission">mission<a class="headerlink" href="#mission" title="Permanent link">#</a></h2>
 <p>Table containing mission-related options.</p>
+<p>This does't seem to return anything useful, see <a href="../DeviceStubs/#do_mission_filefile"><code>do_mission_file("mission")</code></a> to get the mission file.</p>
 <p><strong>Usage</strong></p>
 <pre><code class="language-lua">local mission = LockOn_Options.mission
 </code></pre>
@@ -263,8 +343,8 @@ end
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Stubs/DeviceStubs/" class="btn btn-neutral float-right" title="Device Stubs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../MainPanelStubs/" class="btn btn-neutral float-left" title="Mainpanel Stubs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Modules/Terrain/" class="btn btn-neutral float-right" title="Terrain">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -287,18 +367,18 @@ end
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../MainPanelStubs/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Stubs/DeviceStubs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../Modules/Terrain/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
