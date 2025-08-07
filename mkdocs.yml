@@ -36,6 +36,7 @@ nav:
   - Database:
     - wsTypes: Database/wsTypes.md
     - iCommands: Database/iCommands.md
+    - Draw Args: Database/draw-args.md
   - Useful bits:
     - Modelviewer: UsefulBits/ModelViewer.md
 
