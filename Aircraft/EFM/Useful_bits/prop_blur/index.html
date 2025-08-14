@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Prop Blur - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Prop Blur";
+        var mkdocs_page_input_path = "Aircraft\\EFM\\Useful_bits\\prop_blur.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Stubs/DeviceStubs/">Device Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Stubs/MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Stubs/LockOnOptions/">LockOn_Options</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../../Lua/Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Plugins/NavDataPlugin/">NavDataPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Lua/Plugins/LuaToolsPlugin/">LuaToolsPlugin</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft EFM</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Useful Bits</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Prop Blur</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#model-setup">Model Setup</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#texturing-advice">Texturing advice</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lua-setup">Lua Setup</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#3arg_proc_blur">3ARG_PROC_BLUR</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2arg_blur">2ARG_BLUR</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#efm-setup">EFM Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-result">The Result</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/iCommands/">iCommands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/draw-args/">Draw Args</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Useful bits</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/ModelViewer/">Modelviewer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Aircraft EFM</li>
+          <li class="breadcrumb-item">Useful Bits</li>
+      <li class="breadcrumb-item active">Prop Blur</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prop-blur">Prop Blur<a class="headerlink" href="#prop-blur" title="Permanent link">#</a></h1>
+<h2 id="model-setup">Model Setup<a class="headerlink" href="#model-setup" title="Permanent link">#</a></h2>
+<p>To configure Prop Blur, animate your model as required with these args:</p>
+<table>
+<thead>
+<tr>
+<th>Arg</th>
+<th>Description</th>
+<th>Values</th>
+<th>Animation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>407</td>
+<td>Prop Rotation</td>
+<td>-1 to 1</td>
+<td>720° anticlockwise</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Prop Pitch</td>
+<td>Varies</td>
+<td>Reference TF-51 or F4-U</td>
+</tr>
+<tr>
+<td>475</td>
+<td>Prop Blade Visibility</td>
+<td>0 to 1</td>
+<td>Blades only visible at 0</td>
+</tr>
+</tbody>
+</table>
+<p>Next, Copy your prop mesh to another blender file (or max) and align the center of the prop with the origin of the model.</p>
+<p>Then remove most of the mesh, leaving only one blade of the prop. This can vary depending on the type of prop, see two examples below.</p>
+<p><img alt="alt text" src="../images/o1_prop.png" /></p>
+<p>Ensure the prop has only one material, and the material name matches that of the props material in your main EDM, this will give your prop blur the same texture as your blades.</p>
+<p>Export this file as an .FBX file, and place the file in your shapes folder (or any mounted shape folder in your project), then move to the next step.</p>
+<hr />
+<h3 id="texturing-advice">Texturing advice<a class="headerlink" href="#texturing-advice" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The below is from Mag3's 3D artist, who very kindly spilled the beans on how to make the blur look so good :-)</p>
+</div>
+<p>Many factors involved really.   The F4U has variable pitch blades, with a diameter of roughly 13 feet.  Kind of gives that thickness look at all angles.</p>
+<p>Secondly, ensuring the same material applied in the EDM is identical to the FBX.  PBR color values should correct too.</p>
+<p>For black, check in ModelViewer to see blue (push F8 function key)
+Except for weathering effects that may cause it to look blue, it needs to be closer to black or a deep dark blue for flat/dull coated objects.
+Using the HSB values, set it to 0*, 0%, 17% and go from there.</p>
+<p>If pink or orange, they need adjusted too.  Pure colors should look grey (F8) in ModelViewer.</p>
+<p>Try to keep saturation away from 100%, and any 100% RGB values are not great for the shader.
+HSB, Orange: I recommend,  13<em>, 80%, 65% - 75%.  It will look dark on texture, but that is ok. 
+HSB, White: 0</em>, 0%, 65% - 74%</p>
+<p>Lastly, the collision model's Arg # for rotation should be 370  |  0...1  |  360*, while the main model is 407.</p>
+<hr />
+<h2 id="lua-setup">Lua Setup<a class="headerlink" href="#lua-setup" title="Permanent link">#</a></h2>
+<p>In your <code>plane.lua</code>, you need to define <code>propellorShapeType</code> and <code>propellorShapeName</code> as below</p>
+<pre><code class="language-lua">O1_BirdDog =
+{
+    Name                =   'O-1E',
+    DisplayName         = _('O-1E Bird Dog'),
+
+    Shape               = &quot;O-1E&quot;,
+    propellorShapeType  = &quot;3ARG_PROC_BLUR&quot;,
+    propellorShapeName  = &quot;o1_blade.fbx&quot;,
+</code></pre>
+<p>Also be sure to define these fields in your <code>SFM_Data/engine</code> table:</p>
+<pre><code class="language-lua">prop_direction      = 1,    -- pos rotates cw looking fwd neg is ccw
+prop_pitch_min      = 26.0, -- prop pitch min, degrees
+prop_pitch_max      = 82.0, -- prop pitch max, degrees
+prop_pitch_feather  = 90.0, -- prop pitch feather position, degrees if feather &lt; prop_pitch_max no feathering available
+prop_blades_count   = 2,
+prop_locations      = {
+    {2.257, 0.03558, 0},    -- roll, yaw, pitch angle in tangent value
+},
+</code></pre>
+<h3 id="3arg_proc_blur">3ARG_PROC_BLUR<a class="headerlink" href="#3arg_proc_blur" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>I haven't tested this with pitch, only a fixed pitch prop.</li>
+<li>The below references a blur sheet, I have not been able to get this in modelviewer, but you can test in game.</li>
+</ul>
+</div>
+<p>3ARG_PROC_BLUR expects three draw args in the model:</p>
+<table>
+<thead>
+<tr>
+<th>Arg</th>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>RPM / Phase</td>
+<td>Drives rotation/blur amount</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Blur Visibility / Blend</td>
+<td>Swaps blade → blur as RPM rises</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Aux / Alpha</td>
+<td>Extra control for the blur sheet</td>
+</tr>
+</tbody>
+</table>
+<p>If those args don’t exist or are stuck high in the EDM, you’ll see a permanent disc. Quick checklist in ModelViewer (EDM):</p>
+<p>Confirm the prop uses 3 separate draw arguments. Spin RPM in the animation panel and check all three change.</p>
+<p>Ensure there is a static blade mesh and a blur sheet; the visibility of each is bound to those args (blade visible at low RPM, blur visible only above threshold).</p>
+<hr />
+<h3 id="2arg_blur">2ARG_BLUR<a class="headerlink" href="#2arg_blur" title="Permanent link">#</a></h3>
+<p>If you only have a blur sheet (no static blades), it will always look like a disc at zero RPM.
+If you don’t need the 3-arg system, switch to a simpler mode in Lua, e.g.:</p>
+<p>propellorShapeType = "2ARG_BLUR"
+…and wire just two draw args in the EDM (static/blur). But the real fix is correcting the EDM arg bindings so 3ARG works.</p>
+<p>For AI-only aircraft where the prop is just for looks, the easiest is:
+propellorShapeType = "static"
+propellorShapeName = "tbm_avenger_blade.FBX"</p>
+<p>That way, DCS just draws the prop mesh as-is with no argument-driven blur.
+It’ll look like a stationary prop at all times — no fake spin — but it avoids the “perma-disc” issue entirely.</p>
+<p>Use 1ARG_BLUR and bind it to any available dummy arg in shape_table_data (doesn’t even need to move).
+Or keep it static and make a blurred texture for the mesh so it always looks like a “motion smear”.</p>
+<p>If you want it to actually switch from blades → blur when spinning, you’ll need to add two prop arguments in the EDM in ModelViewer / 3ds Max:</p>
+<p>One arg hides the static blades at speed.
+One arg shows the blur mesh at speed.</p>
+<p>That’s the 2ARG_BLUR setup, and it’s the simplest dynamic one DCS supports.</p>
+<hr />
+<h2 id="efm-setup">EFM Setup<a class="headerlink" href="#efm-setup" title="Permanent link">#</a></h2>
+<p>You will need to add the below code to your main cpp file with all your other <code>ED_FM</code> functions.<br />
+Specifically inside <code>ed_fm_get_param</code>.
+Setting thse properly will get the prop blurring nicely</p>
+<pre><code class="language-cpp">switch (index)
+    {
+    case ED_FM_ENGINE_1_THRUST: // Thrust of engine in newtons, [N]
+        return Prop.getThrust();
+    // case ED_FM_ENGINE_1_RELATED_THRUST: /// Related thrust in relation to &quot;max&quot; or also called &quot;dry thrust&quot; thrust of that engine
+    //  return ??? for now, idk what max thrust is right now;
+
+    case ED_FM_ENGINE_1_RPM:            // Engine Fan RPM (fan RPM for turbofan, propeller RPM for turboprop, etc.)
+    case ED_FM_PROPELLER_1_RPM:         // Propeller RPM, for helicopters this is main rotor RPM
+    case ED_FM_ENGINE_1_CORE_RPM:       // 0..RPMmax Engine and prop sound
+        return Engine.getRPM();
+    case ED_FM_ENGINE_1_RELATED_RPM:    // [0-1]
+        return Engine.getRPMFraction();
+    case ED_FM_ENGINE_1_CORE_RELATED_RPM:  // [0-1] displayed as RPM% in 2D F2 view
+        return Engine.getRPMFraction();
+    case ED_FM_ENGINE_1_FAN_PHASE:      // [0 - 2pi] Required to get the arg 407 to trigger the spin at low RPM
+        return Prop.getFanPhase();
+    }
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>See <code>FM/wHumanCustomPhysicsAPI.h</code> in the EFM API for more detailed descriptions of these.</li>
+<li>Some engines have different engine RPMs and Prop RPMs, so the values you set to the params above may need to vary</li>
+<li><code>Prop.getThrust();</code> these functions in the above code are custom, pulling data from my simulation, and are not built in.</li>
+</ul>
+</div>
+<hr />
+<h2 id="the-result">The Result<a class="headerlink" href="#the-result" title="Permanent link">#</a></h2>
+<p>If you've done the above correctly, you should see something similar to this.</p>
+<p><img alt="alt text" src="../images/birddog.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../Lua/Plugins/LuaToolsPlugin/" class="btn btn-neutral float-left" title="LuaToolsPlugin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../../Database/wsTypes/" class="btn btn-neutral float-right" title="wsTypes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../../Lua/Plugins/LuaToolsPlugin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../Database/wsTypes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

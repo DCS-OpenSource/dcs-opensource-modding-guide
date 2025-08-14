@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Draw Args - DCS Modding Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Draw Args";
+        var mkdocs_page_input_path = "Database\\draw-args.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> DCS Modding Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Stubs/DeviceStubs/">Device Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Stubs/MainPanelStubs/">Mainpanel Stubs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Stubs/LockOnOptions/">LockOn_Options</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Modules</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Modules/Terrain/">Terrain</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avLuaDevice/">avLuaDevice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../../Aircraft/Lua/Indicators/drawing.md">Drawing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Indicators/controllers/">Controllers</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Plugins</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Plugins/NavDataPlugin/">NavDataPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/Lua/Plugins/LuaToolsPlugin/">LuaToolsPlugin</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Aircraft EFM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Useful Bits</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Aircraft/EFM/Useful_bits/prop_blur/">Prop Blur</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Database</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../wsTypes/">wsTypes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../iCommands/">iCommands</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Draw Args</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Useful bits</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../UsefulBits/ModelViewer/">Modelviewer</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Mesh/">Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Animations/">Animations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Lights/">Lights</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">DCS Modding Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Database</li>
+      <li class="breadcrumb-item active">Draw Args</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="reserved-draw-args">Reserved Draw Args<a class="headerlink" href="#reserved-draw-args" title="Permanent link">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is not complete, please let me know if you have more to add.  </p>
+<p>Sourced From TF-51, <strong>doesn't</strong> take into account FC3 specific args</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Arg</th>
+<th>Usage</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Tail/Nose wheel retraction</td>
+<td>0 wheel up, 1 wheel down</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Tail/Nose wheel suspension</td>
+<td>0 Extended, 1, compressed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tail/Nose wheel steering</td>
+<td>-1 left, 0 straight, 1 right</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Canopy</td>
+<td>0 closed, 0.9 open, 1 invisible</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Tail/Nose wheel rotation</td>
+<td>0-1 increasing is forward</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Right wheel rotation</td>
+<td>0-1 increasing is forward</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Left wheel rotation</td>
+<td>0-1 increasing is forward</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Canopy Visibility</td>
+<td>0 Visible, 1 invisible</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Right Wheel Door</td>
+<td>0 closed, 1 open</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Left Wheel Door</td>
+<td>0 closed, 1 open</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Prop Rotation</td>
+<td>-1 to 1 2 revolutions anti-clockwise</td>
+</tr>
+<tr>
+<td>475</td>
+<td>Prop blade visibility</td>
+<td>0 visible, 0.1 - 1 invisible</td>
+</tr>
+</tbody>
+</table>
+<p><em>Hayds got bored while writing this, but he'll get back to it in two weeks™</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../iCommands/" class="btn btn-neutral float-left" title="iCommands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../UsefulBits/ModelViewer/" class="btn btn-neutral float-right" title="Modelviewer">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../iCommands/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../UsefulBits/ModelViewer/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
