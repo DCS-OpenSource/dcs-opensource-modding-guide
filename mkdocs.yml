@@ -33,6 +33,9 @@ nav:
       - NavDataPlugin: Aircraft/Lua/Plugins/NavDataPlugin.md
       - WeaponSystemPlugin: Aircraft/Lua/Plugins/WeaponSystemPlugin.md
       - LuaToolsPlugin: Aircraft/Lua/Plugins/LuaToolsPlugin.md
+  - Aircraft EFM:
+    - Useful Bits: 
+      - Prop Blur: Aircraft/EFM/Useful_bits/prop_blur.md
   - Database:
     - wsTypes: Database/wsTypes.md
     - iCommands: Database/iCommands.md
