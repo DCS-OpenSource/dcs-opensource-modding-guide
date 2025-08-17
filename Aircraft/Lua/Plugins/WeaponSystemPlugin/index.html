@@ -83,6 +83,46 @@
                 <li class="toctree-l2"><a class="reference internal" href="../NavDataPlugin/">NavDataPlugin</a>
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">WeaponSystemPlugin</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-reference">API reference</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#constructor">Constructor</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pylon-management">Pylon management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#arming">Arming</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#firing-salvos">Firing / Salvos</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#update-loop">Update loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#jettison">Jettison</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#introspection">Introspection</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-notes-for-dcs-devices">Integration notes for DCS devices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#weapon-type-constants">Weapon type constants</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gotchas-todos">Gotchas &amp; TODOs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-typical-rocket-setup-with-salvo">1) Typical rocket setup with salvo</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-mixed-loadout-and-selective-fire">2) Mixed loadout and selective fire</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-emergency-jettison">3) Emergency jettison</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../LuaToolsPlugin/">LuaToolsPlugin</a>
                 </li>
@@ -91,6 +131,8 @@
               </ul>
               <p class="caption"><span class="caption-text">Aircraft EFM</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../EFM/EFM_API/">EFM API</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" >Useful Bits</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../../../EFM/Useful_bits/prop_blur/">Prop Blur</a>
@@ -148,7 +190,189 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="weaponsystem-lua-plugin-documentation">WeaponSystem Lua Plugin — Documentation<a class="headerlink" href="#weaponsystem-lua-plugin-documentation" title="Permanent link">#</a></h1>
+<p>A lightweight weapon-management layer for DCS Lua devices. It coordinates multiple pylons, supports selective arming, launching, rocket salvos (quantity + interval), and emergency jettison.</p>
+<p><strong>This documentation is WIP, the plugin is unfinished, I will fix it long term</strong></p>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<ol>
+<li>Place this file (e.g., <code>WeaponSystem.lua</code>) in your device scripts folder:
+   <code>.../Cockpit/Scripts/WeaponSystemPlugin/WeaponSystem.lua</code></li>
+<li>Ensure <code>Pylon.lua</code> is in the same <code>WeaponSystemPlugin</code> directory.</li>
+</ol>
+<hr />
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">#</a></h2>
+<pre><code class="language-lua">local dev = GetSelf()
+local WeaponSystem = require(&quot;WeaponSystemPlugin.WeaponSystem&quot;) -- adjust path to your layout
+
+local WS = WeaponSystem:new(dev)
+
+-- Add pylons (indices are 1-based)
+WS:addPylon(1, &quot;ROCKETS&quot;, true)
+WS:addPylon(2, &quot;BOMBS&quot;,   false)
+
+-- Configure rocket salvo behavior (optional)
+WS:setRocketSalvoQuantity(4)     -- 4 rockets per button press
+WS:setRocketSalvoInterval(0.10)  -- 0.10 s between each rocket
+
+-- In your device update:
+function update()
+  WS:update()
+end
+
+-- Launch from a specific pylon:
+WS:launch(1)
+
+-- Or broadcast to all armed pylons:
+WS:launch()
+
+-- Fire a configured rocket salvo:
+WS:fireRocketSalvo()
+
+-- Jettison:
+WS:jettisonPylon(2)
+-- or
+WS:emergencyJettison()
+</code></pre>
+<hr />
+<h2 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">#</a></h2>
+<h3 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemnewdevice-self"><code>WeaponSystem:new(device) -&gt; self</code><a class="headerlink" href="#weaponsystemnewdevice-self" title="Permanent link">#</a></h4>
+<p>Create a weapon system bound to a DCS device.</p>
+<ul>
+<li><code>device</code> (<code>table</code>): The result of <code>GetSelf()</code> for this device.</li>
+</ul>
+<p>Initial fields:</p>
+<ul>
+<li><code>self.pylons</code> (<code>table</code>) – empty list</li>
+<li><code>self.rocketSalvoQuantity</code> (<code>number</code>) – default <code>1</code></li>
+<li><code>self.rocketSalvoInterval</code> (<code>number</code>) – default <code>0</code></li>
+<li><code>self.weaponTypes</code> (<code>table</code>) – maps <code>"ROCKETS" | "BOMBS" | "MISSILES" | "SHELL"</code> to <code>wsType_*</code> constants</li>
+</ul>
+<hr />
+<h3 id="pylon-management">Pylon management<a class="headerlink" href="#pylon-management" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemaddpylonindex-weapontype-armed"><code>WeaponSystem:addPylon(index, weaponType, armed)</code><a class="headerlink" href="#weaponsystemaddpylonindex-weapontype-armed" title="Permanent link">#</a></h4>
+<p>Add a pylon.</p>
+<ul>
+<li><code>index</code> (<code>number</code>, 1-based)</li>
+<li><code>weaponType</code> (<code>"ROCKETS" | "BOMBS" | "MISSILES" | "SHELL"</code>)</li>
+<li><code>armed</code> (<code>boolean</code>)</li>
+</ul>
+<hr />
+<h3 id="arming">Arming<a class="headerlink" href="#arming" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemarmpylonindex-armed"><code>WeaponSystem:armPylon(index, armed)</code><a class="headerlink" href="#weaponsystemarmpylonindex-armed" title="Permanent link">#</a></h4>
+<p>Set armed state for a pylon.</p>
+<ul>
+<li><code>index</code> (<code>number</code>, 1-based)</li>
+<li><code>armed</code> (<code>boolean</code>)</li>
+</ul>
+<hr />
+<h3 id="firing-salvos">Firing / Salvos<a class="headerlink" href="#firing-salvos" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemlaunchindex"><code>WeaponSystem:launch([index])</code><a class="headerlink" href="#weaponsystemlaunchindex" title="Permanent link">#</a></h4>
+<p>Launch from a single pylon or all armed pylons.</p>
+<ul>
+<li><code>index</code> (<code>number|nil</code>) – if omitted, calls <code>:launch()</code> on <strong>all armed pylons</strong>.</li>
+</ul>
+<h4 id="weaponsystemfirerocketsalvo"><code>WeaponSystem:fireRocketSalvo()</code><a class="headerlink" href="#weaponsystemfirerocketsalvo" title="Permanent link">#</a></h4>
+<p>Begin a salvo (if not already in progress). The salvo will:
+- Fire <code>rocketSalvoQuantity</code> rockets.
+- Space each rocket by <code>rocketSalvoInterval</code> seconds.
+- Fire only from <strong>armed pylons that</strong>:
+  - Report <code>getStationInfo().weapon.level3 == wsType_Rocket</code>
+  - Have <code>getStationInfo().count &gt; 0</code></p>
+<h4 id="weaponsystemsetrocketsalvoquantityquantity"><code>WeaponSystem:setRocketSalvoQuantity(quantity)</code><a class="headerlink" href="#weaponsystemsetrocketsalvoquantityquantity" title="Permanent link">#</a></h4>
+<p>Set how many rockets are fired in a salvo.</p>
+<ul>
+<li><code>quantity</code> (<code>number</code>)</li>
+</ul>
+<h4 id="weaponsystemsetrocketsalvointervalinterval"><code>WeaponSystem:setRocketSalvoInterval(interval)</code><a class="headerlink" href="#weaponsystemsetrocketsalvointervalinterval" title="Permanent link">#</a></h4>
+<p>Set the time (seconds) between each rocket during a salvo.</p>
+<ul>
+<li><code>interval</code> (<code>number</code>, seconds)</li>
+</ul>
+<hr />
+<h3 id="update-loop">Update loop<a class="headerlink" href="#update-loop" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemupdate"><code>WeaponSystem:update()</code><a class="headerlink" href="#weaponsystemupdate" title="Permanent link">#</a></h4>
+<p>Advances internal salvo timers. <strong>Must be called every frame</strong> from your device’s <code>update()</code>.</p>
+<p>Requires:
+- A global or upvalue <code>update_rate</code> representing the frame’s delta time in seconds.</p>
+<p>Behavior:
+- When a salvo is active, accumulates time.
+- Once <code>&gt;= rocketSalvoInterval</code>, fires the next rocket from all qualifying, armed rocket pylons.
+- Stops when <code>rocketsFiredThisSalvo &gt;= rocketSalvoQuantity</code>.</p>
+<hr />
+<h3 id="jettison">Jettison<a class="headerlink" href="#jettison" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemjettisonpylonindex"><code>WeaponSystem:jettisonPylon(index)</code><a class="headerlink" href="#weaponsystemjettisonpylonindex" title="Permanent link">#</a></h4>
+<p>Jettison one pylon (1-based index).</p>
+<h4 id="weaponsystememergencyjettison"><code>WeaponSystem:emergencyJettison()</code><a class="headerlink" href="#weaponsystememergencyjettison" title="Permanent link">#</a></h4>
+<p>Jettison <strong>all</strong> pylons and clear <code>self.pylons</code>.</p>
+<hr />
+<h3 id="introspection">Introspection<a class="headerlink" href="#introspection" title="Permanent link">#</a></h3>
+<h4 id="weaponsystemgetpylons-table"><code>WeaponSystem:getPylons() -&gt; table</code><a class="headerlink" href="#weaponsystemgetpylons-table" title="Permanent link">#</a></h4>
+<p>Returns the array of <code>Pylon</code> objects managed by the system.</p>
+<hr />
+<h2 id="integration-notes-for-dcs-devices">Integration notes for DCS devices<a class="headerlink" href="#integration-notes-for-dcs-devices" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Device binding</strong>: Always pass your <code>GetSelf()</code> device to <code>WeaponSystem:new(GetSelf())</code>.</li>
+<li><strong>Update tick</strong>: Call <code>WS:update()</code> <strong>every frame</strong> from the device’s <code>update()</code> function.</li>
+<li><strong>Time step</strong>: Ensure <code>update_rate</code> reflects the device’s update period (e.g., set via <code>make_default_activity(update_rate)</code>).</li>
+</ul>
+<hr />
+<h2 id="weapon-type-constants">Weapon type constants<a class="headerlink" href="#weapon-type-constants" title="Permanent link">#</a></h2>
+<p>The plugin loads <code>Database/wsTypes.lua</code>, then uses:</p>
+<pre><code class="language-lua">self.weaponTypes = {
+  [&quot;ROCKETS&quot;]  = wsType_Rocket,
+  [&quot;BOMBS&quot;]    = wsType_Bomb,
+  [&quot;MISSILES&quot;] = wsType_Missile,
+  [&quot;SHELL&quot;]    = wsType_Shell,
+}
+</code></pre>
+<p>Use these string keys when calling <code>addPylon</code>.</p>
+<hr />
+<h2 id="gotchas-todos">Gotchas &amp; TODOs<a class="headerlink" href="#gotchas-todos" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Mid-salvo arming switch</strong>:<br />
+<em>Known issue</em>: If you change which pylons are armed <strong>during</strong> an active salvo, newly armed pylons may join mid-burst.  </li>
+</ul>
+<hr />
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
+<h3 id="1-typical-rocket-setup-with-salvo">1) Typical rocket setup with salvo<a class="headerlink" href="#1-typical-rocket-setup-with-salvo" title="Permanent link">#</a></h3>
+<pre><code class="language-lua">local WS = WeaponSystem:new(GetSelf())
+
+-- two rocket stations, both armed
+WS:addPylon(1, &quot;ROCKETS&quot;, true)
+WS:addPylon(2, &quot;ROCKETS&quot;, true)
+
+WS:setRocketSalvoQuantity(6)     -- 6 rockets per trigger
+WS:setRocketSalvoInterval(0.08)  -- 80 ms spacing
+
+-- trigger press handler:
+function on_trigger_pressed()
+  WS:fireRocketSalvo()
+end
+
+function update()
+  WS:update()
+end
+</code></pre>
+<h3 id="2-mixed-loadout-and-selective-fire">2) Mixed loadout and selective fire<a class="headerlink" href="#2-mixed-loadout-and-selective-fire" title="Permanent link">#</a></h3>
+<pre><code class="language-lua">local WS = WeaponSystem:new(GetSelf())
+WS:addPylon(1, &quot;BOMBS&quot;,   false)
+WS:addPylon(2, &quot;ROCKETS&quot;, true)
+WS:addPylon(3, &quot;MISSILES&quot;, false)
+
+-- Fire rockets only (pylon 2):
+WS:launch(2)
+
+-- Arm bombs then drop:
+WS:armPylon(1, true)
+WS:launch(1)
+</code></pre>
+<h3 id="3-emergency-jettison">3) Emergency jettison<a class="headerlink" href="#3-emergency-jettison" title="Permanent link">#</a></h3>
+<pre><code class="language-lua">-- pilot pulls the panic handle:
+WS:emergencyJettison()
+</code></pre>
+<hr />
               
             </div>
           </div><footer>
