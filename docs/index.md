@@ -1,13 +1,3 @@
-<!-- # DCS Modding Docs
-Welcome to the DCS OpenSource communities combined knowledge, this document is not meant to be a complete guide for making a mod.  
-Instead, it serves as a lookup and reference for the many available functions DCS provides.  
-
-This document will be evolving as new things get added, or discovered.
-
-!!! Warning
-    Not all functions have been tested, if you find any errors, please let the team know.
- -->
-
 # DCS Modding Docs
 
 Welcome to the **DCS OpenSource Community’s** combined knowledge base!  
@@ -47,5 +37,3 @@ If you’d like to help expand or correct the documentation:
 Whether it’s fixing a typo, clarifying an explanation, or adding entire sections, **all contributions are welcome**.
 
 If you’re unsure where to start, check the existing docs for areas that need examples or additional detail.
-
----
