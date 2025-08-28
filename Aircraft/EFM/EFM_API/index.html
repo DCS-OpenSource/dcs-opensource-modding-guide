@@ -44,6 +44,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../links/">Useful Links</a>
+                </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" >Stubs</a>
@@ -93,6 +97,22 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">EFM API</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-overview">API Overview</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dcs-reference-frames">DCS Reference Frames</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#local">Local</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#global">Global</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#function-overview">Function Overview</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ed_fm_templatecpp">ED_FM_TEMPLATE.cpp</a>
@@ -196,12 +216,247 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="dcs-efm-api">DCS EFM API<a class="headerlink" href="#dcs-efm-api" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>The EFM API Template is the outline for the API your aircraft needs to provide into correctly work within the game. </p>
+<p>You build a .dll file which the game will load (when it is specified in the entry.lua). It defines functions which DCS will call to query information about the state of your plane. DCS will also call functions to pass you important information about the current state of your aircraft and the atmosphere.</p>
+<p>The rough outline of data flow is that DCS will first pass you information about your plane's state, then DCS will call your simulate function. Then DCS will ask you for information it requires like your engine RPM, or any forces or moments on the aircraft. Using this information DCS will then update your plane's acceleration, velocity and position (along with the angular equivalents of these).</p>
+<h2 id="api-overview">API Overview<a class="headerlink" href="#api-overview" title="Permanent link">#</a></h2>
+<h3 id="dcs-reference-frames">DCS Reference Frames<a class="headerlink" href="#dcs-reference-frames" title="Permanent link">#</a></h3>
+<p>DCS API defines two coordinate systems: global and local. Both of these are right handed coordinate systems defined as follows:</p>
+<ul>
+<li>+x -&gt; forward</li>
+<li>+y -&gt; up</li>
+<li>+z -&gt; right</li>
+</ul>
+<p>Since this is a right handed coordinate system the rotations are more easily defined in terms of the body (local) coordinates as if flying the aircraft:</p>
+<ul>
+<li>+rotation around x -&gt; roll right</li>
+<li>+rotation around y -&gt; yaw left</li>
+<li>+rotation around z -&gt; pitch up</li>
+</ul>
+<h4 id="local">Local<a class="headerlink" href="#local" title="Permanent link">#</a></h4>
+<p>This may also be known as body or aircraft body. This is the reference frame relative to the aircraft, as if you were flying along with the aircraft. The origin is defined from the centre of the model, note the centre of mass defined in the entry.lua is also defined from the origin of the model.</p>
+<ul>
+<li>+x -&gt; forward torwards the nose</li>
+<li>+y -&gt; up</li>
+<li>+z -&gt; along out the right wing</li>
+</ul>
+<p>the rotations are the same as those described just above.</p>
+<h4 id="global">Global<a class="headerlink" href="#global" title="Permanent link">#</a></h4>
+<p>This refers to DCS's global or world coordinate system, this has no physical meaning this is just the underlying coordinate system used by the DCS engine, since DCS exists on a flat earth.</p>
+<p>The closest analogue to real coordinates <a href="https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates">local tangent plane coordinates</a> for rotation (DCS is NUE). The DCS global frame is local tangent plane coordinates but also the position is absolute <strong>not relative to the aircraft position.</strong></p>
+<p>In DCS the coordinates have the following meanings:</p>
+<ul>
+<li>+x -&gt; north</li>
+<li>+y -&gt; up</li>
+<li>+z -&gt; east</li>
+</ul>
+<p>the rotations are the same as those described above, the only thing worth noting is the rotation around the y axis (yaw or heading) is positive to the left (west from north). This is the opposite of the normal convention of the compass starting at north and increasing eastward.</p>
+<p>This must be taken into account when using yaw angle for heading.</p>
+<h3 id="function-overview">Function Overview<a class="headerlink" href="#function-overview" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Data Direction</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ed_fm_add_local_force</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>one</strong> force in the <a href="#local">local</a> frame.</td>
+<td>Adding Lift/Drag Force</td>
+</tr>
+<tr>
+<td>ed_fm_add_local_force_component</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>many</strong> forces in the <a href="#local">local</a> frame.</td>
+<td>Adding Lift and Drag forces for a multi-element method</td>
+</tr>
+<tr>
+<td>ed_fm_add_global_force</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>one</strong> force in the <a href="#global">global</a> frame.</td>
+<td>Adding force from a hot airballoon.</td>
+</tr>
+<tr>
+<td>ed_fm_add_global_force_component</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>many</strong> forces in the <a href="#global">global</a> frame.</td>
+<td>Adding forces from multiple attached helium balloons.</td>
+</tr>
+<tr>
+<td>ed_fm_add_local_moment</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>one</strong> moment in the <a href="#local">local</a> frame.</td>
+<td>Adding stability derivative moments.</td>
+</tr>
+<tr>
+<td>ed_fm_add_local_moment_component</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>many</strong> forces in the <a href="#local">local</a> frame.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_add_global_moment</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>one</strong> moment in the <a href="#global">global</a> frame.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_add_global_moment_component</td>
+<td>EFM-&gt;DCS</td>
+<td>Add <strong>many</strong> forces in the <a href="#global">global</a> frame.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_simulate</td>
+<td>N/A</td>
+<td>Update function called by DCS every frame to simulate your flight model</td>
+<td>simulate and update: engine, flight model</td>
+</tr>
+<tr>
+<td>ed_fm_set_atmosphere</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS gives atmosphere state to your simulation at your aircraft's current position</td>
+<td>Update your internal atmosphere state for flight model.</td>
+</tr>
+<tr>
+<td>ed_fm_set_current_mass_state</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS gives current aircraft mass state</td>
+<td>Update mass state, for example centre of mass useful for calculating moments.</td>
+</tr>
+<tr>
+<td>ed_fm_set_current_state</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS gives current physics rigidbody state in <a href="#global">global or world coordinates</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_set_current_state_body_axis</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS gives current physics rigidbody state in <a href="#local">local or body coordinates</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_on_damage</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls whenever your aircraft takes damage supplying the element and it's new health</td>
+<td>Updating your damage state.</td>
+</tr>
+<tr>
+<td>ed_fm_set_command</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls whenever a command is processed.</td>
+<td>Setting input like flight stick and throttle position.</td>
+</tr>
+<tr>
+<td>ed_fm_change_mass</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks for any mass change requests</td>
+<td>Update mass as fuel is burned from the aircraft, or update mass when fuel is added.</td>
+</tr>
+<tr>
+<td>ed_fm_set_internal_fuel</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls whenever fuel is set or added</td>
+<td>Set your fuel system fuel level.</td>
+</tr>
+<tr>
+<td>ed_fm_refueling_add_fuel</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls whenever fuel is added, optional if not present DCS will call set_internal_fuel repeatedly to add fuel.</td>
+<td>Add fuel during refueing.</td>
+</tr>
+<tr>
+<td>ed_fm_get_internal_fuel</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks for internal fuel remaining</td>
+<td>To inform DCS of your fuel state.</td>
+</tr>
+<tr>
+<td>ed_fm_get_external_fuel</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks for external fuel remaining</td>
+<td>To inform DCS of your external fuel state.</td>
+</tr>
+<tr>
+<td>ed_fm_set_draw_args</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks for changes to external draw args.</td>
+<td>Set any external arguments.</td>
+</tr>
+<tr>
+<td>... internal args ...</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_configure</td>
+<td>N/A</td>
+<td>DCS calls upon simulation start.</td>
+<td>Setup and data-structures before the simulation starts.</td>
+</tr>
+<tr>
+<td>ed_fm_get_param</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS asks for information about certain parameters about your simulation.</td>
+<td>Inform DCS of certain parameters like engine RPM.</td>
+</tr>
+<tr>
+<td>ed_fm_set_surface</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS gives information about the surface below the aircraft.</td>
+<td>To calculate ground effect.</td>
+</tr>
+<tr>
+<td>ed_fm_cold_start</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls on cold start.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_hot_start</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls on hot start.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_hot_start_in_air</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls on air start.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_get_shake_amplitude</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks for requested shake.</td>
+<td></td>
+</tr>
+<tr>
+<td>ed_fm_repair</td>
+<td>DCS-&gt;EFM</td>
+<td>DCS calls upon repair.</td>
+<td>Repair all your damage.</td>
+</tr>
+<tr>
+<td>ed_fm_need_to_be_repaired</td>
+<td>EFM-&gt;DCS</td>
+<td>DCS asks if repair is required.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
 <p>The EFM API can be found under <code>C:\Program Files\Eagle Dynamics\DCS World\API</code> or wherever DCS is installed on your machine.</p>
 <hr />
 <h2 id="ed_fm_templatecpp">ED_FM_TEMPLATE.cpp<a class="headerlink" href="#ed_fm_templatecpp" title="Permanent link">#</a></h2>
-<p>This file can (and should) be renamed to the name of your plane.</p>
-<p>It contains functions to both send and recieve data from the game. It serves as the API layer between your simulation and the game.</p>
+<p>This file can (and should) be renamed to the name of your plane. </p>
 <hr />
 <h3 id="ed_fm_simulate"><code>ed_fm_simulate</code><a class="headerlink" href="#ed_fm_simulate" title="Permanent link">#</a></h3>
 <h4 id="description"><strong>Description</strong><a class="headerlink" href="#description" title="Permanent link">#</a></h4>

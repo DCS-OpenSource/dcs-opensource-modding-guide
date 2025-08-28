@@ -44,6 +44,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../../links/">Useful Links</a>
+                </li>
+              </ul>
               <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" >Stubs</a>
@@ -66,6 +70,8 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">avLuaDevice</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#post_initialize">post_initialize()</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a>
@@ -183,6 +189,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="avluadevice">avLuaDevice<a class="headerlink" href="#avluadevice" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>avLuaDevices are created in the device_init.lua, with the script path pointing to the lua file for the device. These devices make up the aircraft avionics and systems. Each lua device is a self contained lua_State, this means that any global variables or functions are not shared between them.</p>
+<p>To pass information between lua devices <a href="../../Stubs/DeviceStubs/#param-handles">param handles</a> can be used. However it is recommended for more advanced data-structures instead you pass and store information using <a href="https://www.lua.org/pil/26.2.html">C Lua Modules</a>, which can be written in C or C++ giving your devices a shared memory space through which to pass or store information.</p>
 <hr />
 <h2 id="post_initialize">post_initialize()<a class="headerlink" href="#post_initialize" title="Permanent link">#</a></h2>
 <p>Called once when you load into your plane, very useful for setting hot/cold start variables.</p>
