@@ -37,3 +37,16 @@ If you’d like to help expand or correct the documentation:
 Whether it’s fixing a typo, clarifying an explanation, or adding entire sections, **all contributions are welcome**.
 
 If you’re unsure where to start, check the existing docs for areas that need examples or additional detail.
+
+---
+
+## Thank You
+Big Thank you to the following for contributing to the docs
+
+* Caffeine Simulations
+    * Hayds_93
+    * BrianTheBrain
+    * Violent Nomad
+
+* Others
+    * JNelson
