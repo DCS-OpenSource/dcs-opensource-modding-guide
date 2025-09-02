@@ -132,9 +132,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#default-interpolation">Default Interpolation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#before-you-start-animations">Before you start animations</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#before-you-start">Before you start</a>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-an-animation">Creating an Animation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#download-demo-file">Download Demo File</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#skin-animations">Skin Animations</a>
     </li>
@@ -180,16 +186,45 @@ This will configure blenders timeline into the required format.</p>
 <p>The EDM format treats the space between keyframes as linear, although by default, blender does not.<br />
 To change this, navigate to <code>Edit &gt; Preferences</code> then select <code>Animation</code> then change <code>Default Interpolation</code> to <code>Linear</code></p>
 <p><img alt="alt text" src="../images/interpolation.png" /></p>
-<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">#</a></h2>
+<h3 id="before-you-start-animations">Before you start animations<a class="headerlink" href="#before-you-start-animations" title="Permanent link">#</a></h3>
 <p>It is important to apply rotation and scale before starting animations. Location does not need to be applied.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you don't do this, you may find the resulting export have some strange translations that are not visible in blender.</p>
 </div>
-<h2 id="skin-animations">Skin Animations<a class="headerlink" href="#skin-animations" title="Permanent link">#</a></h2>
+<hr />
+<h2 id="creating-an-animation">Creating an Animation<a class="headerlink" href="#creating-an-animation" title="Permanent link">#</a></h2>
+<p>Create an Empty at a relevant point on the object you want to animate, such as an axis of rotation, or the center of an object.</p>
+<p>Parent the mesh to be animated to the empty with <code>CTRL + P</code> -&gt; <code>Object</code>.</p>
+<p>Select the empty, then click on the <code>New</code> Button at the top of the action editor.</p>
+<p><img alt="alt text" src="../images/basic_animation1.png" /></p>
+<p>Name the Animation Action (by clicking the textbox that replaced the new button) to the desired arg number, then an underscore, then a description.<br />
+For example <code>1_Cube_Test</code> will add the animation to arg 1 in the edm file. <strong>The desired arg number must be first in the name, anything after it makes no difference</strong></p>
+<p>Next, with the timeline slider at 100 <em>(DCS Arg value 0)</em>, press <code>K</code> (Blender 3.6 uses <code>I</code>) and insert a keyframe of your desired type.</p>
+<p><img alt="alt text" src="../images/insert_keyframe.png" /></p>
+<p>Next, move the timeline slider to 200, <em>(DCS Arg value 1)</em> and place another keyframe. You can also add others in between like the image below</p>
+<p><img alt="alt text" src="../images/multiple_keyframes.png" /></p>
+<p>Export to EDM, and open your file in modelviewer and you should see your mesh, with a window labeled <code>Args</code> with your animation as a slider. Drag the slider to test your animation</p>
+<p><img alt="alt text" src="../images/animation_in_mv.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Max 4 bones per deforming mesh</p>
+<p><strong>Rotation Animations</strong><br />
+If you are doing a rotation animation, ensure you set the rotation to <code>Quaternion (WXYZ)</code> (as seen in the image below) <strong>Before</strong> adding any keyframes, otherwise you may notice non matching rotation in your EDM file. </p>
+<p>When doing a 180 degree or greater rotation, make sure to do keyframes at 90 degree intervals, otherwise your rotation may go the wrong direction</p>
+<p><img alt="alt text" src="../images/rotation_system.png" /></p>
+</div>
+<h3 id="download-demo-file">Download Demo File<a class="headerlink" href="#download-demo-file" title="Permanent link">#</a></h3>
+<p><strong>Animation Test</strong><br />
+<a href="../Blender%20Examples/Blend/animation.blend">animation.blend</a></p>
+<hr />
+<h2 id="skin-animations">Skin Animations<a class="headerlink" href="#skin-animations" title="Permanent link">#</a></h2>
+<p>Hooray, ED added support for NLA tracks and multiple args per armature, documentation to come later</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>Max 4 bones per deforming mesh</li>
+<li>Need to manually Define a bounding box or won't export</li>
+</ul>
 </div>
               
             </div>

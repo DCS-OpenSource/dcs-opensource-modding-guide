@@ -122,15 +122,15 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#intro">Intro</a>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#blender-versions">Blender Versions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-blender-versions">Supported Blender Versions</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#download-examples">Download Examples</a>
+    <li class="toctree-l2"><a class="reference internal" href="#example-files">Example Files</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#help-me">Help me</a>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
     </li>
     </ul>
                   </li>
@@ -166,56 +166,66 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="eagle-dynamics-dcs-blender-export-plugin">Eagle Dynamics DCS Blender Export Plugin<a class="headerlink" href="#eagle-dynamics-dcs-blender-export-plugin" title="Permanent link">#</a></h1>
-<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">#</a></h2>
-<p>I've compiled this documentation since the docs included with the plugin in the manual folder are out of date, and complete, with poor formatting.<br />
-However the template EDM files are very useful.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>This documentation was compiled because the official docs included with the plugin (in the <code>manual</code> folder) are outdated, incomplete, and poorly formatted.<br />
+That said, the <strong>template EDM files</strong> provided are still very useful.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are no changelogs or any public info about this other than what is included in the downloaded .zip</p>
+<p>There are no changelogs or public information about this plugin other than what is included in the downloaded <code>.zip</code>.<br />
+<strong>The plugin is still a work in progress, and some features will not function.</strong></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This guide assumes general blender knowledge, including materials, animation.</p>
+<p>This guide assumes general Blender knowledge, including familiarity with <strong>materials</strong> and <strong>animation</strong>.</p>
 </div>
 <hr />
-<h2 id="blender-versions">Blender Versions<a class="headerlink" href="#blender-versions" title="Permanent link">#</a></h2>
-<p>The exporter works completely on Blender <code>4.2.3 LTS</code>.<br />
-It seems to work on Blender <code>3.6.0 LTS</code> although I have not verified this personally.<br />
-Blender <code>4.5.0 LTS</code> <strong>Does NOT</strong> work, theres an issue with how Blender updated the materials API.</p>
+<h2 id="supported-blender-versions">Supported Blender Versions<a class="headerlink" href="#supported-blender-versions" title="Permanent link">#</a></h2>
+<ul>
+<li>✅ Works on <strong>Blender <code>4.2.3 LTS</code></strong></li>
+<li>⚠️ Appears to work on <strong>Blender <code>3.6.0 LTS</code></strong>, but not personally verified</li>
+<li>❌ Does <strong>NOT</strong> work on <strong>Blender <code>4.5.0 LTS</code></strong><br />
+  (Blender updated the materials API. Code changes suggest future support is planned.)</li>
+</ul>
 <hr />
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>The Blender plugin can be downloaded from <a href="https://mods.eagle.ru/blender_plugin/files.html" target="_blank">here</a></p>
-<p>Install the .zip file into blender in edit &gt; preferences.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>At time of writing, the plugin has not been updated since March 11 2025.<br />
-The plugin is still work in progress, and some features will not work.</p>
-</div>
+<p>Download the Blender plugin from:<br />
+<a href="https://mods.eagle.ru/blender_plugin/files.html" target="_blank">mods.eagle.ru/blender_plugin/files.html</a></p>
+<ol>
+<li>Open Blender → <code>Edit &gt; Preferences</code></li>
+<li>Install the <code>.zip</code> file as an addon</li>
+</ol>
 <hr />
-<h2 id="download-examples">Download Examples<a class="headerlink" href="#download-examples" title="Permanent link">#</a></h2>
-<p>I have  made the files used in this guide available to download from the links below.</p>
-<ul>
-<li>Cube Example<ul>
-<li><a href="../Blender%20Examples/Blend/cube.blend">Blender File</a></li>
-<li><a download="Cube" href="../Blender%20Examples/EDM/Textures/Cube.png">Texture</a></li>
-</ul>
-</li>
-<li>
-<p>Animation Test</p>
-<ul>
-<li><a href="../Blender%20Examples/Blend/animation.blend">Blender File</a></li>
-</ul>
-</li>
-<li>
-<p>Skin Animation Test</p>
-<ul>
-<li><a href="../Blender%20Examples/Blend/skin.blend">Blender File</a></li>
-</ul>
-</li>
-</ul>
+<h2 id="example-files">Example Files<a class="headerlink" href="#example-files" title="Permanent link">#</a></h2>
+<p>The following example files are available for download:</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Blender File</th>
+<th>Extra Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cube Example</strong></td>
+<td><a href="../Blender%20Examples/Blend/cube.blend">cube.blend</a></td>
+<td><a download="Cube" href="../Blender%20Examples/EDM/Textures/Cube.png">Cube.png</a></td>
+</tr>
+<tr>
+<td><strong>Animation Test</strong></td>
+<td><a href="../Blender%20Examples/Blend/animation.blend">animation.blend</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Skin Animation</strong></td>
+<td><a href="../Blender%20Examples/Blend/skin.blend">skin.blend</a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="help-me">Help me<a class="headerlink" href="#help-me" title="Permanent link">#</a></h2>
-<p>Feel free to create a pull request and contribute your findings</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
+<p>If you discover additional details or fixes, feel free to <strong>create a pull request</strong> and contribute your findings.</p>
               
             </div>
           </div><footer>
