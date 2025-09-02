@@ -5,7 +5,7 @@ To export your first mesh into the .edm format, start with a blank blender cube,
 
 The "Front" of your model faces positive X, so be sure to face the nose of your vehicle or aircraft towards positive X.
 
-![Blank Blender Cube](images/image.png)
+![alt text](images/cube.png)
 
 !!! Note
     Make sure your mesh has its Rotation and scale applied, this can be done by selecting your mesh, pressing `CTRL + A` and selecting `Rotation and Scale`

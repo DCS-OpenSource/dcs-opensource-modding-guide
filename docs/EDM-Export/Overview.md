@@ -1,49 +1,49 @@
 # Eagle Dynamics DCS Blender Export Plugin
 
-## Intro
-I've compiled this documentation since the docs included with the plugin in the manual folder are out of date, and complete, with poor formatting.  
-However the template EDM files are very useful.
+## Introduction
+This documentation was compiled because the official docs included with the plugin (in the `manual` folder) are outdated, incomplete, and poorly formatted.  
+That said, the **template EDM files** provided are still very useful.
 
-!!! Note
-    There are no changelogs or any public info about this other than what is included in the downloaded .zip
+!!! note
+    There are no changelogs or public information about this plugin other than what is included in the downloaded `.zip`.  
+    **The plugin is still a work in progress, and some features will not function.**
 
-!!! Warning
-    This guide assumes general blender knowledge, including materials, animation.
+!!! warning
+    This guide assumes general Blender knowledge, including familiarity with **materials** and **animation**.
 
 ---
 
-## Blender Versions
+## Supported Blender Versions
 
-The exporter works completely on Blender `4.2.3 LTS`.  
-It seems to work on Blender `3.6.0 LTS` although I have not verified this personally.  
-Blender `4.5.0 LTS` **Does NOT** work, theres an issue with how Blender updated the materials API.
+- ✅ Works on **Blender `4.2.3 LTS`**
+- ⚠️ Appears to work on **Blender `3.6.0 LTS`**, but not personally verified
+- ❌ Does **NOT** work on **Blender `4.5.0 LTS`**  
+  (Blender updated the materials API. Code changes suggest future support is planned.)
 
 ---
 
 ## Installation
-The Blender plugin can be downloaded from [here](https://mods.eagle.ru/blender_plugin/files.html){:target="_blank"}
 
-Install the .zip file into blender in edit > preferences.
+Download the Blender plugin from:  
+[mods.eagle.ru/blender_plugin/files.html](https://mods.eagle.ru/blender_plugin/files.html){:target="_blank"}
 
-!!! Note
-    At time of writing, the plugin has not been updated since March 11 2025.  
-    The plugin is still work in progress, and some features will not work.
+1. Open Blender → `Edit > Preferences`
+2. Install the `.zip` file as an addon
 
 ---
 
-## Download Examples
-I have  made the files used in this guide available to download from the links below.
+## Example Files
 
-- Cube Example
-    - [Blender File](Blender%20Examples/Blend/cube.blend)
-    - [Texture](Blender%20Examples/EDM/Textures/Cube.png){:download="Cube"}
-- Animation Test
-    - [Blender File](Blender%20Examples/Blend/animation.blend)
+The following example files are available for download:
 
-- Skin Animation Test
-    - [Blender File](Blender%20Examples/Blend/skin.blend)
+| Example              | Blender File                                                     | Extra Files                                                                  |
+|----------------------|------------------------------------------------------------------|------------------------------------------------------------------------------|
+| **Cube Example**     | [cube.blend](Blender%20Examples/Blend/cube.blend)                | [Cube.png](Blender%20Examples/EDM/Textures/Cube.png){:download="Cube"}       |
+| **Animation Test**   | [animation.blend](Blender%20Examples/Blend/animation.blend)      | —                                                                            |
+| **Skin Animation**   | [skin.blend](Blender%20Examples/Blend/skin.blend)                | —                                                                            |
+
 ---
 
-## Help me
-Feel free to create a pull request and contribute your findings
+## Contributing
 
+If you discover additional details or fixes, feel free to **create a pull request** and contribute your findings.
