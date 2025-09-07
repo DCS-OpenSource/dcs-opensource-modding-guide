@@ -7,7 +7,11 @@ markdown_extensions:
   - attr_list
   - pymdownx.blocks.caption
   - toc:
-        permalink: "#"
+      permalink: "#"
+
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore
 
 extra_css:
   - css/extra.css
@@ -44,10 +48,11 @@ nav:
     - Draw Args: Database/draw-args.md
   - Useful bits:
     - Modelviewer: UsefulBits/ModelViewer.md
-
-
   - ED Blender Exporter:
       - Overview: EDM-Export/Overview.md
       - Mesh: EDM-Export/Mesh.md
       - Animations: EDM-Export/Animations.md
       - Lights: EDM-Export/Lights.md
+  - Beginner's Guide to DCS Modding:
+    - Overview: BeginnersGuide/Overview.md
+    - 3D Modeling: BeginnersGuide/3DModeling.md 
