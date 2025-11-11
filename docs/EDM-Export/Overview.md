@@ -15,10 +15,8 @@ That said, the **template EDM files** provided are still very useful.
 
 ## Supported Blender Versions
 
-- ✅ Works on **Blender `4.2.3 LTS`**
+- ✅ Works on **Blender `4.2.3 LTS`**, **Blender `4.5.4 LTS`**
 - ⚠️ Appears to work on **Blender `3.6.0 LTS`**, but not personally verified
-- ❌ Does **NOT** work on **Blender `4.5.0 LTS`**  
-  (Blender updated the materials API. Code changes suggest future support is planned.)
 
 ---
 

@@ -104,12 +104,37 @@ Each sub collection should have a copy of the mesh, and they should not share an
 
 ---
 
+## Glass Materials
+
+Below is an example of the glass material node. The glass material node takes the same 3 textures as the [default material](#roughmets-and-normals)
+
+!!! Warning
+    Note the Base Colour goes to diffuse colour, not Glass Colour, (At time of writing I am unsure what Glass Colour does, but there is an example in the plugins demo files)
+
+![glass material](images/glassmat.png)
+
+---
+
+## Emmisive Materials
+
+This is the node setup for making backlit panels etc. the emmisive mask is a texture with an alpha map that is white where light passes through. Examples of this can be seen in the demo files in the plugin.
+
+This brightness can be animated, again see the demo files.
+
+!!! Note
+    TODO Flesh this out, including animations, note that animations are per mesh, not per material, which is handy
+
+![Emmisive Node setup](images/emmisive.png)
+
+---
+
 ## Common Errors
 
 ### Index out of range error
 
 If you get an error similar to this:
 ![alt text](images/index_error.png)
+
 This error is likely to do with material corruption from converting blender versions, to resolve:
 
 * Open the Blender python console and run:
