@@ -98,6 +98,12 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#keybuilder-class">KeyBuilder (class)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#api">API</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#keybindtodevice-class">KeybindToDevice (class)</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a>
@@ -206,6 +212,121 @@
 <li><a href="#keybindtodevice-class">KeybindtoDevice</a></li>
 <li><a href="#timer-class">Timer</a></li>
 </ul>
+<hr />
+<h2 id="keybuilder-class">KeyBuilder (class)<a class="headerlink" href="#keybuilder-class" title="Permanent link">#</a></h2>
+<p>A tiny helper for declaring <strong>DCS input rows</strong> in a structured, repeatable way.<br />
+You build “blocks” (button, 2-pos, 3-pos, N-pos) and the builder appends the underlying input rows into your destination table (e.g., <code>res.keyCommands</code>).</p>
+<hr />
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h3>
+<h4 id="newtargettable-builder"><code>new(targetTable) -&gt; builder</code><a class="headerlink" href="#newtargettable-builder" title="Permanent link">#</a></h4>
+<p>Create a builder bound to a destination table.</p>
+<ul>
+<li><code>targetTable</code> <strong>table</strong> – Required. Receives appended rows.</li>
+</ul>
+<p><strong>Errors</strong>: Throws if <code>targetTable</code> is not a table.</p>
+<hr />
+<h4 id="addbuttonbtncmd-basename-categories"><code>addButton(btnCmd, baseName, categories)</code><a class="headerlink" href="#addbuttonbtncmd-basename-categories" title="Permanent link">#</a></h4>
+<p>Append a classic <strong>momentary</strong> push button (press = <code>value_down=1</code>, release = <code>value_up=0</code>).</p>
+<ul>
+<li><code>btnCmd</code> <strong>number</strong> – Device/keybind command.</li>
+<li><code>baseName</code> <strong>string</strong> – Display name (defaults to <code>"Unnamed"</code> if nil).</li>
+<li><code>categories</code> <strong>string | string[]</strong> – One or more category breadcrumbs.</li>
+</ul>
+<p><strong>Rows generated</strong>: 1</p>
+<hr />
+<h4 id="add2posswcmd-basename-categories-togglecmd-labels"><code>add2Pos(swCmd, baseName, categories, toggleCmd?, labels?)</code><a class="headerlink" href="#add2posswcmd-basename-categories-togglecmd-labels" title="Permanent link">#</a></h4>
+<p>Append a <strong>2-position</strong> switch block.</p>
+<ul>
+<li><code>swCmd</code> <strong>number</strong> – Device/keybind command (expects values <code>0</code> / <code>1</code>).</li>
+<li><code>baseName</code> <strong>string</strong> – Display base name (defaults to <code>"Unnamed"</code>).</li>
+<li><code>categories</code> <strong>string | string[]</strong> – Category breadcrumb(s).</li>
+<li><code>toggleCmd</code> <strong>number | nil</strong> – Optional <strong>toggle</strong> command row (no value).</li>
+<li><code>labels</code> <strong>table | nil</strong> – 1-indexed labels <strong><code>{ [1]=first, [2]=second }</code></strong>.<br />
+  Defaults to <code>{"OFF","ON"}</code>.</li>
+</ul>
+<p><strong>Rows generated (in order)</strong>:
+1) Momentary “second &lt;&gt; first” (down→1, up→0)<br />
+2) <em>(Optional)</em> Toggle (“TOGGLE”)<br />
+3) Direct “second” (value_down=1)<br />
+4) Direct “first”  (value_down=0)</p>
+<hr />
+<h4 id="add3posswcmd-basename-categories-cyclecmd-labels-cyclename"><code>add3Pos(swCmd, baseName, categories, cycleCmd?, labels?, cycleName?)</code><a class="headerlink" href="#add3posswcmd-basename-categories-cyclecmd-labels-cyclename" title="Permanent link">#</a></h4>
+<p>Append a <strong>3-position</strong> switch block (<code>-1</code>, <code>0</code>, <code>+1</code>).</p>
+<ul>
+<li><code>swCmd</code> <strong>number</strong> – Device/keybind command.</li>
+<li><code>baseName</code> <strong>string</strong> – Base name (defaults to <code>"Unnamed"</code>).</li>
+<li><code>categories</code> <strong>string | string[]</strong> – Breadcrumb(s).</li>
+<li><code>cycleCmd</code> <strong>number | nil</strong> – Optional <strong>cycle</strong> command row (no value).</li>
+<li><code>labels</code> <strong>table | nil</strong> – 1-indexed labels <strong><code>{ [1]=left, [2]=center, [3]=right }</code></strong>.<br />
+  Defaults to <code>{"LEFT","CENTER","RIGHT"}</code>.</li>
+<li><code>cycleName</code> <strong>string | nil</strong> – Caption for the cycle row (default <code>"CYCLE"</code>).</li>
+</ul>
+<p><strong>Rows generated (in order)</strong>:
+1) “left &lt;&gt; center” (down→-1, up→0)<br />
+2) “right &lt;&gt; center” (down→+1, up→0)<br />
+3) <em>(Optional)</em> Cycle<br />
+4) Direct “left” (value_down=-1)<br />
+5) Direct “right” (value_down=+1)<br />
+6) Direct “center” (value_down=0)</p>
+<hr />
+<h4 id="addmultiposswcmd-basename-categories-inccmd-deccmd-cyclecmd-labelsbyvalue"><code>addMultiPos(swCmd, baseName, categories, incCmd?, decCmd?, cycleCmd?, labelsByValue)</code><a class="headerlink" href="#addmultiposswcmd-basename-categories-inccmd-deccmd-cyclecmd-labelsbyvalue" title="Permanent link">#</a></h4>
+<p>Append an <strong>N-position</strong> switch block with <strong>arbitrary numeric positions</strong>.</p>
+<ul>
+<li><code>swCmd</code> <strong>number</strong> – Base device/keybind command for direct positions.</li>
+<li><code>baseName</code> <strong>string</strong> – Base name (defaults to <code>"Unnamed"</code>).</li>
+<li><code>categories</code> <strong>string | string[]</strong> – Breadcrumb(s).</li>
+<li><code>incCmd</code> <strong>number | nil</strong> – Optional <strong>increment</strong> key row.</li>
+<li><code>decCmd</code> <strong>number | nil</strong> – Optional <strong>decrement</strong> key row.</li>
+<li><code>cycleCmd</code> <strong>number | nil</strong> – Optional <strong>cycle</strong> key row.</li>
+<li><code>labelsByValue</code> <strong>table (required)</strong> – Map <strong><code>number → string</code></strong>.<br />
+  Example: <code>{ [-1]="LOW", [0]="OFF", [1]="HIGH" }</code></li>
+</ul>
+<p><strong>Behavior</strong>:
+- Numeric keys of <code>labelsByValue</code> are <strong>collected and sorted ascending</strong> to produce a stable output order.
+- For each value <strong>v</strong>, a direct row is emitted with <code>value_down = v</code> and <code>value_up = 0</code>.</p>
+<p><strong>Rows generated (in order)</strong>:
+1) <em>(Optional)</em> INC<br />
+2) <em>(Optional)</em> DEC<br />
+3) <em>(Optional)</em> CYCLE<br />
+4…) One <strong>direct</strong> row per sorted value</p>
+<p><strong>Errors</strong>:
+- Throws if <code>labelsByValue</code> is not a table or has no numeric keys with string labels.</p>
+<hr />
+<h4 id="addrows"><code>add(rows)</code><a class="headerlink" href="#addrows" title="Permanent link">#</a></h4>
+<p>Append <strong>arbitrary rows</strong> verbatim.</p>
+<ul>
+<li><code>rows</code> <strong>table[]</strong> – Array of rows following DCS input table conventions.</li>
+</ul>
+<hr />
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<p>Below is a complete example of the <code>Keyboard/default.lua</code> from the CT-4E showing the setup of the plugin.</p>
+<pre><code class="language-lua">local cscripts = folder..&quot;../../../Cockpit/Scripts/&quot;
+dofile(cscripts..&quot;devices.lua&quot;)
+dofile(cscripts..&quot;command_defs.lua&quot;)
+
+local res = external_profile(&quot;Config/Input/Aircrafts/common_keyboard_binding.lua&quot;)
+
+local KeybindBlockBuilder = dofile(cscripts..&quot;LuaToolsPlugin/KeybindBuilder.lua&quot;)
+local kb = KeybindBlockBuilder:new(res.keyCommands)
+
+-- lights
+kb:add2Pos(Keys.BEACON_LIGHT_SW,    'Beacon Lights',    {'Electric System','Lights','Front Panel'}, Keys.BEACON_LIGHT_TOGGLE)
+kb:add2Pos(Keys.NAV_LIGHT_SW,       'Nav Lights',       {'Electric System','Lights','Front Panel'}, Keys.NAV_LIGHT_TOGGLE)
+kb:add2Pos(Keys.LNDG_LIGHT_SW,      'Landing Lights',   {'Electric System','Lights','Front Panel'}, Keys.LNDG_LIGHT_TOGGLE)
+kb:add2Pos(Keys.STROBE_LIGHT_SW,    'Strobe Lights',    {'Electric System','Lights','Front Panel'}, Keys.STROBE_LIGHT_TOGGLE)
+
+-- Unique Systems
+kb:add({
+  {combos = {{key = 'Space'}}, down = iCommandPlaneWingtipSmokeOnOff, value_down = 1, name = _('Smoke System - TOGGLE'),    category = _('Smoke')},
+
+  {combos = {{key = '1'}},     down = iCommandViewCockpitChangeSeat,  value_down = 1, name = _('Occupy Pilot Seat'),        category = _('Multicrew')},
+  {combos = {{key = '2'}},     down = iCommandViewCockpitChangeSeat,  value_down = 2, name = _('Occupy Copilot Seat'),      category = _('Multicrew')},
+  {combos = {{key = 'J'}},     down = iCommandNetCrewRequestControl,                  name = _('Request Aircraft Control'), category = _('Multicrew')},
+})
+
+return res
+</code></pre>
+<hr />
 <h2 id="keybindtodevice-class">KeybindToDevice (class)<a class="headerlink" href="#keybindtodevice-class" title="Permanent link">#</a></h2>
 <p><strong>Description</strong><br />
 A helper class that links keybind commands to device commands in the cockpit, with optional dispatch to the EFM.</p>

@@ -1782,3 +1782,7 @@ iCommandKeyMaximum = 2150
 iCommandCockpitDeviceCommandsStart = 3000
 iCommandCockpitDeviceCommandsEnd = 3999
 iCommandRepKeyBegin = 4000
+
+-- Extras from UI Layer
+iHeadTrackerZoomToggle = 2604
+iHeadTrackerSpyglassZoomToggle = 2605
