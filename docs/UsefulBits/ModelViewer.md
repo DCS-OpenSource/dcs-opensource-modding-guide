@@ -70,41 +70,26 @@ function scan_for_textures(path)
 	local mounted_already  = false 
 	for file in lfs.dir(path) do
 		if not service_file(file) then
-		   local fn 	  = path.."/"..file
-		   local attr 	  = lfs.attributes (fn)     
-		   if attr.mode	 == "directory" then
-			  scan_for_textures(fn)
-		   elseif is_texture_path then
-			  local ext = string.sub(file,-4)
-			  if '.zip' == ext then
-					mount_vfs_texture_path(fn)			
-			  elseif not mounted_already and (
-				 '.dds' == ext or
-			     '.bmp' == ext or
-				 '.jpg' == ext or
-				 '.png' == ext or
-				 '.tga' == ext) then
-					mount_vfs_texture_path(path)
-					mounted_already = false
-			  end
-		   end
-		end
-	end
-end
-
-
-function scan_for_environment_cubes(path)
-	local lower_case = path:lower()	
-	for file in lfs.dir(path) do
-		if not service_file(file) then
-			local fn = path.."/"..file
-			local attrMode = lfs.attributes(fn, "mode")
-			if attrMode == "file" then
-				local ext = string.sub(file,-4) 
-				if '.dds' == ext then
-					AddEnvironmentMap(file)
+		    local fn 	  = path.."/"..file
+		    local attr 	  = lfs.attributes (fn)
+			if attr ~= nil then   
+		    	if attr.mode	 == "directory" then
+					scan_for_textures(fn)
+		   		elseif is_texture_path then
+				  	local ext = string.sub(file,-4)
+				  	if '.zip' == ext then
+						mount_vfs_texture_path(fn)			
+				  	elseif not mounted_already and (
+					 '.dds' == ext or
+				     '.bmp' == ext or
+					 '.jpg' == ext or
+					 '.png' == ext or
+					 '.tga' == ext) then
+						mount_vfs_texture_path(path)
+						mounted_already = false
+					end
 				end
-			end
+		   	end
 		end
 	end
 end
