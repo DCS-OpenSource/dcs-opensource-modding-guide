@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 #### Run the docs
 ```bash
-python -m mkdocs serve
+python -m mkdocs serve --livereload --watch docs
 ```
 
 ---
