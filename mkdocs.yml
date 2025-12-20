@@ -49,5 +49,7 @@ nav:
   - ED Blender Exporter:
       - Overview: EDM-Export/Overview.md
       - Mesh: EDM-Export/Mesh.md
+      - Materials: EDM-Export/Materials.md
       - Animations: EDM-Export/Animations.md
       - Lights: EDM-Export/Lights.md
+      - Known Errors: EDM-Export/errors.md
