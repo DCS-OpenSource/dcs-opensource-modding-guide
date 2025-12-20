@@ -78,3 +78,4 @@ Hooray, ED added support for NLA tracks and multiple args per armature, document
 !!! Warning
     * Max 4 bones per deforming mesh
     * Need to manually Define a bounding box or won't export
+    * Armature modifier needs name Armature, not anything else (not root bone, the modifier)
