@@ -77,22 +77,6 @@ Project/
     └─ cube.png
 ```
 
-
-## RoughMets and Normals
-
-Adding RoughMets and Normals is simple.  
-Add two more Image Texture nodes.  
-Connect the color point of one to *RoughMet (Non-Color)* and the color point on the other to *Normal (Non-Color)*  
-The result should look like:
-
-![alt text](images/3_images_material.png)
-
-Export your model, restart modelviewer, then load in your new model.
-
-!!! Note
-    Setting the `Color Space` fields of the RoughMet and Normal nodes to `Non-Color` will make blender render the textures properly.  
-    However not setting this will not affect the resulting edm export, so can be safely ignored
-
 ## Blender Project Structre
 
 While not necessary, you can bake all LODs (Level of Detail) and the collision model into one .edm file.
@@ -101,30 +85,6 @@ While not necessary, you can bake all LODs (Level of Detail) and the collision m
 
 Starting with an `EXPORT` Collection, then having sub-collections for collision, and `LOD_{LOD_NUMBER}_{LOD_DISTANCE_IN_M}` (eg. `LOD_0_50`).
 Each sub collection should have a copy of the mesh, and they should not share animations or parents. Duplicate the animation empties, then re-apply the actions to the new empties.
-
----
-
-## Glass Materials
-
-Below is an example of the glass material node. The glass material node takes the same 3 textures as the [default material](#roughmets-and-normals)
-
-!!! Warning
-    Note the Base Colour goes to diffuse colour, not Glass Colour, (At time of writing I am unsure what Glass Colour does, but there is an example in the plugins demo files)
-
-![glass material](images/glassmat.png)
-
----
-
-## Emmisive Materials
-
-This is the node setup for making backlit panels etc. the emmisive mask is a texture with an alpha map that is white where light passes through. Examples of this can be seen in the demo files in the plugin.
-
-This brightness can be animated, again see the demo files.
-
-!!! Note
-    TODO Flesh this out, including animations, note that animations are per mesh, not per material, which is handy
-
-![Emmisive Node setup](images/emmisive.png)
 
 ---
 
