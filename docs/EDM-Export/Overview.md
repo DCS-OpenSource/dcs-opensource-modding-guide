@@ -5,8 +5,7 @@ This documentation was compiled because the official docs included with the plug
 That said, the **template EDM files** provided are still very useful.
 
 !!! note
-    There are no changelogs or public information about this plugin other than what is included in the downloaded `.zip`.  
-    **The plugin is still a work in progress, and some features will not function.**
+    **The plugin is still a work in progress, and some features may not function.**
 
 !!! warning
     This guide assumes general Blender knowledge, including familiarity with **materials** and **animation**.
@@ -15,8 +14,9 @@ That said, the **template EDM files** provided are still very useful.
 
 ## Supported Blender Versions
 
-- ✅ Works on **Blender `4.2.3 LTS`**, **Blender `4.5.4 LTS`**
-- ⚠️ Appears to work on **Blender `3.6.0 LTS`**, but not personally verified
+- Reccomended to use any **Blender `4.x.x LTS`** version
+- Blender 3.x support was removed **19/12/25**
+- Blender 5.0 is partially supported, work is ongoing (at time of writing 20/12/25)
 
 ---
 
@@ -25,7 +25,7 @@ That said, the **template EDM files** provided are still very useful.
 Download the Blender plugin from:  
 [mods.eagle.ru/blender_plugin/files.html](https://mods.eagle.ru/blender_plugin/files.html){:target="_blank"}
 
-1. Open Blender → `Edit > Preferences`
+1. Open Blender -> `Edit > Preferences`
 2. Install the `.zip` file as an addon
 
 ---
