@@ -12,9 +12,28 @@
 | 0       | Tail/Nose wheel retraction  | 0: wheel up, 1: wheel down                   |
 | 1       | Tail/Nose wheel suspension  | 0: extended, 1: compressed                   |
 | 2       | Tail/Nose wheel steering    | -1: left, 0: straight, 1: right (invert for tailwheel aircraft) |
-| 38      | Canopy                      | 0: closed, 0.9: open, 1: invisible           |
-| 39      | Pilot Head                  | TODO: verify                                 |
+| 3       | Port Landing Gear Deploy    | 0: wheel up, 1: wheel down                   |
+| 4       | Port Landing Gear Suspension Compression |                                 |
+| 5       | Starboard landing gear Deploy |                                            |    
+| 6       | Starboard Landing Gear Suspension Compression                              |  
+| 7       | N/A                         |                                              |
+| 8       | N/A                         |                                              |
+| 9       | N/A                         |                                              | 
+| 10      | Flaps extension             |                                              |
+| 11      | Starboard Aileron movement  |                                              |    
+| 12      | Port Aileron movement       |                                              |
+| 16      | Elevator movement           |                                              |
+| 17      | Rudder Movement             |                                              |
+| 26      | Bomb bay opening            |                                              | 
+| 38      | Canopy & boarding equipment | 0: closed, 0.9: open, 0.85>0.9 ladder 1: invisible           |
+| 39      | Pilot Head rotation         | TODO: verify                                 |
 | 50      | Pilot #1 visibility         | TODO: verify                                 |
+| 51      | Crewman #2 visibility       | 0: visible, 1: not visible                   |
+| 52      | Crewman #3 visibility       | 0: visible, 1: not visible                   |
+| 53      | Crewman #4 visibility       | 0: visible, 1: not visible                   |
+| 54      | Crewman #5 visibility       | 0: visible, 1: not visible                   |
+| 55      | Crewman #6 visibility       | 0: visible, 1: not visible                   |
+| 56      | Crewman #7 visibility       | 0: visible, 1: not visible                   |
 | 101     | Tail/Nose wheel rotation    | 0–1: increasing is forward                   |
 | 102     | Right wheel rotation        | 0–1: increasing is forward                   |
 | 103     | Left wheel rotation         | 0–1: increasing is forward                   |
