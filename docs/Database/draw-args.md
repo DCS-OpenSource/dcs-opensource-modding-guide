@@ -25,8 +25,12 @@
 | 16      | Elevator movement           |                                              |
 | 17      | Rudder Movement             |                                              |
 | 26      | Bomb bay opening            | 0: closed: 1 open                            | 
+| 37      | Helicopter Main Rotor Control | Driven in EFM to spin arg 40               |
 | 38      | Canopy                      | 0: closed, 1: invisible                      |
 | 39      | Pilot Head rotation         | -1: look left, 1 look right                  |
+| 40      | Helicopter Main Rotor       | Visual only, drive arg 37 in EFM             |
+| 41      | Helicopter Tail Rotor       | Visual only, drive arg 42 in EFM             |
+| 42      | Helicopter Tail Rotor Control | Driven in EFM to spin arg 41               |
 | 50      | Pilot visibility            | 0: visible, 1: not visible                   |
 | 51      | Crewman #2 visibility       | 0: visible, 1: not visible                   |
 | 52      | Crewman #3 visibility       | 0: visible, 1: not visible                   |
@@ -35,6 +39,7 @@
 | 55      | Crewman #6 visibility       | 0: visible, 1: not visible                   |
 | 56      | Crewman #7 visibility       | 0: visible, 1: not visible                   |
 | 76      | Tail/Nose wheel steering    | -1: full turn left, 1: full turn right       |
+| 99      | Pilot Head Elevation        | -1: look down, 1 look up                     |
 | 101     | Tail/Nose wheel rotation    | 0–1: increasing is forward                   |
 | 102     | Right wheel rotation        | 0–1: increasing is forward                   |
 | 103     | Left wheel rotation         | 0–1: increasing is forward                   |
