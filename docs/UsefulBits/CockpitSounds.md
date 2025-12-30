@@ -64,10 +64,10 @@ AshtrayOpenSND:play_once() -- will play the .wav file start to finish once
 
 There are more available functions, but I have not tested them (feel free to expand this with examples)
 ```lua
-soundObject:stop()          -- probably stops playing sound
-soundObject:play_continue() -- ???
-soundObject:update()        -- ???
-soundObject:is_playing()    -- probably returns true if sound playing
+soundObject:stop()          -- stops playing sound
+soundObject:play_continue() -- plays/continues to play sound
+soundObject:update(pitch, volume, ???)        -- unsure what third param is
+soundObject:is_playing()    -- returns true if sound playing
 ```
 
 ---
