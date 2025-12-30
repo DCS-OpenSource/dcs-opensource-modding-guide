@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview - DCS Modding Documentation</title>
+    <title>Cockpit Sounds - DCS Modding Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
-        var mkdocs_page_input_path = "EDM-Export\\Overview.md";
+        var mkdocs_page_name = "Cockpit Sounds";
+        var mkdocs_page_input_path = "UsefulBits\\CockpitSounds.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -114,39 +114,43 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Useful bits</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UsefulBits/ModelViewer/">Modelviewer</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../UsefulBits/CockpitSounds/">Cockpit Sounds</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../ModelViewer/">Modelviewer</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Cockpit Sounds</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    <li class="toctree-l2"><a class="reference internal" href="#checklist">Checklist</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#supported-blender-versions">Supported Blender Versions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sound-files">Sound files</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    <li class="toctree-l3"><a class="reference internal" href="#sdefs">SDEFs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example-files">Example Files</a>
+    <li class="toctree-l3"><a class="reference internal" href="#sound-initializing">Sound Initializing</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    <li class="toctree-l3"><a class="reference internal" href="#sound-triggering">Sound Triggering</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#plugin-changelog">Plugin Changelog</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clickable-sounds">Clickable Sounds</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Mesh/">Mesh</a>
+              </ul>
+              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Overview/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Materials/">Materials</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Mesh/">Mesh</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Animations/">Animations</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Materials/">Materials</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Lights/">Lights</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Animations/">Animations</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../errors/">Known Errors</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/Lights/">Lights</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EDM-Export/errors/">Known Errors</a>
                   </li>
               </ul>
       </div>
@@ -163,8 +167,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">ED Blender Exporter</li>
-      <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item">Useful bits</li>
+      <li class="breadcrumb-item active">Cockpit Sounds</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -173,102 +177,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="eagle-dynamics-dcs-blender-export-plugin">Eagle Dynamics DCS Blender Export Plugin<a class="headerlink" href="#eagle-dynamics-dcs-blender-export-plugin" title="Permanent link">#</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>This documentation was compiled because the official docs included with the plugin (in the <code>manual</code> folder) are outdated, incomplete, and poorly formatted.<br />
-That said, the <strong>template EDM files</strong> provided are still very useful.</p>
+                <h1 id="cockpit-sounds">Cockpit Sounds<a class="headerlink" href="#cockpit-sounds" title="Permanent link">#</a></h1>
+<p>see DCSWorld/Sounds/sdef/_example.sdef</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>The plugin is still a work in progress, and some features may not function.</strong></p>
+<p>This is for custom internal sounds like opening doors, alarms, warnings, music etc.<br />
+Sounders and external/engine sounds will be covered elsewhere later (TODO)</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This guide assumes general Blender knowledge, including familiarity with <strong>materials</strong> and <strong>animation</strong>.</p>
-</div>
-<hr />
-<h2 id="supported-blender-versions">Supported Blender Versions<a class="headerlink" href="#supported-blender-versions" title="Permanent link">#</a></h2>
+<h2 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">#</a></h2>
 <ul>
-<li>Reccomended to use any <strong>Blender <code>4.x.x LTS</code></strong> version</li>
-<li>Blender 3.x support was removed <strong>19/12/25</strong></li>
-<li>Blender 5.0 is partially supported, work is ongoing (at time of writing 20/12/25)</li>
+<li>Sound Files</li>
+<li>SDEFs</li>
+<li>post_initialize loading</li>
+<li>Play functions</li>
 </ul>
 <hr />
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<p>Download the Blender plugin from:<br />
-<a href="https://mods.eagle.ru/blender_plugin/files.html" target="_blank">mods.eagle.ru/blender_plugin/files.html</a></p>
-<ol>
-<li>Open Blender -&gt; <code>Edit &gt; Preferences</code></li>
-<li>Install the <code>.zip</code> file as an addon</li>
-</ol>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
+<h3 id="sound-files">Sound files<a class="headerlink" href="#sound-files" title="Permanent link">#</a></h3>
+<p>Place your <code>.wav</code> (maybe .ogg TODO check) files in <code>Sounds/Effects/Aircrafts/{PLANENAME}/Cockpit/</code></p>
 <hr />
-<h2 id="example-files">Example Files<a class="headerlink" href="#example-files" title="Permanent link">#</a></h2>
-<p>The following example files are available for download:</p>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Blender File</th>
-<th>Extra Files</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Cube Example</strong></td>
-<td><a href="../Blender%20Examples/Blend/cube.blend">cube.blend</a></td>
-<td><a download="Cube" href="../Blender%20Examples/EDM/Textures/Cube.png">Cube.png</a></td>
-</tr>
-<tr>
-<td><strong>Animation Test</strong></td>
-<td><a href="../Blender%20Examples/Blend/animation.blend">animation.blend</a></td>
-<td>—</td>
-</tr>
-<tr>
-<td><strong>Skin Animation</strong></td>
-<td><a href="../Blender%20Examples/Blend/skin.blend">skin.blend</a></td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
+<h3 id="sdefs">SDEFs<a class="headerlink" href="#sdefs" title="Permanent link">#</a></h3>
+<p>You will need to make an SDEF file for each sound. SDEFs are located in <code>Sounds/sdef/Aircrafts/{PLANENAME}/Cockpit/</code></p>
+<p><strong>Example .sdef file</strong></p>
+<p>Here is a demo file: <code>CockpitAshtrayClose.sdef</code> used to test this for the guide.</p>
+<pre><code>wave = &quot;Effects/Aircrafts/AH1G/Cockpit/Cockpit_ashtray_close_03&quot;
+inner_radius = 10
+outer_radius = 100
+gain = 1
+</code></pre>
+<p>Where <code>wave</code> must match the path (starting from the sounds folder) to the desired sound.</p>
 <hr />
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h2>
-<p>If you discover additional details or fixes, feel free to <strong>create a pull request</strong> and contribute your findings.</p>
+<h3 id="sound-initializing">Sound Initializing<a class="headerlink" href="#sound-initializing" title="Permanent link">#</a></h3>
+<p>Sounds are loaded in the <code>post_initialize()</code> function in your lua devices. At minimum you need one host per device, then you add sounds to that host as below.</p>
+<pre><code class="language-lua">function post_initialize()
+    sndhost         = create_sound_host(&quot;COCKPIT_ARMS&quot;,&quot;HEADPHONES&quot;,0,0,0) -- Name, type (&quot;2D&quot;, &quot;3D&quot;, &quot;HEADPHONES&quot;), position x, y, z
+    AshtrayCloseSND = sndhost:create_sound(&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayClose&quot;) -- Path to SDEF file, relative to Sounds/sdef/
+    AshtrayOpenSND  = sndhost:create_sound(&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayOpen&quot;)
+end
+</code></pre>
 <hr />
-<h2 id="plugin-changelog">Plugin Changelog<a class="headerlink" href="#plugin-changelog" title="Permanent link">#</a></h2>
-<p>Release 19.12.2025
-* Remove support of Blender 3.</p>
-<p>Release 17.12.2025
-* Fix bug with fcurves in Blender 5.0</p>
-<p>Release 17.12.2025
-* Fix bug with fcurves in Blender 5.0</p>
-<p>Release 16.12.2025
-* Update materials works now for Blender version 5.0.</p>
-<p>Release 24.11.2025
-* Added ability to set path for EDM Fast Export;
-* Check Blender Plugin Version. If it's 5.0 and later - you can't use the plugin.</p>
-<p>Release 23.10.2025
-* Return hash check of materials;
-* Fix reference .blend glass material (default version was 5 while min = 6, max = 6, instance = 6).</p>
-<p>Release 03.10.2025
-* Remove asterisk from Damage Visibility sockets in Glass and Default material.</p>
-<p>Release 02.09.2025
-* Added <code>optimizeVertexCache</code> checkbox in dev mode
-* Check Action name - it should start with integer (argument).</p>
-<p>Release 31.08.2025
-* Added support of multiple animation of bones through nla-editor</p>
-<p>Release 10.11.2024:
-* Added support of rgba damage mask.</p>
-<p>Release 26.11.2024:
-* Fixed bug preventing export of aircraft registration numbers on machines with non english locale.
-* Fixed bug in blender plugin: after updating edm materials, the values ​​in the drop-down lists were set to default values. 
-* Fixed blender warning: 'WARN (bpy.rna): \intern\bpy_rna.cc:1366 pyrna_enum_to_py: current value '0' matches no enum in '.</p>
-<p>20.02.2025
-* Added per vertex damage to deck material.</p>
+<h3 id="sound-triggering">Sound Triggering<a class="headerlink" href="#sound-triggering" title="Permanent link">#</a></h3>
+<pre><code class="language-lua">-- In SetCommand() or update()
+-- detect trigger then
+AshtrayOpenSND:play_once() -- will play the .wav file start to finish once
+</code></pre>
+<p>There are more available functions, but I have not tested them (feel free to expand this with examples)</p>
+<pre><code class="language-lua">soundObject:stop()          -- probably stops playing sound
+soundObject:play_continue() -- ???
+soundObject:update()        -- ???
+soundObject:is_playing()    -- probably returns true if sound playing
+</code></pre>
+<hr />
+<h2 id="clickable-sounds">Clickable Sounds<a class="headerlink" href="#clickable-sounds" title="Permanent link">#</a></h2>
+<p>TODO</p>
+<p>Note sounds.lua, sounds_init.lua etc</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../UsefulBits/CockpitSounds/" class="btn btn-neutral float-left" title="Cockpit Sounds"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Mesh/" class="btn btn-neutral float-right" title="Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ModelViewer/" class="btn btn-neutral float-left" title="Modelviewer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../EDM-Export/Overview/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -291,10 +259,10 @@ That said, the <strong>template EDM files</strong> provided are still very usefu
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../UsefulBits/CockpitSounds/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../ModelViewer/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Mesh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../EDM-Export/Overview/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

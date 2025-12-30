@@ -119,6 +119,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../UsefulBits/ModelViewer/">Modelviewer</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../UsefulBits/CockpitSounds/">Cockpit Sounds</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
               <ul>
@@ -190,19 +192,144 @@
 <td>-1: left, 0: straight, 1: right (invert for tailwheel aircraft)</td>
 </tr>
 <tr>
+<td>3</td>
+<td>Port Landing Gear Deploy</td>
+<td>0: wheel up, 1: wheel down</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Port Landing Gear Suspension Compression</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Starboard landing gear Deploy</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Starboard Landing Gear Suspension Compression</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Flaps extension</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Starboard Aileron movement</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Port Aileron movement</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Elevator movement</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Rudder Movement</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Bomb bay opening</td>
+<td>0: closed: 1 open</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Helicopter Main Rotor Control</td>
+<td>Driven in EFM to spin arg 40</td>
+</tr>
+<tr>
 <td>38</td>
 <td>Canopy</td>
-<td>0: closed, 0.9: open, 1: invisible</td>
+<td>0: closed, 1: invisible</td>
 </tr>
 <tr>
 <td>39</td>
-<td>Pilot Head</td>
-<td>TODO: verify</td>
+<td>Pilot Head rotation</td>
+<td>-1: look left, 1 look right</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Helicopter Main Rotor</td>
+<td>Visual only, drive arg 37 in EFM</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Helicopter Tail Rotor</td>
+<td>Visual only, drive arg 42 in EFM</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Helicopter Tail Rotor Control</td>
+<td>Driven in EFM to spin arg 41</td>
 </tr>
 <tr>
 <td>50</td>
-<td>Pilot #1 visibility</td>
-<td>TODO: verify</td>
+<td>Pilot visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Crewman #2 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Crewman #3 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Crewman #4 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Crewman #5 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Crewman #6 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Crewman #7 visibility</td>
+<td>0: visible, 1: not visible</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Tail/Nose wheel steering</td>
+<td>-1: full turn left, 1: full turn right</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Pilot Head Elevation</td>
+<td>-1: look down, 1 look up</td>
 </tr>
 <tr>
 <td>101</td>
@@ -220,6 +347,11 @@
 <td>0–1: increasing is forward</td>
 </tr>
 <tr>
+<td>109</td>
+<td>Escape hatch / canopy dropped during bail out</td>
+<td>0.9 visible/closed, 1 hidden/open</td>
+</tr>
+<tr>
 <td>114</td>
 <td>Canopy Visibility</td>
 <td>0: visible, 1: invisible</td>
@@ -235,19 +367,149 @@
 <td>0: closed, 1: open</td>
 </tr>
 <tr>
-<td>407</td>
-<td>Prop Rotation</td>
-<td>-1 to 1: two revolutions anti-clockwise</td>
+<td>370</td>
+<td>Prop 1 Rotation (reserved)</td>
+<td>DO NOT ANIMATE, 370-374 IS RESERVED FOR "NEW PROP BLUR"</td>
+</tr>
+<tr>
+<td>371</td>
+<td>Prop 2 Rotation (reserved)</td>
+<td>DCS SETS THESE ARGS AUTOMATICALLY WHEN USING "NEW PROP BLUR"</td>
+</tr>
+<tr>
+<td>372</td>
+<td>Prop 3 Rotation (reserved)</td>
+<td>--</td>
+</tr>
+<tr>
+<td>373</td>
+<td>Prop 4 Rotation (reserved)</td>
+<td>--</td>
+</tr>
+<tr>
+<td>380</td>
+<td>Propeller 1 Damage</td>
+<td>Only visible at frame 100</td>
+</tr>
+<tr>
+<td>381</td>
+<td>Propeller 2 Damage</td>
+<td>Only visible at frame 100</td>
+</tr>
+<tr>
+<td>382</td>
+<td>Propeller 3 Damage</td>
+<td>Only visible at frame 100</td>
+</tr>
+<tr>
+<td>383</td>
+<td>Propeller 4 Damage</td>
+<td>Only visible at frame 100</td>
 </tr>
 <tr>
 <td>413</td>
-<td>Prop pitch</td>
-<td>TODO: verify</td>
+<td>Prop 1 Pitch</td>
+<td>0 (fine) to 1 (feathered)</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Prop 2 Pitch</td>
+<td>0 (fine) to 1 (feathered)</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Prop 3 Pitch</td>
+<td>0 (fine) to 1 (feathered)</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Prop 4 Pitch</td>
+<td>0 (fine) to 1 (feathered)</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Prop Rotation</td>
+<td>-1 to 1: two revolutions</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Prop Rotation</td>
+<td>-1 to 1: two revolutions</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Prop Rotation</td>
+<td>-1 to 1: two revolutions</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Prop Rotation</td>
+<td>-1 to 1: two revolutions</td>
+</tr>
+<tr>
+<td>459</td>
+<td>Pilot Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>460</td>
+<td>Bombardier Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>461</td>
+<td>Engineer Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>462</td>
+<td>Navigator Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>463</td>
+<td>Midupper Gunner Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>464</td>
+<td>Tail Gunner Death</td>
+<td>0-1 (dead)</td>
+</tr>
+<tr>
+<td>443</td>
+<td>Dynamic side/bort numbers first digit</td>
+<td>on a ribbon of alphanumerics 0-9A-Z, -0.1: blank, 0: "0", 1.0: "A", 3.6(yes!): "Z".  Value set via mission editor</td>
+</tr>
+<tr>
+<td>444</td>
+<td>Dynamic side/bort numbers second digit</td>
+<td>on a ribbon of alphanumerics 0-9A-Z, -0.1: blank, 0:"0", 1.0: "A", 3.6 (yes!): "Z". Value set via mission editor</td>
+</tr>
+<tr>
+<td>445</td>
+<td>Dynamic side/bort numbers third digit</td>
+<td>on a ribbon of alphanumerics 0-9A-Z, -0.1: blank, 0:"0", 1.0: "A", 3.6 (yes!): "Z". Value set via mission editor</td>
 </tr>
 <tr>
 <td>475</td>
-<td>Prop blade visibility</td>
-<td>0: visible, 0.1–1: invisible</td>
+<td>Prop 1 Visibility</td>
+<td>0 show, 1-100 hidden, replaced by "new prop blur" disc by DCS</td>
+</tr>
+<tr>
+<td>476</td>
+<td>Prop 2 Visibility</td>
+<td>0 show, 1-100 hidden, replaced by "new prop blur" disc by DCS</td>
+</tr>
+<tr>
+<td>477</td>
+<td>Prop 3 Visibility</td>
+<td>0 show, 1-100 hidden, replaced by "new prop blur" disc by DCS</td>
+</tr>
+<tr>
+<td>478</td>
+<td>Prop 4 Visibility</td>
+<td>0 show, 1-100 hidden, replaced by "new prop blur" disc by DCS</td>
 </tr>
 </tbody>
 </table>
