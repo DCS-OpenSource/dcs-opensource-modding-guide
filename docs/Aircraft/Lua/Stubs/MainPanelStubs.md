@@ -130,8 +130,5 @@ Returned from `LoRegisterPanelControls()`, this object exposes all available coc
 | `mirrors_draw`                            | `userdata`| Mirror draw state                         |
 | `pilot_draw`                              | `userdata`| Pilot visibility                          |
 
----
-
-Let me know if you want this grouped, styled differently (e.g., collapsible sections), or exported.
 
 ---
