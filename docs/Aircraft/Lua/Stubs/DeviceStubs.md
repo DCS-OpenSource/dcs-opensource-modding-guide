@@ -2,73 +2,7 @@
 
 ---
 
-## Param Handles
-Param handles serve as your method of parsing information between devices, devices to indicators, or devices to the EFM.  
-They act as "global variables" and can be accessed with getters and setters as detailed below.
 
-Params can be either numbers or strings.
-
-!!! Warning
-    If a you set a param to a string, and the string contains only numbers (eg. `"1234"`) the parameter will revert to a number.  
-    I'm not sure if this is a bug or a feature, but if you're not careful you can get situations where you can crash your game.  
-    See Below:
-```lua
--- Param Type reset example
-local param = get_param_handle("TEST")
-
-local testString = "1234"
-
-print_message_to_user(tostring(type(testString))) -- "string" ("1234")
-param:set(testString) -- all number string is converted back to int.
-print_message_to_user(tostring(type(param:get()))) -- "int" (1234)
-```
-
-
-!!! Note
-    This guide only references the lua side of parameters. Retrieving param values in the EFM can be referenced from template EFMs.
-
-### Creating a param handle
-A param object is created like this:
-```lua
-local dcPower = get_param_handle("DC_POWER_ON")
-```
-Calling `get_param_handle("DC_POWER_ON")` in another device allows you to have access to the parameter value there as well.  
-The `get_param_handle()` function returns a table containing a [:get()](#getting-a-param-handle) function and a [:set()](#setting-a-param-handle) function.
----
-
-### Getting a param handle
-The Value of a param handle can be retrived by calling `param:get()` 
-```lua
-local dcPower = get_param_handle("DC_POWER_ON")
-
-local value == dcPower:get()
-```
-
----
-
-### Setting a param handle
-The Value of a param handle can be set by calling `param:get(value)` 
-```lua
-local dcPower = get_param_handle("DC_POWER_ON")
-
--- pseudo power switch on
-dcPower:set(1)
-dcPower:set("true")  -- String based example
-
--- pseudo power switch off
-dcPower:set(0)
-dcPower:set("false") -- String based example
-```
-
----
-
-### Debugging a param handle
-
-You can access a debug window that lists all params while the game is running.  
-
-See [show_param_handles_list()](#show_param_handles_listenable)
-
----
 
 ## Stubs
 
@@ -112,10 +46,10 @@ print_message_to_user(mission.theatre) -- prints map name
 ```
 ---
 
-### find_viewport(name)
+### find_viewport(name) {: .unverified-section }
 
 **Description**  
-Finds and returns the viewport object by name. ***[UNVERIFIED]***
+Finds and returns the viewport object by name.
 
 **Parameters**  
 
@@ -190,10 +124,10 @@ Returns mission-specific data for the current aircraft.
 
 ---
 
-### get_aircraft_property(name)
+### get_aircraft_property(name) {: .unverified-section }
 
 **Description**  
-Returns a property value from the aircraft. ***[UNVERIFIED]***
+Returns a property value from the aircraft.
 
 **Parameters**  
 
@@ -206,10 +140,10 @@ Returns a property value from the aircraft. ***[UNVERIFIED]***
 
 ---
 
-### get_aircraft_property_or_nil(name)
+### get_aircraft_property_or_nil(name) {: .unverified-section }
 
 **Description**  
-Returns an aircraft property or `nil` if it does not exist. ***[UNVERIFIED]***
+Returns an aircraft property or `nil` if it does not exist.
 
 **Parameters**  
 
@@ -236,6 +170,9 @@ Returns the type of the current aircraft.
 
 **Description**  
 Returns the base sensor data of the aircraft.
+
+!!! Warning
+    TODO add base data somewhere useful
 
 **Returns**  
 `BaseData`
@@ -290,10 +227,10 @@ Returns the full path to a DCS plugin.
 
 ---
 
-### get_input_devices()
+### get_input_devices() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
@@ -320,30 +257,30 @@ Returns the time in seconds since the mission started.
 
 ---
 
-### get_multimonitor_preset_name()
+### get_multimonitor_preset_name() {: .unverified-section }
 
 **Description**  
-Returns the name of the active multi-monitor preset. ***[UNVERIFIED]***
+Returns the name of the active multi-monitor preset.
 
 **Returns**  
 `string` - Preset name
 
 ---
 
-### get_non_sim_random_evenly()
+### get_non_sim_random_evenly() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
 
 ---
 
-### get_option_value(option, env)
+### get_option_value(option, env) {: .unverified-section }
 
 **Description**  
-Returns the value of a specific DCS option. ***[UNVERIFIED]***
+Returns the value of a specific DCS option.
 
 **Parameters**  
 
@@ -383,20 +320,20 @@ Method to get the seat the player is sitting in.
 
 ---
 
-### get_plugin_option()
+### get_plugin_option() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
 
 ---
 
-### get_plugin_option_value(plugin, option, env)
+### get_plugin_option_value(plugin, option, env) {: .unverified-section }
 
 **Description**  
-Returns the value of a plugin-specific option. ***[UNVERIFIED]***
+Returns the value of a plugin-specific option.
 
 **Parameters**  
 
@@ -411,20 +348,20 @@ Returns the value of a plugin-specific option. ***[UNVERIFIED]***
 
 ---
 
-### get_random_evenly()
+### get_random_evenly() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
  
 **Returns**  
 `???`
 
 ---
 
-### get_random_orderly()
+### get_random_orderly() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
@@ -447,40 +384,40 @@ Returns terrain-related data such as beacons, charts, or airfields.
 
 ---
 
-### get_UIMainView()
+### get_UIMainView() {: .unverified-section }
 
 **Description**  
-Returns parameters describing the main UI view. ***[UNVERIFIED]***
+Returns parameters describing the main UI view.
 
 **Returns**  
 `number, number, number, number, number` - `start_x`, `start_y`, `main_w`, `main_h`, `gui_scale`
 
 ---
 
-### get_Viewports()
+### get_Viewports() {: .unverified-section }
 
 **Description**  
-Returns all available viewports. ***[UNVERIFIED]***
+Returns all available viewports.
 
 **Returns**  
 `table` - Viewport definitions
 
 ---
 
-### list_cockpit_params()
+### list_cockpit_params() {: .unverified-section }
 
 **Description**  
-Returns a table of all cockpit parameters currently available. ***[UNVERIFIED]***
+Returns a table of all cockpit parameters currently available.
 
 **Returns**  
 `table` - Cockpit parameter handles
 
 ---
 
-### list_indication(indicator_id)
+### list_indication(indicator_id) {: .unverified-section }
 
 **Description**  
-Returns the current indication string of a specified cockpit element. ***[UNVERIFIED]***
+Returns the current indication string of a specified cockpit element.
 
 **Parameters**  
 
@@ -509,10 +446,10 @@ Converts a local position vector to geographic latitude and longitude.
 
 ---
 
-### load_mission_file(file) 
+### load_mission_file(file) {: .unverified-section }
 
 **Description**  
-Loads a Lua mission file and returns it as an executable function chunk. ***[UNVERIFIED]***
+Loads a Lua mission file and returns it as an executable function chunk.
 
 **Parameters**  
 
@@ -577,10 +514,10 @@ Mounts a model directory path to the virtual file system.
 
 ---
 
-### mount_vfs_path_to_mount_point(mount_point, path)
+### mount_vfs_path_to_mount_point(mount_point, path) {: .unverified-section }
 
 **Description**  
-Mounts a path into a specified mount point in the VFS. ***[UNVERIFIED]***
+Mounts a path into a specified mount point in the VFS.
 
 **Parameters**  
 
@@ -642,10 +579,10 @@ Displays a message to the player on screen.
 
 ---
 
-### save_to_mission(file, content)
+### save_to_mission(file, content) {: .unverified-section }
 
 **Description**  
-Writes string content to a mission file path. ***[UNVERIFIED]***
+Writes string content to a mission file path.
 
 **Parameters**  
 
@@ -676,10 +613,10 @@ Sets the value of an aircraft draw argument for animations (External Model).
 
 ---
 
-### set_crew_member_seat_adjustment()
+### set_crew_member_seat_adjustment() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+??? 
 
 **Returns**  
 `???`
@@ -702,9 +639,9 @@ Enables or disables display of param handles list.
 
 ---
 
-### switch_labels_off()
+### switch_labels_off() {: .unverified-section }
 
-**Description**  ***[UNVERIFIED]***
+**Description**
 ???
 
 **Returns**  
@@ -712,40 +649,40 @@ Enables or disables display of param handles list.
 
 ---
 
-### track_is_reading()
+### track_is_reading() {: .unverified-section }
 
 **Description**  
-Checks if a replay track is currently being played. ***[UNVERIFIED]***
+Checks if a replay track is currently being played.
 
 **Returns**  
 `boolean`
 
 ---
 
-### track_is_writing()
+### track_is_writing() {: .unverified-section }
 
 **Description**  
-Checks if a replay track is currently being recorded. ***[UNVERIFIED]***
+Checks if a replay track is currently being recorded.
 
 **Returns**  
 `boolean`
 
 ---
 
-### UTF8_strlen()
+### UTF8_strlen() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
 
 ---
 
-### UTF8_substring()
+### UTF8_substring() {: .unverified-section }
 
 **Description**  
-??? ***[UNVERIFIED]***
+???
 
 **Returns**  
 `???`
