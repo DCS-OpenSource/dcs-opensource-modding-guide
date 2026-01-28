@@ -50,3 +50,4 @@ Big Thank you to the following for contributing to the docs
 
 * Others
     * JNelson
+    * Loki
