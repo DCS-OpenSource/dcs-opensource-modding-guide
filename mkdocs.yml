@@ -1,6 +1,9 @@
 site_name: DCS Modding Documentation
+
 theme:
-  name: readthedocs
+    name: material
+    palette:
+        scheme: slate
 
 markdown_extensions:
   - admonition
