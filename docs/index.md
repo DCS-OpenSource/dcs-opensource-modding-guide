@@ -12,7 +12,8 @@ The document is **living and evolving** — new discoveries, functions, and best
 Not all functions have been fully tested.  
 If you encounter errors, unexpected behavior, or missing information, please let the team know so we can improve the documentation together.
 
-Untested functions will have the **[[UNVERIFIED]]** tag next to them, while they exist, we currently cannot guarantee the functionality is as expected.
+Untested functions will have the<span class="unverified-badge">UNVERIFIED</span> tag next to them.
+While these functions exist, their behavior is not guaranteed.
 
 ---
 

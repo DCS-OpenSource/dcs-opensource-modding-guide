@@ -40,6 +40,7 @@ img {
   font-family: monospace;
 }
 
+/* Pseudo-elements (headings) */
 h1.unverified-section::after,
 h2.unverified-section::after,
 h3.unverified-section::after,
@@ -47,12 +48,23 @@ h4.unverified-section::after,
 h5.unverified-section::after,
 h6.unverified-section::after {
   content: " UNVERIFIED";
+}
+
+/* Shared badge styling */
+.unverified-badge,
+h1.unverified-section::after,
+h2.unverified-section::after,
+h3.unverified-section::after,
+h4.unverified-section::after,
+h5.unverified-section::after,
+h6.unverified-section::after {
   display: inline-block;
   margin-left: 0.6em;
   padding: 0.5em 0.55em;
 
   font-size: 0.65em;
   font-weight: 600;
+  font-style: italic;
   line-height: 1;
 
   border-radius: 0.25rem;
@@ -61,8 +73,6 @@ h6.unverified-section::after {
   color: black;
 
   vertical-align: middle;
-  font-style: italic;
-
 }
 
 

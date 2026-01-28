@@ -10,6 +10,14 @@ Feel free to fork the repo, and make additions, as this is a guide made by the c
 * Useful tips / references to core ED files (weapons, commands etc)
 * ED Blender Exporter Guide
 
+## Tags
+
+To add tags for unverified sections, add `{: .unverified-section }` for example:
+
+```
+### FindNearestPoint {: .unverified-section }
+```
+
 ---
 
 ## Building the docs
