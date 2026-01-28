@@ -33,3 +33,42 @@ img {
   background-color: #0056b3;
 }
 
+
+/* Unverified tag */
+
+.api {
+  font-family: monospace;
+}
+
+h1.unverified-section::after,
+h2.unverified-section::after,
+h3.unverified-section::after,
+h4.unverified-section::after,
+h5.unverified-section::after,
+h6.unverified-section::after {
+  content: " UNVERIFIED";
+  display: inline-block;
+  margin-left: 0.6em;
+  padding: 0.5em 0.55em;
+
+  font-size: 0.65em;
+  font-weight: 600;
+  line-height: 1;
+
+  border-radius: 0.25rem;
+
+  background: orange;
+  color: black;
+
+  vertical-align: middle;
+  font-style: italic;
+
+}
+
+
+
+
+
+
+
+
