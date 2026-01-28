@@ -1,885 +1,2853 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
-    <title>Terrain - DCS Modding Documentation</title>
-    <link rel="stylesheet" href="../../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../../../../css/extra.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Terrain";
-        var mkdocs_page_input_path = "Aircraft\\Lua\\Modules\\Terrain.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Stubs/LockOnOptions/">
+      
+      
+        <link rel="next" href="../../Devices/avLuaDevice/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
-    <!--[if lt IE 9]>
-      <script src="../../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Terrain - DCS Modding Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../../.." class="icon icon-home"> DCS Modding Documentation
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../../../links/">Useful Links</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Aircraft Lua</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" >Stubs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/DeviceStubs/">Device Stubs</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/MainPanelStubs/">Mainpanel Stubs</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Stubs/LockOnOptions/">LockOn_Options</a>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Modules</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Terrain</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#loading-the-module">Loading the module</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#create">Create</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#findnearestpoint">FindNearestPoint</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#findoptimalpath">FindOptimalPath</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getheight">GetHeight</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getmgrscoordinates">GetMGRScoordinates</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getseasons">GetSeasons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getsurfacetype">GetSurfaceType</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getterrainconfig">GetTerrainConfig</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#init">Init</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#initlight">InitLight</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#release">Release</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#convertlatlontometers">convertLatLonToMeters</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#convertmgrstometers">convertMGRStoMeters</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#convertmeterstolatlon">convertMetersToLatLon</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#findpathonroads">findPathOnRoads</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getbeacons">getBeacons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getclosestpointonroads">getClosestPointOnRoads</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getclosestvalidpoint">getClosestValidPoint</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getcrossparam">getCrossParam</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getobjectposition">getObjectPosition</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getobjectsatmappoint">getObjectsAtMapPoint</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getradio">getRadio</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getrunwayheading">getRunwayHeading</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getrunwaylist">getRunwayList</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getstandlist">getStandList</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#gettechskinbydate">getTechSkinByDate</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#gettempraturerangebydate">getTempratureRangeByDate</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#getterrainshpare">getTerrainShpare</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#isvisible">isVisible</a>
-    </li>
-    </ul>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Devices</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avLuaDevice/">avLuaDevice</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Devices/avSimpleWeaponSystem/">avSimpleWeaponSystem</a>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Indicators</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/drawing/">Drawing</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Indicators/controllers/">Controllers</a>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Plugins</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/NavDataPlugin/">NavDataPlugin</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/WeaponSystemPlugin/">WeaponSystemPlugin</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Plugins/LuaToolsPlugin/">LuaToolsPlugin</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Aircraft EFM</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../EFM/EFM_API/">EFM API</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Useful Bits</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../../EFM/Useful_bits/prop_blur/">Prop Blur</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Database</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/wsTypes/">wsTypes</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/iCommands/">iCommands</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../Database/draw-args/">Draw Args</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Useful bits</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/ModelViewer/">Modelviewer</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../UsefulBits/CockpitSounds/">Cockpit Sounds</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">ED Blender Exporter</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Overview/">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Mesh/">Mesh</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Materials/">Materials</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Animations/">Animations</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/Lights/">Lights</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../EDM-Export/errors/">Known Errors</a>
-                  </li>
-              </ul>
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#terrain-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-header__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCS Modding Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terrain
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../..">DCS Modding Documentation</a>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Aircraft Lua</li>
-          <li class="breadcrumb-item">Modules</li>
-      <li class="breadcrumb-item active">Terrain</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="terrain-module">Terrain Module<a class="headerlink" href="#terrain-module" title="Permanent link">#</a></h1>
-<h2 id="loading-the-module">Loading the module<a class="headerlink" href="#loading-the-module" title="Permanent link">#</a></h2>
-<pre><code class="language-lua">    local Terrain = require(&quot;terrain&quot;)
-</code></pre>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-nav__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DCS Modding Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft Lua
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft Lua
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BasicPrinciples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stubs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stubs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/DeviceStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/MainPanelStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mainpanel Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/LockOnOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LockOn_Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findnearestpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FindNearestPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findoptimalpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FindOptimalPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHeight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmgrscoordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMGRScoordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getseasons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSeasons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsurfaceheightwithseabed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSurfaceHeightWithSeabed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsurfacetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSurfaceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getterrainconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTerrainConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InitLight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertlatlontometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertLatLonToMeters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertmgrstometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertMGRStoMeters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertmeterstolatlon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertMetersToLatLon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findpathonroads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        findPathOnRoads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbeacons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getBeacons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclosestpointonroads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClosestPointOnRoads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclosestvalidpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClosestValidPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcrossparam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCrossParam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getObjectPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectsatmappoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getObjectsAtMapPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getradio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRadio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrunwayheading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRunwayHeading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrunwaylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRunwayList
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstandlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getStandList
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettechskinbydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTechSkinByDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettempraturerangebydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTempratureRangeByDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getterrainshpare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTerrainShpare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isvisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isVisible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avLuaDevice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avLuaDevice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Indicators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/NavDataPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NavDataPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/WeaponSystemPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WeaponSystemPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/LuaToolsPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LuaToolsPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft EFM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft EFM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/EFM_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EFM API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful Bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/Useful_bits/prop_blur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prop Blur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/wsTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wsTypes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/iCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/draw-args/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Args
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/ModelViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/CockpitSounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cockpit Sounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ED Blender Exporter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ED Blender Exporter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading the module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findnearestpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FindNearestPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findoptimalpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FindOptimalPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetHeight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmgrscoordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetMGRScoordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getseasons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSeasons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsurfaceheightwithseabed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSurfaceHeightWithSeabed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsurfacetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSurfaceType
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getterrainconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetTerrainConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initlight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InitLight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertlatlontometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertLatLonToMeters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertmgrstometers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertMGRStoMeters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertmeterstolatlon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        convertMetersToLatLon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findpathonroads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        findPathOnRoads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbeacons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getBeacons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclosestpointonroads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClosestPointOnRoads
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclosestvalidpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClosestValidPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcrossparam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCrossParam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getObjectPosition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectsatmappoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getObjectsAtMapPoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getradio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRadio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrunwayheading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRunwayHeading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getrunwaylist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getRunwayList
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getstandlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getStandList
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettechskinbydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTechSkinByDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettempraturerangebydate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTempratureRangeByDate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getterrainshpare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTerrainShpare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isvisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isVisible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="terrain-module">Terrain Module<a class="headerlink" href="#terrain-module" title="Permanent link">#</a></h1>
+<p>The following outlines DCS's Terrain module, used for interaction with maps in various ways.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Non functional or untested functions will be tagged with  <strong><em>[UNVERIFIED]</em></strong>  </p>
-<p>TODO: Test functions and verify descriptions</p>
+<p>In DCS, <code>x</code> is North, <code>y</code> is Elevation, <code>z</code> is East <em>in meters</em></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Roadnet can be found in <a href="../../Stubs/DeviceStubs/#get_terrain_related_datafile">get_terrain_related_data("Airdromes")</a> by iterating through the returned table, and taking <code>airport.roadnet</code> it should be a string as a filepath, just parse it straight to the function</p>
 </div>
 <hr />
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Params</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><a href="#create">Create</a></strong></td>
-<td>—</td>
-<td>Instantiate or reset the terrain subsystem.</td>
-</tr>
-<tr>
-<td><strong><a href="#findnearestpoint">FindNearestPoint</a></strong></td>
-<td><code>x, y, range</code></td>
-<td>Find the nearest valid point (e.g. on a road) to <code>(x, y)</code> within <code>range</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#findoptimalpath">FindOptimalPath</a></strong></td>
-<td><code>x1, y1, x2, y2</code></td>
-<td>Compute the optimal path (e.g. along roads) from <code>(x1, y1)</code> to <code>(x2, y2)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getheight">GetHeight</a></strong></td>
-<td><code>x, y</code></td>
-<td>Return terrain elevation at <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getmgrscoordinates">GetMGRScoordinates</a></strong></td>
-<td><code>x, y</code></td>
-<td>Return the MGRS grid coordinate for <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getseasons">GetSeasons</a></strong></td>
-<td>—</td>
-<td>Return a table of season identifiers or data.</td>
-</tr>
-<tr>
-<td><strong><a href="#getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed</a></strong></td>
-<td><code>x, y</code></td>
-<td>Return both surface elevation and depth of sea bed at <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getsurfacetype">GetSurfaceType</a></strong></td>
-<td><code>x, y</code></td>
-<td>Return the type of surface (e.g. “water”, “asphalt”) at <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getterrainconfig">GetTerrainConfig</a></strong></td>
-<td><code>type</code></td>
-<td>Obtain configuration data for terrain subtypes (e.g. “Airdromes”).</td>
-</tr>
-<tr>
-<td><strong><a href="#init">Init</a></strong></td>
-<td><code>terrain_config, reason, date</code></td>
-<td>Initialize terrain data with a config table, reason code, and date.</td>
-</tr>
-<tr>
-<td><strong><a href="#initlight">InitLight</a></strong></td>
-<td><code>terrain_config, reason, date</code></td>
-<td>Initialize only the lighting component of the terrain system.</td>
-</tr>
-<tr>
-<td><strong><a href="#release">Release</a></strong></td>
-<td>—</td>
-<td>Clean up or unload terrain resources.</td>
-</tr>
-<tr>
-<td><strong><a href="#convertlatlontometers">convertLatLonToMeters</a></strong></td>
-<td><code>lat, lon</code></td>
-<td>Convert geographic coordinates (latitude, longitude) into simulation meters.</td>
-</tr>
-<tr>
-<td><strong><a href="#convertmgrstometers">convertMGRStoMeters</a></strong></td>
-<td><code>mgrs</code></td>
-<td>Convert an MGRS string into simulation meters.</td>
-</tr>
-<tr>
-<td><strong><a href="#convertmeterstolatlon">convertMetersToLatLon</a></strong></td>
-<td><code>x, y</code></td>
-<td>Convert simulation‐space meters back to geographic coordinates.</td>
-</tr>
-<tr>
-<td><strong><a href="#findpathonroads">findPathOnRoads</a></strong></td>
-<td><code>type, x1, y1, x2, y2</code></td>
-<td>Find a path along “roads” or “railroads” between two points.</td>
-</tr>
-<tr>
-<td><strong><a href="#getbeacons">getBeacons</a></strong></td>
-<td>—</td>
-<td>Retrieve a list of all beacon objects in the terrain.</td>
-</tr>
-<tr>
-<td><strong><a href="#getclosestpointonroads">getClosestPointOnRoads</a></strong></td>
-<td><code>type, x, y</code></td>
-<td>Find the nearest point on the specified network (“roads” or “railroads”) to <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getclosestvalidpoint">getClosestValidPoint</a></strong></td>
-<td><code>type, x, y</code></td>
-<td>Find the nearest valid point of specified type (e.g. “land”) to <code>(x, y)</code>.</td>
-</tr>
-<tr>
-<td><strong><a href="#getcrossparam">getCrossParam</a></strong></td>
-<td>—</td>
-<td>Retrieve cross‐parameter data (undocumented use case).</td>
-</tr>
-<tr>
-<td><strong><a href="#getobjectposition">getObjectPosition</a></strong></td>
-<td><code>o</code></td>
-<td>Return the map position of a given scene object.</td>
-</tr>
-<tr>
-<td><strong><a href="#getobjectsatmappoint">getObjectsAtMapPoint</a></strong></td>
-<td><code>mapX, mapY</code></td>
-<td>List all objects whose footprint overlaps the map point.</td>
-</tr>
-<tr>
-<td><strong><a href="#getradio">getRadio</a></strong></td>
-<td><code>roadnet</code></td>
-<td>Get radio frequencies for an airport identified by its road-network string.</td>
-</tr>
-<tr>
-<td><strong><a href="#getrunwayheading">getRunwayHeading</a></strong></td>
-<td><code>roadnet</code></td>
-<td>Return the magnetic heading of the primary runway for the given airport.</td>
-</tr>
-<tr>
-<td><strong><a href="#getrunwaylist">getRunwayList</a></strong></td>
-<td><code>roadnet</code></td>
-<td>Return runway metadata: course, edge names and coordinates.</td>
-</tr>
-<tr>
-<td><strong><a href="#getstandlist">getStandList</a></strong></td>
-<td><code>roadnet</code></td>
-<td>Return a list of aircraft stands with locations.</td>
-</tr>
-<tr>
-<td><strong><a href="#gettechskinbydate">getTechSkinByDate</a></strong></td>
-<td><code>day, month</code></td>
-<td>Retrieve terrain “tech skin” (appearance) valid on the specified date.</td>
-</tr>
-<tr>
-<td><strong><a href="#gettempraturerangebydate">getTempratureRangeByDate</a></strong></td>
-<td><code>day, month</code></td>
-<td>Return expected temperature range for the given day/month.</td>
-</tr>
-<tr>
-<td><strong><a href="#getterrainshpare">getTerrainShpare</a></strong></td>
-<td>—</td>
-<td>(Undocumented—likely returns shape data for terrain meshes.)</td>
-</tr>
-<tr>
-<td><strong><a href="#isvisible">isVisible</a></strong></td>
-<td><code>x1, alt1, y1, x2, alt2, y2</code></td>
-<td>Raycast LOS check between two points at specified altitudes; returns <code>true</code> if unobstructed.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="create">Create<a class="headerlink" href="#create" title="Permanent link">#</a></h2>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">Terrain.Create()
+<h2 id="loading-the-module">Loading the module<a class="headerlink" href="#loading-the-module" title="Permanent link">#</a></h2>
+<pre><code class="language-lua">local Terrain = require(&quot;terrain&quot;)
 </code></pre>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h2>
+<hr />
+<h3 class="unverified-section" id="create">Create<a class="headerlink" href="#create" title="Permanent link">#</a></h3>
+<p><strong>Signature:</strong><br />
+???</p>
 <p><strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Instantiate or reset the terrain subsystem. Call this if you need to clear any existing terrain data before re-initializing or running a new mission.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">-- Start with a fresh terrain state
-Terrain.Create()
-</code></pre>
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="findnearestpoint">FindNearestPoint<a class="headerlink" href="#findnearestpoint" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="findnearestpoint">FindNearestPoint<a class="headerlink" href="#findnearestpoint" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, py = Terrain.FindNearestPoint(x, y, range)
+<pre><code class="language-lua">px, pz = Terrain.FindNearestPoint(x, z, range)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): world coordinates from which to search.<br />
-- <code>range</code> (number): maximum search radius in meters.<br />
-<strong>Returns:</strong><br />
-- <code>px, py</code> (number): coordinates of the nearest valid point (e.g. on a road).<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Searches outward up to <code>range</code> meters and returns the closest point on the specified network. Useful for snapping units to roads or paths.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local playerX, playerY = 50000, 75000
-local roadX, roadY = Terrain.FindNearestPoint(playerX, playerY, 2000)
-print(&quot;Snap to road at:&quot;, roadX, roadY)
-</code></pre>
+- <code>x, z</code> (number): world coordinates from which to search.<br />
+- <code>range</code> (number): maximum search radius in meters.  </p>
+<p><strong>Returns:</strong><br />
+- <code>px, pz</code> (number): coordinates of the nearest valid point (e.g. on a road).  </p>
+<p><strong>Description:</strong><br />
+Searches outward up to <code>range</code> meters and returns the closest point on the specified network. Useful for snapping units to roads or paths.<br />
+<strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="findoptimalpath">FindOptimalPath<a class="headerlink" href="#findoptimalpath" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="findoptimalpath">FindOptimalPath<a class="headerlink" href="#findoptimalpath" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">pathTable = Terrain.FindOptimalPath(x1, y1, x2, y2)
+<pre><code class="language-lua">pathTable = Terrain.FindOptimalPath(x1, z1, x2, z2)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x1, y1</code> (number): start coordinates.<br />
-- <code>x2, y2</code> (number): end coordinates.<br />
-<strong>Returns:</strong><br />
-- <code>pathTable</code> (table): an array of <code>{ x = ..., y = ... }</code> waypoints along the optimal route (e.g. following roads).<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Runs a graph search (A<em> or Dijkstra) over the terrain network to produce a drivable path.<br />
-</em><em>Example:</em>*</p>
-<pre><code class="language-lua">local route = Terrain.FindOptimalPath(10000, 20000, 30000, 40000)
-for i, pt in ipairs(route) do
-  print(i, pt.x, pt.y)
-end
-</code></pre>
+- <code>x1, z1</code> (number): start coordinates.<br />
+- <code>x2, z2</code> (number): end coordinates.  </p>
+<p><strong>Returns:</strong><br />
+??? </p>
+<p><strong>Description:</strong><br />
+??? </p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="getheight">GetHeight<a class="headerlink" href="#getheight" title="Permanent link">#</a></h2>
+<h3 id="getheight">GetHeight<a class="headerlink" href="#getheight" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">h = Terrain.GetHeight(x, y)
+<pre><code class="language-lua">h = Terrain.GetHeight(x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): query coordinates.<br />
-<strong>Returns:</strong><br />
-- <code>h</code> (number): terrain elevation (meters above sea level).<br />
-<strong>Description:</strong><br />
-Quickly sample the terrain elevation.<br />
-<strong>Example:</strong></p>
+- <code>x, z</code> (number): query coordinates.  </p>
+<p><strong>Returns:</strong><br />
+- <code>h</code> (number): terrain elevation (meters above sea level).</p>
+<p><strong>Description:</strong><br />
+Quickly sample the terrain elevation.</p>
+<p><strong>Example:</strong>  </p>
 <pre><code class="language-lua">local elev = Terrain.GetHeight(45000, 82000)
 print(&quot;Elevation is&quot;, elev, &quot;m&quot;)
 </code></pre>
 <hr />
-<h2 id="getmgrscoordinates">GetMGRScoordinates<a class="headerlink" href="#getmgrscoordinates" title="Permanent link">#</a></h2>
+<h3 id="getmgrscoordinates">GetMGRScoordinates<a class="headerlink" href="#getmgrscoordinates" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">mgrs = Terrain.GetMGRScoordinates(x, y)
+<pre><code class="language-lua">mgrs = Terrain.GetMGRScoordinates(x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): world coordinates.<br />
-<strong>Returns:</strong><br />
-- <code>mgrs</code> (string): MGRS grid reference (e.g. "34TDF1234567890").<br />
-<strong>Description:</strong><br />
-Convert from simulation-space meters to a human-readable MGRS coordinate.<br />
-<strong>Example:</strong></p>
+- <code>x, z</code> (number): world coordinates. </p>
+<p><strong>Returns:</strong><br />
+- <code>mgrs</code> (string): MGRS grid reference (e.g. "34TDF1234567890").  </p>
+<p><strong>Description:</strong><br />
+Convert from simulation-space meters to a human-readable MGRS coordinate.  </p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">local gridRef = Terrain.GetMGRScoordinates(345000, 789000)
 print(&quot;Grid:&quot;, gridRef)
 </code></pre>
 <hr />
-<h2 id="getseasons">GetSeasons<a class="headerlink" href="#getseasons" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getseasons">GetSeasons<a class="headerlink" href="#getseasons" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">seasons = Terrain.GetSeasons()
 </code></pre>
 <p><strong>Returns:</strong><br />
-- <code>seasons</code> (table): list of available season identifiers (e.g. { "winter", "summer", ... }).<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Fetch the set of seasons for which terrain textures and lighting are defined.<br />
-<strong>Example:</strong></p>
+- <code>seasons</code> (table): list of available season identifiers (e.g. { "winter", "summer", ... }).  </p>
+<p><strong>Description:</strong><br />
+Fetch the set of seasons for which terrain textures and lighting are defined.  </p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">for _, season in ipairs(Terrain.GetSeasons()) do
   print(&quot;Available season:&quot;, season)
 end
 </code></pre>
 <hr />
-<h2 id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed<a class="headerlink" href="#getsurfaceheightwithseabed" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed<a class="headerlink" href="#getsurfaceheightwithseabed" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, y)
+<pre><code class="language-lua">surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): coordinates over water.<br />
-<strong>Returns:</strong><br />
+- <code>x, z</code> (number): coordinates over water.  </p>
+<p><strong>Returns:</strong><br />
 - <code>surfaceH</code> (number): elevation of the water surface.<br />
-- <code>depth</code> (number): depth from surface to seabed (positive number).<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Useful for amphibious operations to know both water level and bottom depth.<br />
-<strong>Example:</strong></p>
+- <code>depth</code> (number): depth from surface to seabed (positive number).  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">local surf, d = Terrain.GetSurfaceHeightWithSeabed(20000, 15000)
 print(&quot;Water at&quot;, surf, &quot;m, seabed&quot;, d, &quot;m below&quot;)
 </code></pre>
 <hr />
-<h2 id="getsurfacetype">GetSurfaceType<a class="headerlink" href="#getsurfacetype" title="Permanent link">#</a></h2>
+<h3 id="getsurfacetype">GetSurfaceType<a class="headerlink" href="#getsurfacetype" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">stype = Terrain.GetSurfaceType(x, y)
+<pre><code class="language-lua">stype = Terrain.GetSurfaceType(x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): query location.<br />
-<strong>Returns:</strong><br />
-- <code>stype</code> (string): surface material. <code>"land"</code>, <code>"sea"</code>, <code>"lake"</code>, <code>"river"</code><br />
-<strong>Description:</strong><br />
-Detect what kind of surface occupies a coordinate.
-<strong>Example:</strong></p>
+- <code>x, z</code> (number): query location.</p>
+<p><strong>Returns:</strong><br />
+- <code>stype</code> (string): surface material. <code>"land"</code>, <code>"sea"</code>, <code>"lake"</code>, <code>"river"</code> </p>
+<p><strong>Description:</strong><br />
+Detect what kind of surface occupies a coordinate.</p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">local mat = Terrain.GetSurfaceType(10200, 20500)
 print(&quot;Surface is&quot;, mat)
 </code></pre>
 <hr />
-<h2 id="getterrainconfig">GetTerrainConfig<a class="headerlink" href="#getterrainconfig" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getterrainconfig">GetTerrainConfig<a class="headerlink" href="#getterrainconfig" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">cfg = Terrain.GetTerrainConfig(type)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>type</code> (string): e.g. "Airdromes".<br />
-<strong>Returns:</strong><br />
-- <code>cfg</code> (table): configuration block for that terrain element (bounds, default camera, etc.).<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> Inspect built-in metadata for things like airfield layout.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local airCfg = Terrain.GetTerrainConfig(&quot;Airdromes&quot;)
-print(&quot;Airfield NE bound:&quot;, airCfg.NE_bound.x, airCfg.NE_bound.y)
-</code></pre>
+- <code>type</code> (string): e.g. "Airdromes".  </p>
+<p><strong>Returns:</strong><br />
+- <code>cfg</code> (table): configuration block for that terrain element (bounds, default camera, etc.).  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="init">Init<a class="headerlink" href="#init" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="init">Init<a class="headerlink" href="#init" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.Init(terrain_config, reason, date)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>terrain_config</code> (table)<br />
 - <code>reason</code> (any)<br />
-- <code>date</code> (table): { year=…, month=…, day=… }.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local cfg = Terrain.GetTerrainConfig(&quot;Airdromes&quot;)
-Terrain.Init(cfg, &quot;mission_start&quot;, { year=2025, month=7, day=7 })
-</code></pre>
+- <code>date</code> (table): { year=…, month=…, day=… }.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="initlight">InitLight<a class="headerlink" href="#initlight" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="initlight">InitLight<a class="headerlink" href="#initlight" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.InitLight(terrain_config, reason, date)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>terrain_config</code> (table)<br />
 - <code>reason</code> (any)<br />
-- <code>date</code> (table): { year=…, month=…, day=… }.  <br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.
-<strong>Example:</strong></p>
-<pre><code class="language-lua">Terrain.InitLight(airCfg, &quot;time_change&quot;, { year=2025, month=12, day=1 })
-</code></pre>
+- <code>date</code> (table): { year=…, month=…, day=… }.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="release">Release<a class="headerlink" href="#release" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="release">Release<a class="headerlink" href="#release" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">Terrain.Release()
 </code></pre>
 <p><strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">Terrain.Release()
-</code></pre>
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="convertlatlontometers">convertLatLonToMeters<a class="headerlink" href="#convertlatlontometers" title="Permanent link">#</a></h2>
+<h3 id="convertlatlontometers">convertLatLonToMeters<a class="headerlink" href="#convertlatlontometers" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">x, y = Terrain.convertLatLonToMeters(lat, lon)
+<pre><code class="language-lua">x, z = Terrain.convertLatLonToMeters(lat, lon)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>lat, lon</code> (number): geographic coordinates in degrees.<br />
-<strong>Returns:</strong><br />
-- <code>x, y</code> (number): simulation meters.<br />
-<strong>Description:</strong><br />
-Project WGS84 lat/lon into the simulator’s local flat coordinate system.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local mx, my = Terrain.convertLatLonToMeters(34.0522, -118.2437)
+- <code>lat, lon</code> (number): geographic coordinates in degrees. </p>
+<p><strong>Returns:</strong><br />
+- <code>x, z</code> (number): simulation meters.  </p>
+<p><strong>Description:</strong><br />
+Project WGS84 lat/lon into the simulator’s local flat coordinate system.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">local mx, mz = Terrain.convertLatLonToMeters(34.0522, -118.2437)
 </code></pre>
 <hr />
-<h2 id="convertmgrstometers">convertMGRStoMeters<a class="headerlink" href="#convertmgrstometers" title="Permanent link">#</a></h2>
+<h3 id="convertmgrstometers">convertMGRStoMeters<a class="headerlink" href="#convertmgrstometers" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">x, y = Terrain.convertMGRStoMeters(mgrs)
+<pre><code class="language-lua">x, z = Terrain.convertMGRStoMeters(mgrs)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>mgrs</code> (string): MGRS reference.<br />
-<strong>Returns:</strong><br />
-- <code>x, y</code> (number): simulation meters.<br />
-<strong>Description:</strong><br />
-Inverse of GetMGRScoordinates.<br />
-<strong>Example:</strong></p>
+- <code>mgrs</code> (string): MGRS reference.</p>
+<p><strong>Returns:</strong><br />
+- <code>x, z</code> (number): simulation meters.  </p>
+<p><strong>Description:</strong><br />
+Inverse of GetMGRScoordinates. </p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">local ux, uy = Terrain.convertMGRStoMeters(&quot;33TUN1234567890&quot;)
 </code></pre>
 <hr />
-<h2 id="convertmeterstolatlon">convertMetersToLatLon<a class="headerlink" href="#convertmeterstolatlon" title="Permanent link">#</a></h2>
+<h3 id="convertmeterstolatlon">convertMetersToLatLon<a class="headerlink" href="#convertmeterstolatlon" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">lat, lon = Terrain.convertMetersToLatLon(x, y)
+<pre><code class="language-lua">lat, lon = Terrain.convertMetersToLatLon(x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>x, y</code> (number): simulation coordinates.<br />
-<strong>Returns:</strong><br />
-- <code>lat, lon</code> (number): geographic degrees.<br />
-<strong>Description:</strong><br />
-Inverse map projection back to WGS84.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local φ, λ = Terrain.convertMetersToLatLon(400000, 5000000)
+- <code>x, z</code> (number): simulation coordinates.  </p>
+<p><strong>Returns:</strong><br />
+- <code>lat, lon</code> (number): geographic degrees.  </p>
+<p><strong>Description:</strong><br />
+Inverse map projection back to WGS84.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">local lat, lon = Terrain.convertMetersToLatLon(400000, 5000000)
 </code></pre>
 <hr />
-<h2 id="findpathonroads">findPathOnRoads<a class="headerlink" href="#findpathonroads" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="findpathonroads">findPathOnRoads<a class="headerlink" href="#findpathonroads" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">pathTable = Terrain.findPathOnRoads(type, x1, y1, x2, y2)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>type</code> (string): "roads" or "railroads".<br />
-- <code>x1, y1</code>, <code>x2, y2</code> (number): endpoints.<br />
-<strong>Returns:</strong><br />
-- <code>pathTable</code> (table): waypoint array.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local trainRoute = Terrain.findPathOnRoads(&quot;railroads&quot;, 1000, 2000, 8000, 9000)
-</code></pre>
+- <code>x1, y1</code>, <code>x2, y2</code> (number): endpoints.  </p>
+<p><strong>Returns:</strong><br />
+- <code>pathTable</code> (table): waypoint array.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="getbeacons">getBeacons<a class="headerlink" href="#getbeacons" title="Permanent link">#</a></h2>
+<h3 id="getbeacons">getBeacons<a class="headerlink" href="#getbeacons" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">beacons = Terrain.getBeacons()
 </code></pre>
 <p><strong>Returns:</strong><br />
-- <code>beacons</code> (table): list of beacon objects, each with position and frequency.<br />
-<strong>Description:</strong><br />
-Enumerate nav-beacons placed in the terrain.<br />
-<strong>Example:</strong></p>
+- <code>beacons</code> (table): list of beacon objects, each with position and frequency. </p>
+<p><strong>Description:</strong><br />
+Enumerate nav-beacons placed in the terrain.  </p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">for _, b in ipairs(Terrain.getBeacons()) do
-  print(&quot;Beacon&quot;, b.id, &quot;at&quot;, b.x, b.y, &quot;freq&quot;, b.freq)
+  print(&quot;Beacon&quot;, b.id, &quot;at&quot;, b.x, b.z, &quot;freq&quot;, b.freq)
 end
 </code></pre>
 <hr />
-<h2 id="getclosestpointonroads">getClosestPointOnRoads<a class="headerlink" href="#getclosestpointonroads" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getclosestpointonroads">getClosestPointOnRoads<a class="headerlink" href="#getclosestpointonroads" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, py = Terrain.getClosestPointOnRoads(type, x, y)
+<pre><code class="language-lua">px, pz = Terrain.getClosestPointOnRoads(type, x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>type</code> (string): "roads" or "railroads".<br />
-- <code>x, y</code> (number): query point.<br />
-<strong>Returns:</strong><br />
-- <code>px, py</code> (number): on-network coordinates.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local rx, ry = Terrain.getClosestPointOnRoads(&quot;roads&quot;, 12345, 67890)
-</code></pre>
+- <code>x, z</code> (number): query point. </p>
+<p><strong>Returns:</strong><br />
+- <code>px, py</code> (number): on-network coordinates.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="getclosestvalidpoint">getClosestValidPoint<a class="headerlink" href="#getclosestvalidpoint" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getclosestvalidpoint">getClosestValidPoint<a class="headerlink" href="#getclosestvalidpoint" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, py = Terrain.getClosestValidPoint(type, x, y)
+<pre><code class="language-lua">px, pz = Terrain.getClosestValidPoint(type, x, z)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>type</code> (string): e.g. "land".<br />
-- <code>x, y</code> (number): input coords.<br />
-<strong>Returns:</strong><br />
-- <code>px, py</code> (number): nearest valid location of that type.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local fx, fy = Terrain.getClosestValidPoint(&quot;land&quot;, helicopterX, helicopterY)
-</code></pre>
+- <code>x, z</code> (number): input coords.  </p>
+<p><strong>Returns:</strong><br />
+- <code>px, pz</code> (number): nearest valid location of that type.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="getcrossparam">getCrossParam<a class="headerlink" href="#getcrossparam" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getcrossparam">getCrossParam<a class="headerlink" href="#getcrossparam" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">param = Terrain.getCrossParam()
 </code></pre>
 <p><strong>Returns:</strong><br />
-- <code>param</code> (any): undocumented cross-parameter data.<br />
-<strong>Description:</strong><br />
-Only for advanced use—internal terrain tuning.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local cp = Terrain.getCrossParam()
-print(&quot;Cross param:&quot;, cp)
-</code></pre>
+- <code>param</code> (any): undocumented cross-parameter data.  </p>
+<p><strong>Description:</strong><br />
+??? </p>
+<p><strong>Example:</strong><br />
+??? </p>
 <hr />
-<h2 id="getobjectposition">getObjectPosition<a class="headerlink" href="#getobjectposition" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getobjectposition">getObjectPosition<a class="headerlink" href="#getobjectposition" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">ox, oy = Terrain.getObjectPosition(obj)
+<pre><code class="language-lua">ox, oz = Terrain.getObjectPosition(obj)
 </code></pre>
 <p><strong>Parameters:</strong><br />
 - <code>obj</code> (Object): engine object reference.<br />
 <strong>Returns:</strong><br />
-- <code>ox, oy</code> (number): its map position.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local x, y = Terrain.getObjectPosition(myVehicle)
-</code></pre>
+- <code>ox, oz</code> (number): its map position.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
 <hr />
-<h2 id="getobjectsatmappoint">getObjectsAtMapPoint<a class="headerlink" href="#getobjectsatmappoint" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getobjectsatmappoint">getObjectsAtMapPoint<a class="headerlink" href="#getobjectsatmappoint" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">list = Terrain.getObjectsAtMapPoint(mapX, mapY)
+<pre><code class="language-lua">list = Terrain.getObjectsAtMapPoint(mapX, mapZ)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>mapX, mapY</code> (number): query location.<br />
-<strong>Returns:</strong><br />
-- <code>list</code> (table): all objects overlapping that point.<br />
-<strong>Description:</strong><br />
-<strong><em>[UNVERIFIED]</em></strong> none.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local objs = Terrain.getObjectsAtMapPoint(5000, 6000)
-print(&quot;Found&quot;, #objs, &quot;objects&quot;)
-</code></pre>
+- <code>mapX, mapZ</code> (number): query location.  </p>
+<p><strong>Returns:</strong><br />
+- <code>list</code> (table): all objects overlapping that point.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="getradio">getRadio<a class="headerlink" href="#getradio" title="Permanent link">#</a></h2>
+<h3 id="getradio">getRadio<a class="headerlink" href="#getradio" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">radios = Terrain.getRadio(roadnet)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>roadnet</code> (string): airport identifier.<br />
-<strong>Returns:</strong><br />
-- <code>radios</code> (table): frequency settings for that airfield’s comms.<br />
-<strong>Description:</strong><br />
-Obtain tower/ground/approach frequencies.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local freqs = Terrain.getRadio(&quot;KSFO_roadnet&quot;)
+- <code>roadnet</code> (string): see top of this page.  </p>
+<p><strong>Returns:</strong><br />
+- <code>radios</code> (table): frequency settings for that airfield’s comms.  </p>
+<p><strong>Description:</strong><br />
+Obtain tower/ground/approach frequencies.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">local freqs = Terrain.getRadio(roadnet) 
 print(freqs.tower, freqs.ground)
 </code></pre>
 <hr />
-<h2 id="getrunwayheading">getRunwayHeading<a class="headerlink" href="#getrunwayheading" title="Permanent link">#</a></h2>
+<h3 id="getrunwayheading">getRunwayHeading<a class="headerlink" href="#getrunwayheading" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">hdg = Terrain.getRunwayHeading(roadnet)
 </code></pre>
 <p><strong>Parameters:</strong><br />
-- <code>roadnet</code> (string): airport ID.<br />
-<strong>Returns:</strong><br />
-- <code>hdg</code> (number): magnetic heading of the primary runway.<br />
-<strong>Description:</strong><br />
-Useful for HUD wind-correction and runway-alignment cues.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local rHdg = Terrain.getRunwayHeading(&quot;RJTT_roadnet&quot;)
+- <code>roadnet</code> (string): see top of this page.  </p>
+<p><strong>Returns:</strong><br />
+- <code>hdg</code> (number): magnetic heading of the primary runway.</p>
+<p><strong>Description:</strong><br />
+Useful for HUD wind-correction and runway-alignment cues.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">local rHdg = Terrain.getRunwayHeading(roadnet)
 print(&quot;Runway heading:&quot;, rHdg)
 </code></pre>
 <hr />
-<h2 id="getrunwaylist">getRunwayList<a class="headerlink" href="#getrunwaylist" title="Permanent link">#</a></h2>
+<h3 id="getrunwaylist">getRunwayList<a class="headerlink" href="#getrunwaylist" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">runways = Terrain.getRunwayList(roadnet)
 </code></pre>
-<p><strong>Parameters:</strong>
-- <code>roadnet</code> (string): airport ID.<br />
-<strong>Returns:</strong>
+<p><strong>Parameters:</strong><br />
+- <code>roadnet</code> (string): see top of this page.  </p>
+<p><strong>Returns:</strong><br />
 - <code>runways</code> (table): each entry contains:
   - <code>course</code> (number): runway heading<br />
   - <code>edge1name</code> (string), <code>edge1x</code>, <code>edge1y</code> (number): name and coordinates of one end<br />
-  - <code>edge2name</code> (string), <code>edge2x</code>, <code>edge2y</code> (number): name and coordinates of the opposite end<br />
-<strong>Description:</strong>
-Enumerate all runways at the specified airfield, returning their endpoints and headings.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">for _, rw in ipairs(Terrain.getRunwayList(&quot;EGLL_roadnet&quot;)) do
+  - <code>edge2name</code> (string), <code>edge2x</code>, <code>edge2y</code> (number): name and coordinates of the opposite end  </p>
+<p><strong>Description:</strong><br />
+Enumerate all runways at the specified airfield, returning their endpoints and headings.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">for _, rw in ipairs(Terrain.getRunwayList(roadnet)) do -- 
   print(&quot;RW&quot;, rw.edge1name, &quot;to&quot;, rw.edge2name, &quot;heading&quot;, rw.course)
 end
 </code></pre>
 <hr />
-<h2 id="getstandlist">getStandList<a class="headerlink" href="#getstandlist" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getstandlist">getStandList<a class="headerlink" href="#getstandlist" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">stands = Terrain.getStandList(roadnet)
 </code></pre>
-<p><strong>Parameters:</strong>
-- <code>roadnet</code> (string): airport ID.<br />
-<strong>Returns:</strong>
-- <code>stands</code> (table): list of parking stands with coordinates.<br />
-<strong>Description:</strong>
-Get gate and parking-spot positions.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local gates = Terrain.getStandList(&quot;KDEN_roadnet&quot;)
-print(&quot;First stand at&quot;, gates[1].x, gates[1].y)
+<p><strong>Parameters:</strong><br />
+- <code>roadnet</code> (string): see top of this file</p>
+<p><strong>Returns:</strong><br />
+- <code>stands</code> (table): list of parking stands with coordinates.  </p>
+<p><strong>Description:</strong><br />
+Get gate and parking-spot positions.  </p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-lua">local gates = Terrain.getStandList(roadnet)
+print(&quot;First stand at&quot;, gates[1].x, gates[1].z)
 </code></pre>
 <hr />
-<h2 id="gettechskinbydate">getTechSkinByDate<a class="headerlink" href="#gettechskinbydate" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="gettechskinbydate">getTechSkinByDate<a class="headerlink" href="#gettechskinbydate" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">skin = Terrain.getTechSkinByDate(day, month)
 </code></pre>
-<p><strong>Parameters:</strong>
-- <code>day, month</code> (number): calendar date.<br />
-<strong>Returns:</strong>
-- <code>skin</code> (any): texture/skin identifier valid on that day.<br />
-<strong>Description:</strong>
-Swap in historical or seasonal terrain skins.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local tex = Terrain.getTechSkinByDate(15, 8)  -- August 15
-</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>day, month</code> (number): calendar date.  </p>
+<p><strong>Returns:</strong><br />
+- <code>skin</code> (any): texture/skin identifier valid on that day.  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="gettempraturerangebydate">getTempratureRangeByDate<a class="headerlink" href="#gettempraturerangebydate" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="gettempraturerangebydate">getTempratureRangeByDate<a class="headerlink" href="#gettempraturerangebydate" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">minT, maxT = Terrain.getTempratureRangeByDate(day, month)
 </code></pre>
-<p><strong>Parameters:</strong>
-- <code>day, month</code> (number): date.<br />
-<strong>Returns:</strong>
-- <code>minT, maxT</code> (number): expected daily temperature extremes (°C).<br />
-<strong>Description:</strong>
-Drive weather models or engine performance tables.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local lo, hi = Terrain.getTempratureRangeByDate(1, 12)
-print(&quot;Dec 1 temps:&quot;, lo, &quot;to&quot;, hi)
-</code></pre>
+<p><strong>Parameters:</strong><br />
+- <code>day, month</code> (number): date.  </p>
+<p><strong>Returns:</strong><br />
+- <code>minT, maxT</code> (number): expected daily temperature extremes (°C).  </p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong>
+???</p>
 <hr />
-<h2 id="getterrainshpare">getTerrainShpare<a class="headerlink" href="#getterrainshpare" title="Permanent link">#</a></h2>
+<h3 class="unverified-section" id="getterrainshpare">getTerrainShpare<a class="headerlink" href="#getterrainshpare" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
 <pre><code class="language-lua">shape = Terrain.getTerrainShpare()
 </code></pre>
-<p><strong>Returns:</strong>
-- <code>shape</code> (any): internal terrain mesh data.<br />
-<strong>Description:</strong>
-Undocumented; likely used for low-level mesh queries.<br />
-<strong>Example:</strong></p>
-<pre><code class="language-lua">local mesh = Terrain.getTerrainShpare()
-</code></pre>
+<p><strong>Returns:</strong><br />
+- <code>shape</code> (any): internal terrain mesh data.  ???</p>
+<p><strong>Description:</strong><br />
+???</p>
+<p><strong>Example:</strong><br />
+???</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Shpare is not a typo, but I have no clue what this does</p>
+</div>
 <hr />
-<h2 id="isvisible">isVisible<a class="headerlink" href="#isvisible" title="Permanent link">#</a></h2>
+<h3 id="isvisible">isVisible<a class="headerlink" href="#isvisible" title="Permanent link">#</a></h3>
 <p><strong>Signature:</strong></p>
-<pre><code class="language-lua">visible = Terrain.isVisible(x1, alt1, y1, x2, alt2, y2)
+<pre><code class="language-lua">visible = Terrain.isVisible(x1, y1, z1, x2, y2, z2)
 </code></pre>
-<p><strong>Parameters:</strong>
-- <code>x1, y1, alt1</code> (number): start point and altitude.<br />
-- <code>x2, y2, alt2</code> (number): end point and altitude.<br />
-<strong>Returns:</strong>
-- <code>visible</code> (boolean): <code>true</code> if line-of-sight is unobstructed.<br />
-<strong>Description:</strong>
-Perform a raycast through the terrain to check LOS.<br />
-<strong>Example:</strong></p>
+<p><strong>Parameters:</strong><br />
+- <code>x1, y1, z1</code> (number): start point and altitude.<br />
+- <code>x2, y2, z2</code> (number): end point and altitude.  </p>
+<p><strong>Returns:</strong><br />
+- <code>visible</code> (boolean): <code>true</code> if line-of-sight is unobstructed.  </p>
+<p><strong>Description:</strong><br />
+Perform a raycast through the terrain to check LOS.  </p>
+<p><strong>Example:</strong></p>
 <pre><code class="language-lua">if Terrain.isVisible(10000, 50, 20000, 15000, 100, 25000) then
   print(&quot;Target in sight!&quot;)
 end
 </code></pre>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../Stubs/LockOnOptions/" class="btn btn-neutral float-left" title="LockOn_Options"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../Devices/avLuaDevice/" class="btn btn-neutral float-right" title="avLuaDevice">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../../Stubs/LockOnOptions/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../../Devices/avLuaDevice/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../../..";</script>
-    <script src="../../../../js/theme_extra.js"></script>
-    <script src="../../../../js/theme.js"></script>
-      <script src="../../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
 </html>
