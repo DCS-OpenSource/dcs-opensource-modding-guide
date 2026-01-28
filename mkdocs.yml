@@ -21,6 +21,7 @@ nav:
   - Useful Links: links.md
   
   - Aircraft Lua:
+    - Basic Principles: Aircraft/Lua/BasicPrinciples.md
     - Stubs:
       - Device Stubs: Aircraft/Lua/Stubs/DeviceStubs.md
       - Mainpanel Stubs: Aircraft/Lua/Stubs/MainPanelStubs.md
