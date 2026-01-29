@@ -537,6 +537,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#currtime_hours-creategaugeparameter-currtime_hoursparameter_name-currtime_hours-currtime_hoursarg_number-440-currtime_hoursinput-00-120-currtime_hoursoutput-10-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CurrTime_hours = CreateGauge(&quot;parameter&quot;) CurrTime_hours.parameter_name = &quot;CURRTIME_HOURS&quot; CurrTime_hours.arg_number = 440 CurrTime_hours.input = {0.0, 12.0} CurrTime_hours.output = {1.0, -1.0}
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#loregisterpanelcontrols" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1706,6 +1717,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1794,6 +1832,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currtime_hours-creategaugeparameter-currtime_hoursparameter_name-currtime_hours-currtime_hoursarg_number-440-currtime_hoursinput-00-120-currtime_hoursoutput-10-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CurrTime_hours = CreateGauge(&quot;parameter&quot;) CurrTime_hours.parameter_name = &quot;CURRTIME_HOURS&quot; CurrTime_hours.arg_number = 440 CurrTime_hours.input = {0.0, 12.0} CurrTime_hours.output = {1.0, -1.0}
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1935,20 +1984,19 @@ Describes the configuration of a cockpit gauge animation.</p>
 <hr />
 <h3 id="example-gauge">Example Gauge<a class="headerlink" href="#example-gauge" title="Permanent link">#</a></h3>
 <h4 id="using-a-controller">Using a Controller<a class="headerlink" href="#using-a-controller" title="Permanent link">#</a></h4>
-<pre><code class="language-lua">vsi = CreateGauge()
-vsi.arg_number = 48
-vsi.input = {-6000*ft_to_meter/60, 6000*ft_to_meter/60}
-vsi.output = {-1, 1}
-vsi.controller = controllers.base_gauge_VerticalVelocity
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">vsi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">CreateGauge</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">vsi</span><span class="p">.</span><span class="py">arg_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">48</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">vsi</span><span class="p">.</span><span class="py">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="mi">6000</span><span class="o">*</span><span class="nv">ft_to_meter</span><span class="o">/</span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">6000</span><span class="o">*</span><span class="nv">ft_to_meter</span><span class="o">/</span><span class="mi">60</span><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">vsi</span><span class="p">.</span><span class="py">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">vsi</span><span class="p">.</span><span class="py">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">controllers</span><span class="p">.</span><span class="py">base_gauge_VerticalVelocity</span>
+</span></code></pre></div>
 <h4 id="using-a-parameter">Using a Parameter<a class="headerlink" href="#using-a-parameter" title="Permanent link">#</a></h4>
-<pre><code class="language-lua">CurrTime_hours                     = CreateGauge(&quot;parameter&quot;)
-CurrTime_hours.parameter_name      = &quot;CURRTIME_HOURS&quot;
-CurrTime_hours.arg_number          = 440
-CurrTime_hours.input               = {0.0, 12.0}
-CurrTime_hours.output              = {1.0, -1.0}
-</code></pre>
-<hr />
+<h2 id="currtime_hours-creategaugeparameter-currtime_hoursparameter_name-currtime_hours-currtime_hoursarg_number-440-currtime_hoursinput-00-120-currtime_hoursoutput-10-10"><div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">CurrTime_hours</span><span class="w">                     </span><span class="o">=</span><span class="w"> </span><span class="nf">CreateGauge</span><span class="p">(</span><span class="s2">&quot;parameter&quot;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">CurrTime_hours</span><span class="p">.</span><span class="py">parameter_name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CURRTIME_HOURS&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">CurrTime_hours</span><span class="p">.</span><span class="py">arg_number</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mi">440</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">CurrTime_hours</span><span class="p">.</span><span class="py">input</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">12.0</span><span class="p">}</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">CurrTime_hours</span><span class="p">.</span><span class="py">output</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">}</span>
+</span></code></pre></div><a class="headerlink" href="#currtime_hours-creategaugeparameter-currtime_hoursparameter_name-currtime_hours-currtime_hoursarg_number-440-currtime_hoursinput-00-120-currtime_hoursoutput-10-10" title="Permanent link">#</a></h2>
 <h2 id="loregisterpanelcontrols">LoRegisterPanelControls()<a class="headerlink" href="#loregisterpanelcontrols" title="Permanent link">#</a></h2>
 <p><strong>Description</strong><br />
 Returns the list of main panel controllers registered for the aircraft.</p>

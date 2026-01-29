@@ -1760,6 +1760,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1962,33 +1989,33 @@
 <h1 id="avluadevice">avLuaDevice<a class="headerlink" href="#avluadevice" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>avLuaDevices are created in the device_init.lua, with the script path pointing to the lua file for the device. These devices make up the aircraft avionics and systems. Each lua device is a self contained lua_State, this means that any global variables or functions are not shared between them.</p>
-<p>To pass information between lua devices <a href="../../Stubs/DeviceStubs/#param-handles">param handles</a> can be used. However it is recommended for more advanced data-structures instead you pass and store information using <a href="https://www.lua.org/pil/26.2.html">C Lua Modules</a>, which can be written in C or C++ giving your devices a shared memory space through which to pass or store information.</p>
+<p>To pass information between lua devices <a href="../../BasicPrinciples/#param-handles">param handles</a> can be used. However it is recommended for more advanced data-structures instead you pass and store information using <a href="https://www.lua.org/pil/26.2.html">C Lua Modules</a>, which can be written in C or C++ giving your devices a shared memory space through which to pass or store information.</p>
 <hr />
 <h2 id="post_initialize">post_initialize()<a class="headerlink" href="#post_initialize" title="Permanent link">#</a></h2>
 <p>Called once when you load into your plane, very useful for setting hot/cold start variables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Any hot/cold start setup should be put in here. See <a href="../../LockOnOptions#init_conditions">LockOn_Options.init_conditions</a> for more details.</p>
+<p>Any hot/cold start setup should be put in here. See <a href="../../Stubs/LockOnOptions/#init_conditions">LockOn_Options.init_conditions</a> for more details.</p>
 </div>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h3>
-<pre><code class="language-lua">function post_initalize()
-    print_message_to_user(&quot;Welcome to your plane&quot;)
-end
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">post_initalize</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nf">print_message_to_user</span><span class="p">(</span><span class="s2">&quot;Welcome to your plane&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kr">end</span>
+</span></code></pre></div>
 <hr />
 <h2 id="update">update()<a class="headerlink" href="#update" title="Permanent link">#</a></h2>
 <h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
 <p>The update function runs once every <code>update_time_step</code> seconds.</p>
-<pre><code class="language-lua">local update_time_step = 0.05
-make_default_activity(update_time_step) -- sets the device to run every 0.05 seconds
-
-local timer = 0
-
-function update()
-    print_message_to_user(&quot;Timer: &quot; .. timer .. &quot; seconds&quot;)
-    timer = timer + update_time_step
-end
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">update_time_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nf">make_default_activity</span><span class="p">(</span><span class="nv">update_time_step</span><span class="p">)</span><span class="w"> </span><span class="c1">-- sets the device to run every 0.05 seconds</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">local</span><span class="w"> </span><span class="nv">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">function</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nf">print_message_to_user</span><span class="p">(</span><span class="s2">&quot;Timer: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">timer</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; seconds&quot;</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nv">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">timer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">update_time_step</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kr">end</span>
+</span></code></pre></div>
 <hr />
 <h2 id="setcommand">SetCommand()<a class="headerlink" href="#setcommand" title="Permanent link">#</a></h2>
 <p>TODO</p>
@@ -1997,72 +2024,72 @@ end
 <h3 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">#</a></h3>
 <p>The CockpitEvent function can be used to detect certain events happening in game, such as rearming and refueling, wheel chocks and more.<br />
 Example usage can be seen below</p>
-<pre><code class="language-lua">local dev = GetSelf()
-dev:listen_event(&quot;WheelChocksOn&quot;)
-
-function CockpitEvent(event, val)
-    if event == &quot;WheelChocksOn&quot; then
-        print_message_to_user(&quot;Wheel Chocks Equipped&quot;)
-    end
-end
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">GetSelf</span><span class="p">()</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WheelChocksOn&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kr">function</span><span class="w"> </span><span class="nf">CockpitEvent</span><span class="p">(</span><span class="nv">event</span><span class="p">,</span><span class="w"> </span><span class="nv">val</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">event</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;WheelChocksOn&quot;</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nf">print_message_to_user</span><span class="p">(</span><span class="s2">&quot;Wheel Chocks Equipped&quot;</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kr">end</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kr">end</span>
+</span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You must use <code>dev:listen_event(eventName)</code> to listen for your event </p>
 </div>
 <h3 id="event-list">Event List<a class="headerlink" href="#event-list" title="Permanent link">#</a></h3>
-<pre><code class="language-lua">-- Sourced from a mixture of modding hub and the A-29B
-
--- Rearm/Refuel events
-dev:listen_event(&quot;WeaponRearmComplete&quot;)
-dev:listen_event(&quot;WeaponRearmFirstStep&quot;)
-dev:listen_event(&quot;WeaponRearmSingleStepComplete&quot;)
-dev:listen_event(&quot;ReloadDone&quot;)
-dev:listen_event(&quot;RefuelDone&quot;)
-dev:listen_event(&quot;repair&quot;)
-dev:listen_event(&quot;refuel&quot;)
-dev:listen_event(&quot;refuelcomplete&quot;)
-dev:listen_event(&quot;refueldone&quot;)
-dev:listen_event(&quot;UnlimitedWeaponStationRestore&quot;)
-dev:listen_event(&quot;initChaffFlarePayload&quot;)
-
--- Ground Power
-dev:listen_event(&quot;GroundPowerOn&quot;)
-dev:listen_event(&quot;GroundPowerOff&quot;)
-
--- Ground Air
-dev:listen_event(&quot;GroundAirOff&quot;)
-dev:listen_event(&quot;GroundAirOn&quot;)
-dev:listen_event(&quot;GroundAirFailure&quot;)
-dev:listen_event(&quot;GroundAirApplyOn&quot;)
-dev:listen_event(&quot;GroundAirApplyOff&quot;)
-dev:listen_event(&quot;GroundAirApplyFailure&quot;)
-
--- Wheel Chocks
-dev:listen_event(&quot;WheelChocksOn&quot;)
-dev:listen_event(&quot;WheelChocksOff&quot;)
-
--- Misc Ground Crew
-dev:listen_event(&quot;CanopyOpen&quot;)
-dev:listen_event(&quot;CanopyClose&quot;)
-dev:listen_event(&quot;setup_HMS&quot;)
-dev:listen_event(&quot;setup_NVG&quot;)
-
--- Works the same as release() function as shown in the example device
-dev:listen_event(&quot;cockpit_release&quot;)
-
--- Unknown
-dev:listen_event(&quot;DisableTurboGear&quot;)
-dev:listen_event(&quot;EnableTurboGear&quot;)
-dev:listen_event(&quot;switch_datalink&quot;)
-dev:listen_event(&quot;LinkNOPtoNet&quot;)
-dev:listen_event(&quot;UnlinkNOPfromNet&quot;)
-dev:listen_event(&quot;EGI_TurnOff&quot;)
-dev:listen_event(&quot;EGI_TurnOn&quot;)
-dev:listen_event(&quot;RestoreEGIoperation&quot;)
-dev:listen_event(&quot;TISLmodeChange&quot;)
-dev:listen_event(&quot;OnNewNetPlane&quot;)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Sourced from a mixture of modding hub and the A-29B</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">-- Rearm/Refuel events</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WeaponRearmComplete&quot;</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WeaponRearmFirstStep&quot;</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WeaponRearmSingleStepComplete&quot;</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;ReloadDone&quot;</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;RefuelDone&quot;</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;repair&quot;</span><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;refuel&quot;</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;refuelcomplete&quot;</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;refueldone&quot;</span><span class="p">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;UnlimitedWeaponStationRestore&quot;</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;initChaffFlarePayload&quot;</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1">-- Ground Power</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundPowerOn&quot;</span><span class="p">)</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundPowerOff&quot;</span><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1">-- Ground Air</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirOff&quot;</span><span class="p">)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirOn&quot;</span><span class="p">)</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirFailure&quot;</span><span class="p">)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirApplyOn&quot;</span><span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirApplyOff&quot;</span><span class="p">)</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;GroundAirApplyFailure&quot;</span><span class="p">)</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="c1">-- Wheel Chocks</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WheelChocksOn&quot;</span><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;WheelChocksOff&quot;</span><span class="p">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1">-- Misc Ground Crew</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;CanopyOpen&quot;</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;CanopyClose&quot;</span><span class="p">)</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;setup_HMS&quot;</span><span class="p">)</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;setup_NVG&quot;</span><span class="p">)</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="c1">-- Works the same as release() function as shown in the example device</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;cockpit_release&quot;</span><span class="p">)</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="c1">-- Unknown</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;DisableTurboGear&quot;</span><span class="p">)</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;EnableTurboGear&quot;</span><span class="p">)</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;switch_datalink&quot;</span><span class="p">)</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;LinkNOPtoNet&quot;</span><span class="p">)</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;UnlinkNOPfromNet&quot;</span><span class="p">)</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;EGI_TurnOff&quot;</span><span class="p">)</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;EGI_TurnOn&quot;</span><span class="p">)</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;RestoreEGIoperation&quot;</span><span class="p">)</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;TISLmodeChange&quot;</span><span class="p">)</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">listen_event</span><span class="p">(</span><span class="s2">&quot;OnNewNetPlane&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <hr />
 <h2 id="release">release()<a class="headerlink" href="#release" title="Permanent link">#</a></h2>
 <p>The release() function is useful if you need to clean something up that isnt reset by reloading.<br />
@@ -2079,45 +2106,45 @@ It is called by DCS when you:</p>
 99% of the time simply reseting/reloading will be more than enough</p>
 </div>
 <h3 id="usage_3">Usage<a class="headerlink" href="#usage_3" title="Permanent link">#</a></h3>
-<pre><code class="language-lua">function release()
-    print_message_to_user(&quot;Cleanup&quot;)
-end
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">release</span><span class="p">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nf">print_message_to_user</span><span class="p">(</span><span class="s2">&quot;Cleanup&quot;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kr">end</span>
+</span></code></pre></div>
 <hr />
 <h2 id="example-device">Example Device<a class="headerlink" href="#example-device" title="Permanent link">#</a></h2>
 <p>The below example is a bare bones lua device. This will serve as your primary method of creating systems in lua</p>
-<pre><code class="language-lua">local update_time_step = 0.05
-make_default_activity(update_time_step) -- sets the device to run every 0.05 seconds
-
-local dev = GetSelf()                   -- Get the current device object
-
-
-function post_initialize()              -- Called once by DCS when you load into the cockpit
-    print_message_to_user(&quot;Hello from basic device&quot;)
-end
-
-function release()                      -- Called once by DCS when you die, unload or close the mission
-
-end
-
-function update()                       -- Called by DCS one every update_time_step seconds
-
-end
-
-
-function SetCommand(command, value)     -- Listens for commands from Keybinds or clickables
-
-end
-
-
-function CockpitEvent(event,val)        -- function called by DCS when event happens
-
-end
-
-
-
-need_to_be_closed = false               -- close lua state after initialization
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">update_time_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nf">make_default_activity</span><span class="p">(</span><span class="nv">update_time_step</span><span class="p">)</span><span class="w"> </span><span class="c1">-- sets the device to run every 0.05 seconds</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">GetSelf</span><span class="p">()</span><span class="w">                   </span><span class="c1">-- Get the current device object</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kr">function</span><span class="w"> </span><span class="nf">post_initialize</span><span class="p">()</span><span class="w">              </span><span class="c1">-- Called once by DCS when you load into the cockpit</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nf">print_message_to_user</span><span class="p">(</span><span class="s2">&quot;Hello from basic device&quot;</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kr">end</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kr">function</span><span class="w"> </span><span class="nf">release</span><span class="p">()</span><span class="w">                      </span><span class="c1">-- Called once by DCS when you die, unload or close the mission</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kr">end</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="kr">function</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span><span class="w">                       </span><span class="c1">-- Called by DCS one every update_time_step seconds</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="kr">end</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="kr">function</span><span class="w"> </span><span class="nf">SetCommand</span><span class="p">(</span><span class="nv">command</span><span class="p">,</span><span class="w"> </span><span class="nv">value</span><span class="p">)</span><span class="w">     </span><span class="c1">-- Listens for commands from Keybinds or clickables</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="kr">end</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="kr">function</span><span class="w"> </span><span class="nf">CockpitEvent</span><span class="p">(</span><span class="nv">event</span><span class="p">,</span><span class="nv">val</span><span class="p">)</span><span class="w">        </span><span class="c1">-- function called by DCS when event happens</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="kr">end</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="nv">need_to_be_closed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">               </span><span class="c1">-- close lua state after initialization</span>
+</span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You are not able to parse data between different devices as they are seperate global contexts</p>

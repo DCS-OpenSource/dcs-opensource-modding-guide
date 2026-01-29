@@ -1971,6 +1971,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2495,32 +2522,32 @@ You build “blocks” (button, 2-pos, 3-pos, N-pos) and the builder appends the
 <hr />
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
 <p>Below is a complete example of the <code>Keyboard/default.lua</code> from the CT-4E showing the setup of the plugin.</p>
-<pre><code class="language-lua">local cscripts = folder..&quot;../../../Cockpit/Scripts/&quot;
-dofile(cscripts..&quot;devices.lua&quot;)
-dofile(cscripts..&quot;command_defs.lua&quot;)
-
-local res = external_profile(&quot;Config/Input/Aircrafts/common_keyboard_binding.lua&quot;)
-
-local KeybindBlockBuilder = dofile(cscripts..&quot;LuaToolsPlugin/KeybindBuilder.lua&quot;)
-local kb = KeybindBlockBuilder:new(res.keyCommands)
-
--- lights
-kb:add2Pos(Keys.BEACON_LIGHT_SW,    'Beacon Lights',    {'Electric System','Lights','Front Panel'}, Keys.BEACON_LIGHT_TOGGLE)
-kb:add2Pos(Keys.NAV_LIGHT_SW,       'Nav Lights',       {'Electric System','Lights','Front Panel'}, Keys.NAV_LIGHT_TOGGLE)
-kb:add2Pos(Keys.LNDG_LIGHT_SW,      'Landing Lights',   {'Electric System','Lights','Front Panel'}, Keys.LNDG_LIGHT_TOGGLE)
-kb:add2Pos(Keys.STROBE_LIGHT_SW,    'Strobe Lights',    {'Electric System','Lights','Front Panel'}, Keys.STROBE_LIGHT_TOGGLE)
-
--- Unique Systems
-kb:add({
-  {combos = {{key = 'Space'}}, down = iCommandPlaneWingtipSmokeOnOff, value_down = 1, name = _('Smoke System - TOGGLE'),    category = _('Smoke')},
-
-  {combos = {{key = '1'}},     down = iCommandViewCockpitChangeSeat,  value_down = 1, name = _('Occupy Pilot Seat'),        category = _('Multicrew')},
-  {combos = {{key = '2'}},     down = iCommandViewCockpitChangeSeat,  value_down = 2, name = _('Occupy Copilot Seat'),      category = _('Multicrew')},
-  {combos = {{key = 'J'}},     down = iCommandNetCrewRequestControl,                  name = _('Request Aircraft Control'), category = _('Multicrew')},
-})
-
-return res
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">cscripts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">folder</span><span class="o">..</span><span class="s2">&quot;../../../Cockpit/Scripts/&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">dofile</span><span class="p">(</span><span class="nv">cscripts</span><span class="o">..</span><span class="s2">&quot;devices.lua&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">dofile</span><span class="p">(</span><span class="nv">cscripts</span><span class="o">..</span><span class="s2">&quot;command_defs.lua&quot;</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">local</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">external_profile</span><span class="p">(</span><span class="s2">&quot;Config/Input/Aircrafts/common_keyboard_binding.lua&quot;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kd">local</span><span class="w"> </span><span class="nv">KeybindBlockBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dofile</span><span class="p">(</span><span class="nv">cscripts</span><span class="o">..</span><span class="s2">&quot;LuaToolsPlugin/KeybindBuilder.lua&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kd">local</span><span class="w"> </span><span class="nv">kb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">KeybindBlockBuilder</span><span class="p">:</span><span class="nf">new</span><span class="p">(</span><span class="nv">res</span><span class="p">.</span><span class="py">keyCommands</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">-- lights</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">kb</span><span class="p">:</span><span class="nf">add2Pos</span><span class="p">(</span><span class="nv">Keys</span><span class="p">.</span><span class="py">BEACON_LIGHT_SW</span><span class="p">,</span><span class="w">    </span><span class="s1">&#39;Beacon Lights&#39;</span><span class="p">,</span><span class="w">    </span><span class="p">{</span><span class="s1">&#39;Electric System&#39;</span><span class="p">,</span><span class="s1">&#39;Lights&#39;</span><span class="p">,</span><span class="s1">&#39;Front Panel&#39;</span><span class="p">},</span><span class="w"> </span><span class="nv">Keys</span><span class="p">.</span><span class="py">BEACON_LIGHT_TOGGLE</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">kb</span><span class="p">:</span><span class="nf">add2Pos</span><span class="p">(</span><span class="nv">Keys</span><span class="p">.</span><span class="py">NAV_LIGHT_SW</span><span class="p">,</span><span class="w">       </span><span class="s1">&#39;Nav Lights&#39;</span><span class="p">,</span><span class="w">       </span><span class="p">{</span><span class="s1">&#39;Electric System&#39;</span><span class="p">,</span><span class="s1">&#39;Lights&#39;</span><span class="p">,</span><span class="s1">&#39;Front Panel&#39;</span><span class="p">},</span><span class="w"> </span><span class="nv">Keys</span><span class="p">.</span><span class="py">NAV_LIGHT_TOGGLE</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">kb</span><span class="p">:</span><span class="nf">add2Pos</span><span class="p">(</span><span class="nv">Keys</span><span class="p">.</span><span class="py">LNDG_LIGHT_SW</span><span class="p">,</span><span class="w">      </span><span class="s1">&#39;Landing Lights&#39;</span><span class="p">,</span><span class="w">   </span><span class="p">{</span><span class="s1">&#39;Electric System&#39;</span><span class="p">,</span><span class="s1">&#39;Lights&#39;</span><span class="p">,</span><span class="s1">&#39;Front Panel&#39;</span><span class="p">},</span><span class="w"> </span><span class="nv">Keys</span><span class="p">.</span><span class="py">LNDG_LIGHT_TOGGLE</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">kb</span><span class="p">:</span><span class="nf">add2Pos</span><span class="p">(</span><span class="nv">Keys</span><span class="p">.</span><span class="py">STROBE_LIGHT_SW</span><span class="p">,</span><span class="w">    </span><span class="s1">&#39;Strobe Lights&#39;</span><span class="p">,</span><span class="w">    </span><span class="p">{</span><span class="s1">&#39;Electric System&#39;</span><span class="p">,</span><span class="s1">&#39;Lights&#39;</span><span class="p">,</span><span class="s1">&#39;Front Panel&#39;</span><span class="p">},</span><span class="w"> </span><span class="nv">Keys</span><span class="p">.</span><span class="py">STROBE_LIGHT_TOGGLE</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1">-- Unique Systems</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nv">kb</span><span class="p">:</span><span class="nf">add</span><span class="p">({</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p">{</span><span class="nv">combos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Space&#39;</span><span class="p">}},</span><span class="w"> </span><span class="nv">down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">iCommandPlaneWingtipSmokeOnOff</span><span class="p">,</span><span class="w"> </span><span class="nv">value_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Smoke System - TOGGLE&#39;</span><span class="p">),</span><span class="w">    </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Smoke&#39;</span><span class="p">)},</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="p">{</span><span class="nv">combos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">}},</span><span class="w">     </span><span class="nv">down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">iCommandViewCockpitChangeSeat</span><span class="p">,</span><span class="w">  </span><span class="nv">value_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Occupy Pilot Seat&#39;</span><span class="p">),</span><span class="w">        </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Multicrew&#39;</span><span class="p">)},</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">{</span><span class="nv">combos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">}},</span><span class="w">     </span><span class="nv">down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">iCommandViewCockpitChangeSeat</span><span class="p">,</span><span class="w">  </span><span class="nv">value_down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Occupy Copilot Seat&#39;</span><span class="p">),</span><span class="w">      </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Multicrew&#39;</span><span class="p">)},</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="p">{</span><span class="nv">combos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nv">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;J&#39;</span><span class="p">}},</span><span class="w">     </span><span class="nv">down</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">iCommandNetCrewRequestControl</span><span class="p">,</span><span class="w">                  </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Request Aircraft Control&#39;</span><span class="p">),</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">_</span><span class="p">(</span><span class="s1">&#39;Multicrew&#39;</span><span class="p">)},</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">})</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="kr">return</span><span class="w"> </span><span class="nv">res</span>
+</span></code></pre></div>
 <hr />
 <h2 id="keybindtodevice-class">KeybindToDevice (class)<a class="headerlink" href="#keybindtodevice-class" title="Permanent link">#</a></h2>
 <p><strong>Description</strong><br />

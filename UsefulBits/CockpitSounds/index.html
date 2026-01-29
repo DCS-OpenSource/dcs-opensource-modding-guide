@@ -1685,6 +1685,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1833,34 +1860,34 @@ Sounders and external/engine sounds will be covered elsewhere later (TODO)</p>
 <h3 id="sdefs">SDEFs<a class="headerlink" href="#sdefs" title="Permanent link">#</a></h3>
 <p>You will need to make an SDEF file for each sound. SDEFs are located in <code>Sounds/sdef/Aircrafts/{PLANENAME}/Cockpit/</code></p>
 <p><strong>Example .sdef file</strong></p>
-<p>Here is a demo file: <code>CockpitAshtrayClose.sdef</code> used to test this for the guide.</p>
-<pre><code>wave = &quot;Effects/Aircrafts/AH1G/Cockpit/Cockpit_ashtray_close_03&quot;
-inner_radius = 10
-outer_radius = 100
-gain = 1
-</code></pre>
-<p>Where <code>wave</code> must match the path (starting from the sounds folder) to the desired sound.</p>
+<p>Here is a demo file: <code>CockpitAshtrayClose.sdef</code> used to test this for the guide.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wave = &quot;Effects/Aircrafts/AH1G/Cockpit/Cockpit_ashtray_close_03&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>inner_radius = 10
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>outer_radius = 100
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>gain = 1
+</span></code></pre></div>
+Where <code>wave</code> must match the path (starting from the sounds folder) to the desired sound.</p>
 <hr />
 <h3 id="sound-initializing">Sound Initializing<a class="headerlink" href="#sound-initializing" title="Permanent link">#</a></h3>
 <p>Sounds are loaded in the <code>post_initialize()</code> function in your lua devices. At minimum you need one host per device, then you add sounds to that host as below.</p>
-<pre><code class="language-lua">function post_initialize()
-    sndhost         = create_sound_host(&quot;COCKPIT_ARMS&quot;,&quot;HEADPHONES&quot;,0,0,0) -- Name, type (&quot;2D&quot;, &quot;3D&quot;, &quot;HEADPHONES&quot;), position x, y, z
-    AshtrayCloseSND = sndhost:create_sound(&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayClose&quot;) -- Path to SDEF file, relative to Sounds/sdef/
-    AshtrayOpenSND  = sndhost:create_sound(&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayOpen&quot;)
-end
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">post_initialize</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nv">sndhost</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nf">create_sound_host</span><span class="p">(</span><span class="s2">&quot;COCKPIT_ARMS&quot;</span><span class="p">,</span><span class="s2">&quot;HEADPHONES&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Name, type (&quot;2D&quot;, &quot;3D&quot;, &quot;HEADPHONES&quot;), position x, y, z</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nv">AshtrayCloseSND</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">sndhost</span><span class="p">:</span><span class="nf">create_sound</span><span class="p">(</span><span class="s2">&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayClose&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Path to SDEF file, relative to Sounds/sdef/</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nv">AshtrayOpenSND</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">sndhost</span><span class="p">:</span><span class="nf">create_sound</span><span class="p">(</span><span class="s2">&quot;Aircrafts/AH1G/Cockpit/CockpitAshtrayOpen&quot;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kr">end</span>
+</span></code></pre></div>
 <hr />
 <h3 id="sound-triggering">Sound Triggering<a class="headerlink" href="#sound-triggering" title="Permanent link">#</a></h3>
-<pre><code class="language-lua">-- In SetCommand() or update()
--- detect trigger then
-AshtrayOpenSND:play_once() -- will play the .wav file start to finish once
-</code></pre>
-<p>There are more available functions, but I have not tested them (feel free to expand this with examples)</p>
-<pre><code class="language-lua">soundObject:stop()          -- stops playing sound
-soundObject:play_continue() -- plays/continues to play sound
-soundObject:update(pitch, volume, ???)        -- unsure what third param is
-soundObject:is_playing()    -- returns true if sound playing
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- In SetCommand() or update()</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">-- detect trigger then</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">AshtrayOpenSND</span><span class="p">:</span><span class="nf">play_once</span><span class="p">()</span><span class="w"> </span><span class="c1">-- will play the .wav file start to finish once</span>
+</span></code></pre></div>
+<p>There are more available functions, but I have not tested them (feel free to expand this with examples)
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">soundObject</span><span class="p">:</span><span class="nf">stop</span><span class="p">()</span><span class="w">          </span><span class="c1">-- stops playing sound</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">soundObject</span><span class="p">:</span><span class="nf">play_continue</span><span class="p">()</span><span class="w"> </span><span class="c1">-- plays/continues to play sound</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">soundObject</span><span class="p">:</span><span class="nf">update</span><span class="p">(</span><span class="nv">pitch</span><span class="p">,</span><span class="w"> </span><span class="nv">volume</span><span class="p">,</span><span class="w"> </span><span class="err">???</span><span class="p">)</span><span class="w">        </span><span class="c1">-- unsure what third param is</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">soundObject</span><span class="p">:</span><span class="nf">is_playing</span><span class="p">()</span><span class="w">    </span><span class="c1">-- returns true if sound playing</span>
+</span></code></pre></div></p>
 <hr />
 <h2 id="clickable-sounds">Clickable Sounds<a class="headerlink" href="#clickable-sounds" title="Permanent link">#</a></h2>
 <p>TODO</p>

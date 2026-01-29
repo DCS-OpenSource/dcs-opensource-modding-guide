@@ -1707,6 +1707,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1901,12 +1928,12 @@ Then close and re-poen modelviewer, and reload your EDM file</p>
 <p>Textures will not appear in ModelViewer unless they are properly mounted. </p>
 </div>
 <p>A typical working directory structure is: (if this doesnt work, send Hayds_93 a DM on discord and I'll update it)</p>
-<pre><code>Project/
-├─ Shapes/
-│   └─ cube.edm
-└─ Textures/
-    └─ cube.png
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Project/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ Shapes/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └─ cube.edm
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└─ Textures/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    └─ cube.png
+</span></code></pre></div>
 <h2 id="blender-project-structre">Blender Project Structre<a class="headerlink" href="#blender-project-structre" title="Permanent link">#</a></h2>
 <p>While not necessary, you can bake all LODs (Level of Detail) and the collision model into one .edm file.</p>
 <p><img alt="alt text" src="../images/collections.png" /></p>
@@ -1919,17 +1946,15 @@ Each sub collection should have a copy of the mesh, and they should not share an
 <img alt="alt text" src="../images/index_error.png" /></p>
 <p>This error is likely to do with material corruption from converting blender versions, to resolve:</p>
 <ul>
-<li>Open the Blender python console and run:</li>
-</ul>
-<pre><code class="language-py">for obj in bpy.context.scene.objects:
-    print(&quot;Processing object:&quot;, obj.name)
-    if obj.type == 'MESH':
-        # Set the active material index on the object
-        obj.active_material_index = 0
-        # Validate material indices on the mesh data
-        obj.data.validate_material_indices()
-</code></pre>
-<ul>
+<li>Open the Blender python console and run:
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processing object:&quot;</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;MESH&#39;</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="c1"># Set the active material index on the object</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">obj</span><span class="o">.</span><span class="n">active_material_index</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="c1"># Validate material indices on the mesh data</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">validate_material_indices</span><span class="p">()</span>
+</span></code></pre></div></li>
 <li>Re-Export your mesh</li>
 </ul>
 

@@ -1674,6 +1674,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1801,31 +1828,31 @@ They act as "global variables" and can be accessed with getters and setters as d
 <p>This guide only references the lua side of parameters. Retrieving param values in the EFM can be referenced from template EFMs.</p>
 </div>
 <h3 id="creating-a-param-handle">Creating a param handle<a class="headerlink" href="#creating-a-param-handle" title="Permanent link">#</a></h3>
-<p>A param object is created like this:</p>
-<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
-</code></pre>
-<p>Calling <code>get_param_handle("DC_POWER_ON")</code> in another device allows you to have access to the parameter value there as well.<br />
+<p>A param object is created like this:
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dcPower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">get_param_handle</span><span class="p">(</span><span class="s2">&quot;DC_POWER_ON&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+Calling <code>get_param_handle("DC_POWER_ON")</code> in another device allows you to have access to the parameter value there as well.<br />
 The <code>get_param_handle()</code> function returns a table containing a <a href="#getting-a-param-handle">:get()</a> function and a <a href="#setting-a-param-handle">:set()</a> function.</p>
 <hr />
 <h3 id="getting-a-param-handle">Getting a param handle<a class="headerlink" href="#getting-a-param-handle" title="Permanent link">#</a></h3>
-<p>The Value of a param handle can be retrived by calling <code>param:get()</code> </p>
-<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
-
-local value == dcPower:get()
-</code></pre>
+<p>The Value of a param handle can be retrived by calling <code>param:get()</code> 
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dcPower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">get_param_handle</span><span class="p">(</span><span class="s2">&quot;DC_POWER_ON&quot;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">dcPower</span><span class="p">:</span><span class="nf">get</span><span class="p">()</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="setting-a-param-handle">Setting a param handle<a class="headerlink" href="#setting-a-param-handle" title="Permanent link">#</a></h3>
-<p>The Value of a param handle can be set by calling <code>param:get(value)</code> </p>
-<pre><code class="language-lua">local dcPower = get_param_handle(&quot;DC_POWER_ON&quot;)
-
--- pseudo power switch on
-dcPower:set(1)
-dcPower:set(&quot;true&quot;)  -- String based example
-
--- pseudo power switch off
-dcPower:set(0)
-dcPower:set(&quot;false&quot;) -- String based example
-</code></pre>
+<p>The Value of a param handle can be set by calling <code>param:get(value)</code> 
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dcPower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">get_param_handle</span><span class="p">(</span><span class="s2">&quot;DC_POWER_ON&quot;</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">-- pseudo power switch on</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">dcPower</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">dcPower</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">)</span><span class="w">  </span><span class="c1">-- String based example</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">-- pseudo power switch off</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nv">dcPower</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nv">dcPower</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;false&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">-- String based example</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="debugging-a-param-handle">Debugging a param handle<a class="headerlink" href="#debugging-a-param-handle" title="Permanent link">#</a></h3>
 <p>You can access a debug window that lists all params while the game is running.  </p>
@@ -1838,15 +1865,15 @@ dcPower:set(&quot;false&quot;) -- String based example
 I'm not sure if this is a bug or a feature, but if you're not careful you can get situations where you can crash your game.<br />
 See Below:</p>
 </div>
-<pre><code class="language-lua">-- Param Type reset example
-local param = get_param_handle(&quot;TEST&quot;)
-
-local testString = &quot;1234&quot;
-
-print_message_to_user(tostring(type(testString))) -- &quot;string&quot; (&quot;1234&quot;)
-param:set(testString) -- all number string is converted back to int.
-print_message_to_user(tostring(type(param:get()))) -- &quot;int&quot; (1234)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">-- Param Type reset example</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">local</span><span class="w"> </span><span class="nv">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">get_param_handle</span><span class="p">(</span><span class="s2">&quot;TEST&quot;</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">local</span><span class="w"> </span><span class="nv">testString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1234&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nf">print_message_to_user</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nv">testString</span><span class="p">)))</span><span class="w"> </span><span class="c1">-- &quot;string&quot; (&quot;1234&quot;)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nv">param</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="nv">testString</span><span class="p">)</span><span class="w"> </span><span class="c1">-- all number string is converted back to int.</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nf">print_message_to_user</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nv">param</span><span class="p">:</span><span class="nf">get</span><span class="p">())))</span><span class="w"> </span><span class="c1">-- &quot;int&quot; (1234)</span>
+</span></code></pre></div>
 <hr />
 
 

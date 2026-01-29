@@ -1962,6 +1962,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2375,8 +2402,8 @@
 </div>
 <hr />
 <h2 id="loading-the-module">Loading the module<a class="headerlink" href="#loading-the-module" title="Permanent link">#</a></h2>
-<pre><code class="language-lua">local Terrain = require(&quot;terrain&quot;)
-</code></pre>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">Terrain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;terrain&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h2>
 <hr />
 <h3 class="unverified-section" id="create">Create<a class="headerlink" href="#create" title="Permanent link">#</a></h3>
@@ -2388,10 +2415,10 @@
 ???</p>
 <hr />
 <h3 class="unverified-section" id="findnearestpoint">FindNearestPoint<a class="headerlink" href="#findnearestpoint" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, pz = Terrain.FindNearestPoint(x, z, range)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">px</span><span class="p">,</span><span class="w"> </span><span class="nv">pz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">FindNearestPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">,</span><span class="w"> </span><span class="nv">range</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>x, z</code> (number): world coordinates from which to search.<br />
 - <code>range</code> (number): maximum search radius in meters.  </p>
 <p><strong>Returns:</strong><br />
@@ -2402,9 +2429,9 @@ Searches outward up to <code>range</code> meters and returns the closest point o
 ???</p>
 <hr />
 <h3 class="unverified-section" id="findoptimalpath">FindOptimalPath<a class="headerlink" href="#findoptimalpath" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">pathTable = Terrain.FindOptimalPath(x1, z1, x2, z2)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">pathTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">FindOptimalPath</span><span class="p">(</span><span class="nv">x1</span><span class="p">,</span><span class="w"> </span><span class="nv">z1</span><span class="p">,</span><span class="w"> </span><span class="nv">x2</span><span class="p">,</span><span class="w"> </span><span class="nv">z2</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>x1, z1</code> (number): start coordinates.<br />
 - <code>x2, z2</code> (number): end coordinates.  </p>
@@ -2416,53 +2443,53 @@ Searches outward up to <code>range</code> meters and returns the closest point o
 ???</p>
 <hr />
 <h3 id="getheight">GetHeight<a class="headerlink" href="#getheight" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">h = Terrain.GetHeight(x, z)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetHeight</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>x, z</code> (number): query coordinates.  </p>
 <p><strong>Returns:</strong><br />
 - <code>h</code> (number): terrain elevation (meters above sea level).</p>
 <p><strong>Description:</strong><br />
 Quickly sample the terrain elevation.</p>
-<p><strong>Example:</strong>  </p>
-<pre><code class="language-lua">local elev = Terrain.GetHeight(45000, 82000)
-print(&quot;Elevation is&quot;, elev, &quot;m&quot;)
-</code></pre>
+<p><strong>Example:</strong><br />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">elev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetHeight</span><span class="p">(</span><span class="mi">45000</span><span class="p">,</span><span class="w"> </span><span class="mi">82000</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elevation is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">elev</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="getmgrscoordinates">GetMGRScoordinates<a class="headerlink" href="#getmgrscoordinates" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">mgrs = Terrain.GetMGRScoordinates(x, z)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">mgrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetMGRScoordinates</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>x, z</code> (number): world coordinates. </p>
 <p><strong>Returns:</strong><br />
 - <code>mgrs</code> (string): MGRS grid reference (e.g. "34TDF1234567890").  </p>
 <p><strong>Description:</strong><br />
 Convert from simulation-space meters to a human-readable MGRS coordinate.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local gridRef = Terrain.GetMGRScoordinates(345000, 789000)
-print(&quot;Grid:&quot;, gridRef)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gridRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetMGRScoordinates</span><span class="p">(</span><span class="mi">345000</span><span class="p">,</span><span class="w"> </span><span class="mi">789000</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grid:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">gridRef</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="getseasons">GetSeasons<a class="headerlink" href="#getseasons" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">seasons = Terrain.GetSeasons()
-</code></pre>
-<p><strong>Returns:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">seasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSeasons</span><span class="p">()</span>
+</span></code></pre></div>
+<strong>Returns:</strong><br />
 - <code>seasons</code> (table): list of available season identifiers (e.g. { "winter", "summer", ... }).  </p>
 <p><strong>Description:</strong><br />
 Fetch the set of seasons for which terrain textures and lighting are defined.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">for _, season in ipairs(Terrain.GetSeasons()) do
-  print(&quot;Available season:&quot;, season)
-end
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">season</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSeasons</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available season:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">season</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">end</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="getsurfaceheightwithseabed">GetSurfaceHeightWithSeabed<a class="headerlink" href="#getsurfaceheightwithseabed" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, z)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">surfaceH</span><span class="p">,</span><span class="w"> </span><span class="nv">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSurfaceHeightWithSeabed</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>x, z</code> (number): coordinates over water.  </p>
 <p><strong>Returns:</strong><br />
@@ -2470,31 +2497,31 @@ end
 - <code>depth</code> (number): depth from surface to seabed (positive number).  </p>
 <p><strong>Description:</strong><br />
 ???</p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local surf, d = Terrain.GetSurfaceHeightWithSeabed(20000, 15000)
-print(&quot;Water at&quot;, surf, &quot;m, seabed&quot;, d, &quot;m below&quot;)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">surf</span><span class="p">,</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSurfaceHeightWithSeabed</span><span class="p">(</span><span class="mi">20000</span><span class="p">,</span><span class="w"> </span><span class="mi">15000</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Water at&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">surf</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;m, seabed&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">d</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;m below&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="getsurfacetype">GetSurfaceType<a class="headerlink" href="#getsurfacetype" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">stype = Terrain.GetSurfaceType(x, z)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">stype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSurfaceType</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>x, z</code> (number): query location.</p>
 <p><strong>Returns:</strong><br />
 - <code>stype</code> (string): surface material. <code>"land"</code>, <code>"sea"</code>, <code>"lake"</code>, <code>"river"</code> </p>
 <p><strong>Description:</strong><br />
 Detect what kind of surface occupies a coordinate.</p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local mat = Terrain.GetSurfaceType(10200, 20500)
-print(&quot;Surface is&quot;, mat)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetSurfaceType</span><span class="p">(</span><span class="mi">10200</span><span class="p">,</span><span class="w"> </span><span class="mi">20500</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Surface is&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">mat</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="getterrainconfig">GetTerrainConfig<a class="headerlink" href="#getterrainconfig" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">cfg = Terrain.GetTerrainConfig(type)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">GetTerrainConfig</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>type</code> (string): e.g. "Airdromes".  </p>
 <p><strong>Returns:</strong><br />
 - <code>cfg</code> (table): configuration block for that terrain element (bounds, default camera, etc.).  </p>
@@ -2504,9 +2531,9 @@ print(&quot;Surface is&quot;, mat)
 ???</p>
 <hr />
 <h3 class="unverified-section" id="init">Init<a class="headerlink" href="#init" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">Terrain.Init(terrain_config, reason, date)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">Terrain</span><span class="p">.</span><span class="nf">Init</span><span class="p">(</span><span class="nv">terrain_config</span><span class="p">,</span><span class="w"> </span><span class="nv">reason</span><span class="p">,</span><span class="w"> </span><span class="nv">date</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>terrain_config</code> (table)<br />
 - <code>reason</code> (any)<br />
@@ -2517,9 +2544,9 @@ print(&quot;Surface is&quot;, mat)
 ???</p>
 <hr />
 <h3 class="unverified-section" id="initlight">InitLight<a class="headerlink" href="#initlight" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">Terrain.InitLight(terrain_config, reason, date)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">Terrain</span><span class="p">.</span><span class="nf">InitLight</span><span class="p">(</span><span class="nv">terrain_config</span><span class="p">,</span><span class="w"> </span><span class="nv">reason</span><span class="p">,</span><span class="w"> </span><span class="nv">date</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>terrain_config</code> (table)<br />
 - <code>reason</code> (any)<br />
@@ -2530,61 +2557,61 @@ print(&quot;Surface is&quot;, mat)
 ???</p>
 <hr />
 <h3 class="unverified-section" id="release">Release<a class="headerlink" href="#release" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">Terrain.Release()
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nv">Terrain</span><span class="p">.</span><span class="nf">Release</span><span class="p">()</span>
+</span></code></pre></div></p>
 <p><strong>Description:</strong><br />
 ???</p>
 <p><strong>Example:</strong>
 ???</p>
 <hr />
 <h3 id="convertlatlontometers">convertLatLonToMeters<a class="headerlink" href="#convertlatlontometers" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">x, z = Terrain.convertLatLonToMeters(lat, lon)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertLatLonToMeters</span><span class="p">(</span><span class="nv">lat</span><span class="p">,</span><span class="w"> </span><span class="nv">lon</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>lat, lon</code> (number): geographic coordinates in degrees. </p>
 <p><strong>Returns:</strong><br />
 - <code>x, z</code> (number): simulation meters.  </p>
 <p><strong>Description:</strong><br />
 Project WGS84 lat/lon into the simulator’s local flat coordinate system.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local mx, mz = Terrain.convertLatLonToMeters(34.0522, -118.2437)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">mx</span><span class="p">,</span><span class="w"> </span><span class="nv">mz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertLatLonToMeters</span><span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">118.2437</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="convertmgrstometers">convertMGRStoMeters<a class="headerlink" href="#convertmgrstometers" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">x, z = Terrain.convertMGRStoMeters(mgrs)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertMGRStoMeters</span><span class="p">(</span><span class="nv">mgrs</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>mgrs</code> (string): MGRS reference.</p>
 <p><strong>Returns:</strong><br />
 - <code>x, z</code> (number): simulation meters.  </p>
 <p><strong>Description:</strong><br />
 Inverse of GetMGRScoordinates. </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local ux, uy = Terrain.convertMGRStoMeters(&quot;33TUN1234567890&quot;)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">ux</span><span class="p">,</span><span class="w"> </span><span class="nv">uy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertMGRStoMeters</span><span class="p">(</span><span class="s2">&quot;33TUN1234567890&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="convertmeterstolatlon">convertMetersToLatLon<a class="headerlink" href="#convertmeterstolatlon" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">lat, lon = Terrain.convertMetersToLatLon(x, z)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">lat</span><span class="p">,</span><span class="w"> </span><span class="nv">lon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertMetersToLatLon</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>x, z</code> (number): simulation coordinates.  </p>
 <p><strong>Returns:</strong><br />
 - <code>lat, lon</code> (number): geographic degrees.  </p>
 <p><strong>Description:</strong><br />
 Inverse map projection back to WGS84.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local lat, lon = Terrain.convertMetersToLatLon(400000, 5000000)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">lat</span><span class="p">,</span><span class="w"> </span><span class="nv">lon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">convertMetersToLatLon</span><span class="p">(</span><span class="mi">400000</span><span class="p">,</span><span class="w"> </span><span class="mi">5000000</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="findpathonroads">findPathOnRoads<a class="headerlink" href="#findpathonroads" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">pathTable = Terrain.findPathOnRoads(type, x1, y1, x2, y2)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">pathTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">findPathOnRoads</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="nv">x1</span><span class="p">,</span><span class="w"> </span><span class="nv">y1</span><span class="p">,</span><span class="w"> </span><span class="nv">x2</span><span class="p">,</span><span class="w"> </span><span class="nv">y2</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>type</code> (string): "roads" or "railroads".<br />
 - <code>x1, y1</code>, <code>x2, y2</code> (number): endpoints.  </p>
 <p><strong>Returns:</strong><br />
@@ -2595,23 +2622,23 @@ Inverse map projection back to WGS84.  </p>
 ???</p>
 <hr />
 <h3 id="getbeacons">getBeacons<a class="headerlink" href="#getbeacons" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">beacons = Terrain.getBeacons()
-</code></pre>
-<p><strong>Returns:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">beacons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getBeacons</span><span class="p">()</span>
+</span></code></pre></div>
+<strong>Returns:</strong><br />
 - <code>beacons</code> (table): list of beacon objects, each with position and frequency. </p>
 <p><strong>Description:</strong><br />
 Enumerate nav-beacons placed in the terrain.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">for _, b in ipairs(Terrain.getBeacons()) do
-  print(&quot;Beacon&quot;, b.id, &quot;at&quot;, b.x, b.z, &quot;freq&quot;, b.freq)
-end
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getBeacons</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Beacon&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">.</span><span class="py">id</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;at&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">.</span><span class="py">x</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">.</span><span class="py">z</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">.</span><span class="py">freq</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="kr">end</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="getclosestpointonroads">getClosestPointOnRoads<a class="headerlink" href="#getclosestpointonroads" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, pz = Terrain.getClosestPointOnRoads(type, x, z)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">px</span><span class="p">,</span><span class="w"> </span><span class="nv">pz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getClosestPointOnRoads</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>type</code> (string): "roads" or "railroads".<br />
 - <code>x, z</code> (number): query point. </p>
@@ -2623,10 +2650,10 @@ end
 ???</p>
 <hr />
 <h3 class="unverified-section" id="getclosestvalidpoint">getClosestValidPoint<a class="headerlink" href="#getclosestvalidpoint" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">px, pz = Terrain.getClosestValidPoint(type, x, z)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">px</span><span class="p">,</span><span class="w"> </span><span class="nv">pz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getClosestValidPoint</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>type</code> (string): e.g. "land".<br />
 - <code>x, z</code> (number): input coords.  </p>
 <p><strong>Returns:</strong><br />
@@ -2637,10 +2664,10 @@ end
 ???</p>
 <hr />
 <h3 class="unverified-section" id="getcrossparam">getCrossParam<a class="headerlink" href="#getcrossparam" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">param = Terrain.getCrossParam()
-</code></pre>
-<p><strong>Returns:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getCrossParam</span><span class="p">()</span>
+</span></code></pre></div>
+<strong>Returns:</strong><br />
 - <code>param</code> (any): undocumented cross-parameter data.  </p>
 <p><strong>Description:</strong><br />
 ??? </p>
@@ -2648,10 +2675,10 @@ end
 ??? </p>
 <hr />
 <h3 class="unverified-section" id="getobjectposition">getObjectPosition<a class="headerlink" href="#getobjectposition" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">ox, oz = Terrain.getObjectPosition(obj)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">ox</span><span class="p">,</span><span class="w"> </span><span class="nv">oz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getObjectPosition</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>obj</code> (Object): engine object reference.<br />
 <strong>Returns:</strong><br />
 - <code>ox, oz</code> (number): its map position.  </p>
@@ -2661,10 +2688,10 @@ end
 ???</p>
 <hr />
 <h3 class="unverified-section" id="getobjectsatmappoint">getObjectsAtMapPoint<a class="headerlink" href="#getobjectsatmappoint" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">list = Terrain.getObjectsAtMapPoint(mapX, mapZ)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getObjectsAtMapPoint</span><span class="p">(</span><span class="nv">mapX</span><span class="p">,</span><span class="w"> </span><span class="nv">mapZ</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>mapX, mapZ</code> (number): query location.  </p>
 <p><strong>Returns:</strong><br />
 - <code>list</code> (table): all objects overlapping that point.  </p>
@@ -2674,40 +2701,40 @@ end
 ???</p>
 <hr />
 <h3 id="getradio">getRadio<a class="headerlink" href="#getradio" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">radios = Terrain.getRadio(roadnet)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">radios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRadio</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>roadnet</code> (string): see top of this page.  </p>
 <p><strong>Returns:</strong><br />
 - <code>radios</code> (table): frequency settings for that airfield’s comms.  </p>
 <p><strong>Description:</strong><br />
 Obtain tower/ground/approach frequencies.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local freqs = Terrain.getRadio(roadnet) 
-print(freqs.tower, freqs.ground)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">freqs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRadio</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nb">print</span><span class="p">(</span><span class="nv">freqs</span><span class="p">.</span><span class="py">tower</span><span class="p">,</span><span class="w"> </span><span class="nv">freqs</span><span class="p">.</span><span class="py">ground</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="getrunwayheading">getRunwayHeading<a class="headerlink" href="#getrunwayheading" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">hdg = Terrain.getRunwayHeading(roadnet)
-</code></pre>
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">hdg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRunwayHeading</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span></code></pre></div></p>
 <p><strong>Parameters:</strong><br />
 - <code>roadnet</code> (string): see top of this page.  </p>
 <p><strong>Returns:</strong><br />
 - <code>hdg</code> (number): magnetic heading of the primary runway.</p>
 <p><strong>Description:</strong><br />
 Useful for HUD wind-correction and runway-alignment cues.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local rHdg = Terrain.getRunwayHeading(roadnet)
-print(&quot;Runway heading:&quot;, rHdg)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">rHdg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRunwayHeading</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runway heading:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">rHdg</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 id="getrunwaylist">getRunwayList<a class="headerlink" href="#getrunwaylist" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">runways = Terrain.getRunwayList(roadnet)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">runways</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRunwayList</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>roadnet</code> (string): see top of this page.  </p>
 <p><strong>Returns:</strong><br />
 - <code>runways</code> (table): each entry contains:
@@ -2716,32 +2743,32 @@ print(&quot;Runway heading:&quot;, rHdg)
   - <code>edge2name</code> (string), <code>edge2x</code>, <code>edge2y</code> (number): name and coordinates of the opposite end  </p>
 <p><strong>Description:</strong><br />
 Enumerate all runways at the specified airfield, returning their endpoints and headings.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">for _, rw in ipairs(Terrain.getRunwayList(roadnet)) do -- 
-  print(&quot;RW&quot;, rw.edge1name, &quot;to&quot;, rw.edge2name, &quot;heading&quot;, rw.course)
-end
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">rw</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getRunwayList</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">))</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="c1">-- </span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RW&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">rw</span><span class="p">.</span><span class="py">edge1name</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">rw</span><span class="p">.</span><span class="py">edge2name</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;heading&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">rw</span><span class="p">.</span><span class="py">course</span><span class="p">)</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="kr">end</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="getstandlist">getStandList<a class="headerlink" href="#getstandlist" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">stands = Terrain.getStandList(roadnet)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">stands</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getStandList</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>roadnet</code> (string): see top of this file</p>
 <p><strong>Returns:</strong><br />
 - <code>stands</code> (table): list of parking stands with coordinates.  </p>
 <p><strong>Description:</strong><br />
 Get gate and parking-spot positions.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">local gates = Terrain.getStandList(roadnet)
-print(&quot;First stand at&quot;, gates[1].x, gates[1].z)
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">gates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getStandList</span><span class="p">(</span><span class="nv">roadnet</span><span class="p">)</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First stand at&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">gates</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">gates</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nv">z</span><span class="p">)</span>
+</span></code></pre></div></p>
 <hr />
 <h3 class="unverified-section" id="gettechskinbydate">getTechSkinByDate<a class="headerlink" href="#gettechskinbydate" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">skin = Terrain.getTechSkinByDate(day, month)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nv">skin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getTechSkinByDate</span><span class="p">(</span><span class="nv">day</span><span class="p">,</span><span class="w"> </span><span class="nv">month</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>day, month</code> (number): calendar date.  </p>
 <p><strong>Returns:</strong><br />
 - <code>skin</code> (any): texture/skin identifier valid on that day.  </p>
@@ -2751,10 +2778,10 @@ print(&quot;First stand at&quot;, gates[1].x, gates[1].z)
 ???</p>
 <hr />
 <h3 class="unverified-section" id="gettempraturerangebydate">getTempratureRangeByDate<a class="headerlink" href="#gettempraturerangebydate" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">minT, maxT = Terrain.getTempratureRangeByDate(day, month)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nv">minT</span><span class="p">,</span><span class="w"> </span><span class="nv">maxT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getTempratureRangeByDate</span><span class="p">(</span><span class="nv">day</span><span class="p">,</span><span class="w"> </span><span class="nv">month</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>day, month</code> (number): date.  </p>
 <p><strong>Returns:</strong><br />
 - <code>minT, maxT</code> (number): expected daily temperature extremes (°C).  </p>
@@ -2764,10 +2791,10 @@ print(&quot;First stand at&quot;, gates[1].x, gates[1].z)
 ???</p>
 <hr />
 <h3 class="unverified-section" id="getterrainshpare">getTerrainShpare<a class="headerlink" href="#getterrainshpare" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">shape = Terrain.getTerrainShpare()
-</code></pre>
-<p><strong>Returns:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nv">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">getTerrainShpare</span><span class="p">()</span>
+</span></code></pre></div>
+<strong>Returns:</strong><br />
 - <code>shape</code> (any): internal terrain mesh data.  ???</p>
 <p><strong>Description:</strong><br />
 ???</p>
@@ -2779,21 +2806,21 @@ print(&quot;First stand at&quot;, gates[1].x, gates[1].z)
 </div>
 <hr />
 <h3 id="isvisible">isVisible<a class="headerlink" href="#isvisible" title="Permanent link">#</a></h3>
-<p><strong>Signature:</strong></p>
-<pre><code class="language-lua">visible = Terrain.isVisible(x1, y1, z1, x2, y2, z2)
-</code></pre>
-<p><strong>Parameters:</strong><br />
+<p><strong>Signature:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nv">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">isVisible</span><span class="p">(</span><span class="nv">x1</span><span class="p">,</span><span class="w"> </span><span class="nv">y1</span><span class="p">,</span><span class="w"> </span><span class="nv">z1</span><span class="p">,</span><span class="w"> </span><span class="nv">x2</span><span class="p">,</span><span class="w"> </span><span class="nv">y2</span><span class="p">,</span><span class="w"> </span><span class="nv">z2</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Parameters:</strong><br />
 - <code>x1, y1, z1</code> (number): start point and altitude.<br />
 - <code>x2, y2, z2</code> (number): end point and altitude.  </p>
 <p><strong>Returns:</strong><br />
 - <code>visible</code> (boolean): <code>true</code> if line-of-sight is unobstructed.  </p>
 <p><strong>Description:</strong><br />
 Perform a raycast through the terrain to check LOS.  </p>
-<p><strong>Example:</strong></p>
-<pre><code class="language-lua">if Terrain.isVisible(10000, 50, 20000, 15000, 100, 25000) then
-  print(&quot;Target in sight!&quot;)
-end
-</code></pre>
+<p><strong>Example:</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kr">if</span><span class="w"> </span><span class="nv">Terrain</span><span class="p">.</span><span class="nf">isVisible</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">,</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">25000</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target in sight!&quot;</span><span class="p">)</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="kr">end</span>
+</span></code></pre></div></p>
 
 
 
