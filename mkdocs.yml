@@ -28,34 +28,41 @@ nav:
   
   - Aircraft Lua:
     - Basic Principles: Aircraft/Lua/BasicPrinciples.md
+
     - Stubs:
       - Device Stubs: Aircraft/Lua/Stubs/DeviceStubs.md
       - Mainpanel Stubs: Aircraft/Lua/Stubs/MainPanelStubs.md
       - LockOn_Options: Aircraft/Lua/Stubs/LockOnOptions.md
+
     - Modules:
       - Terrain: Aircraft/Lua/Modules/Terrain.md
+
     - Devices:
       - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md
       - avSimpleWeaponSystem: Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+
     - Indicators:
       - Drawing: Aircraft/Lua/Indicators/drawing.md
       - Controllers: Aircraft/Lua/Indicators/controllers.md
+
     - Plugins:
       - NavDataPlugin: Aircraft/Lua/Plugins/NavDataPlugin.md
       - WeaponSystemPlugin: Aircraft/Lua/Plugins/WeaponSystemPlugin.md
       - LuaToolsPlugin: Aircraft/Lua/Plugins/LuaToolsPlugin.md
+
   - Aircraft EFM:
     - EFM API: Aircraft/EFM/EFM_API.md
     - Useful Bits: 
       - Prop Blur: Aircraft/EFM/Useful_bits/prop_blur.md
+
   - Database:
     - wsTypes: Database/wsTypes.md
     - iCommands: Database/iCommands.md
     - Draw Args: Database/draw-args.md
+
   - Useful bits:
     - Modelviewer: UsefulBits/ModelViewer.md
     - Cockpit Sounds: UsefulBits/CockpitSounds.md
-
 
   - ED Blender Exporter:
       - Overview: EDM-Export/Overview.md
@@ -64,3 +71,5 @@ nav:
       - Animations: EDM-Export/Animations.md
       - Lights: EDM-Export/Lights.md
       - Known Errors: EDM-Export/errors.md
+
+  - Contributing: contributing.md
