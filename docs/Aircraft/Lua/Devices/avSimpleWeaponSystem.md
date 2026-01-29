@@ -3,7 +3,7 @@
 avSimpleWeaponSystem serves as the modders method of interacting with weapons, rearming etc.
 
 !!! Note
-    All of the standard functions from [avLuaDevice](../avLuaDevice) are available in avSimpleWeapon System such as update() or SetCommand()
+    All of the standard functions from [avLuaDevice](avLuaDevice.md) are available in avSimpleWeapon System such as update() or SetCommand()
 ---
 
 ## Loading the Device

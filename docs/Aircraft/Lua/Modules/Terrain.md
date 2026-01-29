@@ -6,7 +6,7 @@ The following outlines DCS's Terrain module, used for interaction with maps in v
 	In DCS, `x` is North, `y` is Elevation, `z` is East *in meters*
 
 !!! Note
-	Roadnet can be found in [get_terrain_related_data("Airdromes")](../../Stubs/DeviceStubs/#get_terrain_related_datafile) by iterating through the returned table, and taking `airport.roadnet` it should be a string as a filepath, just parse it straight to the function
+	Roadnet can be found in [get_terrain_related_data("Airdromes")](../Stubs/DeviceStubs.md/#get_terrain_related_datafile) by iterating through the returned table, and taking `airport.roadnet` it should be a string as a filepath, just parse it straight to the function
 
 
 ---

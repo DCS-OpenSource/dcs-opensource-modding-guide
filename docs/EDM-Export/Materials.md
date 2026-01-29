@@ -34,7 +34,7 @@ This brightness can be animated, again see the demo files.
 
 ## Glass Materials
 
-Below is an example of the glass material node. The glass material node takes the same 3 textures as the [default material](#roughmets-and-normals)
+Below is an example of the glass material node. The glass material node takes the same 3 textures as the [default material](#default-material-node)
 
 !!! Warning
     Note the Base Colour goes to diffuse colour, not Glass Colour, (At time of writing I am unsure what Glass Colour does, but there is an example in the plugins demo files)

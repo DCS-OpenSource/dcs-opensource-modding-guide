@@ -37,18 +37,6 @@ package.path = package.path..";"..LockOn_Options.common_script_path.."?.lua"
 require("NavDataPlugin.Nav")
 ```
 
-## Function List
-
-| Function                                                   | Parameters             | Returns               | Description                                         |
-|------------------------------------------------------------|------------------------|-----------------------|-----------------------------------------------------|
-| [`get_ILS_beacons`](#get_ils_beacons)                      | _none_                 | `table: ILS_beacons`  | Returns ILS Beacons Table                           |
-| [`get_TCN_beacons`](#get_tcn_beacons)                      | _none_                 | `table: TCN_beacons`  | Returns TCN Beacons Table                           |
-| [`get_VOR_beacons`](#get_vor_beacons)                      | _none_                 | `table: VOR_beacons`  | Returns VOR Beacons Table                           |
-| [`getAirports`](#getairports)                              | _none_                 | `table: filteredAirportData`  | Returns Filtered Airport Data |
-| [`sortAirportsByDistance`](#sortAirportsByDistance)        | `ownPos: {x, y}`       | `table: sortedAirportList` | Returns Sorted Airport table | 
-
-
-
 ## Function Details
 ---
 ### get_ILS_beacons()

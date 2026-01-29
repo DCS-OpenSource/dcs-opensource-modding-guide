@@ -4,7 +4,7 @@
 
 avLuaDevices are created in the device_init.lua, with the script path pointing to the lua file for the device. These devices make up the aircraft avionics and systems. Each lua device is a self contained lua_State, this means that any global variables or functions are not shared between them.
 
-To pass information between lua devices [param handles](../Stubs/DeviceStubs.md#param-handles) can be used. However it is recommended for more advanced data-structures instead you pass and store information using [C Lua Modules](https://www.lua.org/pil/26.2.html), which can be written in C or C++ giving your devices a shared memory space through which to pass or store information.
+To pass information between lua devices [param handles](../BasicPrinciples.md/#param-handles) can be used. However it is recommended for more advanced data-structures instead you pass and store information using [C Lua Modules](https://www.lua.org/pil/26.2.html), which can be written in C or C++ giving your devices a shared memory space through which to pass or store information.
 
 ---
 
@@ -12,7 +12,7 @@ To pass information between lua devices [param handles](../Stubs/DeviceStubs.md#
 
 Called once when you load into your plane, very useful for setting hot/cold start variables.
 !!! Note
-    Any hot/cold start setup should be put in here. See [LockOn_Options.init_conditions](../../LockOnOptions#init_conditions) for more details.
+    Any hot/cold start setup should be put in here. See [LockOn_Options.init_conditions](../Stubs/LockOnOptions.md/#init_conditions) for more details.
 
 ### Usage
 ```lua
@@ -38,6 +38,7 @@ function update()
     timer = timer + update_time_step
 end
 ```
+
 ---
 
 ## SetCommand()

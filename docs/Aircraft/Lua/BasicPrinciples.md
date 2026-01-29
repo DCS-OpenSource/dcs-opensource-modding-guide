@@ -52,7 +52,7 @@ dcPower:set("false") -- String based example
 
 You can access a debug window that lists all params while the game is running.  
 
-See [show_param_handles_list()](../Stubs/DeviceStubs/#show_param_handles_listenable)
+See [show_param_handles_list()](Stubs/DeviceStubs.md/#show_param_handles_listenable)
 
 ---
 

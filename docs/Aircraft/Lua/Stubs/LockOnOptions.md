@@ -126,7 +126,7 @@ local system = LockOn_Options.measurement_system
 ## mission
 Table containing mission-related options.
 
-This does't seem to return anything useful, see [`do_mission_file("mission")`](../DeviceStubs/#do_mission_filefile) to get the mission file.
+This does't seem to return anything useful, see [`do_mission_file("mission")`](DeviceStubs.md/#do_mission_filefile) to get the mission file.
 
 **Usage**
 ```lua
