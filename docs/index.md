@@ -28,12 +28,9 @@ This isn’t a tutorial — it’s a **toolbox** for mod developers.
 ---
 
 ## Contributing
-This project is built and maintained by the **community, for the community**.  
-If you’d like to help expand or correct the documentation:
 
-1. [Fork the repository on GitHub](https://github.com/DCS-OpenSource/dcs-opensource-modding-guide)
-2. Make your changes or additions  
-3. Submit a **Pull Request (PR)** back to the main branch  
+This project is built and maintained by the **community, for the community**.  
+If you’d like to help expand or correct the documentation see the [contributing](./contributing.md) guide.
 
 Whether it’s fixing a typo, clarifying an explanation, or adding entire sections, **all contributions are welcome**.
 
