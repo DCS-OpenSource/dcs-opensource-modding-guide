@@ -13,11 +13,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-
-extra_css:
-  - stylesheets/extra.css
-
-markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.blocks.caption
@@ -26,7 +21,6 @@ markdown_extensions:
 
 extra_css:
   - css/extra.css
-  # - css/dark.css # Uncomment to use dark mode
 
 nav:
   - Home: index.md
