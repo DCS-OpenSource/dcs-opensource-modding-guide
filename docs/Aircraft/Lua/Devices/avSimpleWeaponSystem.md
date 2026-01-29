@@ -33,60 +33,56 @@ This is useful for determining weapon category in [get_station_info()](#get_stat
 ## API Reference
 
 Below are the available functions for `avSimpleWeaponSystem`:  
-Functions marked with **[UNVERIFIED]** are untested, feel free to contribute fixes.
+Functions marked with *UNVERIFIED* are untested, feel free to [contribute](../../../contributing.md) more detail.
 
 ---
 
-### SetDamage()
-**[UNVERIFIED]**
+### SetDamage() {: .unverified-section }
 
 ---
 
-### drop_chaff()
+### drop_chaff() {: .unverified-section }
 Dispenses a specified number of chaff cartridges from a given dispenser.  
 _See also_: `chaff_flare_dispenser` in the aircraft definition.
-**[UNVERIFIED]**
 
-#### Parameters
+
+**Parameters**  
 - `count` (number): Number of chaff cartridges to release.
 - `dispenser` (number): Index of the chaff dispenser to use.
 
 ---
 
-### drop_flare()
+### drop_flare() {: .unverified-section }
 Dispenses a specified number of flares from a given dispenser.  
 _See also_: `chaff_flare_dispenser` in the aircraft definition.
-**[UNVERIFIED]**
 
-#### Parameters
+
+**Parameters**  
 - `count` (number): Number of flares to release.
 - `dispenser` (number): Index of the flare dispenser to use.
 
 ---
 
-### get_chaff_count()
+### get_chaff_count() {: .unverified-section }
 Returns the current number of chaff cartridges available.
-**[UNVERIFIED]**
 
 ---
 
-### get_flare_count()
+### get_flare_count() {: .unverified-section }
 Returns the current number of flares available.
-**[UNVERIFIED]**
 
 ---
 
 ### emergency_jettison()
 Jettison either all stores, or specific stores if parsed a pylon number
 
-#### Parameters
+**Parameters**  
 - `index` (number, *optional*): Zero-indexed pylon number to jettison stores from. If omitted, all stores will be jettisoned.
 
 ---
 
-### emergency_jettison_rack()
+### emergency_jettison_rack() {: .unverified-section }
 Jettisons the entire weapon rack in an emergency.
-**[UNVERIFIED]**
 
 ---
 
@@ -94,10 +90,10 @@ Jettisons the entire weapon rack in an emergency.
 Returns a table of information about the indexed pylon
 See [wsTypes](#wstypes) above
 
-#### Parameters
+**Parameters**  
 - `index` (number): Zero indexed pylon number
 
-#### Returns
+**Returns**  
 ```lua
 -- Rocket pod example
 -- resulting table
@@ -125,7 +121,7 @@ station_info = {
     container = true
 }
 ```
-#### Usage
+**Usage**  
 ```lua
 local dev = GetSelf()
 
@@ -137,10 +133,10 @@ local pylon = dev:get_station_info(0) -- returns pylon1 info
 ### launch_station()
 Launches the weapon from the specified station.
 
-#### Parameters
+**Parameters**  
 - `station` (number): Zero Indexed station number to launch from.
 
-#### Usage
+**Usage**  
 ```lua
 local dev = GetSelf()
 
@@ -149,44 +145,40 @@ local pylon = dev:launch_station(0) -- launch pylon1
 
 ---
 
-### select_station()
+### select_station() {: .unverified-section }
 Selects the specified weapon station, needed to activate seeker heads like AIM-9s etc.  
-**[[UNVERIFIED]]**
 
-#### Parameters
+**Parameters**  
 - `station` (number): The station number to select.
 
 ---
 
-### set_ECM_status()
-Sets the status of the ECM system. **[[UNVERIFIED]]**
+### set_ECM_status() {: .unverified-section }
+Sets the status of the ECM system.
 
 ---
 
-### get_ECM_status()
+### get_ECM_status() {: .unverified-section }
 Returns the current status of the Electronic Countermeasure (ECM) system.
-**[UNVERIFIED]**
 
 ---
 
-### set_target_range()
-Sets the target range for the weapon system. **[[UNVERIFIED]]**
+### set_target_range() {: .unverified-section }
+Sets the target range for the weapon system.
 
 ---
 
-### set_target_span()
-Sets the target span for the weapon system. **[[UNVERIFIED]]**
+### set_target_span() {: .unverified-section }
+Sets the target span for the weapon system.
 
 ---
 
-### get_target_range()
+### get_target_range() {: .unverified-section }
 Returns the current target range set in the weapon system.
-**[UNVERIFIED]**
 
 ---
 
-### get_target_span()
+### get_target_span() {: .unverified-section }
 Returns the current target span set in the weapon system.
-**[UNVERIFIED]**
 
 ---
