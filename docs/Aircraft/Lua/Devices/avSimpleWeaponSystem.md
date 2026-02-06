@@ -63,12 +63,12 @@ _See also_: `chaff_flare_dispenser` in the aircraft definition.
 
 ---
 
-### get_chaff_count() {: .unverified-section }
+### get_chaff_count()
 Returns the current number of chaff cartridges available.
 
 ---
 
-### get_flare_count() {: .unverified-section }
+### get_flare_count()
 Returns the current number of flares available.
 
 ---
