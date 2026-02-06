@@ -40,6 +40,7 @@ nav:
     - Devices:
       - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md
       - avSimpleWeaponSystem: Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+      - avSimpleRadar: Aircraft/Lua/Devices/avSimpleRadar.md
 
     - Indicators:
       - Drawing: Aircraft/Lua/Indicators/drawing.md
