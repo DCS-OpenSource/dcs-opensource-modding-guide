@@ -1,17 +1,10 @@
-#avSimpleRadar
-
-
+# avSimpleRadar
 
 avSimpleRadar provides a basic radar system that includes Range While Scan (RWS) and Single Target Track (STT). Track While Scan (TWS) is not available with this device.
 
-
-
 RWS means that you can see multiple contacts, but not tracking any. Once a desired target is locked, the radar changes to STT. In STT you will lose all other contact data and the radar will update the locked target at a faster rate and provides data for weapon systems.
 
-
-
 !!! Note
-
     All of the standard functions from [avLuaDevice](avLuaDevice.md) are available in avSimpleRadar such as update() or SetCommand()
 
 ---
@@ -31,46 +24,33 @@ creators[devices.RADAR_SYSTEM]   = {"avSimpleRadar"    ,LockOn_Options.script_pa
 
 
 !!! Warning
-
     To use any of the functions listed below, you must add `local dev = GetSelf()`  to the top of your file, this allows you to access the internal functions from avSimpleRadar
 
-
-
 !!! Warning
-
     avSimpleRadar requires than an avSimpleElectricSystem device is also being used, and the associated AC generators and DC battery are powered in said device. This is an internal DCS requirement.
-
-
-
-
 
 ---
 
-
-
 ## Radar Performance Initialization
-
-
 
 This section is not put inside a function, and is called on init to define the performance of the radar.
 
-
-```
+``` lua
 perfomance = 
 {
-roll_compensation_limits = {math.rad(-180.0), math.rad(180.0)}, -- limits for RADAR_BANK_STABILIZATION
-pitch_compensation_limits = {math.rad(-60.0), math.rad(60.0)}, -- limits for RADAR_PITCH_STABILIZATION (when pitch is outside these values the scan zone will stop staying level with horizon)
-tracking_azimuth   = {-math.rad(60),math.rad(60)}, -- once locked, max azimuth to track
-tracking_elevation = {-math.rad(10),math.rad(10)}, -- once locked, max elevation to track
-scan_volume_azimuth = math.rad(120), --is left+right so 120 deg is +-60 deg left/right
-scan_volume_elevation = math.rad(5), --limits search angle of radar +-5 up/down
-scan_beam = math.rad(5), -- height of scan beam, max should be scan_volume_elevation (if less then it will do passes at different elevations)
-max_available_distance = 200000,-- max distance (in Meters) for object with large (>100m^2) radar cross section, for smaller RCS such as Su-27 the actual detection distance will be much less
+  roll_compensation_limits = {math.rad(-180.0), math.rad(180.0)}, -- limits for RADAR_BANK_STABILIZATION
+  pitch_compensation_limits = {math.rad(-60.0), math.rad(60.0)}, -- limits for RADAR_PITCH_STABILIZATION (when pitch is outside these values the scan zone will stop staying level with horizon)
+  tracking_azimuth   = {-math.rad(60),math.rad(60)}, -- once locked, max azimuth to track
+  tracking_elevation = {-math.rad(10),math.rad(10)}, -- once locked, max elevation to track
+  scan_volume_azimuth = math.rad(120), --is left+right so 120 deg is +-60 deg left/right
+  scan_volume_elevation = math.rad(5), --limits search angle of radar +-5 up/down
+  scan_beam = math.rad(5), -- height of scan beam, max should be scan_volume_elevation (if less then it will do passes at different elevations)
+  max_available_distance = 200000,-- max distance (in Meters) for object with large (>100m^2) radar cross section, for smaller RCS such as Su-27 the actual detection distance will be much less
 
-scan_speed = math.rad(2*60), -- unknown (doesn't affect debug scan beam)
-dead_zone = 1.0, -- unknown. doesn't seem to be distance between targets or distance from radar to target
+  scan_speed = math.rad(2*60), -- unknown (doesn't affect debug scan beam)
+  dead_zone = 1.0, -- unknown. doesn't seem to be distance between targets or distance from radar to target
 
-ground_clutter =
+  ground_clutter =
   {-- spot RCS = A + B * random + C * random 
     sea       = {0, 0, 0},
     land       = {0, 0, 0},
@@ -120,79 +100,25 @@ dispatch_action(nil, iCommandPlane_LockOn_start)
 The following param handles are used to read and write to control the radar.
 
 
-**Read Params:**
-
-RADAR_MODE
-
-RADAR_STT_AZIMUTH
-
-RADAR_STT_ELEVATION
-
-RADAR_STT_RANGE
-
-RADAR_STT_FRIENDLY
-
-RADAR_CONTACT_XX_ELEVATION
-
-RADAR_CONTACT_XX_AZIMUTH
-
-RADAR_CONTACT_XX_RANGE
-
-RADAR_CONTACT_XX_TIME
-
-RADAR_CONTACT_XX_FRIENDLY
-
-RADAR_CONTACT_XX_RCS
-
-RADAR_CONTACT_XX_VX
-
-RADAR_CONTACT_XX_VY
-
-RADAR_CONTACT_XX_VZ
-
-RADAR_CONTACT_XX_NOISE
-
-RADAR_CONTACT_XX_RCS_COEFF
-
-RADAR_CONTACT_XX_NCTR
-
-
-
-**Write Params:**
-
-IFF_INTERROGATOR_STATUS
-
-RADAR_PITCH_STABILIZATION
-
-RADAR_BANK_STABILIZATION
-
-RADAR_PITCH_BANK_STABILIZATION
-
-SCAN_ZONE_ORIGIN_AZIMUTH
-
-SCAN_ZONE_ORIGIN_ELEVATION
-
-SCAN_ZONE_VOLUME_AZIMUTH
-
-SCAN_ZONE_VOLUME_ELEVATION
-
-RADAR_TDC_AZIMUTH
-
-RADAR_TDC_RANGE
-
-RADAR_TDC_RANGE_CARRET_SIZE
-
-
-
-**Unknown:**
-
-RADAR_BIT
-
-ACQUSITION_ZONE_VOLUME_AZIMUTH
-
-CLOSEST_RANGE_RESPONSE
-
-SCAN_VOLUME_CUT_OFF_DISTANCE_MIN
+| Read Params | Write Params | Unknown Params |
+|---|---|---|
+| [RADAR_MODE](#radar_mode) | [IFF_INTERROGATOR_STATUS](#iff_interrogator_status) | RADAR_BIT |
+| [RADAR_STT_AZIMUTH](#radar_stt_azimuth) | [RADAR_PITCH_STABILIZATION](#radar_pitch_stabilization) | ACQUSITION_ZONE_VOLUME_AZIMUTH |
+| [RADAR_STT_ELEVATION](#radar_stt_elevation) | [RADAR_ROLL_STABILIZATION](#radar_roll_stabilization) | SCAN_VOLUME_CUT_OFF_DISTANCE_MIN |
+| [RADAR_STT_RANGE](#radar_stt_range) | [RADAR_PITCH_BANK_STABILIZATION](#radar_pitch_bank_stabilization) | CLOSEST_RANGE_RESPONSE |
+| [RADAR_STT_FRIENDLY](#radar_stt_friendly) | [SCAN_ZONE_ORIGIN_AZIMUTH](#scan_zone_origin_azimuth) | |
+| [RADAR_CONTACT_XX_ELEVATION](#radar_contact_xx_) | [SCAN_ZONE_ORIGIN_ELEVATION](#scan_zone_origin_elevation) | |
+| [RADAR_CONTACT_XX_AZIMUTH](#radar_contact_xx_) | [SCAN_ZONE_VOLUME_AZIMUTH](#scan_zone_volume_azimuth) | |
+| [RADAR_CONTACT_XX_RANGE](#radar_contact_xx_) | [SCAN_ZONE_VOLUME_ELEVATION](#scan_zone_volume_elevation) | |
+| [RADAR_CONTACT_XX_TIME](#radar_contact_xx_) | [RADAR_TDC_AZIMUTH](#radar_tdc_azimuth) | |
+| [RADAR_CONTACT_XX_FRIENDLY](#radar_contact_xx_) | [RADAR_TDC_RANGE](#radar_tdc_range) | |
+| [RADAR_CONTACT_XX_RCS](#radar_contact_xx_) | [RADAR_TDC_RANGE_CARRET_SIZE](#radar_tdc_range_carret_size) | |
+| [RADAR_CONTACT_XX_VX](#radar_contact_xx_) | | |
+| [RADAR_CONTACT_XX_VY](#radar_contact_xx_) | | |
+| [RADAR_CONTACT_XX_VZ](#radar_contact_xx_) | | |
+| [RADAR_CONTACT_XX_NOISE](#radar_contact_xx_) | | |
+| [RADAR_CONTACT_XX_RCS_COEFF](#radar_contact_xx_) | | |
+| [RADAR_CONTACT_XX_NCTR](#radar_contact_xx_) | | |
 
 
 
@@ -200,6 +126,7 @@ SCAN_VOLUME_CUT_OFF_DISTANCE_MIN
 
 ``` mode = get_param_handle("RADAR_MODE")```
 
+for more info on interacting with params, see [Param Handles](../BasicPrinciples.md/#param-handles)
 
 ---
 
@@ -336,7 +263,7 @@ Write param, essentially the sensitivity of the TDC. Larger value means easier t
 
 ---
 
-### Unknown Params
+### Unknown Params {: .unverified-section }
 
 These params exist but their function is not fully known.
 
