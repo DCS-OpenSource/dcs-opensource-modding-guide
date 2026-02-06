@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../avLuaDevice/">
+        <link rel="prev" href="../avSimpleWeaponSystem/">
       
       
-        <link rel="next" href="../avSimpleRadar/">
+        <link rel="next" href="../../Indicators/drawing/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>avSimpleWeaponSystem - DCS Modding Documentation</title>
+        <title>avSimpleRadar - DCS Modding Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#avsimpleweaponsystem" class="md-skip">
+        <a href="#avsimpleradar" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              avSimpleWeaponSystem
+              avSimpleRadar
             
           </span>
         </div>
@@ -633,6 +633,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -652,7 +680,7 @@
   <span class="md-ellipsis">
     
   
-    avSimpleWeaponSystem
+    avSimpleRadar
   
 
     
@@ -670,7 +698,7 @@
   <span class="md-ellipsis">
     
   
-    avSimpleWeaponSystem
+    avSimpleRadar
   
 
     
@@ -707,30 +735,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-bits" class="md-nav__link">
+  <a href="#radar-performance-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful bits
+        Radar Performance Initialization
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Useful bits">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wstypes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wsTypes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -747,10 +758,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setdamage" class="md-nav__link">
+  <a href="#set_powervalue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SetDamage()
+        set_power(value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important bits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Params
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Params">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radar_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “RADAR_MODE”
       
     </span>
   </a>
@@ -758,10 +808,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drop_chaff" class="md-nav__link">
+  <a href="#radar_contact_xx_" class="md-nav__link">
     <span class="md-ellipsis">
       
-        drop_chaff()
+        "RADAR_CONTACT_XX_..."
       
     </span>
   </a>
@@ -769,10 +819,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drop_flare" class="md-nav__link">
+  <a href="#radar_stt_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        drop_flare()
+        "RADAR_STT_AZIMUTH"
       
     </span>
   </a>
@@ -780,10 +830,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_chaff_count" class="md-nav__link">
+  <a href="#radar_stt_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chaff_count()
+        "RADAR_STT_ELEVATION"
       
     </span>
   </a>
@@ -791,10 +841,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_flare_count" class="md-nav__link">
+  <a href="#radar_stt_range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_flare_count()
+        "RADAR_STT_RANGE"
       
     </span>
   </a>
@@ -802,10 +852,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#emergency_jettison" class="md-nav__link">
+  <a href="#radar_stt_friendly" class="md-nav__link">
     <span class="md-ellipsis">
       
-        emergency_jettison()
+        "RADAR_STT_FRIENDLY"
       
     </span>
   </a>
@@ -813,10 +863,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#emergency_jettison_rack" class="md-nav__link">
+  <a href="#iff_interrogator_status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        emergency_jettison_rack()
+        "IFF_INTERROGATOR_STATUS"
       
     </span>
   </a>
@@ -824,10 +874,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_station_info" class="md-nav__link">
+  <a href="#radar_pitch_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_station_info()
+        "RADAR_PITCH_STABILIZATION"
       
     </span>
   </a>
@@ -835,10 +885,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#launch_station" class="md-nav__link">
+  <a href="#radar_roll_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        launch_station()
+        "RADAR_ROLL_STABILIZATION"
       
     </span>
   </a>
@@ -846,10 +896,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#select_station" class="md-nav__link">
+  <a href="#radar_pitch_bank_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        select_station()
+        "RADAR_PITCH_BANK_STABILIZATION"
       
     </span>
   </a>
@@ -857,10 +907,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_ecm_status" class="md-nav__link">
+  <a href="#scan_zone_origin_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_ECM_status()
+        "SCAN_ZONE_ORIGIN_ELEVATION"
       
     </span>
   </a>
@@ -868,10 +918,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_ecm_status" class="md-nav__link">
+  <a href="#scan_zone_origin_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_ECM_status()
+        "SCAN_ZONE_ORIGIN_AZIMUTH"
       
     </span>
   </a>
@@ -879,10 +929,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_target_range" class="md-nav__link">
+  <a href="#scan_zone_volume_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_target_range()
+        "SCAN_ZONE_VOLUME_AZIMUTH"
       
     </span>
   </a>
@@ -890,10 +940,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_target_span" class="md-nav__link">
+  <a href="#scan_zone_volume_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_target_span()
+        "SCAN_ZONE_VOLUME_ELEVATION"
       
     </span>
   </a>
@@ -901,10 +951,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_target_range" class="md-nav__link">
+  <a href="#radar_tdc_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_target_range()
+        "RADAR_TDC_AZIMUTH"
       
     </span>
   </a>
@@ -912,10 +962,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_target_span" class="md-nav__link">
+  <a href="#radar_tdc_range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_target_span()
+        "RADAR_TDC_RANGE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_tdc_range_carret_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_TDC_RANGE_CARRET_SIZE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknown Params
       
     </span>
   </a>
@@ -931,34 +1003,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../avSimpleRadar/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    avSimpleRadar
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1929,30 +1973,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-bits" class="md-nav__link">
+  <a href="#radar-performance-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful bits
+        Radar Performance Initialization
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Useful bits">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wstypes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        wsTypes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1969,10 +1996,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setdamage" class="md-nav__link">
+  <a href="#set_powervalue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SetDamage()
+        set_power(value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important bits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Params
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Params">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radar_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “RADAR_MODE”
       
     </span>
   </a>
@@ -1980,10 +2046,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drop_chaff" class="md-nav__link">
+  <a href="#radar_contact_xx_" class="md-nav__link">
     <span class="md-ellipsis">
       
-        drop_chaff()
+        "RADAR_CONTACT_XX_..."
       
     </span>
   </a>
@@ -1991,10 +2057,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drop_flare" class="md-nav__link">
+  <a href="#radar_stt_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        drop_flare()
+        "RADAR_STT_AZIMUTH"
       
     </span>
   </a>
@@ -2002,10 +2068,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_chaff_count" class="md-nav__link">
+  <a href="#radar_stt_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_chaff_count()
+        "RADAR_STT_ELEVATION"
       
     </span>
   </a>
@@ -2013,10 +2079,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_flare_count" class="md-nav__link">
+  <a href="#radar_stt_range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_flare_count()
+        "RADAR_STT_RANGE"
       
     </span>
   </a>
@@ -2024,10 +2090,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#emergency_jettison" class="md-nav__link">
+  <a href="#radar_stt_friendly" class="md-nav__link">
     <span class="md-ellipsis">
       
-        emergency_jettison()
+        "RADAR_STT_FRIENDLY"
       
     </span>
   </a>
@@ -2035,10 +2101,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#emergency_jettison_rack" class="md-nav__link">
+  <a href="#iff_interrogator_status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        emergency_jettison_rack()
+        "IFF_INTERROGATOR_STATUS"
       
     </span>
   </a>
@@ -2046,10 +2112,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_station_info" class="md-nav__link">
+  <a href="#radar_pitch_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_station_info()
+        "RADAR_PITCH_STABILIZATION"
       
     </span>
   </a>
@@ -2057,10 +2123,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#launch_station" class="md-nav__link">
+  <a href="#radar_roll_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        launch_station()
+        "RADAR_ROLL_STABILIZATION"
       
     </span>
   </a>
@@ -2068,10 +2134,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#select_station" class="md-nav__link">
+  <a href="#radar_pitch_bank_stabilization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        select_station()
+        "RADAR_PITCH_BANK_STABILIZATION"
       
     </span>
   </a>
@@ -2079,10 +2145,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_ecm_status" class="md-nav__link">
+  <a href="#scan_zone_origin_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_ECM_status()
+        "SCAN_ZONE_ORIGIN_ELEVATION"
       
     </span>
   </a>
@@ -2090,10 +2156,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_ecm_status" class="md-nav__link">
+  <a href="#scan_zone_origin_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_ECM_status()
+        "SCAN_ZONE_ORIGIN_AZIMUTH"
       
     </span>
   </a>
@@ -2101,10 +2167,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_target_range" class="md-nav__link">
+  <a href="#scan_zone_volume_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_target_range()
+        "SCAN_ZONE_VOLUME_AZIMUTH"
       
     </span>
   </a>
@@ -2112,10 +2178,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set_target_span" class="md-nav__link">
+  <a href="#scan_zone_volume_elevation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        set_target_span()
+        "SCAN_ZONE_VOLUME_ELEVATION"
       
     </span>
   </a>
@@ -2123,10 +2189,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_target_range" class="md-nav__link">
+  <a href="#radar_tdc_azimuth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_target_range()
+        "RADAR_TDC_AZIMUTH"
       
     </span>
   </a>
@@ -2134,10 +2200,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get_target_span" class="md-nav__link">
+  <a href="#radar_tdc_range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        get_target_span()
+        "RADAR_TDC_RANGE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_tdc_range_carret_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_TDC_RANGE_CARRET_SIZE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknown-params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknown Params
       
     </span>
   </a>
@@ -2166,135 +2254,247 @@
 
 
 
-<h1 id="avsimpleweaponsystem">avSimpleWeaponSystem<a class="headerlink" href="#avsimpleweaponsystem" title="Permanent link">#</a></h1>
-<p>avSimpleWeaponSystem serves as the modders method of interacting with weapons, rearming etc.</p>
+<h1 id="avsimpleradar">avSimpleRadar<a class="headerlink" href="#avsimpleradar" title="Permanent link">#</a></h1>
+<p>avSimpleRadar provides a basic radar system that includes Range While Scan (RWS) and Single Target Track (STT). Track While Scan (TWS) is not available with this device.</p>
+<p>RWS means that you can see multiple contacts, but not tracking any. Once a desired target is locked, the radar changes to STT. In STT you will lose all other contact data and the radar will update the locked target at a faster rate and provides data for weapon systems.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All of the standard functions from <a href="../avLuaDevice/">avLuaDevice</a> are available in avSimpleWeapon System such as update() or SetCommand()</p>
+<p>All of the standard functions from <a href="../avLuaDevice/">avLuaDevice</a> are available in avSimpleRadar such as update() or SetCommand()</p>
 </div>
 <hr />
 <h2 id="loading-the-device">Loading the Device<a class="headerlink" href="#loading-the-device" title="Permanent link">#</a></h2>
-<p>The device should be configured in <code>device_init.lua</code> as normal, but with <code>"avSimpleWeaponSystem"</code> instead of <code>"avLuaDevice"</code>
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">creators</span><span class="p">[</span><span class="nv">devices</span><span class="p">.</span><span class="py">WEAPON_SYSTEM</span><span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;avSimpleWeaponSystem&quot;</span><span class="w">    </span><span class="p">,</span><span class="nv">LockOn_Options</span><span class="p">.</span><span class="py">script_path</span><span class="o">..</span><span class="s2">&quot;Systems/weapon_system.lua&quot;</span><span class="p">}</span>
-</span></code></pre></div></p>
+<p>The device should be configured in <code>device_init.lua</code> as normal, but with <code>"avSimpleRadar"</code> instead of <code>"avLuaDevice"</code></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">creators</span><span class="p">[</span><span class="nv">devices</span><span class="p">.</span><span class="py">RADAR_SYSTEM</span><span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;avSimpleRadar&quot;</span><span class="w">    </span><span class="p">,</span><span class="nv">LockOn_Options</span><span class="p">.</span><span class="py">script_path</span><span class="o">..</span><span class="s2">&quot;Systems/radar_system.lua&quot;</span><span class="p">}</span>
+</span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To use any of the functions listed below, you must add <code>local dev = GetSelf()</code>  to the top of your file, this allows you to access the weapon functions from avSimpleWeaponSystem</p>
-<p>All functions are Zero Indexed, so interacting with Pylon 1 would be done with <code>dev:get_station_info(0)</code></p>
+<p>To use any of the functions listed below, you must add <code>local dev = GetSelf()</code>  to the top of your file, this allows you to access the internal functions from avSimpleRadar</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>avSimpleRadar requires than an avSimpleElectricSystem device is also being used, and the associated AC generators and DC battery are powered in said device. This is an internal DCS requirement.</p>
 </div>
 <hr />
-<h2 id="useful-bits">Useful bits<a class="headerlink" href="#useful-bits" title="Permanent link">#</a></h2>
-<h3 id="wstypes">wsTypes<a class="headerlink" href="#wstypes" title="Permanent link">#</a></h3>
-<p>Loading the <a href="../../../../Database/wsTypes/">wsTypes.lua</a> file from the core allows you to reference weapons by type
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">dofile</span><span class="p">(</span><span class="nv">LockOn_Options</span><span class="p">.</span><span class="py">common_script_path</span><span class="o">..</span><span class="s2">&quot;../../../Database/wsTypes.lua&quot;</span><span class="p">)</span>
+<h2 id="radar-performance-initialization">Radar Performance Initialization<a class="headerlink" href="#radar-performance-initialization" title="Permanent link">#</a></h2>
+<p>This section is not put inside a function, and is called on init to define the performance of the radar.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">perfomance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">roll_compensation_limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">math.rad</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">),</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mf">180.0</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- limits for RADAR_BANK_STABILIZATION</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nv">pitch_compensation_limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">math.rad</span><span class="p">(</span><span class="o">-</span><span class="mf">60.0</span><span class="p">),</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mf">60.0</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- limits for RADAR_PITCH_STABILIZATION (when pitch is outside these values the scan zone will stop staying level with horizon)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nv">tracking_azimuth</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">60</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- once locked, max azimuth to track</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nv">tracking_elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">10</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- once locked, max elevation to track</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nv">scan_volume_azimuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span><span class="w"> </span><span class="c1">--is left+right so 120 deg is +-60 deg left/right</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nv">scan_volume_elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="c1">--limits search angle of radar +-5 up/down</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nv">scan_beam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="c1">-- height of scan beam, max should be scan_volume_elevation (if less then it will do passes at different elevations)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nv">max_available_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200000</span><span class="p">,</span><span class="c1">-- max distance (in Meters) for object with large (&gt;100m^2) radar cross section, for smaller RCS such as Su-27 the actual detection distance will be much less</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nv">scan_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">60</span><span class="p">),</span><span class="w"> </span><span class="c1">-- unknown (doesn&#39;t affect debug scan beam)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nv">dead_zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">-- unknown. doesn&#39;t seem to be distance between targets or distance from radar to target</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nv">ground_clutter</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">{</span><span class="c1">-- spot RCS = A + B * random + C * random </span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="nv">sea</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nv">land</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nv">artificial</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nv">rays_density</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nv">max_distance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="nv">NM_to_meter</span><span class="p">,</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">}</span>
 </span></code></pre></div>
-This is useful for determining weapon category in <a href="#get_station_info">get_station_info()</a></p>
 <hr />
 <h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">#</a></h2>
-<p>Below are the available functions for <code>avSimpleWeaponSystem</code>:<br />
-Functions marked with <em>UNVERIFIED</em> are untested, feel free to <a href="../../../../contributing/">contribute</a> more detail.</p>
+<p>Below are the available functions for <code>avSimpleRadar</code>:  </p>
 <hr />
-<h3 class="unverified-section" id="setdamage">SetDamage()<a class="headerlink" href="#setdamage" title="Permanent link">#</a></h3>
-<hr />
-<h3 class="unverified-section" id="drop_chaff">drop_chaff()<a class="headerlink" href="#drop_chaff" title="Permanent link">#</a></h3>
-<p>Dispenses a specified number of chaff cartridges from a given dispenser.<br />
-<em>See also</em>: <code>chaff_flare_dispenser</code> in the aircraft definition.</p>
-<p><strong>Parameters</strong><br />
-- <code>count</code> (number): Number of chaff cartridges to release.
-- <code>dispenser</code> (number): Index of the chaff dispenser to use.</p>
-<hr />
-<h3 class="unverified-section" id="drop_flare">drop_flare()<a class="headerlink" href="#drop_flare" title="Permanent link">#</a></h3>
-<p>Dispenses a specified number of flares from a given dispenser.<br />
-<em>See also</em>: <code>chaff_flare_dispenser</code> in the aircraft definition.</p>
-<p><strong>Parameters</strong><br />
-- <code>count</code> (number): Number of flares to release.
-- <code>dispenser</code> (number): Index of the flare dispenser to use.</p>
-<hr />
-<h3 class="unverified-section" id="get_chaff_count">get_chaff_count()<a class="headerlink" href="#get_chaff_count" title="Permanent link">#</a></h3>
-<p>Returns the current number of chaff cartridges available.</p>
-<hr />
-<h3 class="unverified-section" id="get_flare_count">get_flare_count()<a class="headerlink" href="#get_flare_count" title="Permanent link">#</a></h3>
-<p>Returns the current number of flares available.</p>
-<hr />
-<h3 id="emergency_jettison">emergency_jettison()<a class="headerlink" href="#emergency_jettison" title="Permanent link">#</a></h3>
-<p>Jettison either all stores, or specific stores if parsed a pylon number</p>
-<p><strong>Parameters</strong><br />
-- <code>index</code> (number, <em>optional</em>): Zero-indexed pylon number to jettison stores from. If omitted, all stores will be jettisoned.</p>
-<hr />
-<h3 class="unverified-section" id="emergency_jettison_rack">emergency_jettison_rack()<a class="headerlink" href="#emergency_jettison_rack" title="Permanent link">#</a></h3>
-<p>Jettisons the entire weapon rack in an emergency.</p>
-<hr />
-<h3 id="get_station_info">get_station_info()<a class="headerlink" href="#get_station_info" title="Permanent link">#</a></h3>
-<p>Returns a table of information about the indexed pylon
-See <a href="#wstypes">wsTypes</a> above</p>
-<p><strong>Parameters</strong><br />
-- <code>index</code> (number): Zero indexed pylon number</p>
-<p><strong>Returns</strong><br />
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- Rocket pod example</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">-- resulting table</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">station_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nv">wsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nv">level1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">     </span><span class="c1">-- wsType_Weapon</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nv">level2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">     </span><span class="c1">-- wsType_NURS</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nv">level3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">    </span><span class="c1">-- wsType_Container</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nv">level4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">358</span><span class="p">,</span><span class="w">   </span><span class="c1">-- ???</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nv">adapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nv">level1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nv">level2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="nv">level3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="nv">level4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nv">weapon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="nv">level1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">     </span><span class="c1">-- wsType_Weapon</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="nv">level2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">     </span><span class="c1">-- wsType_NURS</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nv">level3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">    </span><span class="c1">-- wsType_Rocket</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="nv">level4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">276</span><span class="p">,</span><span class="w">   </span><span class="c1">-- ???</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="nv">CLSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{LAU68_FFAR_MK5HEAT}&quot;</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w">           </span><span class="c1">-- how many weapons are in the container</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="nv">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="p">}</span>
+<h3 id="set_powervalue">set_power(value)<a class="headerlink" href="#set_powervalue" title="Permanent link">#</a></h3>
+<p>Used to turn on the radar. Set <code>value</code> to TRUE for on and FALSE for off.
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">set_power</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 </span></code></pre></div>
-<strong>Usage</strong><br />
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">GetSelf</span><span class="p">()</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">pylon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">dev</span><span class="p">:</span><span class="nf">get_station_info</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- returns pylon1 info</span>
-</span></code></pre></div></p>
+Recommend to use this with the aircraft radar power switch, this provides the ability to stop transmitting and therefore avoid detection by enemy RWR.</p>
 <hr />
-<h3 id="launch_station">launch_station()<a class="headerlink" href="#launch_station" title="Permanent link">#</a></h3>
-<p>Launches the weapon from the specified station.</p>
-<p><strong>Parameters</strong><br />
-- <code>station</code> (number): Zero Indexed station number to launch from.</p>
-<p><strong>Usage</strong><br />
-<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">GetSelf</span><span class="p">()</span>
+<h2 id="important-bits">Important bits<a class="headerlink" href="#important-bits" title="Permanent link">#</a></h2>
+<p>The avSimpleRadar uses the following iCommands to lock the target with the TDC:<br />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">iCommandPlane_LockOn_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">509</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">iCommandPlane_LockOn_finish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">510</span>
+</span></code></pre></div>
+You can use these directly in the input keybinds, or within the device using (don't forget to define the command in the device):
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">iCommandPlane_LockOn_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">509</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">pylon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">dev</span><span class="p">:</span><span class="nf">launch_station</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- launch pylon1</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nf">dispatch_action</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nv">iCommandPlane_LockOn_start</span><span class="p">)</span>
 </span></code></pre></div></p>
 <hr />
-<h3 class="unverified-section" id="select_station">select_station()<a class="headerlink" href="#select_station" title="Permanent link">#</a></h3>
-<p>Selects the specified weapon station, needed to activate seeker heads like AIM-9s etc.  </p>
-<p><strong>Parameters</strong><br />
-- <code>station</code> (number): The station number to select.</p>
+<h2 id="params">Params<a class="headerlink" href="#params" title="Permanent link">#</a></h2>
+<p>The following param handles are used to read and write to control the radar.</p>
+<table>
+<thead>
+<tr>
+<th>Read Params</th>
+<th>Write Params</th>
+<th>Unknown Params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#radar_mode">RADAR_MODE</a></td>
+<td><a href="#iff_interrogator_status">IFF_INTERROGATOR_STATUS</a></td>
+<td>RADAR_BIT</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_azimuth">RADAR_STT_AZIMUTH</a></td>
+<td><a href="#radar_pitch_stabilization">RADAR_PITCH_STABILIZATION</a></td>
+<td>ACQUSITION_ZONE_VOLUME_AZIMUTH</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_elevation">RADAR_STT_ELEVATION</a></td>
+<td><a href="#radar_roll_stabilization">RADAR_ROLL_STABILIZATION</a></td>
+<td>SCAN_VOLUME_CUT_OFF_DISTANCE_MIN</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_range">RADAR_STT_RANGE</a></td>
+<td><a href="#radar_pitch_bank_stabilization">RADAR_PITCH_BANK_STABILIZATION</a></td>
+<td>CLOSEST_RANGE_RESPONSE</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_friendly">RADAR_STT_FRIENDLY</a></td>
+<td><a href="#scan_zone_origin_azimuth">SCAN_ZONE_ORIGIN_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_ELEVATION</a></td>
+<td><a href="#scan_zone_origin_elevation">SCAN_ZONE_ORIGIN_ELEVATION</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_AZIMUTH</a></td>
+<td><a href="#scan_zone_volume_azimuth">SCAN_ZONE_VOLUME_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RANGE</a></td>
+<td><a href="#scan_zone_volume_elevation">SCAN_ZONE_VOLUME_ELEVATION</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_TIME</a></td>
+<td><a href="#radar_tdc_azimuth">RADAR_TDC_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_FRIENDLY</a></td>
+<td><a href="#radar_tdc_range">RADAR_TDC_RANGE</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RCS</a></td>
+<td><a href="#radar_tdc_range_carret_size">RADAR_TDC_RANGE_CARRET_SIZE</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VX</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VY</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VZ</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_NOISE</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RCS_COEFF</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_NCTR</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use in the following format:</strong></p>
+<p><code>mode = get_param_handle("RADAR_MODE")</code></p>
+<p>for more info on interacting with params, see <a href="../../BasicPrinciples/#param-handles">Param Handles</a></p>
 <hr />
-<h3 class="unverified-section" id="set_ecm_status">set_ECM_status()<a class="headerlink" href="#set_ecm_status" title="Permanent link">#</a></h3>
-<p>Sets the status of the ECM system.</p>
+<h3 id="radar_mode">“RADAR_MODE”<a class="headerlink" href="#radar_mode" title="Permanent link">#</a></h3>
+<p>Read param that gives the current mode of the radar.</p>
+<p>1: Searching</p>
+<p>2: Attempting lock</p>
+<p>3: STT lock</p>
 <hr />
-<h3 class="unverified-section" id="get_ecm_status">get_ECM_status()<a class="headerlink" href="#get_ecm_status" title="Permanent link">#</a></h3>
-<p>Returns the current status of the Electronic Countermeasure (ECM) system.</p>
+<h3 id="radar_contact_xx_">"RADAR_CONTACT_XX_..."<a class="headerlink" href="#radar_contact_xx_" title="Permanent link">#</a></h3>
+<p>Read params, only available in radar mode 1 (basically RWS). 
+The "XX" is the unique contact number, however a single aircraft will generate multiple contacts, because a contact is a single instance of a radar return.</p>
+<p>...ELEVATION, ...AZIMUTH, ...RANGE provide the contact location.</p>
+<p>...TIME provides the seconds since the radar return was found.</p>
+<p>...FRIENDLY will return 1 if IFF is on and the contact is friendly.</p>
+<p>...VX,...VY,...VZ provide the contact velocity.</p>
+<p>...RCS_COEFF gives the RCS of the contact.</p>
+<p>...NCTR (Non-Cooperative Target Recognition) provides the aircraft type (i.e Su-27).</p>
+<p>...NOISE unknown.</p>
 <hr />
-<h3 class="unverified-section" id="set_target_range">set_target_range()<a class="headerlink" href="#set_target_range" title="Permanent link">#</a></h3>
-<p>Sets the target range for the weapon system.</p>
+<h3 id="radar_stt_azimuth">"RADAR_STT_AZIMUTH"<a class="headerlink" href="#radar_stt_azimuth" title="Permanent link">#</a></h3>
+<p>Read param that provides azimuth (horizontal angle) of locked target, <strong>normalized with roll</strong> (this makes it very easy to use in a HUD). Only available in STT mode.</p>
 <hr />
-<h3 class="unverified-section" id="set_target_span">set_target_span()<a class="headerlink" href="#set_target_span" title="Permanent link">#</a></h3>
-<p>Sets the target span for the weapon system.</p>
+<h3 id="radar_stt_elevation">"RADAR_STT_ELEVATION"<a class="headerlink" href="#radar_stt_elevation" title="Permanent link">#</a></h3>
+<p>Read param that provides elevation (vertical angle in radians) of locked target, <strong>normalized with roll</strong> (this makes it very easy to use in a HUD). Only available in STT mode.</p>
 <hr />
-<h3 class="unverified-section" id="get_target_range">get_target_range()<a class="headerlink" href="#get_target_range" title="Permanent link">#</a></h3>
-<p>Returns the current target range set in the weapon system.</p>
+<h3 id="radar_stt_range">"RADAR_STT_RANGE"<a class="headerlink" href="#radar_stt_range" title="Permanent link">#</a></h3>
+<p>Read param that provides range (in Meters) of locked target. Only available in STT mode.</p>
 <hr />
-<h3 class="unverified-section" id="get_target_span">get_target_span()<a class="headerlink" href="#get_target_span" title="Permanent link">#</a></h3>
-<p>Returns the current target span set in the weapon system.</p>
+<h3 id="radar_stt_friendly">"RADAR_STT_FRIENDLY"<a class="headerlink" href="#radar_stt_friendly" title="Permanent link">#</a></h3>
+<p>Read param that provides IFF status of locked target. Only available in STT mode.</p>
+<p>-1: IFF off</p>
+<p>0: target hostile or unknown</p>
+<p>1: target friendly</p>
 <hr />
+<h3 id="iff_interrogator_status">"IFF_INTERROGATOR_STATUS"<a class="headerlink" href="#iff_interrogator_status" title="Permanent link">#</a></h3>
+<p>Write param that controls IFF. Set to 1 to turn on IFF</p>
+<hr />
+<h3 id="radar_pitch_stabilization">"RADAR_PITCH_STABILIZATION"<a class="headerlink" href="#radar_pitch_stabilization" title="Permanent link">#</a></h3>
+<p>Write param, when set to 1 turns on pitch stabilization. When on, keeps radar pointed at horizon as aircraft pitches (within pitch values of pitch_compensation_limits).</p>
+<hr />
+<h3 id="radar_roll_stabilization">"RADAR_ROLL_STABILIZATION"<a class="headerlink" href="#radar_roll_stabilization" title="Permanent link">#</a></h3>
+<p>Write param, when set to 1 turns on roll stabilization. When on, keeps radar pointed at horizon as aircraft rolls (within roll values of roll_compensation_limits).</p>
+<hr />
+<h3 id="radar_pitch_bank_stabilization">"RADAR_PITCH_BANK_STABILIZATION"<a class="headerlink" href="#radar_pitch_bank_stabilization" title="Permanent link">#</a></h3>
+<p>Write param, when set to 1 turns on combined stabilization.</p>
+<hr />
+<h3 id="scan_zone_origin_elevation">"SCAN_ZONE_ORIGIN_ELEVATION"<a class="headerlink" href="#scan_zone_origin_elevation" title="Permanent link">#</a></h3>
+<p>Write param, controls elevation origin of radar antenna.</p>
+<hr />
+<h3 id="scan_zone_origin_azimuth">"SCAN_ZONE_ORIGIN_AZIMUTH"<a class="headerlink" href="#scan_zone_origin_azimuth" title="Permanent link">#</a></h3>
+<p>Write param, controls azimuth origin of radar antenna.</p>
+<hr />
+<h3 id="scan_zone_volume_azimuth">"SCAN_ZONE_VOLUME_AZIMUTH"<a class="headerlink" href="#scan_zone_volume_azimuth" title="Permanent link">#</a></h3>
+<p>Write param, controls total scan width (scan widths are changable, i.e. 120deg, 80deg, 60deg).</p>
+<hr />
+<h3 id="scan_zone_volume_elevation">"SCAN_ZONE_VOLUME_ELEVATION"<a class="headerlink" href="#scan_zone_volume_elevation" title="Permanent link">#</a></h3>
+<p>Write param, controls total scan elevation. Setting this to a higher value than <code>scan_beam</code> will require the scan beam to make multiple sweeps to complete the desired scan area.</p>
+<hr />
+<h3 id="radar_tdc_azimuth">"RADAR_TDC_AZIMUTH"<a class="headerlink" href="#radar_tdc_azimuth" title="Permanent link">#</a></h3>
+<p>Write param, controls TDC position in the azimuth.</p>
+<hr />
+<h3 id="radar_tdc_range">"RADAR_TDC_RANGE"<a class="headerlink" href="#radar_tdc_range" title="Permanent link">#</a></h3>
+<p>Write param, controls TDC range.</p>
+<hr />
+<h3 id="radar_tdc_range_carret_size">"RADAR_TDC_RANGE_CARRET_SIZE"<a class="headerlink" href="#radar_tdc_range_carret_size" title="Permanent link">#</a></h3>
+<p>Write param, essentially the sensitivity of the TDC. Larger value means easier to lock target nearby. Default value 6000.</p>
+<hr />
+<h3 class="unverified-section" id="unknown-params">Unknown Params<a class="headerlink" href="#unknown-params" title="Permanent link">#</a></h3>
+<p>These params exist but their function is not fully known.</p>
+<p>"RADAR_BIT"</p>
+<p>"ACQUSITION_ZONE_VOLUME_AZIMUTH"</p>
+<p>"SCAN_VOLUME_CUT_OFF_DISTANCE_MIN"</p>
+<p>"CLOSEST_RANGE_RESPONSE"</p>
 
 
 
