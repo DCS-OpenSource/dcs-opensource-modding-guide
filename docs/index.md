@@ -45,6 +45,7 @@ Big Thank you to the following for contributing to the docs
     * Hayds_93
     * BrianTheBrain
     * Violent Nomad
+    * theyagizsina
 
 * Others
     * JNelson
