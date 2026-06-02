@@ -2,8 +2,15 @@ site_name: DCS Modding Documentation
 
 theme:
     name: material
+    language: en
     palette:
         scheme: slate
+
+plugins:
+  - search:
+      lang:
+        - en
+        - tr
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -21,6 +28,15 @@ markdown_extensions:
 
 extra_css:
   - css/extra.css
+
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Türkçe
+      link: /tr/
+      lang: tr
 
 nav:
   - Home: index.md
@@ -88,3 +104,56 @@ nav:
       - Known Errors: EDM-Export/errors.md
 
   - Contributing: contributing.md
+
+  - Türkçe:
+    - Ana Sayfa: tr/index.md
+    - Faydalı Bağlantılar: tr/links.md
+  
+    - Aircraft Lua:
+      - Temel İlkeler: tr/Aircraft/Lua/BasicPrinciples.md
+
+      - Stub'lar:
+        - Device Stub'ları: tr/Aircraft/Lua/Stubs/DeviceStubs.md
+        - Mainpanel Stub'ları: tr/Aircraft/Lua/Stubs/MainPanelStubs.md
+        - LockOn_Options: tr/Aircraft/Lua/Stubs/LockOnOptions.md
+
+      - Modüller:
+        - Terrain: tr/Aircraft/Lua/Modules/Terrain.md
+
+      - Cihazlar:
+        - avLuaDevice: tr/Aircraft/Lua/Devices/avLuaDevice.md
+        - avSimpleWeaponSystem: tr/Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+        - avSimpleRadar: tr/Aircraft/Lua/Devices/avSimpleRadar.md
+
+      - Göstergeler:
+        - Çizim: tr/Aircraft/Lua/Indicators/drawing.md
+        - Kontrolcüler: tr/Aircraft/Lua/Indicators/controllers.md
+
+      - Eklentiler:
+        - NavDataPlugin: tr/Aircraft/Lua/Plugins/NavDataPlugin.md
+        - WeaponSystemPlugin: tr/Aircraft/Lua/Plugins/WeaponSystemPlugin.md
+        - LuaToolsPlugin: tr/Aircraft/Lua/Plugins/LuaToolsPlugin.md
+
+    - Aircraft EFM:
+      - EFM API: tr/Aircraft/EFM/EFM_API.md
+      - Faydalı Notlar: 
+        - Prop Blur: tr/Aircraft/EFM/Useful_bits/prop_blur.md
+
+    - Veritabanı:
+      - wsTypes: tr/Database/wsTypes.md
+      - iCommands: tr/Database/iCommands.md
+      - Draw Args: tr/Database/draw-args.md
+
+    - Faydalı Notlar:
+      - Modelviewer: tr/UsefulBits/ModelViewer.md
+      - Kokpit Sesleri: tr/UsefulBits/CockpitSounds.md
+
+    - ED Blender Exporter:
+        - Genel Bakış: tr/EDM-Export/Overview.md
+        - Mesh: tr/EDM-Export/Mesh.md
+        - Materyaller: tr/EDM-Export/Materials.md
+        - Animasyonlar: tr/EDM-Export/Animations.md
+        - Işıklar: tr/EDM-Export/Lights.md
+        - Bilinen Hatalar: tr/EDM-Export/errors.md
+
+    - Katkıda Bulunma: tr/contributing.md

@@ -1,0 +1,3 @@
+# Indicator Çizimi
+
+TODO
