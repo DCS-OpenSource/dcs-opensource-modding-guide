@@ -1,0 +1,3843 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="en">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Device Stub'ları - DCS Modding Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#device-stublar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="DCS Modding Documentation" class="md-header__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCS Modding Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Device Stub'ları
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/tr/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="DCS Modding Documentation" class="md-nav__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DCS Modding Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft Lua
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft Lua
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/BasicPrinciples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stubs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stubs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/DeviceStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/MainPanelStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mainpanel Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/LockOnOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LockOn_Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/Terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    lfs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    os
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    io
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/Weather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/net/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/minizip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minizip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avLuaDevice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avLuaDevice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avSimpleRadar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleRadar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Indicators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Indicators/drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Indicators/controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/NavDataPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NavDataPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/WeaponSystemPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WeaponSystemPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/LuaToolsPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LuaToolsPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft EFM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft EFM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/EFM/EFM_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EFM API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful Bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/EFM/Useful_bits/prop_blur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prop Blur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/wsTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wsTypes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/iCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/draw-args/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Args
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../UsefulBits/ModelViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../UsefulBits/CockpitSounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cockpit Sounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ED Blender Exporter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ED Blender Exporter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stublar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stub'lar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stub&#39;lar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispatch_actiondevice_id-command-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dispatch_action(device_id, command, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do_mission_filefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        do_mission_file(file)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find_viewportname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        find_viewport(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geo_to_lo_coordslat-lon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        geo_to_lo_coords(lat, lon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_absolute_model_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_absolute_model_time()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_aircraft_draw_argument_valuearg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_aircraft_draw_argument_value(arg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_aircraft_mission_datakey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_aircraft_mission_data(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_aircraft_propertyname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_aircraft_property(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_aircraft_property_or_nilname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_aircraft_property_or_nil(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_aircraft_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_aircraft_type()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_base_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_base_data()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_clickable_element_referencepoint_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_clickable_element_reference(point_name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_cockpit_draw_argument_valuearg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_cockpit_draw_argument_value(arg)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_dcs_plugin_pathname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_dcs_plugin_path(name)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_input_devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_input_devices()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_mission_route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_mission_route()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_model_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_model_time()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_multimonitor_preset_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_multimonitor_preset_name()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_non_sim_random_evenly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_non_sim_random_evenly()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_option_valueoption-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_option_value(option, env)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_param_handleparam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_param_handle(param)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_player_crew_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_player_crew_index()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_plugin_option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_plugin_option()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_plugin_option_valueplugin-option-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_plugin_option_value(plugin, option, env)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_random_evenly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_random_evenly()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_random_orderly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_random_orderly()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_terrain_related_datafile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_terrain_related_data(file)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_uimainview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_UIMainView()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_viewports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_Viewports()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list_cockpit_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_cockpit_params()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list_indicationindicator_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        list_indication(indicator_id)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lo_to_geo_coordspos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lo_to_geo_coords(pos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_mission_filefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_mission_file(file)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefontfont_data-rgba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MakeFont(font_data, rgba)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makematerialtexture_path-rgba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MakeMaterial(texture_path, rgba)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_vfs_model_pathpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mount_vfs_model_path(path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_vfs_path_to_mount_pointmount_point-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mount_vfs_path_to_mount_point(mount_point, path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_vfs_texture_archivespath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mount_vfs_texture_archives(path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount_vfs_texture_pathpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mount_vfs_texture_path(path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print_message_to_usertext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        print_message_to_user(text)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save_to_missionfile-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_to_mission(file, content)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_aircraft_draw_argument_valueargument-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_aircraft_draw_argument_value(argument, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_crew_member_seat_adjustment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_crew_member_seat_adjustment()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show_param_handles_listenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        show_param_handles_list(enable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch_labels_off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch_labels_off()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track_is_reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        track_is_reading()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track_is_writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        track_is_writing()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utf8_strlen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UTF8_strlen()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utf8_substring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UTF8_substring()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BaseData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BaseData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metotlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metotlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notlar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="device-stublar">Device Stub'ları<a class="headerlink" href="#device-stublar" title="Permanent link">#</a></h1>
+<hr />
+<h2 id="stublar">Stub'lar<a class="headerlink" href="#stublar" title="Permanent link">#</a></h2>
+<h3 id="dispatch_actiondevice_id-command-value">dispatch_action(device_id, command, value)<a class="headerlink" href="#dispatch_actiondevice_id-command-value" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir cihaz üzerinde komut tetikler. <code>avDevice:performClickableAction()</code> fonksiyonuna benzer, ancak switch'i hareket ettirmez.
+Sahibi olmadığınız bir cihazı kontrol ediyorsanız <code>device_id</code> belirtilmelidir.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>device_id</code></td>
+<td><code>number\|nil</code></td>
+<td>Hedef device ID veya <code>nil</code></td>
+</tr>
+<tr>
+<td><code>command</code></td>
+<td><code>number</code></td>
+<td>Komut numarası</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>number</code></td>
+<td>Uygulanacak değer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 id="do_mission_filefile">do_mission_file(file)<a class="headerlink" href="#do_mission_filefile" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+<code>"mission"</code> string'i verildiğinde mission dosyasını <code>mission</code> değişkenine tablo olarak yükler.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td><code>string</code></td>
+<td><code>"mission"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<p><strong>Kullanım</strong>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nf">do_mission_file</span><span class="p">(</span><span class="s2">&quot;mission&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nf">print_message_to_user</span><span class="p">(</span><span class="nv">mission</span><span class="p">.</span><span class="py">theatre</span><span class="p">)</span><span class="w"> </span><span class="c1">-- prints map name</span>
+</span></code></pre></div></p>
+<hr />
+<h3 class="unverified-section" id="find_viewportname">find_viewport(name)<a class="headerlink" href="#find_viewportname" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Viewport nesnesini adına göre bulur ve döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Viewport adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - Viewport verisi</p>
+<hr />
+<h3 id="geo_to_lo_coordslat-lon">geo_to_lo_coords(lat, lon)<a class="headerlink" href="#geo_to_lo_coordslat-lon" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Enlem ve boylamı lokal DCS koordinatlarına dönüştürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lat</code></td>
+<td><code>number</code></td>
+<td>Derece cinsinden enlem</td>
+</tr>
+<tr>
+<td><code>lon</code></td>
+<td><code>number</code></td>
+<td>Derece cinsinden boylam</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>vec3</code> - Lokal koordinatlar</p>
+<hr />
+<h3 id="get_absolute_model_time">get_absolute_model_time()<a class="headerlink" href="#get_absolute_model_time" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Kesirli saniyeler dahil günün saniye cinsinden zamanını döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>number</code> - Saniye cinsinden zaman</p>
+<hr />
+<h3 id="get_aircraft_draw_argument_valuearg">get_aircraft_draw_argument_value(arg)<a class="headerlink" href="#get_aircraft_draw_argument_valuearg" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir aircraft draw argument'ın mevcut değerini döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arg</code></td>
+<td><code>number</code></td>
+<td>Argument indeksi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>number</code> - Argument değeri</p>
+<hr />
+<h3 id="get_aircraft_mission_datakey">get_aircraft_mission_data(key)<a class="headerlink" href="#get_aircraft_mission_datakey" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Mevcut uçak için göreve özel verileri döndürür.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Yalnızca <code>"Radio"</code> verildiğinde çalışıyor gibi görünüyor.</p>
+</div>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td><code>string</code></td>
+<td>Veri anahtarı, ör. <code>"Radio"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - Mission verisi</p>
+<hr />
+<h3 class="unverified-section" id="get_aircraft_propertyname">get_aircraft_property(name)<a class="headerlink" href="#get_aircraft_propertyname" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Uçaktan bir property değeri döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Property adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>any</code></p>
+<hr />
+<h3 class="unverified-section" id="get_aircraft_property_or_nilname">get_aircraft_property_or_nil(name)<a class="headerlink" href="#get_aircraft_property_or_nilname" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Aircraft property değerini döndürür; yoksa <code>nil</code> döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Property adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>any</code></p>
+<hr />
+<h3 id="get_aircraft_type">get_aircraft_type()<a class="headerlink" href="#get_aircraft_type" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Mevcut uçağın tipini döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>string</code></p>
+<hr />
+<h3 id="get_base_data">get_base_data()<a class="headerlink" href="#get_base_data" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Uçağın temel sensör verilerini döndürür.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TODO base data'yı yararlı bir yere ekle.</p>
+</div>
+<p><strong>Dönüş</strong>
+<code>BaseData</code></p>
+<hr />
+<h3 id="get_clickable_element_referencepoint_name">get_clickable_element_reference(point_name)<a class="headerlink" href="#get_clickable_element_referencepoint_name" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Clickable element için referans tablo döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>point_name</code></td>
+<td><code>string</code></td>
+<td>Clickable element point adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - Fonksiyonlar: <code>set_hint</code>, <code>update</code>, <code>hide</code></p>
+<hr />
+<h3 id="get_cockpit_draw_argument_valuearg">get_cockpit_draw_argument_value(arg)<a class="headerlink" href="#get_cockpit_draw_argument_valuearg" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Cockpit draw argument değerini döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arg</code></td>
+<td><code>number</code></td>
+<td>Argument indeksi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>number</code></p>
+<hr />
+<h3 id="get_dcs_plugin_pathname">get_dcs_plugin_path(name)<a class="headerlink" href="#get_dcs_plugin_pathname" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir DCS plugin'inin tam yolunu döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Plugin adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>string</code> - Dosya yolu</p>
+<hr />
+<h3 class="unverified-section" id="get_input_devices">get_input_devices()<a class="headerlink" href="#get_input_devices" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 id="get_mission_route">get_mission_route()<a class="headerlink" href="#get_mission_route" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Mission editor içinde uçak için programlanan flight plan'i döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>table</code> - Waypoint tablosu olarak rota</p>
+<hr />
+<h3 id="get_model_time">get_model_time()<a class="headerlink" href="#get_model_time" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Görev başladığından beri geçen zamanı saniye cinsinden döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>number</code> - Saniye cinsinden zaman</p>
+<hr />
+<h3 class="unverified-section" id="get_multimonitor_preset_name">get_multimonitor_preset_name()<a class="headerlink" href="#get_multimonitor_preset_name" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Aktif multi-monitor preset adını döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>string</code> - Preset adı</p>
+<hr />
+<h3 class="unverified-section" id="get_non_sim_random_evenly">get_non_sim_random_evenly()<a class="headerlink" href="#get_non_sim_random_evenly" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 class="unverified-section" id="get_option_valueoption-env">get_option_value(option, env)<a class="headerlink" href="#get_option_valueoption-env" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Belirli bir DCS option değerini döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>option</code></td>
+<td><code>string</code></td>
+<td>Option adı (örn. <code>difficulty.hideStick</code>)</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td><code>string</code></td>
+<td>Ortam (örn. <code>local</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>any</code></p>
+<hr />
+<h3 id="get_param_handleparam">get_param_handle(param)<a class="headerlink" href="#get_param_handleparam" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Parametre handle'ı döndürür. Animasyonlar, göstergeler ve EFM Lua binding'leri gibi sistemler arasında paylaşılan durumu ayarlamak veya okumak için yararlıdır.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>param</code></td>
+<td><code>string</code></td>
+<td>Parametre adı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>ParamHandle</code></p>
+<hr />
+<h3 id="get_player_crew_index">get_player_crew_index()<a class="headerlink" href="#get_player_crew_index" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Oyuncunun oturduğu koltuğu almak için yöntem.</p>
+<p><strong>Dönüş</strong>
+<code>int</code> - Oyuncu koltuğunun indeksi</p>
+<hr />
+<h3 class="unverified-section" id="get_plugin_option">get_plugin_option()<a class="headerlink" href="#get_plugin_option" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 class="unverified-section" id="get_plugin_option_valueplugin-option-env">get_plugin_option_value(plugin, option, env)<a class="headerlink" href="#get_plugin_option_valueplugin-option-env" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Plugin'e özel option değerini döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin</code></td>
+<td><code>string</code></td>
+<td>Plugin adı</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td><code>string</code></td>
+<td>Option adı</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td><code>string</code></td>
+<td>Ortam (örn. <code>local</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>any</code></p>
+<hr />
+<h3 class="unverified-section" id="get_random_evenly">get_random_evenly()<a class="headerlink" href="#get_random_evenly" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 class="unverified-section" id="get_random_orderly">get_random_orderly()<a class="headerlink" href="#get_random_orderly" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 id="get_terrain_related_datafile">get_terrain_related_data(file)<a class="headerlink" href="#get_terrain_related_datafile" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Beacon'lar, chart'lar veya airfield'lar gibi terrain ile ilgili verileri döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td><code>string</code></td>
+<td>Terrain veri dosyasının adı (örn. <code>beacons</code>, <code>Airdromes</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - <code>display_name</code>, <code>radio</code> vb. içeren terrain verisi</p>
+<hr />
+<h3 class="unverified-section" id="get_uimainview">get_UIMainView()<a class="headerlink" href="#get_uimainview" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Ana UI view'u tanımlayan parametreleri döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>number, number, number, number, number</code> - <code>start_x</code>, <code>start_y</code>, <code>main_w</code>, <code>main_h</code>, <code>gui_scale</code></p>
+<hr />
+<h3 class="unverified-section" id="get_viewports">get_Viewports()<a class="headerlink" href="#get_viewports" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Mevcut tüm viewport'ları döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>table</code> - Viewport tanımları</p>
+<hr />
+<h3 class="unverified-section" id="list_cockpit_params">list_cockpit_params()<a class="headerlink" href="#list_cockpit_params" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Mevcut tüm kokpit parametrelerinin tablosunu döndürür.</p>
+<p><strong>Dönüş</strong>
+<code>table</code> - Cockpit parametre handle'ları</p>
+<hr />
+<h3 class="unverified-section" id="list_indicationindicator_id">list_indication(indicator_id)<a class="headerlink" href="#list_indicationindicator_id" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Belirtilen kokpit elemanının mevcut indication string'ini döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indicator_id</code></td>
+<td><code>number</code></td>
+<td>Indicator ID'si</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>string</code> - Indication metni</p>
+<hr />
+<h3 id="lo_to_geo_coordspos">lo_to_geo_coords(pos)<a class="headerlink" href="#lo_to_geo_coordspos" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Lokal position vector'ünü coğrafi enlem ve boylama dönüştürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pos</code></td>
+<td><code>vec3</code></td>
+<td>Lokal koordinatlar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>number, number</code> - Enlem, Boylam</p>
+<hr />
+<h3 class="unverified-section" id="load_mission_filefile">load_mission_file(file)<a class="headerlink" href="#load_mission_filefile" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir Lua mission dosyasını yükler ve çalıştırılabilir function chunk olarak döndürür.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td><code>string</code></td>
+<td>Dosya yolu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>function</code> - Derlenmiş chunk</p>
+<hr />
+<h3 id="makefontfont_data-rgba">MakeFont(font_data, rgba)<a class="headerlink" href="#makefontfont_data-rgba" title="Permanent link">#</a></h3>
+<p>TODO vfs mount dahil örnek ekle.</p>
+<p><strong>Açıklama</strong>
+Render için DX-compatible font nesnesi oluşturur.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>font_data</code></td>
+<td><code>table</code></td>
+<td>Font tanımlayıcısı (örn. <code>font_dejavu_lgc_sans_22</code>)</td>
+</tr>
+<tr>
+<td><code>rgba</code></td>
+<td><code>table</code></td>
+<td>RGBA renk (örn. <code>{0, 255, 0, 255}</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - Font nesnesi</p>
+<hr />
+<h3 id="makematerialtexture_path-rgba">MakeMaterial(texture_path, rgba)<a class="headerlink" href="#makematerialtexture_path-rgba" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Belirtilen texture ve renk ile materyal oluşturur.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>texture_path</code></td>
+<td><code>string</code></td>
+<td>Texture yolu (örn. <code>.dds</code>)</td>
+</tr>
+<tr>
+<td><code>rgba</code></td>
+<td><code>table</code></td>
+<td>RGBA renk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>table</code> - Materyal nesnesi</p>
+<hr />
+<h3 id="mount_vfs_model_pathpath">mount_vfs_model_path(path)<a class="headerlink" href="#mount_vfs_model_pathpath" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir model klasörü yolunu virtual file system'e mount eder.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code></td>
+<td>Mount edilecek yol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 class="unverified-section" id="mount_vfs_path_to_mount_pointmount_point-path">mount_vfs_path_to_mount_point(mount_point, path)<a class="headerlink" href="#mount_vfs_path_to_mount_pointmount_point-path" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir yolu VFS içinde belirtilen mount point'e mount eder.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mount_point</code></td>
+<td><code>string</code></td>
+<td>Hedef VFS mount point yolu</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code></td>
+<td>Gerçek dosya sistemi yolu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 id="mount_vfs_texture_archivespath">mount_vfs_texture_archives(path)<a class="headerlink" href="#mount_vfs_texture_archivespath" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir texture archive klasörünü VFS içine mount eder.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code></td>
+<td>Archive klasörü yolu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 id="mount_vfs_texture_pathpath">mount_vfs_texture_path(path)<a class="headerlink" href="#mount_vfs_texture_pathpath" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir texture yolunu VFS içine mount eder.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code></td>
+<td>Texture klasörü yolu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 id="print_message_to_usertext">print_message_to_user(text)<a class="headerlink" href="#print_message_to_usertext" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Oyuncuya ekranda mesaj gösterir.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>Gösterilecek metin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 class="unverified-section" id="save_to_missionfile-content">save_to_mission(file, content)<a class="headerlink" href="#save_to_missionfile-content" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+String içeriği bir mission dosya yoluna yazar.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td><code>string</code></td>
+<td>Mission dosya yolu</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>string</code></td>
+<td>Yazılacak içerik</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 id="set_aircraft_draw_argument_valueargument-value">set_aircraft_draw_argument_value(argument, value)<a class="headerlink" href="#set_aircraft_draw_argument_valueargument-value" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Animasyonlar için bir aircraft draw argument değerini ayarlar (External Model).</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>argument</code></td>
+<td><code>number</code></td>
+<td>Argument indeksi</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td><code>number</code></td>
+<td>Ayarlanacak değer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 class="unverified-section" id="set_crew_member_seat_adjustment">set_crew_member_seat_adjustment()<a class="headerlink" href="#set_crew_member_seat_adjustment" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 id="show_param_handles_listenable">show_param_handles_list(enable)<a class="headerlink" href="#show_param_handles_listenable" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Param handle listesinin gösterimini açar veya kapatır.</p>
+<p><strong>Parametreler</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ad</th>
+<th>Tip</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable</code></td>
+<td><code>boolean</code></td>
+<td>Göstermek için <code>true</code>, gizlemek için <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dönüş</strong>
+<code>nil</code></p>
+<hr />
+<h3 class="unverified-section" id="switch_labels_off">switch_labels_off()<a class="headerlink" href="#switch_labels_off" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 class="unverified-section" id="track_is_reading">track_is_reading()<a class="headerlink" href="#track_is_reading" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir replay track'in şu anda oynatılıp oynatılmadığını kontrol eder.</p>
+<p><strong>Dönüş</strong>
+<code>boolean</code></p>
+<hr />
+<h3 class="unverified-section" id="track_is_writing">track_is_writing()<a class="headerlink" href="#track_is_writing" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+Bir replay track'in şu anda kaydedilip kaydedilmediğini kontrol eder.</p>
+<p><strong>Dönüş</strong>
+<code>boolean</code></p>
+<hr />
+<h3 class="unverified-section" id="utf8_strlen">UTF8_strlen()<a class="headerlink" href="#utf8_strlen" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h3 class="unverified-section" id="utf8_substring">UTF8_substring()<a class="headerlink" href="#utf8_substring" title="Permanent link">#</a></h3>
+<p><strong>Açıklama</strong>
+???</p>
+<p><strong>Dönüş</strong>
+<code>???</code></p>
+<hr />
+<h2 id="basedata">BaseData<a class="headerlink" href="#basedata" title="Permanent link">#</a></h2>
+<p><strong>Açıklama</strong>
+<code>get_base_data()</code> tarafından döndürülen device base data yapısıdır. Bu nesne çeşitli uçak durum parametrelerine erişim sağlar.
+Dönen tüm değerler metrik standart birimlerdedir.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fonksiyon listesi tamamdır; ancak hepsinin dokümantasyonu yok. Yine de ne yaptıkları çoğunlukla kolayca anlaşılabilir.</p>
+</div>
+<hr />
+<h3 id="metotlar">Metotlar<a class="headerlink" href="#metotlar" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metot</th>
+<th>Dönüş</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getAngleOfAttack()</code></td>
+<td><code>number</code></td>
+<td>Mevcut angle of attack değerini alır.</td>
+</tr>
+<tr>
+<td><code>getAngleOfSlide()</code></td>
+<td><code>number</code></td>
+<td>Mevcut angle of slide değerini alır.</td>
+</tr>
+<tr>
+<td><code>getBarometricAltitude()</code></td>
+<td><code>number</code></td>
+<td>Barometrik irtifa (metre).</td>
+</tr>
+<tr>
+<td><code>getCanopyPos()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getCanopyState()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getEngineLeftFuelConsumption()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getEngineLeftRPM()</code></td>
+<td><code>number</code></td>
+<td>Sol motor RPM yüzdesi.</td>
+</tr>
+<tr>
+<td><code>getEngineLeftTemperatureBeforeTurbine()</code></td>
+<td><code>number</code></td>
+<td>Sol motor türbin öncesi sıcaklık.</td>
+</tr>
+<tr>
+<td><code>getEngineRightFuelConsumption()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getEngineRightRPM()</code></td>
+<td><code>number</code></td>
+<td>Sağ motor RPM yüzdesi.</td>
+</tr>
+<tr>
+<td><code>getEngineRightTemperatureBeforeTurbine()</code></td>
+<td><code>number</code></td>
+<td>Sağ motor türbin öncesi sıcaklık.</td>
+</tr>
+<tr>
+<td><code>getFlapsPos()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getFlapsRetracted()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getHeading()</code></td>
+<td><code>number</code></td>
+<td>Radyan cinsinden heading.</td>
+</tr>
+<tr>
+<td><code>getHelicopterCollective()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getHelicopterCorrection()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getHorizontalAcceleration()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getIndicatedAirSpeed()</code></td>
+<td><code>number</code></td>
+<td>Indicated airspeed (m/s).</td>
+</tr>
+<tr>
+<td><code>getLandingGearHandlePos()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getLateralAcceleration()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getLeftMainLandingGearDown()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getLeftMainLandingGearUp()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getMachNumber()</code></td>
+<td><code>number</code></td>
+<td>Mevcut Mach number.</td>
+</tr>
+<tr>
+<td><code>getMagneticHeading()</code></td>
+<td><code>number</code></td>
+<td>Radyan cinsinden magnetic heading.</td>
+</tr>
+<tr>
+<td><code>getNoseLandingGearDown()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getNoseLandingGearUp()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getPitch()</code></td>
+<td><code>number</code></td>
+<td>Radyan cinsinden pitch.</td>
+</tr>
+<tr>
+<td><code>getRadarAltitude()</code></td>
+<td><code>number</code></td>
+<td>Radar altitude (metre).</td>
+</tr>
+<tr>
+<td><code>getRateOfPitch()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getRateOfRoll()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getRateOfYaw()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getRightMainLandingGearDown()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getRightMainLandingGearUp()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getRoll()</code></td>
+<td><code>number</code></td>
+<td>Radyan cinsinden roll.</td>
+</tr>
+<tr>
+<td><code>getRudderPosition()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getSelfAirspeed()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getSelfCoordinates()</code></td>
+<td><code>unknown</code></td>
+<td><code>{x, y, z}</code> döndürür.</td>
+</tr>
+<tr>
+<td><code>getSelfVelocity()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getSpeedBrakePos()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getStickPitchPosition()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getStickRollPosition()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getThrottleLeftPosition()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getThrottleRightPosition()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getTotalFuelWeight()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getTrueAirSpeed()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getVerticalAcceleration()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getVerticalVelocity()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getWOW_LeftMainLandingGear()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getWOW_NoseLandingGear()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>getWOW_RightMainLandingGear()</code></td>
+<td><code>unknown</code></td>
+<td>???</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="notlar">Notlar<a class="headerlink" href="#notlar" title="Permanent link">#</a></h3>
+<ul>
+<li><code>unknown</code>, dönüş tipinin açıkça dokümante edilmediği veya daha fazla inceleme gerektirebileceği anlamına gelir.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../../js/locale-nav.js"></script>
+      
+    
+  </body>
+</html>

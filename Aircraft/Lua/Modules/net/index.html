@@ -1,0 +1,4098 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../sound/">
+      
+      
+        <link rel="next" href="../socket/">
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="en">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>net - DCS Modding Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#net-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-header__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCS Modding Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              net
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/tr/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-nav__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DCS Modding Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft Lua
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft Lua
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BasicPrinciples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stubs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stubs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/DeviceStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/MainPanelStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mainpanel Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/LockOnOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LockOn_Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    lfs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    os
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    io
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Weather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banlist_add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_add_by_ucid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_add_by_ucid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_ic_requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_ic_requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dostring_in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dostring_in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_player_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        force_player_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_chat_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_chat_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_default_server_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_default_server_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_my_player_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_my_player_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_player_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_player_info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_player_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_player_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_uptime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_uptime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_session_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_session_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_stat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_stat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hash_password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_loopback_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_loopback_address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_private_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_private_address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json2lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json2lua
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_next_mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_next_mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lua2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lua2json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_delete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_get_installed_theatres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_get_installed_theatres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_set_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_set_loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_set_shuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_set_shuffle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recv_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recv_chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        restart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot_del" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screenshot_del
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screenshot_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_chat_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_chat_to
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverinfo_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverinfo_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverinfo_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverinfo_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawn_player" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spawn_player
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop_network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minizip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minizip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avLuaDevice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avLuaDevice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avSimpleRadar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleRadar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Indicators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/NavDataPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NavDataPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/WeaponSystemPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WeaponSystemPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/LuaToolsPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LuaToolsPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft EFM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft EFM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/EFM_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EFM API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful Bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/Useful_bits/prop_blur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prop Blur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/wsTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wsTypes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/iCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/draw-args/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Args
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/ModelViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/CockpitSounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cockpit Sounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ED Blender Exporter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ED Blender Exporter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banlist_add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_add_by_ucid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_add_by_ucid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banlist_remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        banlist_remove
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_ic_requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_ic_requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dostring_in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dostring_in
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force_player_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        force_player_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_chat_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_chat_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_default_server_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_default_server_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_my_player_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_my_player_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_player_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_player_info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_player_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_player_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_server_uptime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_server_uptime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_session_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_session_history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_stat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_stat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hash_password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_loopback_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_loopback_address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_private_address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_private_address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json2lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json2lua
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        kick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_next_mission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        load_next_mission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lua2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lua2json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_delete
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_get_installed_theatres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_get_installed_theatres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_set_loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_set_loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missionlist_set_shuffle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        missionlist_set_shuffle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recv_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recv_chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        restart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot_del" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screenshot_del
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screenshot_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_chat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_chat_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_chat_to
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send_rpc_result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_rpc_result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverinfo_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverinfo_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverinfo_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverinfo_request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverlist_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serverlist_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawn_player" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spawn_player
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop_game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_game
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop_network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="net-module">net Module<a class="headerlink" href="#net-module" title="Permanent link">#</a></h1>
+<p>Network and multiplayer helpers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See also <code>DCS World\API\DCS_ControlAPI.md</code>.</p>
+</div>
+<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CHAT_ALL</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>CHAT_TEAM</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_BAD_CALLSIGN</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_BANNED</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_CONNECT_FAILED</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_DENIED_TRIAL_ONLY</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_INVALID_ADDRESS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_INVALID_PASSWORD</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_KICKED</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_NOT_ALLOWED</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_PROTOCOL_ERROR</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_REFUSED</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_SERVER_FULL</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_TAINTED_CLIENT</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_THATS_OKAY</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_TIMEOUT</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>ERR_WRONG_VERSION</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>GAME_MODE_CONQUEST</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>GAME_MODE_LAST_MAN_STANDING</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>GAME_MODE_MISSION</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>GAME_MODE_TEAM_DEATH_MATCH</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_CAR</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_CRASH</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EJECT</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ALLY_AAA</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ALLY_FIGHTERS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ALLY_SAM</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ALLY_TRANSPORTS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ALLY_TROOPS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ENEMY_AAA</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ENEMY_FIGHTERS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ENEMY_SAM</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ENEMY_TRANSPORTS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_EXTRA_ENEMY_TROOPS</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_LAND</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_PING</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_PLANE</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_SCORE</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>PS_SHIP</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>RESUME_MANUAL</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>RESUME_ON_LOAD</code></td>
+<td><code>number</code></td>
+</tr>
+<tr>
+<td><code>RESUME_WITH_CLIENTS</code></td>
+<td><code>number</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h2>
+<hr />
+<h3 class="unverified-section" id="banlist_add"><code>banlist_add</code><a class="headerlink" href="#banlist_add" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">banlist_add</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="banlist_add_by_ucid"><code>banlist_add_by_ucid</code><a class="headerlink" href="#banlist_add_by_ucid" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">banlist_add_by_ucid</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="banlist_get"><code>banlist_get</code><a class="headerlink" href="#banlist_get" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">banlist_get</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="banlist_remove"><code>banlist_remove</code><a class="headerlink" href="#banlist_remove" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">banlist_remove</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="check_ic_requirements"><code>check_ic_requirements</code><a class="headerlink" href="#check_ic_requirements" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">check_ic_requirements</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="check_password"><code>check_password</code><a class="headerlink" href="#check_password" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">check_password</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="dostring_in"><code>dostring_in</code><a class="headerlink" href="#dostring_in" title="Permanent link">#</a></h3>
+<p>Executes a Lua string in a specified Lua environment within the game.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">dostring_in</span><span class="p">(</span><span class="nv">environment</span><span class="p">,</span><span class="w"> </span><span class="nv">code</span><span class="p">)</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>environment</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Environment, such as <code>config</code>, <code>mission</code>, or <code>export</code>.</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Lua code to execute.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 class="unverified-section" id="force_player_slot"><code>force_player_slot</code><a class="headerlink" href="#force_player_slot" title="Permanent link">#</a></h3>
+<p>Forces a player into a specified slot.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">force_player_slot</span><span class="p">(</span><span class="nv">playerID</span><span class="p">,</span><span class="w"> </span><span class="nv">sideId</span><span class="p">,</span><span class="w"> </span><span class="nv">slotId</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_chat_history"><code>get_chat_history</code><a class="headerlink" href="#get_chat_history" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_chat_history</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_default_server_settings"><code>get_default_server_settings</code><a class="headerlink" href="#get_default_server_settings" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_default_server_settings</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_my_player_id"><code>get_my_player_id</code><a class="headerlink" href="#get_my_player_id" title="Permanent link">#</a></h3>
+<p>Returns the local player ID. Returns <code>1</code> for the server.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">playerID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_my_player_id</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_name"><code>get_name</code><a class="headerlink" href="#get_name" title="Permanent link">#</a></h3>
+<p>Returns the name of a player.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_name</span><span class="p">(</span><span class="nv">playerID</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_player_info"><code>get_player_info</code><a class="headerlink" href="#get_player_info" title="Permanent link">#</a></h3>
+<p>Returns player attributes, or a specific attribute if provided.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_player_info</span><span class="p">(</span><span class="nv">playerID</span><span class="p">,</span><span class="w"> </span><span class="nv">attribute</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_player_list"><code>get_player_list</code><a class="headerlink" href="#get_player_list" title="Permanent link">#</a></h3>
+<p>Returns a list of players currently connected to the server.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">players</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_player_list</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_server_host"><code>get_server_host</code><a class="headerlink" href="#get_server_host" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_server_host</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_server_id"><code>get_server_id</code><a class="headerlink" href="#get_server_id" title="Permanent link">#</a></h3>
+<p>Returns the player ID of the server. Currently always <code>1</code>.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">serverID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_server_id</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_server_settings"><code>get_server_settings</code><a class="headerlink" href="#get_server_settings" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_server_settings</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_server_uptime"><code>get_server_uptime</code><a class="headerlink" href="#get_server_uptime" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_server_uptime</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_session_history"><code>get_session_history</code><a class="headerlink" href="#get_session_history" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">get_session_history</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_slot"><code>get_slot</code><a class="headerlink" href="#get_slot" title="Permanent link">#</a></h3>
+<p>Returns the side ID and slot ID of a player.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">sideId</span><span class="p">,</span><span class="w"> </span><span class="nv">slotId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_slot</span><span class="p">(</span><span class="nv">playerID</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="get_stat"><code>get_stat</code><a class="headerlink" href="#get_stat" title="Permanent link">#</a></h3>
+<p>Returns a specific statistic from a player.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">stat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">get_stat</span><span class="p">(</span><span class="nv">playerID</span><span class="p">,</span><span class="w"> </span><span class="nv">statID</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="hash_password"><code>hash_password</code><a class="headerlink" href="#hash_password" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">hash_password</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="is_loopback_address"><code>is_loopback_address</code><a class="headerlink" href="#is_loopback_address" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">is_loopback_address</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="is_private_address"><code>is_private_address</code><a class="headerlink" href="#is_private_address" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">is_private_address</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="json2lua"><code>json2lua</code><a class="headerlink" href="#json2lua" title="Permanent link">#</a></h3>
+<p>Converts a JSON string to a Lua value.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">json2lua</span><span class="p">(</span><span class="nv">json</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="kick"><code>kick</code><a class="headerlink" href="#kick" title="Permanent link">#</a></h3>
+<p>Kicks a player from the server with an optional message.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">kick</span><span class="p">(</span><span class="nv">playerId</span><span class="p">,</span><span class="w"> </span><span class="nv">message</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="load_mission"><code>load_mission</code><a class="headerlink" href="#load_mission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">load_mission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="load_next_mission"><code>load_next_mission</code><a class="headerlink" href="#load_next_mission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">load_next_mission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="log"><code>log</code><a class="headerlink" href="#log" title="Permanent link">#</a></h3>
+<p>Writes an <code>INFO</code> entry to the DCS log file.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nv">message</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="lua2json"><code>lua2json</code><a class="headerlink" href="#lua2json" title="Permanent link">#</a></h3>
+<p>Converts a Lua value to a JSON string.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">net</span><span class="p">.</span><span class="nf">lua2json</span><span class="p">(</span><span class="nv">lua</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_append"><code>missionlist_append</code><a class="headerlink" href="#missionlist_append" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_append</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_clear"><code>missionlist_clear</code><a class="headerlink" href="#missionlist_clear" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_clear</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_delete"><code>missionlist_delete</code><a class="headerlink" href="#missionlist_delete" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_delete</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_get"><code>missionlist_get</code><a class="headerlink" href="#missionlist_get" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_get</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_get_installed_theatres"><code>missionlist_get_installed_theatres</code><a class="headerlink" href="#missionlist_get_installed_theatres" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_get_installed_theatres</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_move"><code>missionlist_move</code><a class="headerlink" href="#missionlist_move" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_move</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_run"><code>missionlist_run</code><a class="headerlink" href="#missionlist_run" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_run</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_set_loop"><code>missionlist_set_loop</code><a class="headerlink" href="#missionlist_set_loop" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_set_loop</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="missionlist_set_shuffle"><code>missionlist_set_shuffle</code><a class="headerlink" href="#missionlist_set_shuffle" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">missionlist_set_shuffle</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="recv_chat"><code>recv_chat</code><a class="headerlink" href="#recv_chat" title="Permanent link">#</a></h3>
+<p>Functionality unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">recv_chat</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="restart"><code>restart</code><a class="headerlink" href="#restart" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">restart</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="screenshot_del"><code>screenshot_del</code><a class="headerlink" href="#screenshot_del" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">screenshot_del</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="screenshot_request"><code>screenshot_request</code><a class="headerlink" href="#screenshot_request" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">screenshot_request</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="send_chat"><code>send_chat</code><a class="headerlink" href="#send_chat" title="Permanent link">#</a></h3>
+<p>Sends a chat message to all players if <code>all</code> is <code>true</code>, or to the team otherwise.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">send_chat</span><span class="p">(</span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">all</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="send_chat_to"><code>send_chat_to</code><a class="headerlink" href="#send_chat_to" title="Permanent link">#</a></h3>
+<p>Sends a chat message to a specific player, optionally appearing from another player.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">send_chat_to</span><span class="p">(</span><span class="nv">message</span><span class="p">,</span><span class="w"> </span><span class="nv">playerId</span><span class="p">,</span><span class="w"> </span><span class="nv">fromId</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="send_rpc_error"><code>send_rpc_error</code><a class="headerlink" href="#send_rpc_error" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">send_rpc_error</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="send_rpc_request"><code>send_rpc_request</code><a class="headerlink" href="#send_rpc_request" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">send_rpc_request</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="send_rpc_result"><code>send_rpc_result</code><a class="headerlink" href="#send_rpc_result" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">send_rpc_result</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="serverinfo_get"><code>serverinfo_get</code><a class="headerlink" href="#serverinfo_get" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">serverinfo_get</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="serverinfo_request"><code>serverinfo_request</code><a class="headerlink" href="#serverinfo_request" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">serverinfo_request</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="serverlist_get"><code>serverlist_get</code><a class="headerlink" href="#serverlist_get" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">serverlist_get</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="serverlist_reset"><code>serverlist_reset</code><a class="headerlink" href="#serverlist_reset" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">serverlist_reset</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="serverlist_search"><code>serverlist_search</code><a class="headerlink" href="#serverlist_search" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">serverlist_search</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="set_name"><code>set_name</code><a class="headerlink" href="#set_name" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">set_name</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="set_slot"><code>set_slot</code><a class="headerlink" href="#set_slot" title="Permanent link">#</a></h3>
+<p>Functionality unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">set_slot</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="spawn_player"><code>spawn_player</code><a class="headerlink" href="#spawn_player" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">spawn_player</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="start_client"><code>start_client</code><a class="headerlink" href="#start_client" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">start_client</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="start_server"><code>start_server</code><a class="headerlink" href="#start_server" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">start_server</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="stop_game"><code>stop_game</code><a class="headerlink" href="#stop_game" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">stop_game</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="stop_network"><code>stop_network</code><a class="headerlink" href="#stop_network" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">stop_network</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="trace"><code>trace</code><a class="headerlink" href="#trace" title="Permanent link">#</a></h3>
+<p>Functionality unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nv">net</span><span class="p">.</span><span class="nf">trace</span><span class="p">(...)</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../js/locale-nav.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3599 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../db/">
+      
+      
+        <link rel="next" href="../Weather/">
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="en">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>dictionary - DCS Modding Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dictionary-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-header__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCS Modding Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              dictionary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/tr/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DCS Modding Documentation" class="md-nav__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DCS Modding Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft Lua
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft Lua
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BasicPrinciples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stubs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stubs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/DeviceStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/MainPanelStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mainpanel Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Stubs/LockOnOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LockOn_Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    lfs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    os
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    io
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dictionary
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addkeytodict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addKeyToDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addnewlang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addNewLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleardict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearresourceexceptdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearResourceExceptDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyfileinmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copyFileInMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copykeystonewdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CopyKeysToNewDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletelang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchangevalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exchangeValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractfirstdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        extractFirstDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractseconddir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        extractSecondDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finddir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        findDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fixDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixvaluetoresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fixValueToResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbriefingdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getBriefingData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcampaigndata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCampaignData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcopydictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCopyDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcurdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCurDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getfullpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getFullPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlangs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getLangs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmapresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMapResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaxdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMaxDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmissiondescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMissionDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnewdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getNewDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnewresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getNewResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcecounter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResourceCounter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvaluedict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvaluedictdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueDictDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalueresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalueresourcedefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueResourceDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intertfileintomission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        intertFileIntoMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#islang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issignedmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isSignedMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaddict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loadDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaddictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loadDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packmissionresources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        packMissionResources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removefilefrommission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeFileFromMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeresourceonlydict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeResourceOnlyDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resetdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resetDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resourceexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resourceExists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcurdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setCurDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaxdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setMaxDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetodict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetodictex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToDictEx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetoresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showwarningmessagebox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        showWarningMessageBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texttome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        textToME
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texttomis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        textToMis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unpackfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unpackFiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Weather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minizip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minizip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avLuaDevice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avLuaDevice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Devices/avSimpleRadar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleRadar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Indicators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Indicators/controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/NavDataPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NavDataPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/WeaponSystemPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WeaponSystemPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Plugins/LuaToolsPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LuaToolsPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft EFM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft EFM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/EFM_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EFM API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful Bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../EFM/Useful_bits/prop_blur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prop Blur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/wsTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wsTypes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/iCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Database/draw-args/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Args
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/ModelViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../UsefulBits/CockpitSounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cockpit Sounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ED Blender Exporter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ED Blender Exporter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/Lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EDM-Export/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addkeytodict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addKeyToDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addnewlang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addNewLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleardict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearresourceexceptdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clearResourceExceptDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copyfileinmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copyFileInMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copykeystonewdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CopyKeysToNewDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletelang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exchangevalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exchangeValue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractfirstdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        extractFirstDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractseconddir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        extractSecondDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finddir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        findDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fixDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixvaluetoresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fixValueToResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbriefingdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getBriefingData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcampaigndata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCampaignData
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcopydictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCopyDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcurdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCurDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getfullpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getFullPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlangs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getLangs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmapresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMapResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmaxdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMaxDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmissiondescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getMissionDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnewdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getNewDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getnewresourceid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getNewResourceId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getresourcecounter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getResourceCounter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvaluedict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvaluedictdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueDictDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalueresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalueresourcedefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getValueResourceDEFAULT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intertfileintomission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        intertFileIntoMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#islang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isLang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issignedmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isSignedMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaddict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loadDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loaddictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        loadDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packmissionresources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        packMissionResources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removefilefrommission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeFileFromMission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeresourceonlydict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        removeResourceOnlyDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resetdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resetDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resourceexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resourceExists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcurdictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setCurDictionary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setmaxdictid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setMaxDictId
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetodict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToDict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetodictex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToDictEx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvaluetoresource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setValueToResource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showwarningmessagebox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        showWarningMessageBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texttome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        textToME
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texttomis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        textToMis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unpackfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unpackFiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dictionary-module">dictionary Module<a class="headerlink" href="#dictionary-module" title="Permanent link">#</a></h1>
+<p>Mission dictionary and resource helpers.</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h2>
+<hr />
+<h3 class="unverified-section" id="addkeytodict"><code>addKeyToDict</code><a class="headerlink" href="#addkeytodict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">addKeyToDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="addnewlang"><code>addNewLang</code><a class="headerlink" href="#addnewlang" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">addNewLang</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="cleardict"><code>clearDict</code><a class="headerlink" href="#cleardict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">clearDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="clearresourceexceptdefault"><code>clearResourceExceptDEFAULT</code><a class="headerlink" href="#clearresourceexceptdefault" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">clearResourceExceptDEFAULT</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="copyfileinmission"><code>copyFileInMission</code><a class="headerlink" href="#copyfileinmission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">copyFileInMission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="copykeystonewdict"><code>CopyKeysToNewDict</code><a class="headerlink" href="#copykeystonewdict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">CopyKeysToNewDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="deletelang"><code>deleteLang</code><a class="headerlink" href="#deletelang" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">deleteLang</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="exchangevalue"><code>exchangeValue</code><a class="headerlink" href="#exchangevalue" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">exchangeValue</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="extractfirstdir"><code>extractFirstDir</code><a class="headerlink" href="#extractfirstdir" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">extractFirstDir</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="extractseconddir"><code>extractSecondDir</code><a class="headerlink" href="#extractseconddir" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">extractSecondDir</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="finddir"><code>findDir</code><a class="headerlink" href="#finddir" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">findDir</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="fixdict"><code>fixDict</code><a class="headerlink" href="#fixdict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">fixDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="fixvaluetoresource"><code>fixValueToResource</code><a class="headerlink" href="#fixvaluetoresource" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">fixValueToResource</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getbriefingdata"><code>getBriefingData</code><a class="headerlink" href="#getbriefingdata" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getBriefingData</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getcampaigndata"><code>getCampaignData</code><a class="headerlink" href="#getcampaigndata" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getCampaignData</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getcopydictionary"><code>getCopyDictionary</code><a class="headerlink" href="#getcopydictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getCopyDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getcurdictionary"><code>getCurDictionary</code><a class="headerlink" href="#getcurdictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getCurDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getdictionary"><code>getDictionary</code><a class="headerlink" href="#getdictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getfullpath"><code>getFullPath</code><a class="headerlink" href="#getfullpath" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getFullPath</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getlangs"><code>getLangs</code><a class="headerlink" href="#getlangs" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getLangs</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getmapresource"><code>getMapResource</code><a class="headerlink" href="#getmapresource" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getMapResource</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getmaxdictid"><code>getMaxDictId</code><a class="headerlink" href="#getmaxdictid" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getMaxDictId</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getmissiondescription"><code>getMissionDescription</code><a class="headerlink" href="#getmissiondescription" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getMissionDescription</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getnewdictid"><code>getNewDictId</code><a class="headerlink" href="#getnewdictid" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getNewDictId</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getnewresourceid"><code>getNewResourceId</code><a class="headerlink" href="#getnewresourceid" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getNewResourceId</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getresourcecounter"><code>getResourceCounter</code><a class="headerlink" href="#getresourcecounter" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getResourceCounter</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getvaluedict"><code>getValueDict</code><a class="headerlink" href="#getvaluedict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getValueDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getvaluedictdefault"><code>getValueDictDEFAULT</code><a class="headerlink" href="#getvaluedictdefault" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getValueDictDEFAULT</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getvalueresource"><code>getValueResource</code><a class="headerlink" href="#getvalueresource" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getValueResource</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="getvalueresourcedefault"><code>getValueResourceDEFAULT</code><a class="headerlink" href="#getvalueresourcedefault" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">getValueResourceDEFAULT</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="intertfileintomission"><code>intertFileIntoMission</code><a class="headerlink" href="#intertfileintomission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">intertFileIntoMission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="islang"><code>isLang</code><a class="headerlink" href="#islang" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">isLang</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="issignedmission"><code>isSignedMission</code><a class="headerlink" href="#issignedmission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">isSignedMission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="loaddict"><code>loadDict</code><a class="headerlink" href="#loaddict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">loadDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="loaddictionary"><code>loadDictionary</code><a class="headerlink" href="#loaddictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">loadDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="packmissionresources"><code>packMissionResources</code><a class="headerlink" href="#packmissionresources" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">packMissionResources</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="removefilefrommission"><code>removeFileFromMission</code><a class="headerlink" href="#removefilefrommission" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">removeFileFromMission</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="removekey"><code>removeKey</code><a class="headerlink" href="#removekey" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">removeKey</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="removeresource"><code>removeResource</code><a class="headerlink" href="#removeresource" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">removeResource</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="removeresourceonlydict"><code>removeResourceOnlyDict</code><a class="headerlink" href="#removeresourceonlydict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">removeResourceOnlyDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="resetdictionary"><code>resetDictionary</code><a class="headerlink" href="#resetdictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">resetDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="resourceexists"><code>resourceExists</code><a class="headerlink" href="#resourceexists" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">resourceExists</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="setcurdictionary"><code>setCurDictionary</code><a class="headerlink" href="#setcurdictionary" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">setCurDictionary</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="setmaxdictid"><code>setMaxDictId</code><a class="headerlink" href="#setmaxdictid" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">setMaxDictId</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="setvaluetodict"><code>setValueToDict</code><a class="headerlink" href="#setvaluetodict" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">setValueToDict</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="setvaluetodictex"><code>setValueToDictEx</code><a class="headerlink" href="#setvaluetodictex" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">setValueToDictEx</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="setvaluetoresource"><code>setValueToResource</code><a class="headerlink" href="#setvaluetoresource" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">setValueToResource</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="showwarningmessagebox"><code>showWarningMessageBox</code><a class="headerlink" href="#showwarningmessagebox" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">showWarningMessageBox</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="texttome"><code>textToME</code><a class="headerlink" href="#texttome" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">textToME</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="texttomis"><code>textToMis</code><a class="headerlink" href="#texttomis" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">textToMis</span><span class="p">(...)</span>
+</span></code></pre></div>
+<hr />
+<h3 class="unverified-section" id="unpackfiles"><code>unpackFiles</code><a class="headerlink" href="#unpackfiles" title="Permanent link">#</a></h3>
+<p>Unknown.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nv">dictionary</span><span class="p">.</span><span class="nf">unpackFiles</span><span class="p">(...)</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../js/locale-nav.js"></script>
+      
+    
+  </body>
+</html>

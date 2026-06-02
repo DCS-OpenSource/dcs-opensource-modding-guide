@@ -1,0 +1,2628 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="en">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>avSimpleRadar - DCS Modding Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#avsimpleradar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="DCS Modding Documentation" class="md-header__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCS Modding Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              avSimpleRadar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/tr/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="DCS Modding Documentation" class="md-nav__button md-logo" aria-label="DCS Modding Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DCS Modding Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft Lua
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft Lua
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/BasicPrinciples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Principles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stubs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stubs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/DeviceStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Device Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/MainPanelStubs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mainpanel Stubs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Stubs/LockOnOptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LockOn_Options
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/Terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    lfs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    os
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    io
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/db/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    db
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/Weather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weather
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/sound/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sound
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/net/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    net
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/socket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    socket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Modules/minizip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minizip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avLuaDevice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avLuaDevice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avSimpleWeaponSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleWeaponSystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Devices/avSimpleRadar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    avSimpleRadar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Indicators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Indicators/drawing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drawing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Indicators/controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controllers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/NavDataPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NavDataPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/WeaponSystemPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WeaponSystemPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/Lua/Plugins/LuaToolsPlugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LuaToolsPlugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aircraft EFM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aircraft EFM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/EFM/EFM_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EFM API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful Bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Aircraft/EFM/Useful_bits/prop_blur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prop Blur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/wsTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wsTypes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/iCommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iCommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Database/draw-args/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Draw Args
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful bits
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Useful bits
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../UsefulBits/ModelViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../UsefulBits/CockpitSounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cockpit Sounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ED Blender Exporter
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ED Blender Exporter
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Animations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/Lights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../EDM-Export/errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cihaz-yukleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cihazı Yükleme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radar-performans-baslatma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radar Performans Başlatma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-referans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Referansı
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Referansı">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_powervalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_power(value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onemli-notlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Önemli Notlar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametreler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parametreler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parametreler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radar_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        “RADAR_MODE”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_contact_xx_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_CONTACT_XX_..."
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_stt_azimuth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_STT_AZIMUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_stt_elevation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_STT_ELEVATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_stt_range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_STT_RANGE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_stt_friendly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_STT_FRIENDLY"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iff_interrogator_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "IFF_INTERROGATOR_STATUS"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_pitch_stabilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_PITCH_STABILIZATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_roll_stabilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_ROLL_STABILIZATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_pitch_bank_stabilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_PITCH_BANK_STABILIZATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan_zone_origin_elevation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "SCAN_ZONE_ORIGIN_ELEVATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan_zone_origin_azimuth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "SCAN_ZONE_ORIGIN_AZIMUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan_zone_volume_azimuth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "SCAN_ZONE_VOLUME_AZIMUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan_zone_volume_elevation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "SCAN_ZONE_VOLUME_ELEVATION"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_tdc_azimuth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_TDC_AZIMUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_tdc_range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_TDC_RANGE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radar_tdc_range_carret_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "RADAR_TDC_RANGE_CARRET_SIZE"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="avsimpleradar">avSimpleRadar<a class="headerlink" href="#avsimpleradar" title="Permanent link">#</a></h1>
+<p><code>avSimpleRadar</code>, Range While Scan (RWS) ve Single Target Track (STT) içeren temel bir radar sistemi sağlar. Track While Scan (TWS) bu cihazla kullanılamaz.</p>
+<p>RWS, birden fazla kontağı görebildiğiniz ancak hiçbirini takip etmediğiniz moddur. İstenen hedef kilitlendiğinde radar STT'ye geçer. STT modunda diğer tüm kontak verilerini kaybedersiniz; radar kilitli hedefi daha hızlı günceller ve silah sistemlerine veri sağlar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="../avLuaDevice/">avLuaDevice</a> içindeki <code>update()</code> veya <code>SetCommand()</code> gibi tüm standart fonksiyonlar avSimpleRadar içinde de kullanılabilir.</p>
+</div>
+<hr />
+<h2 id="cihaz-yukleme">Cihazı Yükleme<a class="headerlink" href="#cihaz-yukleme" title="Permanent link">#</a></h2>
+<p>Cihaz <code>device_init.lua</code> içinde normal şekilde yapılandırılmalıdır, ancak <code>"avLuaDevice"</code> yerine <code>"avSimpleRadar"</code> kullanılır.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">creators</span><span class="p">[</span><span class="nv">devices</span><span class="p">.</span><span class="py">RADAR_SYSTEM</span><span class="p">]</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;avSimpleRadar&quot;</span><span class="w">    </span><span class="p">,</span><span class="nv">LockOn_Options</span><span class="p">.</span><span class="py">script_path</span><span class="o">..</span><span class="s2">&quot;Systems/radar_system.lua&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Aşağıda listelenen fonksiyonlardan herhangi birini kullanmak için dosyanızın başına <code>local dev = GetSelf()</code> eklemelisiniz. Bu, avSimpleRadar içindeki dahili fonksiyonlara erişmenizi sağlar.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>avSimpleRadar, bir avSimpleElectricSystem cihazının da kullanılmasını ve ilgili AC generator'ların ve DC battery'nin bu cihaz içinde güç almasını gerektirir. Bu, DCS'in dahili bir gereksinimidir.</p>
+</div>
+<hr />
+<h2 id="radar-performans-baslatma">Radar Performans Başlatma<a class="headerlink" href="#radar-performans-baslatma" title="Permanent link">#</a></h2>
+<p>Bu bölüm bir fonksiyonun içine konmaz; init sırasında çağrılır ve radarın performansını tanımlar.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">perfomance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">roll_compensation_limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">math.rad</span><span class="p">(</span><span class="o">-</span><span class="mf">180.0</span><span class="p">),</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mf">180.0</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- limits for RADAR_BANK_STABILIZATION</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nv">pitch_compensation_limits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">math.rad</span><span class="p">(</span><span class="o">-</span><span class="mf">60.0</span><span class="p">),</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mf">60.0</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- limits for RADAR_PITCH_STABILIZATION (when pitch is outside these values the scan zone will stop staying level with horizon)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nv">tracking_azimuth</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">60</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- once locked, max azimuth to track</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nv">tracking_elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">10</span><span class="p">)},</span><span class="w"> </span><span class="c1">-- once locked, max elevation to track</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nv">scan_volume_azimuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span><span class="w"> </span><span class="c1">--is left+right so 120 deg is +-60 deg left/right</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nv">scan_volume_elevation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="c1">--limits search angle of radar +-5 up/down</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nv">scan_beam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="c1">-- height of scan beam, max should be scan_volume_elevation (if less then it will do passes at different elevations)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nv">max_available_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200000</span><span class="p">,</span><span class="c1">-- max distance (in Meters) for object with large (&gt;100m^2) radar cross section, for smaller RCS such as Su-27 the actual detection distance will be much less</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nv">scan_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.rad</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">60</span><span class="p">),</span><span class="w"> </span><span class="c1">-- unknown (doesn&#39;t affect debug scan beam)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nv">dead_zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="c1">-- unknown. doesn&#39;t seem to be distance between targets or distance from radar to target</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nv">ground_clutter</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="p">{</span><span class="c1">-- spot RCS = A + B * random + C * random </span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="nv">sea</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nv">land</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nv">artificial</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nv">rays_density</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nv">max_distance</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">*</span><span class="nv">NM_to_meter</span><span class="p">,</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="api-referans">API Referansı<a class="headerlink" href="#api-referans" title="Permanent link">#</a></h2>
+<p><code>avSimpleRadar</code> için kullanılabilir fonksiyonlar aşağıdadır:</p>
+<hr />
+<h3 id="set_powervalue">set_power(value)<a class="headerlink" href="#set_powervalue" title="Permanent link">#</a></h3>
+<p>Radarı açmak için kullanılır. Açık için <code>value</code> değerini TRUE, kapalı için FALSE yapın.</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">dev</span><span class="p">:</span><span class="nf">set_power</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Bunu uçağın radar güç anahtarıyla kullanmanız önerilir; bu, yayın yapmayı durdurma ve düşman RWR tarafından tespit edilmekten kaçınma olanağı sağlar.</p>
+<hr />
+<h2 id="onemli-notlar">Önemli Notlar<a class="headerlink" href="#onemli-notlar" title="Permanent link">#</a></h2>
+<p>avSimpleRadar, TDC ile hedef kilitlemek için şu iCommands değerlerini kullanır:</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">iCommandPlane_LockOn_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">509</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">iCommandPlane_LockOn_finish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">510</span>
+</span></code></pre></div>
+<p>Bunları input keybind'lerinde doğrudan kullanabilir veya cihaz içinde şöyle çağırabilirsiniz (komutu cihazda tanımlamayı unutmayın):</p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">iCommandPlane_LockOn_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">509</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nf">dispatch_action</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nv">iCommandPlane_LockOn_start</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="parametreler">Parametreler<a class="headerlink" href="#parametreler" title="Permanent link">#</a></h2>
+<p>Radarı kontrol etmek için aşağıdaki param handle'lar okunur ve yazılır.</p>
+<table>
+<thead>
+<tr>
+<th>Okunan Parametreler</th>
+<th>Yazılan Parametreler</th>
+<th>Bilinmeyen Parametreler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#radar_mode">RADAR_MODE</a></td>
+<td><a href="#iff_interrogator_status">IFF_INTERROGATOR_STATUS</a></td>
+<td>RADAR_BIT</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_azimuth">RADAR_STT_AZIMUTH</a></td>
+<td><a href="#radar_pitch_stabilization">RADAR_PITCH_STABILIZATION</a></td>
+<td>ACQUSITION_ZONE_VOLUME_AZIMUTH</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_elevation">RADAR_STT_ELEVATION</a></td>
+<td><a href="#radar_roll_stabilization">RADAR_ROLL_STABILIZATION</a></td>
+<td>SCAN_VOLUME_CUT_OFF_DISTANCE_MIN</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_range">RADAR_STT_RANGE</a></td>
+<td><a href="#radar_pitch_bank_stabilization">RADAR_PITCH_BANK_STABILIZATION</a></td>
+<td>CLOSEST_RANGE_RESPONSE</td>
+</tr>
+<tr>
+<td><a href="#radar_stt_friendly">RADAR_STT_FRIENDLY</a></td>
+<td><a href="#scan_zone_origin_azimuth">SCAN_ZONE_ORIGIN_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_ELEVATION</a></td>
+<td><a href="#scan_zone_origin_elevation">SCAN_ZONE_ORIGIN_ELEVATION</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_AZIMUTH</a></td>
+<td><a href="#scan_zone_volume_azimuth">SCAN_ZONE_VOLUME_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RANGE</a></td>
+<td><a href="#scan_zone_volume_elevation">SCAN_ZONE_VOLUME_ELEVATION</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_TIME</a></td>
+<td><a href="#radar_tdc_azimuth">RADAR_TDC_AZIMUTH</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_FRIENDLY</a></td>
+<td><a href="#radar_tdc_range">RADAR_TDC_RANGE</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RCS</a></td>
+<td><a href="#radar_tdc_range_carret_size">RADAR_TDC_RANGE_CARRET_SIZE</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VX</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VY</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_VZ</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_NOISE</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_RCS_COEFF</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#radar_contact_xx_">RADAR_CONTACT_XX_NCTR</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Şu formatta kullanın:</strong></p>
+<p><code>mode = get_param_handle("RADAR_MODE")</code></p>
+<p>Parametrelerle etkileşim hakkında daha fazla bilgi için <a href="../../BasicPrinciples/#param-handlelar">Param Handle'lar</a> bölümüne bakın.</p>
+<hr />
+<h3 id="radar_mode">“RADAR_MODE”<a class="headerlink" href="#radar_mode" title="Permanent link">#</a></h3>
+<p>Radarın mevcut modunu veren okuma parametresi.</p>
+<p>1: Arama</p>
+<p>2: Kilit denemesi</p>
+<p>3: STT kilidi</p>
+<hr />
+<h3 id="radar_contact_xx_">"RADAR_CONTACT_XX_..."<a class="headerlink" href="#radar_contact_xx_" title="Permanent link">#</a></h3>
+<p>Okuma parametreleridir; yalnızca radar mode 1 içinde kullanılabilir (temelde RWS).
+<code>XX</code> benzersiz kontak numarasıdır; ancak tek bir uçak birden fazla kontak üretebilir, çünkü kontak bir radar dönüşünün tek örneğidir.</p>
+<p><code>...ELEVATION</code>, <code>...AZIMUTH</code>, <code>...RANGE</code> kontak konumunu verir.</p>
+<p><code>...TIME</code>, radar dönüşünün bulunmasından bu yana geçen saniyeyi verir.</p>
+<p><code>...FRIENDLY</code>, IFF açıksa ve kontak dostsa 1 döndürür.</p>
+<p><code>...VX</code>, <code>...VY</code>, <code>...VZ</code> kontak hızını verir.</p>
+<p><code>...RCS_COEFF</code> kontağın RCS değerini verir.</p>
+<p><code>...NCTR</code> (Non-Cooperative Target Recognition) uçak tipini sağlar (örn. Su-27).</p>
+<p><code>...NOISE</code> bilinmiyor.</p>
+<hr />
+<h3 id="radar_stt_azimuth">"RADAR_STT_AZIMUTH"<a class="headerlink" href="#radar_stt_azimuth" title="Permanent link">#</a></h3>
+<p>Kilitli hedefin azimuth (yatay açı) değerini <strong>roll ile normalize edilmiş</strong> şekilde veren okuma parametresi. Bu, HUD içinde kullanımı çok kolaylaştırır. Yalnızca STT modunda kullanılabilir.</p>
+<hr />
+<h3 id="radar_stt_elevation">"RADAR_STT_ELEVATION"<a class="headerlink" href="#radar_stt_elevation" title="Permanent link">#</a></h3>
+<p>Kilitli hedefin elevation (radyan cinsinden dikey açı) değerini <strong>roll ile normalize edilmiş</strong> şekilde veren okuma parametresi. Bu, HUD içinde kullanımı çok kolaylaştırır. Yalnızca STT modunda kullanılabilir.</p>
+<hr />
+<h3 id="radar_stt_range">"RADAR_STT_RANGE"<a class="headerlink" href="#radar_stt_range" title="Permanent link">#</a></h3>
+<p>Kilitli hedefin menzilini metre cinsinden veren okuma parametresi. Yalnızca STT modunda kullanılabilir.</p>
+<hr />
+<h3 id="radar_stt_friendly">"RADAR_STT_FRIENDLY"<a class="headerlink" href="#radar_stt_friendly" title="Permanent link">#</a></h3>
+<p>Kilitli hedefin IFF durumunu veren okuma parametresi. Yalnızca STT modunda kullanılabilir.</p>
+<p>-1: IFF kapalı</p>
+<p>0: hedef düşman veya bilinmiyor</p>
+<p>1: hedef dost</p>
+<hr />
+<h3 id="iff_interrogator_status">"IFF_INTERROGATOR_STATUS"<a class="headerlink" href="#iff_interrogator_status" title="Permanent link">#</a></h3>
+<p>IFF'i kontrol eden yazma parametresi. IFF'i açmak için 1 yapın.</p>
+<hr />
+<h3 id="radar_pitch_stabilization">"RADAR_PITCH_STABILIZATION"<a class="headerlink" href="#radar_pitch_stabilization" title="Permanent link">#</a></h3>
+<p>Yazma parametresi; 1 yapıldığında pitch stabilization açılır. Açıkken uçak pitch yaptığında radarı ufka doğru tutar (<code>pitch_compensation_limits</code> değerleri içinde).</p>
+<hr />
+<h3 id="radar_roll_stabilization">"RADAR_ROLL_STABILIZATION"<a class="headerlink" href="#radar_roll_stabilization" title="Permanent link">#</a></h3>
+<p>Yazma parametresi; 1 yapıldığında roll stabilization açılır. Açıkken uçak roll yaptığında radarı ufka doğru tutar (<code>roll_compensation_limits</code> değerleri içinde).</p>
+<hr />
+<h3 id="radar_pitch_bank_stabilization">"RADAR_PITCH_BANK_STABILIZATION"<a class="headerlink" href="#radar_pitch_bank_stabilization" title="Permanent link">#</a></h3>
+<p>Yazma parametresi; 1 yapıldığında birleşik stabilizasyon açılır.</p>
+<hr />
+<h3 id="scan_zone_origin_elevation">"SCAN_ZONE_ORIGIN_ELEVATION"<a class="headerlink" href="#scan_zone_origin_elevation" title="Permanent link">#</a></h3>
+<p>Radar anteninin elevation origin değerini kontrol eden yazma parametresi.</p>
+<hr />
+<h3 id="scan_zone_origin_azimuth">"SCAN_ZONE_ORIGIN_AZIMUTH"<a class="headerlink" href="#scan_zone_origin_azimuth" title="Permanent link">#</a></h3>
+<p>Radar anteninin azimuth origin değerini kontrol eden yazma parametresi.</p>
+<hr />
+<h3 id="scan_zone_volume_azimuth">"SCAN_ZONE_VOLUME_AZIMUTH"<a class="headerlink" href="#scan_zone_volume_azimuth" title="Permanent link">#</a></h3>
+<p>Toplam scan genişliğini kontrol eden yazma parametresi (scan genişlikleri değiştirilebilir; ör. 120 derece, 80 derece, 60 derece).</p>
+<hr />
+<h3 id="scan_zone_volume_elevation">"SCAN_ZONE_VOLUME_ELEVATION"<a class="headerlink" href="#scan_zone_volume_elevation" title="Permanent link">#</a></h3>
+<p>Toplam scan elevation değerini kontrol eden yazma parametresi. Bunu <code>scan_beam</code> değerinden yüksek ayarlamak, istenen scan alanını tamamlamak için scan beam'in birden fazla sweep yapmasını gerektirir.</p>
+<hr />
+<h3 id="radar_tdc_azimuth">"RADAR_TDC_AZIMUTH"<a class="headerlink" href="#radar_tdc_azimuth" title="Permanent link">#</a></h3>
+<p>TDC konumunu azimuth üzerinde kontrol eden yazma parametresi.</p>
+<hr />
+<h3 id="radar_tdc_range">"RADAR_TDC_RANGE"<a class="headerlink" href="#radar_tdc_range" title="Permanent link">#</a></h3>
+<p>TDC menzilini kontrol eden yazma parametresi.</p>
+<hr />
+<h3 id="radar_tdc_range_carret_size">"RADAR_TDC_RANGE_CARRET_SIZE"<a class="headerlink" href="#radar_tdc_range_carret_size" title="Permanent link">#</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../../js/locale-nav.js"></script>
+      
+    
+  </body>
+</html>
