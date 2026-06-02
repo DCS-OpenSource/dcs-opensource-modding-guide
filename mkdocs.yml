@@ -29,6 +29,9 @@ markdown_extensions:
 extra_css:
   - css/extra.css
 
+extra_javascript:
+  - js/locale-nav.js
+
 extra:
   alternate:
     - name: English
@@ -105,55 +108,55 @@ nav:
 
   - Contributing: contributing.md
 
-  - Türkçe:
-    - Ana Sayfa: tr/index.md
-    - Faydalı Bağlantılar: tr/links.md
+  # - Türkçe:
+  #   - Ana Sayfa: tr/index.md
+  #   - Faydalı Bağlantılar: tr/links.md
   
-    - Aircraft Lua:
-      - Temel İlkeler: tr/Aircraft/Lua/BasicPrinciples.md
+  #   - Aircraft Lua:
+  #     - Temel İlkeler: tr/Aircraft/Lua/BasicPrinciples.md
 
-      - Stub'lar:
-        - Device Stub'ları: tr/Aircraft/Lua/Stubs/DeviceStubs.md
-        - Mainpanel Stub'ları: tr/Aircraft/Lua/Stubs/MainPanelStubs.md
-        - LockOn_Options: tr/Aircraft/Lua/Stubs/LockOnOptions.md
+  #     - Stub'lar:
+  #       - Device Stub'ları: tr/Aircraft/Lua/Stubs/DeviceStubs.md
+  #       - Mainpanel Stub'ları: tr/Aircraft/Lua/Stubs/MainPanelStubs.md
+  #       - LockOn_Options: tr/Aircraft/Lua/Stubs/LockOnOptions.md
 
-      - Modüller:
-        - Terrain: tr/Aircraft/Lua/Modules/Terrain.md
+  #     - Modüller:
+  #       - Terrain: tr/Aircraft/Lua/Modules/Terrain.md
 
-      - Cihazlar:
-        - avLuaDevice: tr/Aircraft/Lua/Devices/avLuaDevice.md
-        - avSimpleWeaponSystem: tr/Aircraft/Lua/Devices/avSimpleWeaponSystem.md
-        - avSimpleRadar: tr/Aircraft/Lua/Devices/avSimpleRadar.md
+  #     - Cihazlar:
+  #       - avLuaDevice: tr/Aircraft/Lua/Devices/avLuaDevice.md
+  #       - avSimpleWeaponSystem: tr/Aircraft/Lua/Devices/avSimpleWeaponSystem.md
+  #       - avSimpleRadar: tr/Aircraft/Lua/Devices/avSimpleRadar.md
 
-      - Göstergeler:
-        - Çizim: tr/Aircraft/Lua/Indicators/drawing.md
-        - Kontrolcüler: tr/Aircraft/Lua/Indicators/controllers.md
+  #     - Göstergeler:
+  #       - Çizim: tr/Aircraft/Lua/Indicators/drawing.md
+  #       - Kontrolcüler: tr/Aircraft/Lua/Indicators/controllers.md
 
-      - Eklentiler:
-        - NavDataPlugin: tr/Aircraft/Lua/Plugins/NavDataPlugin.md
-        - WeaponSystemPlugin: tr/Aircraft/Lua/Plugins/WeaponSystemPlugin.md
-        - LuaToolsPlugin: tr/Aircraft/Lua/Plugins/LuaToolsPlugin.md
+  #     - Eklentiler:
+  #       - NavDataPlugin: tr/Aircraft/Lua/Plugins/NavDataPlugin.md
+  #       - WeaponSystemPlugin: tr/Aircraft/Lua/Plugins/WeaponSystemPlugin.md
+  #       - LuaToolsPlugin: tr/Aircraft/Lua/Plugins/LuaToolsPlugin.md
 
-    - Aircraft EFM:
-      - EFM API: tr/Aircraft/EFM/EFM_API.md
-      - Faydalı Notlar: 
-        - Prop Blur: tr/Aircraft/EFM/Useful_bits/prop_blur.md
+  #   - Aircraft EFM:
+  #     - EFM API: tr/Aircraft/EFM/EFM_API.md
+  #     - Faydalı Notlar: 
+  #       - Prop Blur: tr/Aircraft/EFM/Useful_bits/prop_blur.md
 
-    - Veritabanı:
-      - wsTypes: tr/Database/wsTypes.md
-      - iCommands: tr/Database/iCommands.md
-      - Draw Args: tr/Database/draw-args.md
+  #   - Veritabanı:
+  #     - wsTypes: tr/Database/wsTypes.md
+  #     - iCommands: tr/Database/iCommands.md
+  #     - Draw Args: tr/Database/draw-args.md
 
-    - Faydalı Notlar:
-      - Modelviewer: tr/UsefulBits/ModelViewer.md
-      - Kokpit Sesleri: tr/UsefulBits/CockpitSounds.md
+  #   - Faydalı Notlar:
+  #     - Modelviewer: tr/UsefulBits/ModelViewer.md
+  #     - Kokpit Sesleri: tr/UsefulBits/CockpitSounds.md
 
-    - ED Blender Exporter:
-        - Genel Bakış: tr/EDM-Export/Overview.md
-        - Mesh: tr/EDM-Export/Mesh.md
-        - Materyaller: tr/EDM-Export/Materials.md
-        - Animasyonlar: tr/EDM-Export/Animations.md
-        - Işıklar: tr/EDM-Export/Lights.md
-        - Bilinen Hatalar: tr/EDM-Export/errors.md
+  #   - ED Blender Exporter:
+  #       - Genel Bakış: tr/EDM-Export/Overview.md
+  #       - Mesh: tr/EDM-Export/Mesh.md
+  #       - Materyaller: tr/EDM-Export/Materials.md
+  #       - Animasyonlar: tr/EDM-Export/Animations.md
+  #       - Işıklar: tr/EDM-Export/Lights.md
+  #       - Bilinen Hatalar: tr/EDM-Export/errors.md
 
-    - Katkıda Bulunma: tr/contributing.md
+  #   - Katkıda Bulunma: tr/contributing.md
