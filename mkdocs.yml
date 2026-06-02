@@ -36,6 +36,20 @@ nav:
 
     - Modules:
       - Terrain: Aircraft/Lua/Modules/Terrain.md
+      - lfs: Aircraft/Lua/Modules/lfs.md
+      - os: Aircraft/Lua/Modules/os.md
+      - io: Aircraft/Lua/Modules/io.md
+      - log: Aircraft/Lua/Modules/log.md
+      - utils: Aircraft/Lua/Modules/utils.md
+      - db: Aircraft/Lua/Modules/db.md
+      - dictionary: Aircraft/Lua/Modules/dictionary.md
+      - Weather: Aircraft/Lua/Modules/Weather.md
+      - sound: Aircraft/Lua/Modules/sound.md
+      - net: Aircraft/Lua/Modules/net.md
+      - socket: Aircraft/Lua/Modules/socket.md
+      - debug: Aircraft/Lua/Modules/debug.md
+      - math: Aircraft/Lua/Modules/math.md
+      - minizip: Aircraft/Lua/Modules/minizip.md
 
     - Devices:
       - avLuaDevice: Aircraft/Lua/Devices/avLuaDevice.md

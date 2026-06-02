@@ -1,17 +1,15 @@
 # Terrain Module
 
-The following outlines DCS's Terrain module, used for interaction with maps in various ways.
+The Terrain module provides access to DCS map, coordinate, road, runway, and terrain-query functions.
 
-!!! Warning
-	In DCS, `x` is North, `y` is Elevation, `z` is East *in meters*
+!!! warning
+    In DCS, `x` is north, `y` is elevation, and `z` is east, all in meters.
 
-!!! Note
-	Roadnet can be found in [get_terrain_related_data("Airdromes")](../Stubs/DeviceStubs.md/#get_terrain_related_datafile) by iterating through the returned table, and taking `airport.roadnet` it should be a string as a filepath, just parse it straight to the function
+!!! note
+    `roadnet` can be found from `get_terrain_related_data("Airdromes")` by iterating through the returned table and reading `airport.roadnet`. It should be a filepath string that can be passed directly to the roadnet functions below.
 
+## Loading the Module
 
----
-
-## Loading the module
 ```lua
 local Terrain = require("terrain")
 ```
@@ -19,75 +17,84 @@ local Terrain = require("terrain")
 ## Functions
 
 ---
-### Create {: .unverified-section }
 
-**Signature:**  
-???
+### `Create` {: .unverified-section }
 
-**Description:**  
-???
+Unknown.
 
-**Example:**  
-???
+```lua
+Terrain.Create(...)
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `...` | `unknown` | Unknown | Unknown. |
+
+| Return | Type | Description |
+|--------|------|-------------|
+| `unknown` | `unknown` | Unknown. |
 
 ---
 
-### FindNearestPoint {: .unverified-section }
-**Signature:**
+### `FindNearestPoint` {: .unverified-section }
+
+Searches outward up to `range` meters and returns the closest point on the specified network.
+
 ```lua
 px, pz = Terrain.FindNearestPoint(x, z, range)
 ```
-**Parameters:**  
-- `x, z` (number): world coordinates from which to search.  
-- `range` (number): maximum search radius in meters.  
 
-**Returns:**  
-- `px, pz` (number): coordinates of the nearest valid point (e.g. on a road).  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | World-space X coordinate to search from. |
+| `z` | `number` | Yes | World-space Z coordinate to search from. |
+| `range` | `number` | Yes | Maximum search radius in meters. |
 
-**Description:**  
-Searches outward up to `range` meters and returns the closest point on the specified network. Useful for snapping units to roads or paths.  
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `px` | `number` | X coordinate of the nearest valid point. |
+| `pz` | `number` | Z coordinate of the nearest valid point. |
 
 ---
 
-### FindOptimalPath {: .unverified-section }
-**Signature:**
+### `FindOptimalPath` {: .unverified-section }
+
+Unknown.
+
 ```lua
 pathTable = Terrain.FindOptimalPath(x1, z1, x2, z2)
 ```
 
-**Parameters:**  
-- `x1, z1` (number): start coordinates.  
-- `x2, z2` (number): end coordinates.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x1` | `number` | Yes | Start X coordinate. |
+| `z1` | `number` | Yes | Start Z coordinate. |
+| `x2` | `number` | Yes | End X coordinate. |
+| `z2` | `number` | Yes | End Z coordinate. |
 
-**Returns:**  
-??? 
-
-**Description:**  
-??? 
-
-**Example:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `pathTable` | `table` | Unknown path data. |
 
 ---
 
-### GetHeight
-**Signature:**
+### `GetHeight`
+
+Samples terrain elevation at a world-space coordinate.
+
 ```lua
 h = Terrain.GetHeight(x, z)
 ```
 
-**Parameters:**  
-- `x, z` (number): query coordinates.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | World-space X coordinate. |
+| `z` | `number` | Yes | World-space Z coordinate. |
 
-**Returns:**  
-- `h` (number): terrain elevation (meters above sea level).
+| Return | Type | Description |
+|--------|------|-------------|
+| `h` | `number` | Terrain elevation in meters above sea level. |
 
-**Description:**  
-Quickly sample the terrain elevation.
-
-**Example:**  
 ```lua
 local elev = Terrain.GetHeight(45000, 82000)
 print("Elevation is", elev, "m")
@@ -95,22 +102,23 @@ print("Elevation is", elev, "m")
 
 ---
 
-### GetMGRScoordinates
-**Signature:**
+### `GetMGRScoordinates`
+
+Converts from simulation-space meters to a human-readable MGRS coordinate.
+
 ```lua
 mgrs = Terrain.GetMGRScoordinates(x, z)
 ```
 
-**Parameters:**  
-- `x, z` (number): world coordinates. 
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | World-space X coordinate. |
+| `z` | `number` | Yes | World-space Z coordinate. |
 
-**Returns:**  
-- `mgrs` (string): MGRS grid reference (e.g. "34TDF1234567890").  
+| Return | Type | Description |
+|--------|------|-------------|
+| `mgrs` | `string` | MGRS grid reference, for example `"34TDF1234567890"`. |
 
-**Description:**  
-Convert from simulation-space meters to a human-readable MGRS coordinate.  
-
-**Example:**
 ```lua
 local gridRef = Terrain.GetMGRScoordinates(345000, 789000)
 print("Grid:", gridRef)
@@ -118,18 +126,18 @@ print("Grid:", gridRef)
 
 ---
 
-### GetSeasons {: .unverified-section }
-**Signature:**
+### `GetSeasons` {: .unverified-section }
+
+Fetches the set of seasons for which terrain textures and lighting are defined.
+
 ```lua
 seasons = Terrain.GetSeasons()
 ```
-**Returns:**  
-- `seasons` (table): list of available season identifiers (e.g. { "winter", "summer", ... }).  
 
-**Description:**  
-Fetch the set of seasons for which terrain textures and lighting are defined.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `seasons` | `table` | List of available season identifiers, for example `{ "winter", "summer" }`. |
 
-**Example:**
 ```lua
 for _, season in ipairs(Terrain.GetSeasons()) do
   print("Available season:", season)
@@ -138,23 +146,24 @@ end
 
 ---
 
-### GetSurfaceHeightWithSeabed {: .unverified-section }
-**Signature:**
+### `GetSurfaceHeightWithSeabed` {: .unverified-section }
+
+Returns water-surface elevation and seabed depth for a coordinate.
+
 ```lua
 surfaceH, depth = Terrain.GetSurfaceHeightWithSeabed(x, z)
 ```
 
-**Parameters:**  
-- `x, z` (number): coordinates over water.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | World-space X coordinate over water. |
+| `z` | `number` | Yes | World-space Z coordinate over water. |
 
-**Returns:**  
-- `surfaceH` (number): elevation of the water surface.  
-- `depth` (number): depth from surface to seabed (positive number).  
+| Return | Type | Description |
+|--------|------|-------------|
+| `surfaceH` | `number` | Elevation of the water surface. |
+| `depth` | `number` | Depth from surface to seabed as a positive number. |
 
-**Description:**  
-???
-
-**Example:**
 ```lua
 local surf, d = Terrain.GetSurfaceHeightWithSeabed(20000, 15000)
 print("Water at", surf, "m, seabed", d, "m below")
@@ -162,22 +171,23 @@ print("Water at", surf, "m, seabed", d, "m below")
 
 ---
 
-### GetSurfaceType
-**Signature:**
+### `GetSurfaceType`
+
+Detects what kind of surface occupies a coordinate.
+
 ```lua
 stype = Terrain.GetSurfaceType(x, z)
 ```
 
-**Parameters:**  
-- `x, z` (number): query location.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | World-space X coordinate. |
+| `z` | `number` | Yes | World-space Z coordinate. |
 
-**Returns:**  
-- `stype` (string): surface material. `"land"`, `"sea"`, `"lake"`, `"river"` 
+| Return | Type | Description |
+|--------|------|-------------|
+| `stype` | `string` | Surface material, such as `"land"`, `"sea"`, `"lake"`, or `"river"`. |
 
-**Description:**  
-Detect what kind of surface occupies a coordinate.
-
-**Example:**
 ```lua
 local mat = Terrain.GetSurfaceType(10200, 20500)
 print("Surface is", mat)
@@ -185,173 +195,183 @@ print("Surface is", mat)
 
 ---
 
-### GetTerrainConfig {: .unverified-section }
-**Signature:**
+### `GetTerrainConfig` {: .unverified-section }
+
+Returns a terrain configuration block for a terrain element type.
+
 ```lua
 cfg = Terrain.GetTerrainConfig(type)
 ```
-**Parameters:**  
-- `type` (string): e.g. "Airdromes".  
 
-**Returns:**  
-- `cfg` (table): configuration block for that terrain element (bounds, default camera, etc.).  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | `string` | Yes | Terrain element type, for example `"Airdromes"`. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `cfg` | `table` | Configuration block for that terrain element. |
 
 ---
 
-### Init {: .unverified-section }
-**Signature:**
+### `Init` {: .unverified-section }
+
+Unknown.
+
 ```lua
 Terrain.Init(terrain_config, reason, date)
 ```
 
-**Parameters:**  
-- `terrain_config` (table)  
-- `reason` (any)  
-- `date` (table): { year=…, month=…, day=… }.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `terrain_config` | `table` | Yes | Terrain configuration. |
+| `reason` | `any` | Yes | Unknown. |
+| `date` | `table` | Yes | Date table, for example `{ year = 2026, month = 5, day = 27 }`. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `nil` | `nil` | This function does not appear to return a value. |
 
 ---
 
-### InitLight {: .unverified-section }
-**Signature:**
+### `InitLight` {: .unverified-section }
+
+Unknown.
+
 ```lua
 Terrain.InitLight(terrain_config, reason, date)
 ```
 
-**Parameters:**  
-- `terrain_config` (table)  
-- `reason` (any)  
-- `date` (table): { year=…, month=…, day=… }.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `terrain_config` | `table` | Yes | Terrain configuration. |
+| `reason` | `any` | Yes | Unknown. |
+| `date` | `table` | Yes | Date table, for example `{ year = 2026, month = 5, day = 27 }`. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `nil` | `nil` | This function does not appear to return a value. |
 
 ---
 
-### Release {: .unverified-section }
+### `Release` {: .unverified-section }
 
-**Signature:**
+Unknown.
+
 ```lua
 Terrain.Release()
 ```
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `nil` | `nil` | This function does not appear to return a value. |
 
 ---
 
-### convertLatLonToMeters
-**Signature:**
+### `convertLatLonToMeters`
+
+Projects WGS84 latitude and longitude into the simulator's local flat coordinate system.
+
 ```lua
 x, z = Terrain.convertLatLonToMeters(lat, lon)
 ```
-**Parameters:**  
-- `lat, lon` (number): geographic coordinates in degrees. 
 
-**Returns:**  
-- `x, z` (number): simulation meters.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `lat` | `number` | Yes | Latitude in degrees. |
+| `lon` | `number` | Yes | Longitude in degrees. |
 
-**Description:**  
-Project WGS84 lat/lon into the simulator’s local flat coordinate system.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `x` | `number` | Simulation-space X coordinate in meters. |
+| `z` | `number` | Simulation-space Z coordinate in meters. |
 
-**Example:**
 ```lua
 local mx, mz = Terrain.convertLatLonToMeters(34.0522, -118.2437)
 ```
 
 ---
 
-### convertMGRStoMeters
-**Signature:**
+### `convertMGRStoMeters`
+
+Converts an MGRS grid reference into simulation-space meters.
+
 ```lua
 x, z = Terrain.convertMGRStoMeters(mgrs)
 ```
-**Parameters:**  
-- `mgrs` (string): MGRS reference.
 
-**Returns:**  
-- `x, z` (number): simulation meters.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `mgrs` | `string` | Yes | MGRS grid reference. |
 
-**Description:**  
-Inverse of GetMGRScoordinates. 
+| Return | Type | Description |
+|--------|------|-------------|
+| `x` | `number` | Simulation-space X coordinate in meters. |
+| `z` | `number` | Simulation-space Z coordinate in meters. |
 
-**Example:**
 ```lua
-local ux, uy = Terrain.convertMGRStoMeters("33TUN1234567890")
+local x, z = Terrain.convertMGRStoMeters("33TUN1234567890")
 ```
 
 ---
 
-### convertMetersToLatLon
-**Signature:**
+### `convertMetersToLatLon`
+
+Projects simulation-space meters back to WGS84 latitude and longitude.
+
 ```lua
 lat, lon = Terrain.convertMetersToLatLon(x, z)
 ```
-**Parameters:**  
-- `x, z` (number): simulation coordinates.  
 
-**Returns:**  
-- `lat, lon` (number): geographic degrees.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x` | `number` | Yes | Simulation-space X coordinate in meters. |
+| `z` | `number` | Yes | Simulation-space Z coordinate in meters. |
 
-**Description:**  
-Inverse map projection back to WGS84.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `lat` | `number` | Latitude in degrees. |
+| `lon` | `number` | Longitude in degrees. |
 
-**Example:**
 ```lua
 local lat, lon = Terrain.convertMetersToLatLon(400000, 5000000)
 ```
 
 ---
 
-### findPathOnRoads {: .unverified-section }
-**Signature:**
+### `findPathOnRoads` {: .unverified-section }
+
+Unknown.
+
 ```lua
 pathTable = Terrain.findPathOnRoads(type, x1, y1, x2, y2)
 ```
-**Parameters:**  
-- `type` (string): "roads" or "railroads".  
-- `x1, y1`, `x2, y2` (number): endpoints.  
 
-**Returns:**  
-- `pathTable` (table): waypoint array.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | `string` | Yes | Road network type, such as `"roads"` or `"railroads"`. |
+| `x1` | `number` | Yes | Start X coordinate. |
+| `y1` | `number` | Yes | Start Y coordinate. |
+| `x2` | `number` | Yes | End X coordinate. |
+| `y2` | `number` | Yes | End Y coordinate. |
 
-**Description:**  
-???
-
-**Example:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `pathTable` | `table` | Waypoint array. |
 
 ---
 
-### getBeacons
-**Signature:**
+### `getBeacons`
+
+Enumerates navigation beacons placed in the terrain.
+
 ```lua
 beacons = Terrain.getBeacons()
 ```
-**Returns:**  
-- `beacons` (table): list of beacon objects, each with position and frequency. 
 
-**Description:**  
-Enumerate nav-beacons placed in the terrain.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `beacons` | `table` | List of beacon objects, each with position and frequency data. |
 
-**Example:**
 ```lua
 for _, b in ipairs(Terrain.getBeacons()) do
   print("Beacon", b.id, "at", b.x, b.z, "freq", b.freq)
@@ -360,138 +380,139 @@ end
 
 ---
 
-### getClosestPointOnRoads {: .unverified-section }
-**Signature:**
+### `getClosestPointOnRoads` {: .unverified-section }
+
+Unknown.
+
 ```lua
 px, pz = Terrain.getClosestPointOnRoads(type, x, z)
 ```
 
-**Parameters:**  
-- `type` (string): "roads" or "railroads".  
-- `x, z` (number): query point. 
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | `string` | Yes | Road network type, such as `"roads"` or `"railroads"`. |
+| `x` | `number` | Yes | Query X coordinate. |
+| `z` | `number` | Yes | Query Z coordinate. |
 
-**Returns:**  
-- `px, py` (number): on-network coordinates.  
-
-**Description:**  
-???
-
-**Example:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `px` | `number` | X coordinate on the network. |
+| `pz` | `number` | Z coordinate on the network. |
 
 ---
 
-### getClosestValidPoint {: .unverified-section }
-**Signature:**
+### `getClosestValidPoint` {: .unverified-section }
+
+Unknown.
+
 ```lua
 px, pz = Terrain.getClosestValidPoint(type, x, z)
 ```
-**Parameters:**  
-- `type` (string): e.g. "land".  
-- `x, z` (number): input coords.  
 
-**Returns:**  
-- `px, pz` (number): nearest valid location of that type.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `type` | `string` | Yes | Valid location type, for example `"land"`. |
+| `x` | `number` | Yes | Input X coordinate. |
+| `z` | `number` | Yes | Input Z coordinate. |
 
-**Description:**  
-???
-
-**Example:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `px` | `number` | X coordinate of the nearest valid location. |
+| `pz` | `number` | Z coordinate of the nearest valid location. |
 
 ---
 
-### getCrossParam {: .unverified-section }
-**Signature:**
+### `getCrossParam` {: .unverified-section }
+
+Unknown.
+
 ```lua
 param = Terrain.getCrossParam()
 ```
-**Returns:**  
-- `param` (any): undocumented cross-parameter data.  
 
-**Description:**  
-??? 
-
-**Example:**  
-??? 
+| Return | Type | Description |
+|--------|------|-------------|
+| `param` | `any` | Undocumented cross-parameter data. |
 
 ---
 
-### getObjectPosition {: .unverified-section }
-**Signature:**
+### `getObjectPosition` {: .unverified-section }
+
+Unknown.
+
 ```lua
 ox, oz = Terrain.getObjectPosition(obj)
 ```
-**Parameters:**  
-- `obj` (Object): engine object reference.  
-**Returns:**  
-- `ox, oz` (number): its map position.  
 
-**Description:**  
-???
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `obj` | `Object` | Yes | Engine object reference. |
 
-**Example:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `ox` | `number` | Object X map position. |
+| `oz` | `number` | Object Z map position. |
 
 ---
 
-### getObjectsAtMapPoint {: .unverified-section }
-**Signature:**
+### `getObjectsAtMapPoint` {: .unverified-section }
+
+Unknown.
+
 ```lua
 list = Terrain.getObjectsAtMapPoint(mapX, mapZ)
 ```
-**Parameters:**  
-- `mapX, mapZ` (number): query location.  
 
-**Returns:**  
-- `list` (table): all objects overlapping that point.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `mapX` | `number` | Yes | Query X coordinate. |
+| `mapZ` | `number` | Yes | Query Z coordinate. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `list` | `table` | Objects overlapping that map point. |
 
 ---
 
-### getRadio
-**Signature:**
+### `getRadio`
+
+Obtains tower, ground, and approach frequencies for an airfield.
+
 ```lua
 radios = Terrain.getRadio(roadnet)
 ```
-**Parameters:**  
-- `roadnet` (string): see top of this page.  
 
-**Returns:**  
-- `radios` (table): frequency settings for that airfield’s comms.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `roadnet` | `string` | Yes | Roadnet filepath. See the note at the top of this page. |
 
-**Description:**  
-Obtain tower/ground/approach frequencies.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `radios` | `table` | Frequency settings for that airfield's communications. |
 
-**Example:**
 ```lua
-local freqs = Terrain.getRadio(roadnet) 
+local freqs = Terrain.getRadio(roadnet)
 print(freqs.tower, freqs.ground)
 ```
 
 ---
 
-### getRunwayHeading
-**Signature:**
+### `getRunwayHeading`
+
+Returns the magnetic heading of the primary runway.
+
 ```lua
 hdg = Terrain.getRunwayHeading(roadnet)
 ```
 
-**Parameters:**  
-- `roadnet` (string): see top of this page.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `roadnet` | `string` | Yes | Roadnet filepath. See the note at the top of this page. |
 
-**Returns:**  
-- `hdg` (number): magnetic heading of the primary runway.
+| Return | Type | Description |
+|--------|------|-------------|
+| `hdg` | `number` | Magnetic heading of the primary runway. |
 
-**Description:**  
-Useful for HUD wind-correction and runway-alignment cues.  
-
-**Example:**
 ```lua
 local rHdg = Terrain.getRunwayHeading(roadnet)
 print("Runway heading:", rHdg)
@@ -499,47 +520,58 @@ print("Runway heading:", rHdg)
 
 ---
 
-### getRunwayList
-**Signature:**
+### `getRunwayList`
+
+Enumerates all runways at the specified airfield.
+
 ```lua
 runways = Terrain.getRunwayList(roadnet)
 ```
-**Parameters:**  
-- `roadnet` (string): see top of this page.  
 
-**Returns:**  
-- `runways` (table): each entry contains:
-  - `course` (number): runway heading  
-  - `edge1name` (string), `edge1x`, `edge1y` (number): name and coordinates of one end  
-  - `edge2name` (string), `edge2x`, `edge2y` (number): name and coordinates of the opposite end  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `roadnet` | `string` | Yes | Roadnet filepath. See the note at the top of this page. |
 
-**Description:**  
-Enumerate all runways at the specified airfield, returning their endpoints and headings.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `runways` | `table` | Runway entries with endpoint names, endpoint coordinates, and heading data. |
 
-**Example:**
+Each runway entry may include:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `course` | `number` | Runway heading. |
+| `edge1name` | `string` | Name of one end of the runway. |
+| `edge1x` | `number` | X coordinate of one end of the runway. |
+| `edge1y` | `number` | Y coordinate of one end of the runway. |
+| `edge2name` | `string` | Name of the opposite end of the runway. |
+| `edge2x` | `number` | X coordinate of the opposite end of the runway. |
+| `edge2y` | `number` | Y coordinate of the opposite end of the runway. |
+
 ```lua
-for _, rw in ipairs(Terrain.getRunwayList(roadnet)) do -- 
+for _, rw in ipairs(Terrain.getRunwayList(roadnet)) do
   print("RW", rw.edge1name, "to", rw.edge2name, "heading", rw.course)
 end
 ```
 
 ---
 
-### getStandList {: .unverified-section }
-**Signature:**
+### `getStandList` {: .unverified-section }
+
+Gets gate and parking-spot positions.
+
 ```lua
 stands = Terrain.getStandList(roadnet)
 ```
-**Parameters:**  
-- `roadnet` (string): see top of this file
 
-**Returns:**  
-- `stands` (table): list of parking stands with coordinates.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `roadnet` | `string` | Yes | Roadnet filepath. See the note at the top of this page. |
 
-**Description:**  
-Get gate and parking-spot positions.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `stands` | `table` | List of parking stands with coordinates. |
 
-**Example:**
 ```lua
 local gates = Terrain.getStandList(roadnet)
 print("First stand at", gates[1].x, gates[1].z)
@@ -547,82 +579,85 @@ print("First stand at", gates[1].x, gates[1].z)
 
 ---
 
-### getTechSkinByDate {: .unverified-section }
-**Signature:**
+### `getTechSkinByDate` {: .unverified-section }
+
+Unknown.
+
 ```lua
 skin = Terrain.getTechSkinByDate(day, month)
 ```
-**Parameters:**  
-- `day, month` (number): calendar date.  
 
-**Returns:**  
-- `skin` (any): texture/skin identifier valid on that day.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `day` | `number` | Yes | Calendar day. |
+| `month` | `number` | Yes | Calendar month. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `skin` | `any` | Texture or skin identifier valid on that day. |
 
 ---
 
-### getTempratureRangeByDate {: .unverified-section }
-**Signature:**
+### `getTempratureRangeByDate` {: .unverified-section }
+
+Unknown.
+
 ```lua
 minT, maxT = Terrain.getTempratureRangeByDate(day, month)
 ```
-**Parameters:**  
-- `day, month` (number): date.  
 
-**Returns:**  
-- `minT, maxT` (number): expected daily temperature extremes (°C).  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `day` | `number` | Yes | Calendar day. |
+| `month` | `number` | Yes | Calendar month. |
 
-**Description:**  
-???
-
-**Example:**
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `minT` | `number` | Expected minimum daily temperature in degrees Celsius. |
+| `maxT` | `number` | Expected maximum daily temperature in degrees Celsius. |
 
 ---
 
-### getTerrainShpare {: .unverified-section }
-**Signature:**
+### `getTerrainShpare` {: .unverified-section }
+
+Unknown.
+
 ```lua
 shape = Terrain.getTerrainShpare()
 ```
-**Returns:**  
-- `shape` (any): internal terrain mesh data.  ???
 
-**Description:**  
-???
+| Return | Type | Description |
+|--------|------|-------------|
+| `shape` | `any` | Internal terrain mesh data. |
 
-**Example:**  
-???
-
-!!! Note
-	Shpare is not a typo, but I have no clue what this does
+!!! note
+    `Shpare` is not a typo, but its purpose is currently unknown.
 
 ---
 
-### isVisible
-**Signature:**
+### `isVisible`
+
+Performs a raycast through the terrain to check line of sight.
+
 ```lua
 visible = Terrain.isVisible(x1, y1, z1, x2, y2, z2)
 ```
-**Parameters:**  
-- `x1, y1, z1` (number): start point and altitude.  
-- `x2, y2, z2` (number): end point and altitude.  
 
-**Returns:**  
-- `visible` (boolean): `true` if line-of-sight is unobstructed.  
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `x1` | `number` | Yes | Start X coordinate. |
+| `y1` | `number` | Yes | Start elevation. |
+| `z1` | `number` | Yes | Start Z coordinate. |
+| `x2` | `number` | Yes | End X coordinate. |
+| `y2` | `number` | Yes | End elevation. |
+| `z2` | `number` | Yes | End Z coordinate. |
 
-**Description:**  
-Perform a raycast through the terrain to check LOS.  
+| Return | Type | Description |
+|--------|------|-------------|
+| `visible` | `boolean` | `true` if line of sight is unobstructed. |
 
-**Example:**
 ```lua
 if Terrain.isVisible(10000, 50, 20000, 15000, 100, 25000) then
   print("Target in sight!")
 end
 ```
-
